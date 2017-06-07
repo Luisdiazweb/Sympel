@@ -1,0 +1,35 @@
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Front_site extends CI_Controller {
+
+    public $params_topass = [];
+
+    public function __construct() {
+        parent::__construct();
+    }
+
+    public function index() {
+//        $this->params_topass['title_page'] = "Home";
+        $this->call_views(['home'], $this->params_topass);
+    }
+
+    public function about() {
+        $this->call_views(['about'], $this->params_topass);
+    }
+
+    private function call_views($views, $params) {
+        $this->load->view('layouts/init_page', $params);
+        $this->load->view('layouts/header_navs');
+        foreach ($views as $view) {
+            $this->load->view($view);
+        }
+        $this->load->view('layouts/footer');
+        $this->load->view('layouts/end_page');
+    }
+
+}
+
+/* End of file front_site.php */
+/* Location: ./application/controllers/front_site.php */
