@@ -1,2 +1,0 @@
-# Sympel
-Project Sympel
