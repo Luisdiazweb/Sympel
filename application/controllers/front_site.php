@@ -18,9 +18,13 @@ class Front_site extends CI_Controller {
     public function about() {
         $this->call_views(['about'], $this->params_topass);
     }
-    
+
     public function find_need() {
         $this->call_views(['find_need'], $this->params_topass);
+    }
+
+    public function public_profile() {
+        $this->call_views(['public_profile_view'], $this->params_topass);
     }
 
     private function call_views($views, $params) {
