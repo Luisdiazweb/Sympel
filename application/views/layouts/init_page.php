@@ -8,8 +8,16 @@
     <title>Sympel<?= isset($title_page)? ' - '. $title_page : '' ?></title>
 
     <!-- Bootstrap -->
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/menu_mobile.css" rel="stylesheet">
+    
+    <link href="/assets/css/bootstrap-tagsinput.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css">
+    
+    <link href="/assets/css/main.css" rel="stylesheet">
 
     <script src="/assets/js/modernizr.custom.25376.js"></script>
     <!--[if lt IE 9]>

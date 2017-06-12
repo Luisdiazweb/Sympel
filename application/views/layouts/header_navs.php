@@ -10,10 +10,17 @@
 <div class="main_container">
     <div class="wrapper"><!-- wrapper needed for scroll -->
         <!-- Top Navigation -->
+
+
         <div class="main clearfix">
-            <button id="showMenu" type="button" class="navbar-toggle collapsed">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <div id="headerfixed" class="container-fluid">
+                <div class="logo pull-left">
+                    <img src="/assets/img/logo.png" alt="" class="img-responsive">
+                </div>
+                <button id="showMenu" type="button" class="navbar-toggle pull-right">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
