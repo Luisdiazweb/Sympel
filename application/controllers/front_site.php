@@ -26,6 +26,10 @@ class Front_site extends CI_Controller {
     public function public_profile() {
         $this->call_views(['public_profile_view'], $this->params_topass);
     }
+    
+    public function need_overview() {
+        $this->call_views(['need_overview_view'], $this->params_topass);
+    }
 
     private function call_views($views, $params) {
         $this->load->view('layouts/init_page', $params);

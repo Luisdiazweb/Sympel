@@ -10,6 +10,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['about'] = 'front_site/about';
 $route['find_need'] = 'front_site/find_need';
 $route['pprofile'] = 'front_site/public_profile';
+$route['need_overview'] = 'front_site/need_overview';
 
 
 /*

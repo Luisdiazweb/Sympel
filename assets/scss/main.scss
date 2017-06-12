@@ -209,6 +209,14 @@
 
 .public_profile{
 	background-color: #f2f1ed;
+	&.bgwhite{
+		background-color: #fff;
+	}
+	&.superpost_top{
+		padding-top: 0;
+	    margin-top: -56px;
+	    background-color: transparent;
+	}
 	padding: 60px 0;
 	.info_profile{
 		h3{
@@ -256,4 +264,13 @@
 		font-weight: 800;
 		margin-bottom: 35px;
 	}
+}
+
+.need_overview{
+	background-color: #f2f1ed;
+	&.bgwhite{
+		background-color: #fff;
+	}
+    padding: 70px 0;
+    padding-bottom: 120px;
 }
