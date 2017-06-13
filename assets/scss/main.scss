@@ -24,6 +24,11 @@
     }
 }
 
+.col-no-padding{
+	padding-left: 0;
+	padding-right: 0;
+}
+
 .main_container{
 	.wrapper{
 		.main{
@@ -273,4 +278,144 @@
 	}
     padding: 70px 0;
     padding-bottom: 120px;
+    .need_information{
+    	.name{
+    		margin-top: 0;
+    		margin-bottom: 0;
+    		font-size: 42px;
+    		text-transform: uppercase;
+    	}
+    	.options-category{
+    		margin: 10px 0 15px;
+    	}
+    	.category{
+    		padding: 0;
+    		a{
+    			background-color: #fff;
+    			border-radius: 25px;
+    			color: #000;
+    			padding: 5px 20px;
+    			&:hover{
+    				color: #ff7700;
+    			}
+    		}
+    	}
+    	.options{
+    		a{
+    			color: #998b7b;
+    		    width: calc((100% / 3) - 4px);
+    		    display: inline-block;
+    			&:hover{
+    				color: #fff;
+    			}
+    		}
+    	}
+    	.date-by{
+    		color: #998b7b;
+    		font-size: 18px;
+    		font-weight: lighter;
+    	}
+    	.title{
+    		color: #998b7b;
+    		font-weight: 700;
+    		font-size: 18px;
+    	}
+    }
 }
+
+.user_profile{
+	padding-top: 60px;
+	padding-bottom: 90px;
+	.profile_picture{
+		border-radius: 15px;
+	}
+	.btn1_profile{
+		background-color: #ff7700;
+		font-size: 18px;
+		font-weight: 300;
+		color: white;
+		margin-top: 20px;
+		padding: 10px 20px;
+	}
+
+	.btn2_profile{
+		background-color: #32acfc;
+		font-size: 18px;
+		font-weight: 300;
+		color: white;
+		margin-top: 20px;
+		padding: 10px 20px;
+	}
+	.profile_options{
+		.option{
+			font-size: 18px;
+			font-weight: 800;
+			margin-top: 15px;
+			a{
+				color: #252626;
+			}
+		}
+	}
+	.profile_needs{
+		.title{
+			font-size: 18px;
+			font-weight: 800;
+			margin-bottom: 15px;
+		}
+		hr{
+			border-style: dashed;
+			border-color: #c6beb6;
+		}
+	}
+	.connections{
+		img{
+			display: inline-block;
+			margin: 10px 5px;
+		}
+	}
+}
+
+.user_need_overview{
+	padding-top: 60px;
+	padding-bottom: 80px;
+	background-color: #f2f1ed;
+	.container_need_overview{
+		position: relative;
+	}
+	.btn_edit_need{
+		position: absolute;
+		top: 0;
+		right: 0;
+		background-color: #ff7700;
+		font-size: 18px;
+		color: white;
+		padding: 10px 15px;
+		font-weight: 200;
+	}
+	.category{
+		padding: 0;
+		a{
+			background-color: #fff;
+			border-radius: 25px;
+			color: #000;
+			padding: 5px 20px;
+			&:hover{
+				color: #ff7700;
+			}
+		}
+	}
+	.options{
+		a{
+			color: #998b7b;
+		    width: calc((100% / 3) - 4px);
+		    display: inline-block;
+			&:hover{
+				color: #fff;
+			}
+		}
+	}
+}
+
+
+
+@import 'footer';

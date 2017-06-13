@@ -1,14 +1,42 @@
 <section class="need_overview">
     <div class="container">
-        <div class="col-xs-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quam nam unde obcaecati voluptatum officia veniam quia similique placeat magnam quo, molestiae doloremque recusandae libero adipisci ipsum rem deleniti veritatis maiores, inventore dicta, ab officiis. Voluptates, perspiciatis, ab. Debitis molestiae corporis cupiditate, esse eum, aspernatur ea sequi cum ipsum deleniti a, pariatur cumque hic maxime iure libero doloribus, quas enim commodi. Ipsam iusto, fugit aperiam, saepe alias accusantium adipisci, pariatur molestias quis recusandae voluptatem iste tempora aut laboriosam doloremque explicabo amet veniam at enim dolorum labore! Animi minus, corporis laborum perferendis, ipsum quasi ullam ducimus voluptatibus voluptate, culpa quaerat non.</div>
-        <div class="col-xs-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis ad, accusamus perferendis cupiditate ratione enim temporibus vitae atque similique, maiores aspernatur illum ipsum. Sunt assumenda quia molestias soluta illum quaerat ullam? Architecto veniam reprehenderit dolores, eos nesciunt rerum, soluta, qui sequi consectetur dolorum quod unde similique ipsa distinctio vel iure. Vero tempore vel ullam iure maiores, temporibus, animi, consequuntur in possimus eveniet cumque itaque soluta fugiat laborum voluptate praesentium repellendus. Et error ad voluptate excepturi distinctio, cum quo iusto eos qui. Ut dolores, consectetur neque nam, consequuntur nihil? Ut laboriosam neque, animi officiis nisi tempore dignissimos aspernatur et sunt ex?</div>
+        <div class="col-xs-6">
+            <img src="http://placehold.it/500x500" alt="" class="img-responsive">
+        </div>
+        <div class="col-xs-6 need_information">
+            <h1 class="name">NAME OF NEED</h1>
+            <div class="col-xs-12 col-sm-4 col-no-padding options-category">
+                <div class="col-xs-12 col-sm-6 col-no-padding options">
+                    <a class="follow" href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    <a class="message" href="#"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                    <a class="share" href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-xs-12 col-sm-6 category">
+                    <a href="#">Category</a>
+                </div>
+            </div>
+            <div class="col-xs-9 col-no-padding date-by">
+                <div class="col-xs-6 col-no-padding"><p>Date Posted:</p></div>
+                <div class="col-xs-6"><p>Needed by:</p></div>
+            </div>
+            <h3 class="col-xs-9 col-no-padding title">About</h3>
+            <p class="col-xs-9 col-no-padding">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
+            </p>
+            <h3 class="col-xs-9 col-no-padding title">Why</h3>
+            <p class="col-xs-9 col-no-padding">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
+            </p>
+        </div>
     </div>
 </section>
+
+
 <section class="public_profile bgwhite superpost_top">
     <div class="container">
         <div class="col-xs-12 col-sm-6 col-md-4">
         	<div class="info_profile">
-        		<img src="http://placehold.it/150x200" alt="" class="img-responsive">
+        		<img src="http://placehold.it/150x175" alt="" class="img-responsive">
         		<h3>Non Profit Name</h3>
         		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolvAenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec</p>
         	</div>
