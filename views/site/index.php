@@ -71,7 +71,7 @@ $this->title = 'Giving is Sympel - Sympel';
                 <div class="col-xl-3 col-md-6 col-sm-12">
                     <div class="card" style="">
                         <div class="card-body">
-                            <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg"
+                            <img class="card-img-top img-fluid" src="<?= \yii\helpers\Url::to('@web/app-assets/images/carousel/05.jpg')?>"
                                  alt="Card image cap">
                             <div class="card-block product-card-body">
                                 <h4 class="card-title">Name of need</h4>
@@ -89,7 +89,7 @@ $this->title = 'Giving is Sympel - Sympel';
                 <div class="col-xl-3 col-md-6 col-sm-12">
                     <div class="card" style="">
                         <div class="card-body">
-                            <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg"
+                            <img class="card-img-top img-fluid" src="<?= \yii\helpers\Url::to('@web/app-assets/images/carousel/05.jpg')?>"
                                  alt="Card image cap">
                             <div class="card-block product-card-body">
                                 <h4 class="card-title">Name of need</h4>
@@ -107,7 +107,7 @@ $this->title = 'Giving is Sympel - Sympel';
                 <div class="col-xl-3 col-md-6 col-sm-12">
                     <div class="card" style="">
                         <div class="card-body">
-                            <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg"
+                            <img class="card-img-top img-fluid" src="<?= \yii\helpers\Url::to('@web/app-assets/images/carousel/05.jpg')?>"
                                  alt="Card image cap">
                             <div class="card-block product-card-body">
                                 <h4 class="card-title">Name of need</h4>
@@ -125,7 +125,7 @@ $this->title = 'Giving is Sympel - Sympel';
                 <div class="col-xl-3 col-md-6 col-sm-12">
                     <div class="card" style="">
                         <div class="card-body">
-                            <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg"
+                            <img class="card-img-top img-fluid" src="<?= \yii\helpers\Url::to('@web/app-assets/images/carousel/05.jpg')?>"
                                  alt="Card image cap">
                             <div class="card-block product-card-body">
                                 <h4 class="card-title">Name of need</h4>

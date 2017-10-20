@@ -7,6 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -21,8 +22,8 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link rel="apple-touch-icon" href="@web/app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="@web/app-assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="<?= Url::to('@web/app-assets/images/ico/apple-icon-120.png') ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= Url::to('@web/app-assets/images/ico/favicon.ico') ?>">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
           rel="stylesheet">
 
@@ -75,7 +76,8 @@ NavBar::end();
                     </a>
                 </li>
                 <li class="nav-item"><a href="index.html" class="navbar-brand">
-                        <img alt="Sympel logo" src="app-assets/images/logo/sympel-logo.png" class="brand-logo">
+                        <img alt="Sympel logo" src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png') ?>"
+                             class="brand-logo">
                 <li class="nav-item hidden-md-up float-xs-right">
                     <a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container">
                         <i class="fa fa-ellipsis-v"></i>
@@ -92,8 +94,23 @@ NavBar::end();
                                     class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
                 </ul>
                 <ul class="nav navbar-nav float-xs-right actions">
-                    <li class="nav-item"><a class="nav-link nav-actions" href="signup.html">Signup</a></li>
-                    <li class="nav-item"><a class="nav-link nav-actions" href="login.html">Login</a></li>
+
+                    <?=
+                    Yii::$app->user->isGuest ? ('
+                    <li class="nav-item"><a class="nav-link nav-actions" href="/site/signup">Signup</a></li>
+                    <li class="nav-item"><a class="nav-link nav-actions" href="/site/login">Login</a></li>
+                    '
+                    ) : (
+                    '
+                        <li class="nav-item">
+                            <a class="nav-link nav-actions" href="/site/profile">
+                                <?= Yii::$app->user->identity->username?>
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link nav-actions" href="/site/logout">Logout</a></li>
+                        '
+                    )
+                    ?>
                 </ul>
             </div>
         </div>
@@ -143,7 +160,8 @@ NavBar::end();
                 </form>
             </ul>
             <ul class="col-sm-12 col-lg-3">
-                <a href="http://www.sympelworks.com"><img src="sympel-assets/img/sympel-works.png" alt="sympel works"></a>
+                <a href="http://www.sympelworks.com"><img
+                            src="<?= Url::to('@web/sympel-assets/img/sympel-works.png') ?>" alt="sympel works"></a>
                 <p class="footer mt-1">SYMPEL WORKS is a creative consulting company that helps non-profits,
                     entreprenuers and businesses create, develop an launch their sales and marketing strategies.</p>
             </ul>
