@@ -1,0 +1,448 @@
+/*================================================================================
+  Item Name: Stack - Responsive Admin Theme
+  Version: 1.0
+  Author: PIXINVENT
+  Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+/*================================================================================================
+   GENERAL STYLES 
+================================================================================================*/
+
+h1.sympel-title{
+  font-family: amatic_scregular;
+    font-size: 60px;}
+
+h3.sympel-title{
+  font-family: amatic_scregular;
+    font-size: 50px;}
+/*================================================================================================
+   FONT 
+================================================================================================*/
+@font-face {
+  font-family: 'amatic_scregular';
+  src: url("../../app-assets/fonts/amaticsc/amaticsc-regular-webfont.woff2") format("woff2"), url("../../fonts/amaticsc/amaticsc-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'museo_sans300';
+  src: url("../../app-assets/fonts/museo-sans/museosans_300-webfont.woff2") format("woff2"), url("../../fonts/museo-sans/museosans_300-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+.square {
+  border-radius: 0!important;
+}
+
+/*================================================================================================
+   RADIO BUTTON STYLES
+================================================================================================*/
+[type="radio"].big-radio:checked,
+[type="radio"].big-radio:not(:checked) {
+  position: absolute;
+  left: -9999px; }
+
+[type="radio"].big-radio:checked + label,
+[type="radio"].big-radio:not(:checked) + label {
+  position: relative;
+  padding-left: 60px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block; }
+
+[type="radio"].big-radio:checked + label:before,
+[type="radio"].big-radio:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 35px;
+  border: 4px solid;
+  background: #fff;
+  border-radius: 5px; }
+
+[type="radio"].big-radio:checked + label:after,
+[type="radio"].big-radio:not(:checked) + label:after {
+  content: "\f00c";
+  font: normal normal normal 14px/1 FontAwesome;
+  width: 15px;
+  height: 15px;
+  color: #f27267;
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  font-size: 20px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  border-radius: 100%; }
+
+[type="radio"].big-radio:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0); }
+
+[type="radio"].big-radio:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1); }
+
+.label-big {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  /* letter-spacing: 5px; */
+  /* font-family: amatic_scregular; */
+  /* padding-top: 10px; */
+  padding-top: 3px; }
+
+p.radio-description {
+  padding-left: 60px; }
+
+[type="radio"].big-radio:checked + label.radio-primary:before, [type="radio"]:not(:checked) + label.radio-primary:before {
+  border-color: #e75a4d; }
+
+[type="radio"].big-radio:checked + label.radio-secondary:before, [type="radio"]:not(:checked) + label.radio-secondary:before {
+  border-color: #13a38d; }
+
+[type="radio"].big-radio:checked + label.radio-tertiary:before, [type="radio"]:not(:checked) + label.radio-tertiary:before {
+  border-color: #252626; }
+
+/*================================================================================================
+   FACEBOOK BUTTON 
+================================================================================================*/
+
+.btn-social{position:relative;padding-left:44px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.btn-social>:first-child{position:absolute;left:0;top:0;bottom:0;width:32px;line-height:34px;font-size:1.6em;text-align:center;border-right:1px solid rgba(0,0,0,0.2)}
+.btn-social.btn-lg{padding-left:61px}.btn-social.btn-lg>:first-child{line-height:45px;width:45px;font-size:1.8em}
+.btn-social.btn-sm{padding-left:38px}.btn-social.btn-sm>:first-child{line-height:28px;width:28px;font-size:1.4em}
+.btn-social.btn-xs{padding-left:30px}.btn-social.btn-xs>:first-child{line-height:20px;width:20px;font-size:1.2em}
+.btn-social-icon{position:relative;padding-left:44px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:34px;width:34px;padding:0}.btn-social-icon>:first-child{position:absolute;left:0;top:0;bottom:0;width:32px;line-height:34px;font-size:1.6em;text-align:center;border-right:1px solid rgba(0,0,0,0.2)}
+.btn-social-icon.btn-lg{padding-left:61px}.btn-social-icon.btn-lg>:first-child{line-height:45px;width:45px;font-size:1.8em}
+.btn-social-icon.btn-sm{padding-left:38px}.btn-social-icon.btn-sm>:first-child{line-height:28px;width:28px;font-size:1.4em}
+.btn-social-icon.btn-xs{padding-left:30px}.btn-social-icon.btn-xs>:first-child{line-height:20px;width:20px;font-size:1.2em}
+.btn-social-icon>:first-child{border:none;text-align:center;width:100% !important}
+.btn-social-icon.btn-lg{height:45px;width:45px;padding-left:0;padding-right:0}
+.btn-social-icon.btn-sm{height:30px;width:30px;padding-left:0;padding-right:0}
+.btn-social-icon.btn-xs{height:22px;width:22px;padding-left:0;padding-right:0}
+
+
+.btn-facebook{color:#fff;background-color:#3b5998;border-color:rgba(0,0,0,0.2)}.btn-facebook:focus,.btn-facebook.focus{color:#fff;background-color:#2d4373;border-color:rgba(0,0,0,0.2)}
+.btn-facebook:hover{color:#fff;background-color:#2d4373;border-color:rgba(0,0,0,0.2)}
+.btn-facebook:active,.btn-facebook.active,.open>.dropdown-toggle.btn-facebook{color:#fff;background-color:#2d4373;border-color:rgba(0,0,0,0.2)}.btn-facebook:active:hover,.btn-facebook.active:hover,.open>.dropdown-toggle.btn-facebook:hover,.btn-facebook:active:focus,.btn-facebook.active:focus,.open>.dropdown-toggle.btn-facebook:focus,.btn-facebook:active.focus,.btn-facebook.active.focus,.open>.dropdown-toggle.btn-facebook.focus{color:#fff;background-color:#23345a;border-color:rgba(0,0,0,0.2)}
+.btn-facebook:active,.btn-facebook.active,.open>.dropdown-toggle.btn-facebook{background-image:none}
+.btn-facebook.disabled:hover,.btn-facebook[disabled]:hover,fieldset[disabled] .btn-facebook:hover,.btn-facebook.disabled:focus,.btn-facebook[disabled]:focus,fieldset[disabled] .btn-facebook:focus,.btn-facebook.disabled.focus,.btn-facebook[disabled].focus,fieldset[disabled] .btn-facebook.focus{background-color:#3b5998;border-color:rgba(0,0,0,0.2)}
+.btn-facebook .badge{color:#3b5998;background-color:#fff}
+
+/*================================================================================================
+   NAV STYLES
+================================================================================================*/
+.nav-actions{
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 9px;
+}
+ul.actions li a.nav-actions:after {
+    content: "|";
+    margin-left: 10px;
+    font-weight: 300;
+}
+ul.actions li:last-child a:after{
+  content: "";
+}
+
+#mainNav.navbar-shrink {
+    border-color: rgba(34,34,34,.1);
+    background-color: #fff;
+}
+
+.square-icon.menu{
+    font-size: 14px;
+    padding: 7px 9px;
+}
+
+.icon i.square-icon.menu:after{
+  content:"";
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid;
+  position: absolute;
+  top: 21px;
+  left: 38px;
+}
+
+.square-icon.light{
+    background: #fff;
+    color: #000;
+}
+
+.icon i.square-icon.light.menu:after{
+  border-left-color: #fff;
+}
+
+.icon i.square-icon.link-primary.menu:after{
+  border-left-color: #e75a4d;
+}
+
+.icon i.square-icon.link-secondary.menu:after{
+  border-left-color: #13a38d;
+}
+
+.nav-item.icon{
+  position: relative;
+}
+
+.header-navbar .navbar-container ul.nav li.icon > a.nav-link {
+    padding: 1rem 0.6rem;
+}
+
+
+.link-primary {
+  background-color: #e75a4d!important;
+  color: #ffffff; }
+
+.link-secondary {
+  background-color: #13a38d!important; 
+  color: #ffffff; }
+
+
+/*================================================================================================
+   FORM WIZARD STYLES
+================================================================================================*/
+
+.app-content .wizard.wizard-circle > .steps .step {
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    border: 3px solid #F5F7FA;
+    font-size: 1.3rem;
+    border-radius: 10px;
+}
+
+/*================================================================================================
+   TRIANGLE TABS STYLES
+================================================================================================*/
+
+.nav.nav-tabs.nav-linetriangle .nav-item a.nav-link.active:before {
+    margin-left: -11px;
+    border-width: 12px;
+    border-top-color: #13a38d;
+}
+
+.nav.nav-tabs.nav-linetriangle .nav-item a.nav-link.active {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom-color: #13a38d;
+    color: #13a38d;
+}
+
+.nav.nav-tabs.nav-linetriangle.nav-justified {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom-color: #13a38d;
+}
+
+.nav.nav-tabs.nav-linetriangle .nav-item a.nav-link.active:focus {
+    color: #13a38d;
+}
+
+/*================================================================================================
+   TABLE STYLES
+================================================================================================*/
+
+.table-no-vertical td {
+    border-left: none;
+    border-right: none;
+    vertical-align: middle;
+}
+
+.table-no-vertical thead th{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+/*================================================================================================
+   INDEX HEADER STYLES
+================================================================================================*/
+
+header.masthead {
+  position: relative;
+  width: 100%;
+  padding-top: 10%;
+  color: white;
+  background: url("../img/header.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  header.masthead .header-content {
+    margin-bottom: 100px;
+    text-align: left; }
+    header.masthead .header-content h1 {
+      font-size: 50px; }
+  header.masthead .device-container {
+    max-width: 325px;
+    margin-right: auto;
+    margin-left: auto; }
+    header.masthead .device-container .screen img {
+      border-radius: 3px; }
+  header.masthead h1 {
+    text-transform: uppercase; }
+  header.masthead p.main-quote span {
+    margin-bottom: 30px;
+    background: #f05256;
+    text-transform: uppercase;
+    font-size: 50px; }
+  header.masthead .quote-paragraph {
+    font-size: 25px;
+    color: #000; }
+
+  .header-navbar .navbar-container ul.nav li > a.nav-link {
+    padding: 1.4rem 0.6rem;
+    color: black;
+ }
+
+ .btn-outline-header{
+    font-size: 20px;
+    color: #000;
+    border: 4px solid #000;
+    background: transparent;
+ }
+
+.btn-outline-header:hover {
+    color: #FFFFFF;
+    background-color: #000;
+    border-color: #000;
+}
+
+/*================================================================================================
+   EQUAL HEIGHT COLUMNS STYLES
+================================================================================================*/
+
+.equal {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.equal > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.equal.center > [class*='col-'] {
+  justify-content: center;
+}
+
+
+/*================================================================================================
+   SEARCH STYLES
+================================================================================================*/
+
+.form-text{
+  text-align: center;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300
+}
+
+.search{
+  background:#252626;color: #fff;padding: 5% 5%;
+}
+
+.search-list{
+  padding: 5%;
+}
+
+/*================================================================================================
+   QUOTE STYLES
+================================================================================================*/
+section.quote{
+  background: #13A38D; 
+  padding: 5% 0;
+}
+section.quote .section-heading h2 {
+  font-family: 'amatic_scregular';
+  font-size: 100px;
+  letter-spacing: 10px;
+  color: #fff;}
+
+section.quote .section-heading p {
+  margin-bottom: 0; }
+
+/*================================================================================================
+   FOOTER STYLES
+================================================================================================*/
+footer{
+  background: #252626;
+  padding: 5%;
+}
+
+footer ul{
+  list-style: none;
+}
+
+footer h3{
+  color: #fff;
+}
+
+footer li a{
+  color: #998B7B;
+}
+
+p.footer{
+  color: #DBD8CF;
+}
+
+footer form .form-section {
+    color: #fff;
+    line-height: 3rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #fff;
+}
+
+form .form-section i.square-icon{
+    padding: 10px;
+    background: #12a28d;
+    margin: 0 10px 0 0;
+}
+
+/*================================================================================================
+   DONATIONS LIST STYLES
+================================================================================================*/
+
+.donations-list{
+  padding-top: 5%;
+}
+
+.product-card-body{
+    background: #000;
+    color: #fff;
+}
+
+/*================================================================================================
+   OVERRIDING COLORS STYLES
+================================================================================================*/
+
+.bg-gradient-x-primary {
+    background-image: -webkit-gradient(linear, left top, right top, from(#13A38D), to(#13A38D));
+    background-image: -webkit-linear-gradient(left, #13A38D 0%, #4DCBCD 100%);
+    background-image: -moz-linear-gradient(left, #13A38D 0%, #4DCBCD 100%);
+    background-image: -o-linear-gradient(left, #13A38D 0%, #4DCBCD 100%);
+    background-image: linear-gradient(to right, #13A38D 0%, #4DCBCD 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#13A38D', endColorstr='#13A38D', GradientType=1);
+}
+
+.btn-primary {
+    border-color: #13A38D !important;
+    background-color: #13A38D !important;
+    color: #FFFFFF;
+}
+
