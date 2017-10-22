@@ -27,9 +27,6 @@ class AppAsset extends AssetBundle
         "app-assets/css/bootstrap-extended.css",
         "app-assets/css/app.css",
         "app-assets/css/colors.css",
-        "app-assets/css/core/menu/menu-types/vertical-menu.css",
-        "app-assets/css/core/menu/menu-types/vertical-overlay-menu.css",
-        "app-assets/css/plugins/forms/checkboxes-radios.css",
         "sympel-assets/css/style.css"
     ];
     public $js = [
@@ -37,10 +34,9 @@ class AppAsset extends AssetBundle
         "app-assets/vendors/js/forms/icheck/icheck.min.js",
         "app-assets/js/core/app-menu.js",
         "app-assets/js/core/app.js",
-        "app-assets/js/scripts/forms/checkbox-radio.js"
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
+//        'yii\bootstrap\BootstrapAsset',
     ];
 }

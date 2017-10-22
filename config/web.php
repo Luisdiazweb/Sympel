@@ -16,8 +16,25 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'app\models\UsersSystem',
+            'enableAutoLogin' => false,
+            'enableSession' => true
+        ],
+        'session' => [
+            'class' => 'yii\web\DbSession',
+            'gcProbability' => 10,
+            'name' => 'SiteAccess',
+            'sessionTable' => 'session',
+            'cookieParams' => [
+                'httponly' => true,
+                'lifetime' => 0,
+            ],
+            // 'db' => 'mydb',
+            // 'sessionTable' => 'my_session',
+        ],
+        'httpcookie' => [
+            'class' => 'yii\web\cookie',
+            'httponly' => true,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

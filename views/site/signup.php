@@ -1,3 +1,69 @@
+<?php
+/* @var $this View */
+
+use app\assets\AppAsset;
+use yii\web\View;
+
+$this->title = "Create Account - Sympel";
+
+$this->registerCssFile('@web/app-assets/css/core/menu/menu-types/vertical-menu.css',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+    ]);
+$this->registerCssFile('@web/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+    ]);
+$this->registerCssFile('@web/app-assets/css/plugins/forms/wizard.css',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+    ]);
+$this->registerCssFile('@web/app-assets/css/plugins/pickers/daterange/daterange.css',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+    ]);
+$this->registerCssFile('@web/app-assets/css/plugins/forms/checkboxes-radios.css',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+    ]);
+
+$this->registerJsFile('@web/app-assets/vendors/js/extensions/jquery.steps.min.js',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
+$this->registerJsFile('@web/app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
+$this->registerJsFile('@web/app-assets/vendors/js/pickers/daterange/daterangepicker.js',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
+$this->registerJsFile('@web/app-assets/vendors/js/forms/validation/jquery.validate.min.js',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
+$this->registerJsFile('@web/app-assets/js/scripts/forms/wizard-steps.js',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
+$this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
+?>
+
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100">

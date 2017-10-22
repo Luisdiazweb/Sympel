@@ -35,8 +35,8 @@ AppAsset::register($this);
 
 <!-- navbar-fixed-top-->
 <?php
-/*
- * NavBar::begin([
+
+/*NavBar::begin([
     'brandLabel' => 'My Company',
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
@@ -63,8 +63,8 @@ echo Nav::widget([
         )
     ],
 ]);
-NavBar::end();
-*/
+NavBar::end();*/
+
 ?>
 <nav id="mainNav" class="header-navbar navbar navbar-with-menu navbar-fixed-top ">
     <div class="navbar-wrapper">
@@ -94,22 +94,20 @@ NavBar::end();
                                     class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
                 </ul>
                 <ul class="nav navbar-nav float-xs-right actions">
-
                     <?=
                     Yii::$app->user->isGuest ? ('
                     <li class="nav-item"><a class="nav-link nav-actions" href="/site/signup">Signup</a></li>
                     <li class="nav-item"><a class="nav-link nav-actions" href="/site/login">Login</a></li>
                     '
                     ) : (
-                    '
+                        '
                         <li class="nav-item">
                             <a class="nav-link nav-actions" href="/site/profile">
-                                <?= Yii::$app->user->identity->username?>
+                                ' . Yii::$app->user->identity->username . '
                             </a>
                         </li>
                         <li class="nav-item"><a class="nav-link nav-actions" href="/site/logout">Logout</a></li>
-                        '
-                    )
+                        ')
                     ?>
                 </ul>
             </div>

@@ -2,7 +2,32 @@
 
 /* @var $this yii\web\View */
 
+use app\assets\AppAsset;
+
 $this->title = 'Giving is Sympel - Sympel';
+
+$this->registerCssFile("app-assets/css/core/menu/menu-types/vertical-menu.css",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+]);
+$this->registerCssFile("app-assets/css/core/menu/menu-types/vertical-overlay-menu.css",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+]);
+$this->registerCssFile("app-assets/css/plugins/forms/checkboxes-radios.css",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+]);
+$this->registerJsFile("app-assets/js/scripts/forms/checkbox-radio.js",
+[
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+]);
+
+
 ?>
 
 <header class="masthead">

@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use Yii;
-use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -72,6 +71,10 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+//        var_dump(Yii::$app->getSecurity()->generatePasswordHash('1234'));
+//        Yii::$app->session->destroy();
+//        exit();
+        $this->layout ="login";
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -97,7 +100,7 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function signup()
+    public function actionSignup()
     {
         return $this->render('signup');
     }
