@@ -2,8 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\ProfileAccount;
+use app\models\UsersSystem;
 use Yii;
+use yii\db\Query;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -102,6 +106,16 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
-        return $this->render('signup');
+        $query = new Query();
+        $areas_suport = $query->from('areas_support')->all();
+
+        $profile_model = new ProfileAccount();
+        $user_model = new UsersSystem();
+
+        return $this->render('signup',[
+            'areas_suport' => ArrayHelper::map($areas_suport, 'id', 'name'),
+            'profile' => $profile_model,
+            'user' => $user_model
+        ]);
     }
 }
