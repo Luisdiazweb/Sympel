@@ -43,6 +43,11 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    public static function primaryKey()
+    {
+        return ['id'];
+    }
+
     /**
      * @inheritdoc
      */

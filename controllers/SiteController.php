@@ -86,7 +86,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect('/site/profile');
         }
         return $this->render('login', [
             'model' => $model,
@@ -107,6 +107,9 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
         $profile_model = new ProfileAccount();
         $user_model = new UsersSystem();
 
