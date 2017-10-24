@@ -2,6 +2,7 @@
 /* @var $this View */
 
 use app\assets\AppAsset;
+use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 
@@ -93,6 +94,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                             <div class="card-body collapse in">
                                 <div class="card-block">
                                     <?php $form = ActiveForm::begin([
+                                            'enableAjaxValidation' => true,
                                             'options' => [
                                                 'class' => 'steps-validation wizard-circle'
                                             ]
@@ -106,9 +108,12 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         <div class="row">
                                             <div class="col-md-4 mb-3  card">
                                                 <div class="card-body">
+                                                    <?php /*$form->field($profile, 'profile_type_id')->radioList([
+                                                        'non', 'company', 'individual'
+                                                    ])*/ ?>
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test1"
-                                                               name="radio-group" checked value="1">
+                                                               name="ProfileAccount[profile_type_id]" checked value="1">
                                                         <label for="test1" class="radio-primary label-big">Non
                                                             Profit</label>
                                                         <p class="radio-description">Non-profit profiles can create
@@ -122,7 +127,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                 <div class="card-body">
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test2" value="2"
-                                                               name="radio-group">
+                                                               name="ProfileAccount[profile_type_id]">
                                                         <label for="test2"
                                                                class="radio-secondary label-big">Company</label>
                                                         <p class="radio-description">Company profiles can post items
@@ -134,7 +139,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                 <div class="card-body">
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test3" value="3"
-                                                               name="radio-group">
+                                                               name="ProfileAccount[profile_type_id]">
                                                         <label for="test3"
                                                                class="radio-tertiary label-big">Individual</label>
                                                         <p class="radio-description">Individual profiles can post
@@ -159,14 +164,14 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'firstname', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'lastname', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
@@ -175,14 +180,14 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?= $form->field($user, 'email', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?= $form->field($user, 'username', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
@@ -191,7 +196,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?= $form->field($user, 'password_hash', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ])->passwordInput(); ?>
                                                 </div>
                                             </div>
@@ -235,7 +240,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'non_profit_name'
                                                         , [
-                                                            'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                            'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                         ]
                                                     ); ?>
                                                 </div>
@@ -243,7 +248,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'title', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
@@ -252,7 +257,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'address', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
@@ -261,28 +266,28 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'state', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'city', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'zip_code', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'phone', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
@@ -291,14 +296,14 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'registered_ein', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'website', [
-                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}'
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
                                                     ]); ?>
                                                 </div>
                                             </div>
@@ -327,6 +332,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         <p class="my-2">IMPORTANT: By submitting this form you are acknowledging
                                             that ou have the authority to represent the listed party and have read
                                             our account creation policies.</p>
+                                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
                                     </fieldset>
                                     <?php ActiveForm::end() ?>
                                 </div>

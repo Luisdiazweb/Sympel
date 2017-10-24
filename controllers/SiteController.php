@@ -13,6 +13,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\widgets\ActiveForm;
 
 class SiteController extends Controller
 {
@@ -78,7 +79,7 @@ class SiteController extends Controller
 //        var_dump(Yii::$app->getSecurity()->generatePasswordHash('1234'));
 //        Yii::$app->session->destroy();
 //        exit();
-        $this->layout ="login";
+        $this->layout = "login";
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -106,16 +107,43 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
-        $query = new Query();
-        $areas_suport = $query->from('areas_support')->all();
-
         $profile_model = new ProfileAccount();
         $user_model = new UsersSystem();
 
-        return $this->render('signup',[
-            'areas_suport' => ArrayHelper::map($areas_suport, 'id', 'name'),
-            'profile' => $profile_model,
-            'user' => $user_model
-        ]);
+        if ($user_model->load(Yii::$app->request->post())) {
+            if (Yii::$app->request->isAjax) {
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                return ActiveForm::validate($user_model);
+            }
+            if ($profile_model->load(Yii::$app->request->post())) {
+                if (Yii::$app->request->isAjax) {
+                    Yii::$app->response->format = Response::FORMAT_JSON;
+                    return ActiveForm::validate($profile_model);
+                }
+                $user_model->password_hash = Yii::$app->getSecurity()->generatePasswordHash($user_model->password_hash);
+                if ($user_model->save()) {
+                    $profile_model->user_id = $user_model->id;
+                    if ($profile_model->save()) {
+                        $autologin = new LoginForm();
+                        $autologin->username = $user_model->username;
+                        $autologin->createLogin();
+                        return $this->goHome();
+                    } else {
+                        return 'Profile: Error, please contact a tecnical support';
+                    }
+                } else {
+                    return 'User: Error, please contact a tecnical support';
+                }
+            }
+        } else {
+            $query = new Query();
+            $areas_suport = $query->from('areas_support')->all();
+
+            return $this->render('signup', [
+                'areas_suport' => ArrayHelper::map($areas_suport, 'id', 'name'),
+                'profile' => $profile_model,
+                'user' => $user_model
+            ]);
+        }
     }
 }

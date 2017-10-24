@@ -34,10 +34,12 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'password_hash', 'password_reset_token', 'email'], 'required'],
+            [['username', 'password_hash', 'email'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
             [['username', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['email'], 'string', 'max' => 100],
+            [['username'], 'unique'],
+            [['email'], 'unique'],
         ];
     }
 
@@ -49,7 +51,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
         return [
             'id' => 'ID',
             'username' => 'Username',
-            'password_hash' => 'Password Hash',
+            'password_hash' => 'Password',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
             'created_at' => 'Created At',
