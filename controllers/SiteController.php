@@ -9,6 +9,7 @@ use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -25,19 +26,24 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['login', 'logout', 'signup', 'profile'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'profile'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['login', 'signup'],
+                        'roles' => ['?'],
                     ],
                 ],
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+//                    'logout' => ['post'],
                 ],
             ],
         ];
@@ -80,10 +86,6 @@ class SiteController extends Controller
 //        Yii::$app->session->destroy();
 //        exit();
         $this->layout = "login";
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect('/site/profile');
@@ -107,9 +109,6 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
         $profile_model = new ProfileAccount();
         $user_model = new UsersSystem();
 
@@ -140,13 +139,59 @@ class SiteController extends Controller
             }
         } else {
             $query = new Query();
-            $areas_suport = $query->from('areas_support')->all();
+            $areas_support = $query->from('areas_support')->all();
 
             return $this->render('signup', [
-                'areas_suport' => ArrayHelper::map($areas_suport, 'id', 'name'),
+                'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
                 'profile' => $profile_model,
                 'user' => $user_model
             ]);
         }
+    }
+
+    public function actionProfile()
+    {
+        $this->layout = "profile";
+
+        $user_id = Yii::$app->user->identity->getId();
+
+        $user = UsersSystem::findOne($user_id);
+        if (!$user) {
+            throw new NotFoundHttpException("The user was not found.");
+        }
+
+        $profile = ProfileAccount::findOne(['user_id' => $user_id]);
+
+        if (!$profile) {
+            throw new NotFoundHttpException("The user has no profile.");
+        }
+
+        if ($user->load(Yii::$app->request->post())) {
+            if (Yii::$app->request->isAjax) {
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                return ActiveForm::validate($user);
+            }
+            if ($profile->load(Yii::$app->request->post())) {
+                if (Yii::$app->request->isAjax) {
+                    Yii::$app->response->format = Response::FORMAT_JSON;
+                    return ActiveForm::validate($profile);
+                }
+                $isValid = $user->validate();
+                $isValid = $profile->validate() && $isValid;
+                if ($isValid) {
+                    $user->save(false);
+                    $profile->save(false);
+                    return $this->redirect('site/profile');
+                }
+            }
+        }
+
+        $query_areas = new Query();
+        $areas_support = $query_areas->from('areas_support')->all();
+        return $this->render('profile_' . $profile->profileType->name, [
+            'user' => $user,
+            'profile' => $profile,
+            'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
+        ]);
     }
 }

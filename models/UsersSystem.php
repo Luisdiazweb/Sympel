@@ -64,10 +64,9 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
         ];
     }
 
-
     public static function findIdentity($id)
     {
-        self::findOne($id);
+        return self::findOne($id);
     }
 
     public static function findIdentityByAccessToken($token, $type = null)

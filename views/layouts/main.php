@@ -75,7 +75,8 @@ NavBar::end();*/
                         <i class="ft-menu font-large-1"></i>
                     </a>
                 </li>
-                <li class="nav-item"><a href="index.html" class="navbar-brand">
+                <li class="nav-item">
+                    <a href=""<?= Url::to('@web/') ?>"" class="navbar-brand">
                         <img alt="Sympel logo" src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png') ?>"
                              class="brand-logo">
                 <li class="nav-item hidden-md-up float-xs-right">
