@@ -1,3 +1,22 @@
+<?php
+/* @var $this View */
+/* @var $profile \app\models\ProfileAccount */
+
+/* @var $user \app\models\UsersSystem */
+
+use yii\bootstrap\ActiveForm;
+use yii\bootstrap\Html;
+use yii\web\View;
+
+?>
+
+<?php $form = ActiveForm::begin([
+        'enableAjaxValidation' => true,
+        'options' => [
+            'class' => 'steps-validation wizard-circle'
+        ]
+    ]
+); ?>
 <div class="row mt-3">
     <div class="col-md-12">
         <h3 class="my-2 card-title">Account Owner Information</h3>
@@ -6,21 +25,17 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label for="firstName">
-                First Name :
-                <span class="danger">*</span>
-            </label>
-            <input type="text" class="form-control " id="firstName" name="firstName">
+            <?= $form->field($profile, 'firstname', [
+                'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+            ]); ?>
         </div>
     </div>
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="lastName">
-                Last Name :
-                <span class="danger">*</span>
-            </label>
-            <input type="text" class="form-control " id="lastName" name="lastName">
+            <?= $form->field($profile, 'lastname', [
+                'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+            ]); ?>
         </div>
     </div>
 </div>
@@ -28,21 +43,17 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label for="emailAddress">
-                Email Address :
-                <span class="danger">*</span>
-            </label>
-            <input type="email" class="form-control " id="emailAddress" name="emailAddress">
+            <?= $form->field($user, 'email', [
+                'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+            ]); ?>
         </div>
     </div>
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="userName">
-                Username :
-                <span class="danger">*</span>
-            </label>
-            <input type="text" class="form-control " id="userName" name="userName">
+            <?= $form->field($user, 'username', [
+                'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+            ]); ?>
         </div>
     </div>
 </div>
@@ -76,11 +87,9 @@
 
     <div class="col-md-6">
         <div class="form-group">
-            <label for="website">
-                Website :
-                <span class="danger">*</span>
-            </label>
-            <input type="text" class="form-control " id="website" name="website">
+            <?= $form->field($profile, 'website', [
+                'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+            ]); ?>
         </div>
     </div>
 </div>
@@ -88,11 +97,9 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
-            <label for="address">
-                Address :
-                <span class="danger">*</span>
-            </label>
-            <input type="email" class="form-control " id="address" name="address">
+            <?= $form->field($profile, 'address', [
+                'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+            ]); ?>
         </div>
     </div>
 
@@ -101,42 +108,34 @@
 <div class="row">
     <div class="col-md-3">
         <div class="form-group">
-            <label for="state">
-                State :
-                <span class="danger">*</span>
-            </label>
-            <input type="text" class="form-control " id="state" name="state">
+            <?= $form->field($profile, 'state', [
+                'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+            ]); ?>
         </div>
     </div>
 
     <div class="col-md-3">
         <div class="form-group">
-            <label for="city">
-                City :
-                <span class="danger">*</span>
-            </label>
-            <input type="text" class="form-control " id="city" name="city">
+            <?= $form->field($profile, 'city', [
+                'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+            ]); ?>
         </div>
     </div>
 
 
     <div class="col-md-3">
         <div class="form-group">
-            <label for="zipcode">
-                Zip Code :
-                <span class="danger">*</span>
-            </label>
-            <input type="text" class="form-control " id="zipcode" name="zipcode">
+            <?= $form->field($profile, 'zip_code', [
+                'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+            ]); ?>
         </div>
     </div>
 
     <div class="col-md-3">
         <div class="form-group">
-            <label for="phone">
-                Phone :
-                <span class="danger">*</span>
-            </label>
-            <input type="tel" class="form-control " id="phone" name="phone">
+            <?= $form->field($profile, 'phone', [
+                'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+            ]); ?>
         </div>
     </div>
 </div>
@@ -276,8 +275,7 @@
             </fieldset>
     </div>
 </div> <!--END OF CHECKBOX AREA-->
-
-<div class="row text-sm-center my-3">
-    <button type="button" class="btn btn-primary">SAVE CHANGES</button>
-</div>
-
+    <div class="row text-sm-center my-3">
+        <?= Html::submitButton('SAVE CHANGES', ['class' => 'btn btn-primary']) ?>
+    </div>
+<?php ActiveForm::end() ?>

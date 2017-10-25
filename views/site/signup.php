@@ -2,9 +2,9 @@
 /* @var $this View */
 
 use app\assets\AppAsset;
-use yii\helpers\Html;
+use yii\bootstrap\Html;
 use yii\web\View;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
 $this->title = "Create Account - Sympel";
 
@@ -332,7 +332,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         <p class="my-2">IMPORTANT: By submitting this form you are acknowledging
                                             that ou have the authority to represent the listed party and have read
                                             our account creation policies.</p>
-                                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+                                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
                                     </fieldset>
                                     <?php ActiveForm::end() ?>
                                 </div>

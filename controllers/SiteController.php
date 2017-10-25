@@ -188,6 +188,7 @@ class SiteController extends Controller
 
         $query_areas = new Query();
         $areas_support = $query_areas->from('areas_support')->all();
+        var_dump($profile->profile_type_id);
         return $this->render('profile_' . $profile->profileType->name, [
             'user' => $user,
             'profile' => $profile,
