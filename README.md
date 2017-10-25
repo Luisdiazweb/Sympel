@@ -1,4 +1,4 @@
-Steps tu run yii Sympel project
+Steps to run yii Sympel project
 ============================
 
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
