@@ -13,10 +13,12 @@
 
 
 -- Volcando estructura de base de datos para sympel_db
+DROP DATABASE IF EXISTS `sympel_db`;
 CREATE DATABASE IF NOT EXISTS `sympel_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `sympel_db`;
 
 -- Volcando estructura para tabla sympel_db.areas_support
+DROP TABLE IF EXISTS `areas_support`;
 CREATE TABLE IF NOT EXISTS `areas_support` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -60,6 +62,7 @@ INSERT INTO `areas_support` (`id`, `name`) VALUES
 /*!40000 ALTER TABLE `areas_support` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.profile_account
+DROP TABLE IF EXISTS `profile_account`;
 CREATE TABLE IF NOT EXISTS `profile_account` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -92,6 +95,7 @@ INSERT INTO `profile_account` (`id`, `user_id`, `profile_type_id`, `firstname`, 
 /*!40000 ALTER TABLE `profile_account` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.profile_type
+DROP TABLE IF EXISTS `profile_type`;
 CREATE TABLE IF NOT EXISTS `profile_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL DEFAULT '0',
@@ -109,6 +113,7 @@ INSERT INTO `profile_type` (`id`, `name`, `created_at`) VALUES
 /*!40000 ALTER TABLE `profile_type` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.session
+DROP TABLE IF EXISTS `session`;
 CREATE TABLE IF NOT EXISTS `session` (
   `id` char(40) NOT NULL,
   `expire` int(11) DEFAULT NULL,
@@ -124,6 +129,7 @@ INSERT INTO `session` (`id`, `expire`, `data`) VALUES
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.user
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
