@@ -8,6 +8,7 @@ use Yii;
 use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -88,7 +89,7 @@ class SiteController extends Controller
         $this->layout = "login";
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect('/site/profile');
+            return $this->redirect(Url::to('@web/profile'));
         }
         return $this->render('login', [
             'model' => $model,
@@ -183,7 +184,7 @@ class SiteController extends Controller
                 if ($isValid) {
                     $user->save(false);
                     $profile->save(false);
-                    return $this->redirect('/site/profile');
+                    return $this->redirect(Url::to('@web/profile'));
                 }
             }
         }

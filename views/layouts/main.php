@@ -46,14 +46,14 @@ AppAsset::register($this);
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => 'Home', 'url' => ['/index']],
+        ['label' => 'About', 'url' => ['/about']],
+        ['label' => 'Contact', 'url' => ['/contact']],
         Yii::$app->user->isGuest ? (
-        ['label' => 'Login', 'url' => ['/site/login']]
+        ['label' => 'Login', 'url' => ['/login']]
         ) : (
             '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
+            . Html::beginForm(['/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
@@ -97,17 +97,17 @@ NavBar::end();*/
                 <ul class="nav navbar-nav float-xs-right actions">
                     <?=
                     Yii::$app->user->isGuest ? ('
-                    <li class="nav-item"><a class="nav-link nav-actions" href="/site/signup">Signup</a></li>
-                    <li class="nav-item"><a class="nav-link nav-actions" href="/site/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link nav-actions" href="/signup">Signup</a></li>
+                    <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
                     '
                     ) : (
                         '
                         <li class="nav-item">
-                            <a class="nav-link nav-actions" href="/site/profile">
+                            <a class="nav-link nav-actions" href="/profile">
                                 ' . Yii::$app->user->identity->username . '
                             </a>
                         </li>
-                        <li class="nav-item"><a class="nav-link nav-actions" href="/site/logout">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link nav-actions" href="/logout">Logout</a></li>
                         ')
                     ?>
                 </ul>

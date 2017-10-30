@@ -141,7 +141,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
             <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
                 <ul class="nav navbar-nav float-xs-right actions">
                     <!--                    <li class="nav-item"><a class="nav-link nav-actions" href="signup.html">Signup</a></li>-->
-                    <li class="nav-item"><a class="nav-link nav-actions" href="/site/logout">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link nav-actions" href="/logout">Logout</a></li>
                 </ul>
 
             </div>
