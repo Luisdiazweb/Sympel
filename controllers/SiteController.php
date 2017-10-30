@@ -125,12 +125,14 @@ class SiteController extends Controller
                 $user_model->password_hash = Yii::$app->getSecurity()->generatePasswordHash($user_model->password_hash);
                 if ($user_model->save()) {
                     $profile_model->user_id = $user_model->id;
+                    $profile_model->areas_support = json_encode($profile_model->areas_support);
                     if ($profile_model->save()) {
                         $autologin = new LoginForm();
                         $autologin->username = $user_model->username;
                         $autologin->createLogin();
                         return $this->goHome();
                     } else {
+                        var_dump($profile_model->errors);
                         return 'Profile: Error, please contact a tecnical support';
                     }
                 } else {
@@ -181,14 +183,14 @@ class SiteController extends Controller
                 if ($isValid) {
                     $user->save(false);
                     $profile->save(false);
-                    return $this->redirect('site/profile');
+                    return $this->redirect('/site/profile');
                 }
             }
         }
 
         $query_areas = new Query();
         $areas_support = $query_areas->from('areas_support')->all();
-        var_dump($profile->profile_type_id);
+//        var_dump($profile->profile_type_id);
         return $this->render('profile_' . $profile->profileType->name, [
             'user' => $user,
             'profile' => $profile,
