@@ -89,6 +89,9 @@ class SiteController extends Controller
         $this->layout = "login";
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            if (Yii::$app->user->identity->admin){
+                return $this->redirect(Url::to('@web/dashboard/index'));
+            }
             return $this->redirect(Url::to('@web/profile'));
         }
         return $this->render('login', [
@@ -197,5 +200,9 @@ class SiteController extends Controller
             'profile' => $profile,
             'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
         ]);
+    }
+
+    public function actionDashboard(){
+        return $this->redirect(Url::to('@web/dashboard/index'));
     }
 }

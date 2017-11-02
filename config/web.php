@@ -1,4 +1,3 @@
-
 <?php
 
 $params = require(__DIR__ . '/params.php');
@@ -58,14 +57,17 @@ $config = [
         ],
         'db' => $db,
         'urlManager' => [
-		'class' => 'yii\web\UrlManager',
-	        // Hide index.php
-	        'showScriptName' => false,
-	        // Use pretty URLs
-	        'enablePrettyUrl' => true,
-	        'rules' => [
-			'<alias:\w+>' => 'site/<alias>',
-	        ],
+            'class' => 'yii\web\UrlManager',
+            // Hide index.php
+            'showScriptName' => false,
+            // Use pretty URLs
+            'enablePrettyUrl' => true,
+            'rules' => [
+                '<alias:\w+>' => 'site/<alias>',
+                '<controller:\w+>/<id:\w+>' => '<controller>',
+                '<controller:\w+>/<action:\w+>/<id:\w+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ],
         ],
     ],
     'params' => $params,

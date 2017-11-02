@@ -15,8 +15,14 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
+ * @property integer $admin
+ * @property integer $verified_account
+ * @property string $authKey
+ * @property string $accessToken
  * @property string $created_at
  * @property string $updated_at
+ *
+ * @property ProfileAccount[] $profileAccounts
  */
 class UsersSystem extends ActiveRecord implements IdentityInterface
 {
@@ -35,9 +41,11 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'password_hash', 'email'], 'required'],
+            [['admin', 'verified_account'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['username', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['email'], 'string', 'max' => 100],
+            [['authKey', 'accessToken'], 'string', 'max' => 250],
             [['username'], 'unique'],
             [['email'], 'unique'],
         ];
