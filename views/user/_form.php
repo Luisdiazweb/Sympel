@@ -16,16 +16,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model_user, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model_user, 'admin')->checkbox() ?>
-
-    <?= $form->field($model_user, 'verified_account')->dropDownList([
-            0 => 'not verified',
-            1 => 'Verified'
+    <?= $form->field($model_user, 'admin')->dropDownList([
+        0 => 'No Administrator',
+        1 => 'Administrator'
     ]) ?>
 
-    <?= $form->field($model_user, 'created_at')->textInput() ?>
-
-    <?= $form->field($model_user, 'updated_at')->textInput() ?>
+    <?= $form->field($model_user, 'verified_account')->dropDownList([
+            0 => 'Not Verified',
+            1 => 'Verified'
+    ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model_user->isNewRecord ? 'Create' : 'Update', ['class' => $model_user->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
