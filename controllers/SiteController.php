@@ -51,6 +51,16 @@ class SiteController extends Controller
         ];
     }
 
+    public function beforeAction($action) {
+        if (parent::beforeAction($action)) {
+            // change layout for error action
+            if ($action->id=='error') $this->layout ='login';
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * @inheritdoc
      */

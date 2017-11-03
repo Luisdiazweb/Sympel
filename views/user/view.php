@@ -28,13 +28,23 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+//            'id',
             'username',
 //            'password_hash',
 //            'password_reset_token',
             'email:email',
-            'admin',
-            'verified_account',
+            [
+                'attribute' => 'admin',
+                'value' => function ($model) {
+                    return $model->admin? 'Yes': 'No';
+                }
+            ],
+            [
+                'attribute' => 'verified_account',
+                'value' => function ($model) {
+                    return $model->verified_account? 'Yes': 'No';
+                }
+            ],
 //            'authKey',
 //            'accessToken',
             'created_at',

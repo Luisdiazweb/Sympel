@@ -18,7 +18,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model_user, 'admin')->checkbox() ?>
 
-    <?= $form->field($model_user, 'verified_account')->textInput() ?>
+    <?= $form->field($model_user, 'verified_account')->dropDownList([
+            0 => 'not verified',
+            1 => 'Verified'
+    ]) ?>
 
     <?= $form->field($model_user, 'created_at')->textInput() ?>
 
