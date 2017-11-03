@@ -84,14 +84,13 @@ CREATE TABLE IF NOT EXISTS `profile_account` (
   KEY `profile_type_FK` (`profile_type_id`),
   CONSTRAINT `profile_type_FK` FOREIGN KEY (`profile_type_id`) REFERENCES `profile_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla sympel_db.profile_account: ~2 rows (aproximadamente)
 DELETE FROM `profile_account`;
 /*!40000 ALTER TABLE `profile_account` DISABLE KEYS */;
 INSERT INTO `profile_account` (`id`, `user_id`, `profile_type_id`, `firstname`, `lastname`, `non_profit_name`, `title`, `address`, `state`, `city`, `zip_code`, `phone`, `registered_ein`, `website`, `areas_support`) VALUES
-	(4, 11, 1, 'Luis ', 'Diaz', 'DCCOLORWEB', 'Founder', '15 calle poniente ', 'La libertad', 'Santa Tecla', '00000', '22296700', '123456', 'www.dccolorweb.co', '["19","20"]'),
-	(5, 12, 1, 'Eric', 'Melson', 'sympel', 'founder', 'Houston ', 'Texas', 'Houston', '76010', '000000000000000', '12345678910', 'www.sympel.com', '["8","13"]');
+	(6, 13, 1, 'Victor', 'Aguilar', '', '', '', '', '', '', '', '', '', '""');
 /*!40000 ALTER TABLE `profile_account` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.profile_type
@@ -103,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `profile_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla sympel_db.profile_type: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla sympel_db.profile_type: ~2 rows (aproximadamente)
 DELETE FROM `profile_type`;
 /*!40000 ALTER TABLE `profile_type` DISABLE KEYS */;
 INSERT INTO `profile_type` (`id`, `name`, `created_at`) VALUES
@@ -125,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `session` (
 DELETE FROM `session`;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
 INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-	('v8qgtn33br02g318t572sj3ih6', 1509619112, _binary 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A323B);
+	('jkdrg7802figub4m4vk9mch8o4', 1509734103, _binary 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A31333B);
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.user
@@ -145,17 +144,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla sympel_db.user: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla sympel_db.user: ~3 rows (aproximadamente)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `username`, `password_hash`, `password_reset_token`, `email`, `admin`, `verified_account`, `authKey`, `accessToken`, `created_at`, `updated_at`) VALUES
-	(2, 'admin', '$2y$13$KUUvBJIf/IoKbqmwqvdpcu3bme7kVqm3XTmLwl1EJpgsVXUsF7HQ6', '0', 'admin@test.com', 1, 0, '0', '0', '2017-10-21 17:34:58', '2017-11-02 04:14:25'),
-	(3, 'test', '$2y$13$QI.mh7hQrjCrQgLsIArRVOojtpUwwfwzvofFgpkRvfWO0Xk8ntGIe', '0', 'valbert1993@gmail.com', 0, 0, '0', '0', '2017-10-24 06:54:13', '2017-10-26 15:10:24'),
-	(5, 'test2', '$2y$13$.ODSpqrxmMUWfeYU8fw4uujNCiS30JLskcJWTcR3Try7HYyr/IK8S', '0', 'valbert1993@gmail.co', 0, 0, '0', '0', '2017-10-24 23:59:20', '2017-10-26 15:10:26'),
-	(11, 'DCCOLORWEB', '$2y$13$.FtH/DOMfUn39xeTCmdBI.g3GHcKe/woxmYKIprjAQ60BpP9Dl.Vi', NULL, 'luisd@dccolorweb.com', 0, 0, '0', '0', '2017-10-27 16:50:57', '2017-10-27 16:54:14'),
-	(12, 'sympel', '$2y$13$a.vkefuvkjicuI/ewvezCucbGwyuGfT/9ZBCsnWJ1XmRLBgmqvofG', NULL, 'Eric@sympel.com', 0, 0, '0', '0', '2017-10-27 17:09:35', '2017-10-27 17:09:35');
+	(13, 'admin', '$2y$13$2lNyBJ54B3JPRkMFIO.4PuyIxvzZRwhWIcCq/SOOSPVVZxl1o0Zgm', NULL, 'victor@dccolorweb..com', 1, 0, '0', '0', '2017-11-03 11:15:42', '2017-11-03 11:15:59');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
