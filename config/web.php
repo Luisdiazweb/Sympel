@@ -8,7 +8,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
-        'gridview' =>  [
+        'gridview' => [
             'class' => '\kartik\grid\Module'
             // enter optional module parameters below - only if you need to
             // use your own export download action or custom translation
@@ -27,7 +27,7 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\UsersSystem',
-            'enableAutoLogin' => false,
+            'enableAutoLogin' => true,
             'enableSession' => true
         ],
         'session' => [
@@ -58,7 +58,7 @@ $config = [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
-                'username' => Yii::$app->params['adminEmail'],
+                'username' => 'team.dccolorweb@gmail.com',
                 'password' => 'DCcolorWeb2016',
                 'port' => '587',
                 'encryption' => 'tls',

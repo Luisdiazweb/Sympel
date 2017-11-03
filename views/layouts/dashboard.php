@@ -117,12 +117,12 @@ AdminAsset::register($this);
                                 <span class="user-name"><?= Yii::$app->user->identity->username?></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-<!--                                <a href="" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>-->
+                                <a href="<?=Url::to(['profile/update', 'id'=> Yii::$app->session->get('profile_id')])?>" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
 <!--                                <a href="#" class="dropdown-item"><i class="ft-mail"></i> My Inbox</a>-->
 <!--                                <a href="#" class="dropdown-item"><i class="ft-check-square"></i> Task</a>-->
 <!--                                <a href="#" class="dropdown-item"><i class="ft-message-square"></i> Chats</a>-->
                                 <div class="dropdown-divider"></div>
-                                <a href="/logout" class="dropdown-item"><i class="ft-power"></i> Logout</a>
+                                <a href="<?= Url::to('/logout')?>" class="dropdown-item"><i class="ft-power"></i> Logout</a>
                             </div>
                         </li>
                     </ul>

@@ -8,6 +8,7 @@ use Yii;
 use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -89,7 +90,12 @@ class SiteController extends Controller
         $this->layout = "login";
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            if (Yii::$app->user->identity->admin){
+            Yii::$app->session->set('profile_id', ProfileAccount::findOne([
+                'user_id' => Yii::$app->user->identity->id
+            ])
+                ->id
+            );
+            if (Yii::$app->user->identity->admin) {
                 return $this->redirect(Url::to('@web/dashboard/index'));
             }
             return $this->redirect(Url::to('@web/profile'));
@@ -127,19 +133,35 @@ class SiteController extends Controller
                     return ActiveForm::validate($profile_model);
                 }
                 $user_model->password_hash = Yii::$app->getSecurity()->generatePasswordHash($user_model->password_hash);
+                $user_model->authKey = Yii::$app->getSecurity()->generateRandomString();
+                $user_model->accessToken = Yii::$app->getSecurity()->generateRandomString();
                 if ($user_model->save()) {
                     $profile_model->user_id = $user_model->id;
                     $profile_model->areas_support = json_encode($profile_model->areas_support);
                     if ($profile_model->save()) {
                         $autologin = new LoginForm();
                         $autologin->username = $user_model->username;
+                        $url_verified = $user_model->getUrlVerifiedUser();
+                        $subject = "Confirm Sign Up";
+                        $body = "<h1>Click on the following link to complete your registration</h1>";
+                        $body .= "<a href='" . $url_verified . "'>Confirm</a>";
+
+                        //Enviamos el correo
+//                        Yii::$app->mailer->compose()
+//                            ->setTo($user_model->email)
+//                            ->setFrom([Yii::$app->params["adminEmail"] => Yii::$app->params["title"]])
+//                            ->setSubject($subject)
+//                            ->setHtmlBody($body)
+//                            ->send();
+
                         $autologin->createLogin();
                         return $this->goHome();
                     } else {
-                        var_dump($profile_model->errors);
+//                        var_dump($profile_model->errors);
                         return 'Profile: Error, please contact a tecnical support';
                     }
                 } else {
+//                    var_dump($user_model->errors);
                     return 'User: Error, please contact a tecnical support';
                 }
             }
@@ -152,6 +174,32 @@ class SiteController extends Controller
                 'profile' => $profile_model,
                 'user' => $user_model
             ]);
+        }
+    }
+
+    public function actionVerifiedAccount($id, $auth)
+    {
+        $auth = Html::encode($auth);
+        $id = Yii::$app->getSecurity()->decryptByPassword($id, $auth);
+
+        if ((int)$id) {
+            $user = UsersSystem::findOne([
+                'id' => $id,
+                'authKey' => $auth
+            ]);
+
+            if ($user) {
+                $user->verified_account = 1;
+                if ($user->update()) {
+                    echo "Congratulations registration successfully, redirecting ...";
+                    echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("site/login") . "'>";
+                } else {
+                    echo "An error occurred while performing the registration, redirecting ...";
+                    echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("site/login") . "'>";
+                }
+            } else {
+                return $this->redirect(["site/login"]);
+            }
         }
     }
 
@@ -202,7 +250,8 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionTestmail(){
+    public function actionTestmail()
+    {
         Yii::$app->mailer->compose()
             ->setFrom(Yii::$app->params['adminEmail'])
             ->setTo('valbert1993@gmail.com')
@@ -210,5 +259,11 @@ class SiteController extends Controller
             ->setTextBody('Plain text content')
             ->setHtmlBody('<b>HTML content</b>')
             ->send();
+    }
+
+    public function actionTest()
+    {
+        $user = UsersSystem::findOne(Yii::$app->request->get('id'));
+        return Html::a('Click on the following link to complete your registration', $user->getUrlVerifiedUser());
     }
 }

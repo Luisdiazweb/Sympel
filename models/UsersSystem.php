@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\db\ActiveRecord;
+use yii\helpers\Url;
 use yii\web\IdentityInterface;
 
 /**
@@ -26,6 +27,8 @@ use yii\web\IdentityInterface;
  */
 class UsersSystem extends ActiveRecord implements IdentityInterface
 {
+    public $password_repeat;
+
     /**
      * @inheritdoc
      */
@@ -45,9 +48,12 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
             [['created_at', 'updated_at'], 'safe'],
             [['username', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['email'], 'string', 'max' => 100],
+            ['email', 'email'],
+//            ['password_hash', 'match', 'pattern' => "/^.{6,16}$/"],
             [['authKey', 'accessToken'], 'string', 'max' => 250],
             [['username'], 'unique'],
             [['email'], 'unique'],
+//            ['password_repeat', 'compare', 'compareAttribute' => 'password_hash']
         ];
     }
 
@@ -89,12 +95,12 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
 
     public function getAuthKey()
     {
-        throw new NotSupportedException();
+        return $this->authKey;
     }
 
     public function validateAuthKey($authKey)
     {
-        throw new NotSupportedException();
+        return $this->authKey === $authKey;
     }
 
     public static function findByUsername($username)
@@ -105,5 +111,16 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
     public function validatePassword($hash, $password)
     {
         return Yii::$app->getSecurity()->validatePassword($password, $hash);
+    }
+
+    public function getUrlVerifiedUser()
+    {
+        $id = urlencode(Yii::$app->getSecurity()->encryptByPassword($this->id, $this->authKey));
+        $auth = urlencode($this->authKey);
+        return Url::to([
+            "verified-account",
+            'id' => $id,
+            'auth' => $auth
+        ]);
     }
 }

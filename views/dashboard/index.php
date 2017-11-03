@@ -1,3 +1,3 @@
 <?php
-var_dump(boolval(Yii::$app->user->identity->admin));
+//var_dump(boolval(Yii::$app->user->identity->admin));
 ?>

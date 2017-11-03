@@ -202,12 +202,9 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="passwordConfirm">
-                                                        Re-type Password :
-                                                        <span class="danger">*</span>
-                                                    </label>
-                                                    <input type="password" class="form-control "
-                                                           id="passwordConfirm" name="passwordConfirm">
+                                                    <?= $form->field($user, 'password_repeat', [
+                                                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+                                                    ])->passwordInput()->label('Re-type Password'); ?>
                                                 </div>
                                             </div>
                                         </div>
