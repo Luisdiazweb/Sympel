@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\ProfileAccount */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Profile Accounts', 'url' => ['index']];
+$this->title = $model->user->username;
+$this->params['breadcrumbs'][] = ['label' => 'Profile', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="profile-account-view">
