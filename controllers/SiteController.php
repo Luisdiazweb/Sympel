@@ -201,4 +201,14 @@ class SiteController extends Controller
             'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
         ]);
     }
+
+    public function actionTestmail(){
+        Yii::$app->mailer->compose()
+            ->setFrom(Yii::$app->params['adminEmail'])
+            ->setTo('valbert1993@gmail.com')
+            ->setSubject('Message subject')
+            ->setTextBody('Plain text content')
+            ->setHtmlBody('<b>HTML content</b>')
+            ->send();
+    }
 }
