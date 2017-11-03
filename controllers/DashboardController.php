@@ -2,7 +2,10 @@
 
 namespace app\controllers;
 
+use Yii;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 
 class DashboardController extends Controller
@@ -19,10 +22,10 @@ class DashboardController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'allow' => true,
+                        'allow' => boolval(ArrayHelper::getValue(Yii::$app->user->identity, 'admin')),
                         'roles' => ['@'],
                     ],
-                ],
+                ]
             ],
         ];
     }

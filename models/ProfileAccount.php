@@ -24,7 +24,7 @@ use Yii;
  * @property string $areas_support
  *
  * @property ProfileType $profileType
- * @property User $user
+ * @property UsersSystem $user
  */
 class ProfileAccount extends \yii\db\ActiveRecord
 {
@@ -89,6 +89,6 @@ class ProfileAccount extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(UsersSystem::className(), ['id' => 'user_id']);
     }
 }

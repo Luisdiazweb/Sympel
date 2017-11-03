@@ -201,8 +201,4 @@ class SiteController extends Controller
             'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
         ]);
     }
-
-    public function actionDashboard(){
-        return $this->redirect(Url::to('@web/dashboard/index'));
-    }
 }

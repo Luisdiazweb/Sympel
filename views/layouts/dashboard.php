@@ -117,10 +117,10 @@ AdminAsset::register($this);
                                 <span class="user-name"><?= Yii::$app->user->identity->username?></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a href="#" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
-                                <a href="#" class="dropdown-item"><i class="ft-mail"></i> My Inbox</a>
-                                <a href="#" class="dropdown-item"><i class="ft-check-square"></i> Task</a>
-                                <a href="#" class="dropdown-item"><i class="ft-message-square"></i> Chats</a>
+<!--                                <a href="" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>-->
+<!--                                <a href="#" class="dropdown-item"><i class="ft-mail"></i> My Inbox</a>-->
+<!--                                <a href="#" class="dropdown-item"><i class="ft-check-square"></i> Task</a>-->
+<!--                                <a href="#" class="dropdown-item"><i class="ft-message-square"></i> Chats</a>-->
                                 <div class="dropdown-divider"></div>
                                 <a href="/logout" class="dropdown-item"><i class="ft-power"></i> Logout</a>
                             </div>
@@ -138,15 +138,20 @@ AdminAsset::register($this);
                                                                       data-original-title="General"
                                                                       class=" ft-minus"></i>
                 </li>
-                <li class=" nav-item"><a href="index.html"><i class="ft-home"></i><span data-i18n="" class="menu-title">Dashboard</span><span
-                                class="tag tag tag-primary tag-pill float-xs-right mr-2">3</span></a>
+                <li class=" nav-item">
+                    <a href="<?= Url::to('dashboard')?>">
+                        <i class="ft-home"></i>
+                        <span data-i18n="" class="menu-title">Dashboard</span>
+                        <span class="tag tag tag-primary tag-pill float-xs-right mr-2">1</span>
+                    </a>
                     <ul class="menu-content">
-                        <li class="active"><a href="dashboard-ecommerce.html" class="menu-item">eCommerce</a>
+                        <li>
+                            <a href="/user/" class="menu-item">Users</a>
                         </li>
-                        <li><a href="dashboard-analytics.html" class="menu-item">Analytics</a>
-                        </li>
-                        <li><a href="dashboard-fitness.html" class="menu-item">Fitness</a>
-                        </li>
+<!--                        <li class="active"><a href="dashboard-analytics.html" class="menu-item">Analytics</a>-->
+<!--                        </li>-->
+<!--                        <li><a href="dashboard-fitness.html" class="menu-item">Fitness</a>-->
+<!--                        </li>-->
                     </ul>
                 </li>
             </ul>
