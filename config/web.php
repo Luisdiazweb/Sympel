@@ -57,11 +57,18 @@ $config = [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.gmail.com',
-                'username' => 'team.dccolorweb@gmail.com',
-                'password' => 'DCcolorWeb2016',
-                'port' => '587',
+                'host' => '173.254.28.17',
+                'username' => 'dev@dccolorweb.com',
+                'password' => 'KhsK1234!',
+//                'port' => '465',
                 'encryption' => 'tls',
+                'streamOptions' => [
+                    'ssl' => [
+                        'allow_self_signed' => true,
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                    ],
+                ],
             ],
         ],
         'log' => [
