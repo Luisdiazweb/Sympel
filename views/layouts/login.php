@@ -6,7 +6,6 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
-
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -38,7 +37,9 @@ AppAsset::register($this);
                     <div class="card border-grey border-lighten-3 m-0">
                         <div class="card-header no-border">
                             <div class="card-title text-xs-center">
-                                <div class="p-1"><img src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png')?>" alt="branding logo">
+                                <div class="p-1"><img
+                                            src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png') ?>"
+                                            alt="branding logo">
                                 </div>
                             </div>
                         </div>

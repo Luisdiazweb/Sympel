@@ -31,6 +31,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
     public $password_repeat;
     const SCENARIO_SIGNUP = 'register';
     const SCENARIO_PASSWORD = 'recovery_pass';
+    const SCENARIO_REQUEST_PASS = 'request_change_password';
 
     /**
      * @inheritdoc
@@ -45,7 +46,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
         $scenarios = [
             self::SCENARIO_SIGNUP => ['username', 'password_hash', 'email'],
             self::SCENARIO_PASSWORD => ['password_hash', 'password_repeat'],
-            self::SCENARIO_REQUEST_PASS => ['106email'],
+            self::SCENARIO_REQUEST_PASS => ['email'],
         ];
 
         return array_merge(parent::scenarios(), $scenarios);
@@ -140,7 +141,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
     }
     public function getUrlChangePassword()
     {
-        $id = urlencode($this->username);
+        $id = urlencode($this->password_reset_token);
         $auth = urlencode($this->authKey);
         return Url::toRoute([
             "changepassword",

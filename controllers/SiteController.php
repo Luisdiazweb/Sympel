@@ -4,79 +4,21 @@ namespace app\controllers;
 
 use app\models\ProfileAccount;
 use app\models\UsersSystem;
+use kartik\alert\Alert;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Yii;
+use yii\base\InvalidParamException;
 use yii\db\Query;
-use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
-use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
 use yii\widgets\ActiveForm;
 
-class SiteController extends Controller
+class SiteController extends CustomController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['login', 'logout', 'signup', 'profile'],
-                'rules' => [
-                    [
-                        'actions' => ['logout', 'profile'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    [
-                        'allow' => true,
-                        'actions' => ['login', 'signup'],
-                        'roles' => ['?'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-//                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-    public function beforeAction($action) {
-        if (parent::beforeAction($action)) {
-            // change layout for error action
-            if ($action->id=='error') $this->layout ='login';
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
-
     /**
      * Displays homepage.
      *
@@ -102,13 +44,14 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             Yii::$app->session->set('profile_id', ProfileAccount::findOne([
                 'user_id' => Yii::$app->user->identity->id
-            ])
-                ->id
-            );
+            ])->id);
             if (Yii::$app->user->identity->admin) {
                 return $this->redirect(Url::to('@web/dashboard/index'));
             }
-            return $this->redirect(Url::to('@web/profile'));
+            if (Yii::$app->user->identity->verified_account) {
+                return $this->redirect(Url::to('@web/site/not-verified'));
+            }
+            return $this->redirect(Url::to('@web/myrofile'));
         }
         return $this->render('login', [
             'model' => $model,
@@ -127,10 +70,115 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
+    /**
+     * @param $model UsersSystem
+     */
+    public function sendEmailChangePass($model)
+    {
+        $url_verified = $model->getUrlChangePassword();
+        $subject = "Reset Password";
+        $body = "<h1>Click on the following link to complete your request</h1>";
+        $body .= "<a href='" . $url_verified . "'>Change Password</a>";
+
+        Yii::$app->mailer->compose()
+            ->setTo($model->email)
+            ->setFrom([Yii::$app->params["adminEmail"] => Yii::$app->params["title"]])
+            ->setSubject($subject)
+            ->setHtmlBody($body)
+            ->send();
+    }
+
+    public function actionRequestpassword()
+    {
+
+        $model = new UsersSystem();
+        if (Yii::$app->user->isGuest) {
+            $model->scenario = UsersSystem::SCENARIO_REQUEST_PASS;
+            if ($model->load(Yii::$app->request->post())) {
+                if (Yii::$app->request->isAjax) {
+                    Yii::$app->response->format = Response::FORMAT_JSON;
+                    return ActiveForm::validate($model);
+                }
+                $email = $model->email;
+                $model = UsersSystem::findOne(['email' => $email]);
+            } else {
+                $this->render('request_password', [
+                    'user' => $model
+                ]);
+            }
+        } else {
+            $model = UsersSystem::findOne(Yii::$app->user->id);
+        }
+        if ($model) {
+            $token = Yii::$app->security->generateRandomString();
+            $model->password_reset_token = $token;
+            $model->update(false);
+            $this->sendEmailChangePass($model);
+            $this->layout = 'login';
+            return $this->render('alert', [
+                'alerts' => [
+                    [
+                        'type' => Alert::TYPE_SUCCESS,
+                        'title' => 'Change Password',
+                        'body' => 'You will receive an email with instructions to finish with the change of your password'
+                    ]
+                ]
+            ]);
+        } else {
+            throw new InvalidParamException();
+        }
+    }
+
+    public function actionChangepassword($id, $auth)
+    {
+        $auth = Html::decode($auth);
+        $id = Html::decode($id);
+
+        $model = UsersSystem::findOne([
+            'password_reset_token' => $id,
+            'authKey' => $auth
+        ]);
+
+        if ($model) {
+            $model->scenario = UsersSystem::SCENARIO_PASSWORD;
+            if ($model->load(Yii::$app->request->post())) {
+                if (Yii::$app->request->isAjax) {
+                    Yii::$app->response->format = Response::FORMAT_JSON;
+                    return ActiveForm::validate($model);
+                }
+                $model->password_hash = Yii::$app->getSecurity()->generatePasswordHash($model->password_hash);
+                $model->password_reset_token = NULL;
+                if ($model->update(false)) {
+                    echo "Successfully updated password, redirecting ...";
+                    echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("/") . "'>";
+                } else {
+                    return $this->render('alert', [
+                        'alerts' => [
+                            [
+                                'type' => Alert::TYPE_DANGER,
+                                'title' => 'Change Password',
+                                'body' => 'The password could not be modified, try again.'
+                            ]
+                        ]
+                    ]);
+                }
+            } else {
+                $model->password_hash = "";
+                $this->layout = 'login';
+                return $this->render('changepassword', [
+                    'user' => $model
+                ]);
+            }
+        } else {
+            throw new InvalidParamException();
+        }
+    }
+
     public function actionSignup()
     {
         $profile_model = new ProfileAccount();
         $user_model = new UsersSystem();
+        $user_model->scenario = UsersSystem::SCENARIO_SIGNUP;
 
         if ($user_model->load(Yii::$app->request->post())) {
             if (Yii::$app->request->isAjax) {
@@ -145,10 +193,10 @@ class SiteController extends Controller
                 $user_model->password_hash = Yii::$app->getSecurity()->generatePasswordHash($user_model->password_hash);
                 $user_model->authKey = Yii::$app->getSecurity()->generateRandomString();
                 $user_model->accessToken = Yii::$app->getSecurity()->generateRandomString();
-                if ($user_model->save()) {
+                if ($user_model->save(false)) {
                     $profile_model->user_id = $user_model->id;
                     $profile_model->areas_support = json_encode($profile_model->areas_support);
-                    if ($profile_model->save()) {
+                    if ($profile_model->save(false)) {
                         $autologin = new LoginForm();
                         $autologin->username = $user_model->username;
                         $url_verified = $user_model->getUrlVerifiedUser();
@@ -156,13 +204,12 @@ class SiteController extends Controller
                         $body = "<h1>Click on the following link to complete your registration</h1>";
                         $body .= "<a href='" . $url_verified . "'>Confirm</a>";
 
-                        //Enviamos el correo
-//                        Yii::$app->mailer->compose()
-//                            ->setTo($user_model->email)
-//                            ->setFrom([Yii::$app->params["adminEmail"] => Yii::$app->params["title"]])
-//                            ->setSubject($subject)
-//                            ->setHtmlBody($body)
-//                            ->send();
+                        Yii::$app->mailer->compose()
+                            ->setTo($user_model->email)
+                            ->setFrom([Yii::$app->params["adminEmail"] => Yii::$app->params["title"]])
+                            ->setSubject($subject)
+                            ->setHtmlBody($body)
+                            ->send();
 
                         $autologin->createLogin();
                         return $this->goHome();
@@ -187,34 +234,46 @@ class SiteController extends Controller
         }
     }
 
+    public function actionNotVerified()
+    {
+        throw new NotFoundHttpException("User not verified");
+    }
+
     public function actionVerifiedAccount($id, $auth)
     {
-        $auth = Html::encode($auth);
-        $id = Yii::$app->getSecurity()->decryptByPassword($id, $auth);
+        $auth = Html::decode($auth);
+        $id = Html::decode($id);
 
-        if ((int)$id) {
-            $user = UsersSystem::findOne([
-                'id' => $id,
-                'authKey' => $auth
-            ]);
+        $user = UsersSystem::findOne([
+            'username' => $id,
+            'authKey' => $auth
+        ]);
 
-            if ($user) {
-                $user->verified_account = 1;
-                if ($user->update()) {
-                    echo "Congratulations registration successfully, redirecting ...";
-                    echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("site/login") . "'>";
-                } else {
-                    echo "An error occurred while performing the registration, redirecting ...";
-                    echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("site/login") . "'>";
-                }
+        if ($user) {
+            $user->verified_account = 1;
+            if ($user->update(false)) {
+                echo "Congratulations registration successfully, redirecting ...";
+                echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("/") . "'>";
             } else {
-                return $this->redirect(["site/login"]);
+                echo "An error occurred while performing the registration, redirecting ...";
+
+//                var_dump($user->getErrors());
+//                var_dump($user->username, $user->email, $user->password_hash);
+
+                echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("/") . "'>";
             }
+        } else {
+            echo "User not identified, redirecting ...";
+            echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("/") . "'>";
         }
     }
 
-    public function actionProfile()
+    public function actionMyprofile()
     {
+        if (!Yii::$app->user->identity->verified_account) {
+            return $this->redirect(Url::to('/site/not-verified'));
+        }
+
         $this->layout = "profile";
 
         $user_id = Yii::$app->user->identity->getId();
@@ -245,7 +304,7 @@ class SiteController extends Controller
                 if ($isValid) {
                     $user->save(false);
                     $profile->save(false);
-                    return $this->redirect(Url::to('@web/profile'));
+                    return $this->redirect(Url::to('@web/myprofile'));
                 }
             }
         }
@@ -274,6 +333,6 @@ class SiteController extends Controller
     public function actionTest()
     {
         $user = UsersSystem::findOne(Yii::$app->request->get('id'));
-        return Html::a('Click on the following link to complete your registration', $user->getUrlVerifiedUser());
+        return Html::a('Click on the following link to complete your registration', $user->getUrlChangePassword());
     }
 }

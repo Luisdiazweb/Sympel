@@ -1,4 +1,5 @@
 <?php
+
 namespace app\controllers;
 
 use Yii;
@@ -45,12 +46,28 @@ class CustomController extends Controller
     {
         if (parent::beforeAction($action)) {
             // change layout for error action
-            if ($action->id == 'error'){
+            if ($action->id == 'error') {
                 $this->layout = 'login';
             }
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+        ];
     }
 }
