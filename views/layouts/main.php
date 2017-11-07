@@ -102,7 +102,7 @@ NavBar::end();*/
                     '
                     ) : (Yii::$app->user->identity->admin? '<li class="nav-item"><a class="nav-link nav-actions" href="/dashboard/index">Dashboard</a></li>': '') . (
                         '<li class="nav-item">
-                            <a class="nav-link nav-actions" href="/profile">
+                            <a class="nav-link nav-actions" href="/myprofile">
                                 ' . Yii::$app->user->identity->username . '
                             </a>
                         </li>
