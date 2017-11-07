@@ -84,14 +84,13 @@ CREATE TABLE IF NOT EXISTS `profile_account` (
   KEY `profile_type_FK` (`profile_type_id`),
   CONSTRAINT `profile_type_FK` FOREIGN KEY (`profile_type_id`) REFERENCES `profile_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla sympel_db.profile_account: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla sympel_db.profile_account: ~1 rows (aproximadamente)
 DELETE FROM `profile_account`;
 /*!40000 ALTER TABLE `profile_account` DISABLE KEYS */;
 INSERT INTO `profile_account` (`id`, `user_id`, `profile_type_id`, `firstname`, `lastname`, `non_profit_name`, `title`, `address`, `state`, `city`, `zip_code`, `phone`, `registered_ein`, `website`, `areas_support`) VALUES
-	(4, 11, 1, 'Luis ', 'Diaz', 'DCCOLORWEB', 'Founder', '15 calle poniente ', 'La libertad', 'Santa Tecla', '00000', '22296700', '123456', 'www.dccolorweb.co', '["19","20"]'),
-	(5, 12, 1, 'Eric', 'Melson', 'sympel', 'founder', 'Houston ', 'Texas', 'Houston', '76010', '000000000000000', '12345678910', 'www.sympel.com', '["8","13"]');
+	(10, 17, 1, 'Victor', 'Aguilar', '', '', '', '', '', '', '', '', '', '""');
 /*!40000 ALTER TABLE `profile_account` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.profile_type
@@ -125,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `session` (
 DELETE FROM `session`;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
 INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-	('bclp5bpb66tpdbnnprdljb9fr1', 1509148861, _binary 0x5F5F666C6173687C613A303A7B7D);
+	('ea8ll2cv04brvqklb86ti3sk76', 1510010590, _binary 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A31373B);
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.user
@@ -136,25 +135,22 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password_hash` varchar(255) NOT NULL,
   `password_reset_token` varchar(255) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
+  `admin` tinyint(4) NOT NULL DEFAULT '0',
   `verified_account` tinyint(4) NOT NULL DEFAULT '0',
-  `authKey` varchar(250) NOT NULL DEFAULT '0',
-  `accessToken` varchar(250) NOT NULL DEFAULT '0',
+  `accessToken` text NOT NULL,
+  `authKey` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla sympel_db.user: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla sympel_db.user: ~1 rows (aproximadamente)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` (`id`, `username`, `password_hash`, `password_reset_token`, `email`, `verified_account`, `authKey`, `accessToken`, `created_at`, `updated_at`) VALUES
-	(2, 'admin', '$2y$13$KUUvBJIf/IoKbqmwqvdpcu3bme7kVqm3XTmLwl1EJpgsVXUsF7HQ6', '0', 'admin@test.com', 0, '0', '0', '2017-10-21 17:34:58', '2017-10-21 18:10:56'),
-	(3, 'test', '$2y$13$QI.mh7hQrjCrQgLsIArRVOojtpUwwfwzvofFgpkRvfWO0Xk8ntGIe', '0', 'valbert1993@gmail.com', 0, '0', '0', '2017-10-24 06:54:13', '2017-10-26 15:10:24'),
-	(5, 'test2', '$2y$13$.ODSpqrxmMUWfeYU8fw4uujNCiS30JLskcJWTcR3Try7HYyr/IK8S', '0', 'valbert1993@gmail.co', 0, '0', '0', '2017-10-24 23:59:20', '2017-10-26 15:10:26'),
-	(11, 'DCCOLORWEB', '$2y$13$.FtH/DOMfUn39xeTCmdBI.g3GHcKe/woxmYKIprjAQ60BpP9Dl.Vi', NULL, 'luisd@dccolorweb.com', 0, '0', '0', '2017-10-27 16:50:57', '2017-10-27 16:54:14'),
-	(12, 'sympel', '$2y$13$a.vkefuvkjicuI/ewvezCucbGwyuGfT/9ZBCsnWJ1XmRLBgmqvofG', NULL, 'Eric@sympel.com', 0, '0', '0', '2017-10-27 17:09:35', '2017-10-27 17:09:35');
+INSERT INTO `user` (`id`, `username`, `password_hash`, `password_reset_token`, `email`, `admin`, `verified_account`, `accessToken`, `authKey`, `created_at`, `updated_at`) VALUES
+	(17, 'admin', '$2y$13$QSpN6DtcQRCLIMDVtg9HDOOaM/7aScSeDxeqzGMFie/hjC3jI.bBy', NULL, 'valbert1993@gmail.com', 0, 0, 'E4Q-ZmDjqdJXuD0GlPHE4orOQoKuvGtu', 'T0FJUVUAMfhNiAQSzYcSYCIKW2UXuigF', '2017-11-06 02:46:45', '2017-11-06 02:46:45');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
