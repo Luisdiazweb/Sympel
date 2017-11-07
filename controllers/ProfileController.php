@@ -15,35 +15,7 @@ use yii\filters\VerbFilter;
 /**
  * ProfileController implements the CRUD actions for ProfileAccount model.
  */
-class ProfileController extends Controller
-{
-    public $layout = 'dashboard';
-
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => false,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'allow' => boolval(ArrayHelper::getValue(Yii::$app->user->identity, 'admin')),
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
+class ProfileController {
     /**
      * Lists all ProfileAccount models.
      * @return mixed
