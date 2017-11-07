@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\NotSupportedException;
+use yii\base\Security;
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
 use yii\web\IdentityInterface;
@@ -28,6 +29,8 @@ use yii\web\IdentityInterface;
 class UsersSystem extends ActiveRecord implements IdentityInterface
 {
     public $password_repeat;
+    const SCENARIO_SIGNUP = 'register';
+    const SCENARIO_PASSWORD = 'recovery_pass';
 
     /**
      * @inheritdoc
@@ -37,23 +40,35 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
         return 'user';
     }
 
+    public function scenarios()
+    {
+        $scenarios = [
+            self::SCENARIO_SIGNUP => ['username', 'password_hash', 'email'],
+            self::SCENARIO_PASSWORD => ['password_hash', 'password_repeat'],
+            self::SCENARIO_REQUEST_PASS => ['106email'],
+        ];
+
+        return array_merge(parent::scenarios(), $scenarios);
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['username', 'password_hash', 'email'], 'required'],
+            [['username', 'password_hash', 'password_repeat', 'email'], 'required', 'on' => self::SCENARIO_SIGNUP],
+            [['password_hash', 'password_repeat'], 'required', 'on' => self::SCENARIO_PASSWORD],
             [['admin', 'verified_account'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['username', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['email'], 'string', 'max' => 100],
             ['email', 'email'],
-//            ['password_hash', 'match', 'pattern' => "/^.{6,16}$/"],
+            ['password_hash', 'match', 'pattern' => "/^.{6,16}$/"],
             [['authKey', 'accessToken'], 'string', 'max' => 250],
             [['username'], 'unique'],
             [['email'], 'unique'],
-//            ['password_repeat', 'compare', 'compareAttribute' => 'password_hash']
+            ['password_repeat', 'compare', 'compareAttribute' => 'password_hash']
         ];
     }
 
@@ -115,12 +130,22 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
 
     public function getUrlVerifiedUser()
     {
-        $id = urlencode(Yii::$app->getSecurity()->encryptByPassword($this->id, $this->authKey));
+        $id = urlencode($this->username);
         $auth = urlencode($this->authKey);
-        return Url::to([
+        return Url::toRoute([
             "verified-account",
             'id' => $id,
             'auth' => $auth
-        ]);
+        ], true);
+    }
+    public function getUrlChangePassword()
+    {
+        $id = urlencode($this->username);
+        $auth = urlencode($this->authKey);
+        return Url::toRoute([
+            "changepassword",
+            'id' => $id,
+            'auth' => $auth
+        ], true);
     }
 }
