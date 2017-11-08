@@ -13,12 +13,10 @@
 
 
 -- Volcando estructura de base de datos para sympel_db
-DROP DATABASE IF EXISTS `sympel_db`;
 CREATE DATABASE IF NOT EXISTS `sympel_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `sympel_db`;
 
 -- Volcando estructura para tabla sympel_db.areas_support
-DROP TABLE IF EXISTS `areas_support`;
 CREATE TABLE IF NOT EXISTS `areas_support` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -62,7 +60,6 @@ INSERT INTO `areas_support` (`id`, `name`) VALUES
 /*!40000 ALTER TABLE `areas_support` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.profile_account
-DROP TABLE IF EXISTS `profile_account`;
 CREATE TABLE IF NOT EXISTS `profile_account` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -86,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `profile_account` (
   CONSTRAINT `user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla sympel_db.profile_account: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla sympel_db.profile_account: ~0 rows (aproximadamente)
 DELETE FROM `profile_account`;
 /*!40000 ALTER TABLE `profile_account` DISABLE KEYS */;
 INSERT INTO `profile_account` (`id`, `user_id`, `profile_type_id`, `firstname`, `lastname`, `non_profit_name`, `title`, `address`, `state`, `city`, `zip_code`, `phone`, `registered_ein`, `website`, `areas_support`) VALUES
@@ -94,7 +91,6 @@ INSERT INTO `profile_account` (`id`, `user_id`, `profile_type_id`, `firstname`, 
 /*!40000 ALTER TABLE `profile_account` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.profile_type
-DROP TABLE IF EXISTS `profile_type`;
 CREATE TABLE IF NOT EXISTS `profile_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL DEFAULT '0',
@@ -102,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `profile_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla sympel_db.profile_type: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla sympel_db.profile_type: ~2 rows (aproximadamente)
 DELETE FROM `profile_type`;
 /*!40000 ALTER TABLE `profile_type` DISABLE KEYS */;
 INSERT INTO `profile_type` (`id`, `name`, `created_at`) VALUES
@@ -112,7 +108,6 @@ INSERT INTO `profile_type` (`id`, `name`, `created_at`) VALUES
 /*!40000 ALTER TABLE `profile_type` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.session
-DROP TABLE IF EXISTS `session`;
 CREATE TABLE IF NOT EXISTS `session` (
   `id` char(40) NOT NULL,
   `expire` int(11) DEFAULT NULL,
@@ -124,11 +119,10 @@ CREATE TABLE IF NOT EXISTS `session` (
 DELETE FROM `session`;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
 INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-	('ea8ll2cv04brvqklb86ti3sk76', 1510010590, _binary 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A31373B);
+	('ia5k3480cehku90qfrbht2no22', 1510123595, _binary 0x5F5F666C6173687C613A303A7B7D);
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.user
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
@@ -150,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `username`, `password_hash`, `password_reset_token`, `email`, `admin`, `verified_account`, `accessToken`, `authKey`, `created_at`, `updated_at`) VALUES
-	(17, 'admin', '$2y$13$QSpN6DtcQRCLIMDVtg9HDOOaM/7aScSeDxeqzGMFie/hjC3jI.bBy', NULL, 'valbert1993@gmail.com', 0, 0, 'E4Q-ZmDjqdJXuD0GlPHE4orOQoKuvGtu', 'T0FJUVUAMfhNiAQSzYcSYCIKW2UXuigF', '2017-11-06 02:46:45', '2017-11-06 02:46:45');
+	(17, 'admin', '$2y$13$G.iapHfvmSBZiakNBDF8TuXiiMs7aJqG65KHNPRGX2/EDvPjOfTB6', NULL, 'valbert1993@gmail.com', 1, 1, 'E4Q-ZmDjqdJXuD0GlPHE4orOQoKuvGtu', 'T0FJUVUAMfhNiAQSzYcSYCIKW2UXuigF', '2017-11-06 02:46:45', '2017-11-08 00:22:14');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
