@@ -48,9 +48,7 @@ class SiteController extends CustomController
             if (Yii::$app->user->identity->admin) {
                 return $this->redirect(Url::to('@web/dashboard/index'));
             }
-            if (Yii::$app->user->identity->verified_account) {
-                return $this->redirect(Url::to('@web/site/not-verified'));
-            }
+            $this->checkaccount();
             return $this->redirect(Url::to('@web/myrofile'));
         }
         return $this->render('login', [
@@ -102,7 +100,8 @@ class SiteController extends CustomController
                 $email = $model->email;
                 $model = UsersSystem::findOne(['email' => $email]);
             } else {
-                $this->render('request_password', [
+                $this->layout = "login";
+                return $this->render('request_password', [
                     'user' => $model
                 ]);
             }
@@ -236,7 +235,12 @@ class SiteController extends CustomController
 
     public function actionNotVerified()
     {
-        throw new NotFoundHttpException("User not verified");
+        if (!boolval(Yii::$app->user->identity->verified_account)) {
+            throw new NotFoundHttpException("User not verified");
+        }else{
+            return $this->goBack();
+        }
+
     }
 
     public function actionVerifiedAccount($id, $auth)
@@ -270,9 +274,7 @@ class SiteController extends CustomController
 
     public function actionMyprofile()
     {
-        if (!Yii::$app->user->identity->verified_account) {
-            return $this->redirect(Url::to('/site/not-verified'));
-        }
+        $this->checkaccount();
 
         $this->layout = "profile";
 
@@ -334,5 +336,12 @@ class SiteController extends CustomController
     {
         $user = UsersSystem::findOne(Yii::$app->request->get('id'));
         return Html::a('Click on the following link to complete your registration', $user->getUrlChangePassword());
+    }
+
+    private function checkaccount()
+    {
+        if (!boolval(Yii::$app->user->identity->verified_account)) {
+            return $this->redirect(Url::to('/site/not-verified'));
+        }
     }
 }

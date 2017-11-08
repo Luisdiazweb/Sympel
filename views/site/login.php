@@ -93,7 +93,7 @@ $this->registerJsFile("app-assets/js/scripts/forms/form-login-register.js", [
                     ]) ?>
                 </fieldset>
             </div>
-            <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="recover-password.html"
+            <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="/requestpassword"
                                                                             class="card-link">Forgot Password?</a></div>
         </fieldset>
         <?= Html::submitButton('<i class="ft-unlock"></i> Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button']) ?>
@@ -102,9 +102,6 @@ $this->registerJsFile("app-assets/js/scripts/forms/form-login-register.js", [
 </div>
 <div class="card-footer">
     <div class="">
-        <p class="float-sm-left text-xs-center m-0"><a href="recover-password.html"
-                                                       class="card-link">Recover password</a>
-        </p>
         <p class="float-sm-right text-xs-center m-0">New to Sympel? <a
                     href="register-simple.html" class="card-link">Sign Up</a></p>
     </div>
