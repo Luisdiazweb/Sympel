@@ -47,7 +47,7 @@ class SiteController extends CustomController
                 'user_id' => Yii::$app->user->identity->id
             ])->id);
             if (Yii::$app->user->identity->admin) {
-                return $this->redirect(Url::to('@web/dashboard/index'));
+                return $this->redirect(Url::to('@web/dashboard/'));
             }
             $this->checkaccount();
             return $this->redirect(Url::to('@web/myrofile'));

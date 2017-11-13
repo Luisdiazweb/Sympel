@@ -7,7 +7,7 @@ use app\models\UsersSystem;
 use app\models\UserSearch;
 use yii\web\NotFoundHttpException;
 
-class UserController
+class UserController extends AdminController
 {
     public function actionIndex()
     {

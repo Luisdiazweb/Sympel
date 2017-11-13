@@ -15,7 +15,8 @@ use yii\filters\VerbFilter;
 /**
  * ProfileController implements the CRUD actions for ProfileAccount model.
  */
-class ProfileController {
+class ProfileController extends AdminController
+{
     /**
      * Lists all ProfileAccount models.
      * @return mixed
