@@ -176,6 +176,8 @@ class SiteController extends CustomController
 
     public function actionSignup()
     {
+        return $this->redirect('/signup1');
+        
         $profile_model = new ProfileAccount();
         $user_model = new UsersSystem();
         $user_model->scenario = UsersSystem::SCENARIO_SIGNUP;
