@@ -14,6 +14,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 ================================================================================================*/
 
 h1.sympel-title{
+
   font-family: amatic_scregular;
     font-size: 60px;}
 
@@ -226,6 +227,13 @@ ul.actions li:last-child a:after{
     border-radius: 10px;
 }
 
+.validation-container{
+    background-color: #fcfbfa;
+}
+
+.card-block.steps{
+  border: 1px solid #e6e2e2;
+}
 /*================================================================================================
    TRIANGLE TABS STYLES
 ================================================================================================*/
@@ -276,10 +284,11 @@ header.masthead {
   width: 100%;
   padding-top: 10%;
   color: white;
-  background: url("../img/header.png");
+  background: url("../img/hand-small-2.png");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover; 
+  padding-bottom: 10%;}
   header.masthead .header-content {
     margin-bottom: 100px;
     text-align: left; }
@@ -353,7 +362,7 @@ header.masthead {
 }
 
 .search{
-  background:#252626;color: #fff;padding: 5% 5%;
+  background:#252626;color: #fff;padding: 3% 5%;
 }
 
 .search-list{
