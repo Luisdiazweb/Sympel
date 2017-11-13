@@ -97,7 +97,7 @@ NavBar::end();*/
                 <ul class="nav navbar-nav float-xs-right actions">
                     <?=
                     Yii::$app->user->isGuest ? ('
-                    <li class="nav-item"><a class="nav-link nav-actions" href="/signup">Signup</a></li>
+                    <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
                     <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
                     '
                     ) : (Yii::$app->user->identity->admin? '<li class="nav-item"><a class="nav-link nav-actions" href="/dashboard/index">Dashboard</a></li>': '') . (

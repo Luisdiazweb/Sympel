@@ -90,7 +90,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/switch.js',
 
     <?php $this->head() ?>
 </head>
-<body data-menu="horizontal-menu" data-col="2-columns" class="horizontal-layout horizontal-menu 2-columns  fixed-navbar  menu-expanded">
+<body data-menu="horizontal-menu" data-col="2-columns"
+      class="horizontal-layout horizontal-menu 2-columns  fixed-navbar  menu-expanded">
 <?php $this->beginBody() ?>
 
 
@@ -157,7 +158,7 @@ NavBar::end();*/
                 </ul>
                 <ul class="nav navbar-nav float-xs-right actions">
                     <?= Yii::$app->user->isGuest ? ('
-                    <li class="nav-item"><a class="nav-link nav-actions" href="/signup">Signup</a></li>
+                    <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
                     <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
                     '
                     ) :

@@ -103,6 +103,6 @@ $this->registerJsFile("app-assets/js/scripts/forms/form-login-register.js", [
 <div class="card-footer">
     <div class="">
         <p class="float-sm-right text-xs-center m-0">New to Sympel? <a
-                    href="register-simple.html" class="card-link">Sign Up</a></p>
+                    href="/signup1" class="card-link">Sign Up</a></p>
     </div>
 </div>
