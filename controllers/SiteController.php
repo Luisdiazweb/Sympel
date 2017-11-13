@@ -439,6 +439,25 @@ class SiteController extends CustomController
         }
     }
 
+    public function actionPublicprofile($id){
+
+        $user = UsersSystem::findOne(['username' => $id]);
+        if (!$user) {
+            throw new NotFoundHttpException("The user was not found.");
+        }
+
+        $profile = ProfileAccount::findOne(['user_id' => $user->id]);
+
+        if (!$profile) {
+            throw new NotFoundHttpException("The user has no profile.");
+        }
+
+        $this->layout = 'profile_public';
+        return $this->render('profile_public', [
+            'profile' => $profile
+        ]);
+    }
+
     private function checkifpreviscomplete($prev)
     {
 //        $key = SignupStepsComponent::getStepKey($prev);

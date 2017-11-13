@@ -89,6 +89,7 @@ $config = [
             'enablePrettyUrl' => true,
             'rules' => [
                 '<alias:\w+>' => 'site/<alias>',
+                '<alias:\w+>/<id:\w+>' => 'site/<alias>',
                 '<controller:\w+>/<id:\w+>' => '<controller>',
                 '<controller:\w+>/<action:\w+>/<id:\w+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',

@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
+ * @property string $public_name
  * @property string $created_at
  *
  * @property ProfileAccount[] $profileAccounts
@@ -30,7 +31,7 @@ class ProfileType extends \yii\db\ActiveRecord
     {
         return [
             [['created_at'], 'safe'],
-            [['name'], 'string', 'max' => 128],
+            [['name', 'public_name'], 'string', 'max' => 128],
         ];
     }
 
@@ -42,6 +43,7 @@ class ProfileType extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'public_name' => 'Public Name',
             'created_at' => 'Created At',
         ];
     }
