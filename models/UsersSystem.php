@@ -44,7 +44,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
     public function scenarios()
     {
         $scenarios = [
-            self::SCENARIO_SIGNUP => ['username', 'password_hash', 'email'],
+            self::SCENARIO_SIGNUP => ['username', 'password_hash', 'password_repeat', 'email'],
             self::SCENARIO_PASSWORD => ['password_hash', 'password_repeat'],
             self::SCENARIO_REQUEST_PASS => ['email'],
         ];
@@ -65,11 +65,11 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
             [['username', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['email'], 'string', 'max' => 100],
             ['email', 'email'],
-            ['password_hash', 'match', 'pattern' => "/^.{6,16}$/"],
+//            ['password_hash', 'match', 'pattern' => "/^.{6,16}$/"],
             [['authKey', 'accessToken'], 'string', 'max' => 250],
             [['username'], 'unique'],
             [['email'], 'unique'],
-            ['password_repeat', 'compare', 'compareAttribute' => 'password_hash']
+//            ['password_repeat', 'compare', 'compareAttribute' => 'password_hash']
         ];
     }
 

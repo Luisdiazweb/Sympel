@@ -2,10 +2,11 @@
 
 namespace app\controllers;
 
+use app\component\SignupForms;
+use app\component\SignupStepsComponent;
 use app\models\ProfileAccount;
 use app\models\UsersSystem;
 use kartik\alert\Alert;
-use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\db\Query;
@@ -198,18 +199,6 @@ class SiteController extends CustomController
                     if ($profile_model->save(false)) {
                         $autologin = new LoginForm();
                         $autologin->username = $user_model->username;
-                        $url_verified = $user_model->getUrlVerifiedUser();
-                        $subject = "Confirm Sign Up";
-                        $body = "<h1>Click on the following link to complete your registration</h1>";
-                        $body .= "<a href='" . $url_verified . "'>Confirm</a>";
-
-                        Yii::$app->mailer->compose()
-                            ->setTo($user_model->email)
-                            ->setFrom([Yii::$app->params["adminEmail"] => Yii::$app->params["title"]])
-                            ->setSubject($subject)
-                            ->setHtmlBody($body)
-                            ->send();
-
                         $autologin->createLogin();
                         return $this->goHome();
                     } else {
@@ -237,7 +226,7 @@ class SiteController extends CustomController
     {
         if (!boolval(Yii::$app->user->identity->verified_account)) {
             throw new NotFoundHttpException("User not verified");
-        }else{
+        } else {
             return $this->goBack();
         }
 
@@ -334,8 +323,15 @@ class SiteController extends CustomController
 
     public function actionTest()
     {
-        $user = UsersSystem::findOne(Yii::$app->request->get('id'));
-        return Html::a('Click on the following link to complete your registration', $user->getUrlChangePassword());
+//        $user = UsersSystem::findOne(Yii::$app->request->get('id'));
+//        return Html::a('Click on the following link to complete your registration', $user->getUrlChangePassword());
+
+
+        $test = new SignupStepsComponent();
+        $cursors = $test->cursorArraySteps();
+        var_dump($cursors);
+        $test::setCurrentStep($cursors->next);
+
     }
 
     private function checkaccount()
@@ -343,5 +339,109 @@ class SiteController extends CustomController
         if (!boolval(Yii::$app->user->identity->verified_account)) {
             return $this->redirect(Url::to('/site/not-verified'));
         }
+    }
+
+    public function actionSignup1()
+    {
+//        Yii::$app->session->destroy();
+        $component = new SignupForms();
+        $post = Yii::$app->request->post();
+        $steps = new SignupStepsComponent();
+        $steps::setCurrentStep(SignupStepsComponent::STEP1);
+        $cursors = $steps->cursorArraySteps();
+//        var_dump($steps::getSteps());
+//        exit();
+        $return = $component->signup_step1($post, Yii::$app->request->isAjax);
+        if ((is_array($return)) && Yii::$app->request->isAjax) {
+            return $return;
+        } elseif (($return === true)&&  Yii::$app->request->isPost) {
+            $steps::saveStep($post, $cursors->current);
+            return $this->redirect($cursors->next);
+        } else {
+            return $this->render($return->render, [
+                'url_next' => $cursors->next
+            ]);
+        }
+    }
+
+    public function actionSignup2()
+    {
+        $steps = new SignupStepsComponent();
+        $cursors = $steps->cursorArraySteps();
+        $steps::setCurrentStep(SignupStepsComponent::STEP2);
+//        var_dump($cursors);
+//        var_dump($this->checkifpreviscomplete($cursors->prev));
+//        exit();
+
+
+        $component = new SignupForms();
+        $post = Yii::$app->request->post();
+        $return = $component->signup_step2($post, Yii::$app->request->isAjax);
+        if ((is_array($return)) && Yii::$app->request->isAjax) {
+            return $return;
+        } elseif (($return === true)&&  Yii::$app->request->isPost) {
+            $steps::saveStep($post, $cursors->current);
+            return $this->redirect($cursors->next);
+        } else {
+            $complete = false;
+            if ($this->checkifpreviscomplete($cursors->prev)) {
+                $complete = true;
+            } else {
+                return $this->redirect($cursors->prev);
+            }
+            if ($complete) {
+                $return->user_model->load($steps::getStep($cursors->current));
+                $return->profile_model->load($steps::getStep($cursors->current));
+            }
+
+            return $this->render($return->render, [
+                'user' => $return->user_model,
+                'profile' => $return->profile_model,
+                'url_prev' => $cursors->prev,
+                'url_next' => $cursors->next
+            ]);
+        }
+    }
+
+    public function actionSignup3()
+    {
+        $steps = new SignupStepsComponent();
+        $steps::setCurrentStep(SignupStepsComponent::STEP3);
+        $cursors = $steps->cursorArraySteps();
+
+
+        $component = new SignupForms();
+        $post = Yii::$app->request->post();
+        $return = $component->signup_step3($post, Yii::$app->request->isAjax);
+        if ((is_array($return)) && Yii::$app->request->isAjax) {
+            return $return;
+        } elseif (($return === true)&&  Yii::$app->request->isPost) {
+            $steps::saveStep($post, $cursors->current);
+            return $this->redirect($cursors->next);
+        } else {
+            $complete = false;
+            if ($this->checkifpreviscomplete($cursors->prev)) {
+                $complete = true;
+            } else {
+                return $this->redirect($cursors->prev);
+            }
+            if ($complete) {
+                $return->model->load($steps::getStep($cursors->current));
+            }
+
+            $query = new Query();
+            $areas_support = $query->from('areas_support')->all();
+            return $this->render($return->render, [
+                'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
+                'profile' => $return->model,
+                'url_prev' => $cursors->prev
+            ]);
+        }
+    }
+
+    private function checkifpreviscomplete($prev)
+    {
+//        $key = SignupStepsComponent::getStepKey($prev);
+        return SignupStepsComponent::isStepComplete($prev);
     }
 }

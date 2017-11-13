@@ -13,6 +13,7 @@ use Yii;
  * @property string $firstname
  * @property string $lastname
  * @property string $non_profit_name
+ * @property string $company_name
  * @property string $title
  * @property string $address
  * @property string $state
@@ -22,12 +23,34 @@ use Yii;
  * @property string $registered_ein
  * @property string $website
  * @property string $areas_support
+ * @property string $mission
+ * @property string $profile_picture_url
  *
  * @property ProfileType $profileType
  * @property UsersSystem $user
  */
 class ProfileAccount extends \yii\db\ActiveRecord
 {
+
+    const SCENARIO_SIGNUP_STEP1 = 'step1';
+    const SCENARIO_SIGNUP_STEP2 = 'step2';
+    const SCENARIO_SIGNUP_STEP3_3 = 'step3_individual';
+    const SCENARIO_SIGNUP_STEP3_2 = 'step3_company';
+    const SCENARIO_SIGNUP_STEP3_1 = 'step3_nonprofit';
+
+    public function scenarios()
+    {
+        $scenarios = [
+            self::SCENARIO_SIGNUP_STEP1 => ['profile_type_id'],
+            self::SCENARIO_SIGNUP_STEP2 => ['firstname', 'lastname'],
+            self::SCENARIO_SIGNUP_STEP3_3 => ['state', 'city', 'zip_code', 'areas_support'],
+            self::SCENARIO_SIGNUP_STEP3_2 => ['company_name', 'address', 'state', 'city', 'zip_code', 'phone', 'website', 'areas_support' . 'mission'],
+            self::SCENARIO_SIGNUP_STEP3_1 => ['non_profit_name', 'title', 'address', 'state', 'city', 'zip_code', 'phone', 'website', 'registered_ein', 'areas_support', 'mission'],
+        ];
+
+        return array_merge(parent::scenarios(), $scenarios);
+    }
+
     /**
      * @inheritdoc
      */
@@ -42,11 +65,17 @@ class ProfileAccount extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'profile_type_id', 'firstname', 'lastname'], 'required'],
+            [['profile_type_id'], 'required', 'on' => self::SCENARIO_SIGNUP_STEP1],
+            [['firstname', 'lastname'], 'required', 'on' => self::SCENARIO_SIGNUP_STEP2],
+            [['state', 'city', 'zip_code'], 'required', 'on' => self::SCENARIO_SIGNUP_STEP3_3],
+            [['company_name', 'address', 'state', 'city', 'zip_code', 'phone', 'website'], 'required', 'on' => self::SCENARIO_SIGNUP_STEP3_2],
+            [['non_profit_name', 'title', 'address', 'state', 'city', 'zip_code', 'phone', 'website', 'registered_ein'], 'required', 'on' => self::SCENARIO_SIGNUP_STEP3_1],
+            [['user_id', 'profile_type_id', 'firstname', 'lastname', 'state', 'city', 'zip_code'], 'required'],
             [['user_id', 'profile_type_id'], 'integer'],
-            [['areas_support'], 'string'],
-            [['firstname', 'lastname', 'non_profit_name', 'title', 'address', 'state', 'city', 'zip_code', 'phone', 'registered_ein'], 'string', 'max' => 128],
+            [['areas_support', 'mission'], 'string'],
+            [['firstname', 'lastname', 'non_profit_name', 'company_name', 'title', 'address', 'state', 'city', 'zip_code', 'phone', 'registered_ein'], 'string', 'max' => 128],
             [['website'], 'string', 'max' => 256],
+            [['profile_picture_url'], 'string', 'max' => 512],
             [['profile_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProfileType::className(), 'targetAttribute' => ['profile_type_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => UsersSystem::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -64,6 +93,7 @@ class ProfileAccount extends \yii\db\ActiveRecord
             'firstname' => 'Firstname',
             'lastname' => 'Lastname',
             'non_profit_name' => 'Non Profit Name',
+            'company_name' => 'Company Name',
             'title' => 'Title',
             'address' => 'Address',
             'state' => 'State',
@@ -73,6 +103,8 @@ class ProfileAccount extends \yii\db\ActiveRecord
             'registered_ein' => 'Registered Ein',
             'website' => 'Website',
             'areas_support' => 'Areas Support',
+            'mission' => 'Mission',
+            'profile_picture_url' => 'Profile Picture',
         ];
     }
 
