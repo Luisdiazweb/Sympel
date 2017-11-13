@@ -76,7 +76,7 @@ class SignupForms
             if ($isAjax) {
                 return $this->ajaxResponse($model);
             }
-            Yii::$app->session->set(self::PROFILE_TYPE, $model->profileType->name);
+            Yii::$app->session->set(self::PROFILE_TYPE, $model->profile_type_id);
             return true;
         } else {
             return (object)[

@@ -2,6 +2,7 @@
 
 namespace app\component;
 
+use app\models\UsersSystem;
 use stdClass;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -87,7 +88,10 @@ class SignupStepsComponent
     }
 
 
-    public function sendVerifiedAccountEmail($user_model)
+    /**
+     * @param UsersSystem $user_model
+     */
+    public static function sendVerifiedAccountEmail($user_model)
     {
         $url_verified = $user_model->getUrlVerifiedUser();
         $subject = "Confirm Sign Up";

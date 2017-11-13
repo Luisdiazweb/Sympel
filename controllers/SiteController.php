@@ -177,7 +177,7 @@ class SiteController extends CustomController
     public function actionSignup()
     {
         return $this->redirect('/signup1');
-        
+
         $profile_model = new ProfileAccount();
         $user_model = new UsersSystem();
         $user_model->scenario = UsersSystem::SCENARIO_SIGNUP;
@@ -356,7 +356,7 @@ class SiteController extends CustomController
         $return = $component->signup_step1($post, Yii::$app->request->isAjax);
         if ((is_array($return)) && Yii::$app->request->isAjax) {
             return $return;
-        } elseif (($return === true)&&  Yii::$app->request->isPost) {
+        } elseif (($return === true) && Yii::$app->request->isPost) {
             $steps::saveStep($post, $cursors->current);
             return $this->redirect($cursors->next);
         } else {
@@ -381,7 +381,7 @@ class SiteController extends CustomController
         $return = $component->signup_step2($post, Yii::$app->request->isAjax);
         if ((is_array($return)) && Yii::$app->request->isAjax) {
             return $return;
-        } elseif (($return === true)&&  Yii::$app->request->isPost) {
+        } elseif (($return === true) && Yii::$app->request->isPost) {
             $steps::saveStep($post, $cursors->current);
             return $this->redirect($cursors->next);
         } else {
@@ -417,9 +417,9 @@ class SiteController extends CustomController
         $return = $component->signup_step3($post, Yii::$app->request->isAjax);
         if ((is_array($return)) && Yii::$app->request->isAjax) {
             return $return;
-        } elseif (($return === true)&&  Yii::$app->request->isPost) {
+        } elseif (($return === true) && Yii::$app->request->isPost) {
             $steps::saveStep($post, $cursors->current);
-            return $this->redirect($cursors->next);
+            $this->finistSignup();
         } else {
             $complete = false;
             if ($this->checkifpreviscomplete($cursors->prev)) {
@@ -441,7 +441,8 @@ class SiteController extends CustomController
         }
     }
 
-    public function actionPublicprofile($id){
+    public function actionPublicprofile($id)
+    {
 
         $user = UsersSystem::findOne(['username' => $id]);
         if (!$user) {
@@ -464,5 +465,28 @@ class SiteController extends CustomController
     {
 //        $key = SignupStepsComponent::getStepKey($prev);
         return SignupStepsComponent::isStepComplete($prev);
+    }
+
+    private function finistSignup()
+    {
+        $step1 = SignupStepsComponent::getSteps(SignupStepsComponent::STEP1);
+        $step2 = SignupStepsComponent::getSteps(SignupStepsComponent::STEP2);
+        $step3 = SignupStepsComponent::getSteps(SignupStepsComponent::STEP3);
+
+        $user = new UsersSystem();
+        $user->load($step1);
+        $user->load($step2);
+        $user->save(false);
+        $profile = new ProfileAccount();
+        $profile->load($step2);
+        $profile->load($step3);
+        $profile->user_id = $user->id;
+        $profile->profile_type_id = Yii::$app->session->get(SignupForms::PROFILE_TYPE);
+        $profile->save(false);
+        SignupStepsComponent::sendVerifiedAccountEmail($user);
+        $autologin = new LoginForm();
+        $autologin->username = $user->username;
+        $autologin->createLogin();
+        return $this->goHome();
     }
 }
