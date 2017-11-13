@@ -345,7 +345,7 @@ class SiteController extends CustomController
 
     public function actionSignup1()
     {
-//        Yii::$app->session->destroy();
+        Yii::$app->session->destroy();
         $component = new SignupForms();
         $post = Yii::$app->request->post();
         $steps = new SignupStepsComponent();
