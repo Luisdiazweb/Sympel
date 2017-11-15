@@ -32,6 +32,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
     const SCENARIO_SIGNUP = 'register';
     const SCENARIO_PASSWORD = 'recovery_pass';
     const SCENARIO_REQUEST_PASS = 'request_change_password';
+    const SCENARIO_ADMIN = 'admin_form';
 
     /**
      * @inheritdoc
@@ -47,6 +48,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
             self::SCENARIO_SIGNUP => ['username', 'password_hash', 'password_repeat', 'email'],
             self::SCENARIO_PASSWORD => ['password_hash', 'password_repeat'],
             self::SCENARIO_REQUEST_PASS => ['email'],
+            self::SCENARIO_ADMIN => ['email', 'username', 'admin', 'verified_account'],
         ];
 
         return array_merge(parent::scenarios(), $scenarios);
@@ -59,6 +61,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'password_hash', 'password_repeat', 'email'], 'required', 'on' => self::SCENARIO_SIGNUP],
+            [['username', 'email'], 'required', 'on' => self::SCENARIO_ADMIN],
             [['password_hash', 'password_repeat'], 'required', 'on' => self::SCENARIO_PASSWORD],
             [['admin', 'verified_account'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
@@ -139,6 +142,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
             'auth' => $auth
         ], true);
     }
+
     public function getUrlChangePassword()
     {
         $id = urlencode($this->password_reset_token);

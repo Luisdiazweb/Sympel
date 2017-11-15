@@ -59,9 +59,14 @@ class UserController extends AdminController
     public function actionUpdate($id)
     {
         $model_user = $this->findModelUser($id);
+        $model_user->scenario= UsersSystem::SCENARIO_ADMIN;
 
-        if ($model_user->load(Yii::$app->request->post()) && $model_user->save()) {
-            return $this->redirect(['view', 'id' => $model_user->id]);
+        if ($model_user->load(Yii::$app->request->post())) {
+            if ($model_user->save()){
+                return $this->redirect(['view', 'id' => $model_user->id]);
+            }else{
+                var_dump($model_user->errors);
+            }
         } else {
             return $this->render('update', [
                 'model_user' => $model_user,
