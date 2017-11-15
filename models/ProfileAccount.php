@@ -31,6 +31,7 @@ use Yii;
  */
 class ProfileAccount extends \yii\db\ActiveRecord
 {
+    public $profile_picture_upload;
 
     const SCENARIO_SIGNUP_STEP1 = 'step1';
     const SCENARIO_SIGNUP_STEP2 = 'step2';
@@ -76,6 +77,7 @@ class ProfileAccount extends \yii\db\ActiveRecord
             [['firstname', 'lastname', 'non_profit_name', 'company_name', 'title', 'address', 'state', 'city', 'zip_code', 'phone', 'registered_ein'], 'string', 'max' => 128],
             [['website'], 'string', 'max' => 256],
             [['profile_picture_url'], 'string', 'max' => 512],
+            [['profile_picture_upload'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['profile_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProfileType::className(), 'targetAttribute' => ['profile_type_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => UsersSystem::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -104,7 +106,7 @@ class ProfileAccount extends \yii\db\ActiveRecord
             'website' => 'Website',
             'areas_support' => 'Areas Support',
             'mission' => 'Mission',
-            'profile_picture_url' => 'Profile Picture',
+            'profile_picture_url' => 'Profile Image',
         ];
     }
 

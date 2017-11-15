@@ -109,134 +109,27 @@ use yii\web\View;
         improve
         your searching experience.</p>
     <div class="row mb-3">
-        <div class="col-md-4 col-sm-12 skin skin-flat">
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Advocacy and Human Rights</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Animals</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Art's & Culture</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Board Development</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Children & Youth</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Comunity</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Computers & Technology</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Crisis Support</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Seniors</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Women</label>
-            </fieldset>
-        </div>
-        <div class="col-md-4 col-sm-12 skin skin-flat">
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Disaster Relief</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Education & Literacy</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Emergency & Safety</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Employment</label>
-            </fieldset>
-            <fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Environment</label>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Faith Based</label>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Health & Medicine</label>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Homeless & Housing</label>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Sports & Recreation</label>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Health & Fitness</label>
-                </fieldset>
-        </div>
-
-        <div class="col-md-4 col-sm-12 skin skin-flat">
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Hunger</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Immigrants & Refugees</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">International</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Justice & Legal</label>
-            </fieldset>
-            <fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">LGBT</label>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Media & Broadcasting</label>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Politics</label>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Race & Ethnicity</label>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Veterans & Military</label>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">Civil Rights & Support</label>
-                </fieldset>
+        <div class="col-md-12">
+            <?php
+            $areas_list = json_decode($profile->areas_support, true);
+            $profile->areas_support = $areas_list;
+            ?>
+            <?= $form->field($profile, 'areas_support')->checkboxList($areas_suport
+                , [
+                    'itemOptions' => [
+                        'template' => '<fieldset class="col-md-4 col-sm-12 skin skin-flat">{input}<label>{label}</label></fieldset>'
+                    ],
+                    'item' => function ($index, $label, $name, $checked, $value) {
+                        $check = $checked ? 'checked=true' : '' ;
+                        return '<fieldset class="col-md-4 col-sm-12 skin skin-flat">
+                                                                <label>
+                                                                    <input type="checkbox" name="' . $name . '" value="' . $value . '" ' . $check . '/>
+                                                                    ' . $label . '
+                                                                </label>
+                                                            </fieldset>';
+                    }
+                ]
+            )->label(false); ?>
         </div>
     </div> <!--END OF CHECKBOX AREA-->
 

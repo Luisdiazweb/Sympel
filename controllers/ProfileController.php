@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\ProfileAccount;
 use app\models\ProfileAccountSearch;
+use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
@@ -50,8 +51,12 @@ class ProfileController extends AdminController
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $query_areas = new Query();
+            $areas_support = $query_areas->from('areas_support')->all();
+
             return $this->render('create', [
                 'model' => $model,
+                'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
             ]);
         }
     }
@@ -66,11 +71,20 @@ class ProfileController extends AdminController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->areas_support = json_encode($model->areas_support);
+            if ($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }else{
+                var_dump($model->errors);
+            }
         } else {
+            $query_areas = new Query();
+            $areas_support = $query_areas->from('areas_support')->all();
+
             return $this->render('update', [
                 'model' => $model,
+                'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
             ]);
         }
     }
