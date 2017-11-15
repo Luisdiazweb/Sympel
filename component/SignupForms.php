@@ -9,7 +9,9 @@ use app\models\UsersSystem;
 use Yii;
 use yii\base\Model;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\BaseFileHelper;
 use yii\web\Response;
+use yii\web\UploadedFile;
 
 class SignupForms
 {
@@ -33,6 +35,18 @@ class SignupForms
             $profile->load($step1);
             $profile->load($step2);
             $profile->load($step3);
+
+            $profile->profile_picture_upload = UploadedFile::getInstance($profile, 'profile_picture_upload');
+            $path = 'profiles_picture/';
+            if (!is_dir($path)) {
+                BaseFileHelper::createDirectory($path, 0777, true);
+            }
+
+            $filePath = $path . Yii::$app->security->generateRandomString() . '.' . $profile->profile_picture_upload->extension;
+
+            if ($profile->profile_picture_upload->saveAs($filePath)) {
+                $profile->profile_picture_url = $filePath;
+            }
 
             $profile->user_id = $user->id;
             $profile->areas_support = json_encode($profile->areas_support);

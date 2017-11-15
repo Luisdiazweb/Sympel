@@ -96,7 +96,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                     <?php $form = ActiveForm::begin([
                                             'enableAjaxValidation' => true,
                                             'options' => [
-                                                'class' => 'steps-validation wizard-circle'
+                                                'class' => 'steps-validation wizard-circle',
+                                                'enctype' => 'multipart/form-data'
                                             ]
                                         ]
                                     ); ?>
@@ -114,11 +115,9 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <fieldset class="form-group">
-                                                    <label for="file">Profile Image</label>
-                                                    <label class="custom-file center-block block">
-                                                        <input type="file" id="file" class="custom-file-input">
-                                                        <span class="custom-file-control"></span>
-                                                    </label>
+                                                    <?= $form->field($profile, 'profile_picture_upload', [
+                                                        'template' => '<label>{label}</label><label class="custom-file center-block block">{input}<span class="custom-file-control"></span></label>'
+                                                    ])->fileInput(); ?>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -176,7 +175,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         <p class="my-2">IMPORTANT: By submitting this form you are acknowledging
                                             that ou have the authority to represent the listed party and have read
                                             our account creation policies.</p>
-                                        <?= Html::a('Previous',$url_prev,  ['class' => 'btn btn-primary']) ?>
+                                        <?= Html::a('Previous', $url_prev, ['class' => 'btn btn-primary']) ?>
                                         <?= Html::submitButton('Finish', ['class' => 'btn btn-success']) ?>
                                     </fieldset>
                                     <?php ActiveForm::end() ?>
