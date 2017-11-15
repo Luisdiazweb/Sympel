@@ -331,7 +331,7 @@ class SiteController extends CustomController
 
 
         $test = new SignupStepsComponent();
-        $cursors = $test->cursorArraySteps();
+//        $cursors = $test->cursorArraySteps();
         var_dump($cursors);
         $test::setCurrentStep($cursors->next);
 
@@ -351,7 +351,7 @@ class SiteController extends CustomController
         $post = Yii::$app->request->post();
         $steps = new SignupStepsComponent();
         $steps::setCurrentStep(SignupStepsComponent::STEP1);
-        $cursors = $steps->cursorArraySteps();
+//        $cursors = $steps->cursorArraySteps();
 //        var_dump($steps::getSteps());
 //        exit();
         $return = $component->signup_step1($post, Yii::$app->request->isAjax);
@@ -370,7 +370,7 @@ class SiteController extends CustomController
     public function actionSignup2()
     {
         $steps = new SignupStepsComponent();
-        $cursors = $steps->cursorArraySteps();
+//        $cursors = $steps->cursorArraySteps();
         $steps::setCurrentStep(SignupStepsComponent::STEP2);
 //        var_dump($cursors);
 //        var_dump($this->checkifpreviscomplete($cursors->prev));
@@ -409,7 +409,7 @@ class SiteController extends CustomController
     {
         $steps = new SignupStepsComponent();
         $steps::setCurrentStep(SignupStepsComponent::STEP3);
-        $cursors = $steps->cursorArraySteps();
+//        $cursors = $steps->cursorArraySteps();
 
 
         $component = new SignupForms();
