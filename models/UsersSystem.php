@@ -65,7 +65,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
             [['username', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['email'], 'string', 'max' => 100],
             ['email', 'email'],
-            ['password_hash', 'match', 'pattern' => "/^.{6,16}$/"],
+            ['password_hash', 'match', 'pattern' => "/^.{6,16}$/", 'message' => 'Password must be of minimum 6 characters length'],
             [['authKey', 'accessToken'], 'string', 'max' => 250],
             [['username'], 'unique'],
             [['email'], 'unique'],
