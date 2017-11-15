@@ -26,10 +26,14 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => 'Profile',
                 'value' => function ($model) {
-                    $profile_model = \app\models\ProfileAccount::findOne(['user_id'=> $model->id]);
-                    $profile_id = $profile_model->id;
+                    $profile_model = \app\models\ProfileAccount::findOne(['user_id' => $model->id]);
+                    if($profile_model){
+                        $profile_id = $profile_model->id;
 
-                return Html::a('View Profile', Url::to(['profile/view', 'id' => $profile_id]));
+                        return Html::a('View Profile', Url::to(['profile/view', 'id' => $profile_id]));
+                    }else{
+                        return "User have not profile";
+                    }
                 },
                 'format' => 'raw'
             ],

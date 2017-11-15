@@ -272,6 +272,7 @@ class SiteController extends CustomController
         $user_id = Yii::$app->user->identity->getId();
 
         $user = UsersSystem::findOne($user_id);
+        $user->scenario = UsersSystem::SCENARIO_ADMIN;
         if (!$user) {
             throw new NotFoundHttpException("The user was not found.");
         }
@@ -281,13 +282,13 @@ class SiteController extends CustomController
         if (!$profile) {
             throw new NotFoundHttpException("The user has no profile.");
         }
-
         if ($user->load(Yii::$app->request->post())) {
             if (Yii::$app->request->isAjax) {
                 Yii::$app->response->format = Response::FORMAT_JSON;
                 return ActiveForm::validate($user);
             }
             if ($profile->load(Yii::$app->request->post())) {
+                $profile->areas_support = json_encode($profile->areas_support);
                 if (Yii::$app->request->isAjax) {
                     Yii::$app->response->format = Response::FORMAT_JSON;
                     return ActiveForm::validate($profile);
@@ -295,12 +296,14 @@ class SiteController extends CustomController
                 $isValid = $user->validate();
                 $isValid = $profile->validate() && $isValid;
                 if ($isValid) {
-                    $user->save(false);
-                    $profile->save(false);
+                    $user->save();
+                    $profile->save();
+
                     return $this->redirect(Url::to('@web/myprofile'));
                 }
             }
         }
+
 
         $query_areas = new Query();
         $areas_support = $query_areas->from('areas_support')->all();
@@ -391,7 +394,7 @@ class SiteController extends CustomController
             if (!$this->checkifpreviscomplete(SignupStepsComponent::STEP1)) {
                 return $this->redirect(SignupStepsComponent::STEP1);
             }
-            if (!$this->checkifcuriscomplete(SignupStepsComponent::STEP2)) {
+            if ($this->checkifcuriscomplete(SignupStepsComponent::STEP2)) {
                 $return->user_model->load($steps::getStep(SignupStepsComponent::STEP2));
                 $return->profile_model->load($steps::getStep(SignupStepsComponent::STEP2));
             }

@@ -190,7 +190,7 @@ use yii\web\View;
                         'template' => '<fieldset class="col-md-4 col-sm-12 skin skin-flat">{input}<label>{label}</label></fieldset>'
                     ],
                     'item' => function ($index, $label, $name, $checked, $value) {
-                        $check = $checked ? 'checked=true' : '';
+                        $check = $checked ? 'checked=true' : '' ;
                         return '<fieldset class="col-md-4 col-sm-12 skin skin-flat">
                                                                 <label>
                                                                     <input type="checkbox" name="' . $name . '" value="' . $value . '" ' . $check . '/>

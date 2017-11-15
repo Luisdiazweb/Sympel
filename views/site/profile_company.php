@@ -77,11 +77,11 @@ use yii\web\View;
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="company-name">
-                    Company Name :
-                    <span class="danger">*</span>
-                </label>
-                <input type="text" class="form-control " id="company-name" name="company-name">
+                <?= $form->field($profile, 'company_name'
+                    , [
+                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+                    ]
+                ); ?>
             </div>
         </div>
 
@@ -157,7 +157,7 @@ use yii\web\View;
                         'template' => '<fieldset class="col-md-4 col-sm-12 skin skin-flat">{input}<label>{label}</label></fieldset>'
                     ],
                     'item' => function ($index, $label, $name, $checked, $value) {
-                        $check = $checked ? 'checked=true' : '';
+                        $check = $checked ? 'checked=true' : '' ;
                         return '<fieldset class="col-md-4 col-sm-12 skin skin-flat">
                                                                 <label>
                                                                     <input type="checkbox" name="' . $name . '" value="' . $value . '" ' . $check . '/>
