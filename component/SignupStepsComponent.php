@@ -16,7 +16,6 @@ class SignupStepsComponent
     const arraySteps = [self::STEP1, self::STEP2, self::STEP3];
     const CURRENT_STEP = 'current_step';
 
-
     public static function getSteps()
     {
         $steps = Yii::$app->session->get(self::SIGNUP);

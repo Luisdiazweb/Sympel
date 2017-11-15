@@ -65,11 +65,11 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
             [['username', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['email'], 'string', 'max' => 100],
             ['email', 'email'],
-//            ['password_hash', 'match', 'pattern' => "/^.{6,16}$/"],
+            ['password_hash', 'match', 'pattern' => "/^.{6,16}$/"],
             [['authKey', 'accessToken'], 'string', 'max' => 250],
             [['username'], 'unique'],
             [['email'], 'unique'],
-//            ['password_repeat', 'compare', 'compareAttribute' => 'password_hash']
+            ['password_repeat', 'compare', 'compareAttribute' => 'password_hash']
         ];
     }
 

@@ -79,7 +79,7 @@ class UserController extends AdminController
     {
         $this->findModelUser($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect('user');
     }
 
     /**

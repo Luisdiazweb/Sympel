@@ -94,7 +94,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                             <div class="card-body collapse in">
                                 <div class="card-block">
                                     <?php $form = ActiveForm::begin([
-                                            'enableAjaxValidation' => false,
+                                            'enableAjaxValidation' => true,
                                             'options' => [
                                                 'class' => 'steps-validation wizard-circle'
                                             ]

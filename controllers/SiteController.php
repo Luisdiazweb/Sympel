@@ -50,7 +50,7 @@ class SiteController extends CustomController
                 return $this->redirect(Url::to('@web/dashboard/'));
             }
             $this->checkaccount();
-            return $this->redirect(Url::to('@web/myrofile'));
+            return $this->redirect(Url::to('@web/myprofile'));
         }
         return $this->render('login', [
             'model' => $model,
@@ -345,7 +345,7 @@ class SiteController extends CustomController
 
     public function actionSignup1()
     {
-        Yii::$app->session->destroy();
+//        Yii::$app->session->destroy();
         $component = new SignupForms();
         $post = Yii::$app->request->post();
         $steps = new SignupStepsComponent();
@@ -357,11 +357,11 @@ class SiteController extends CustomController
         if ((is_array($return)) && Yii::$app->request->isAjax) {
             return $return;
         } elseif (($return === true) && Yii::$app->request->isPost) {
-            $steps::saveStep($post, $cursors->current);
-            return $this->redirect($cursors->next);
+            $steps::saveStep($post, SignupStepsComponent::STEP1);
+            return $this->redirect(SignupStepsComponent::STEP2);
         } else {
             return $this->render($return->render, [
-                'url_next' => $cursors->next
+                'url_next' => SignupStepsComponent::STEP2
             ]);
         }
     }
@@ -379,28 +379,27 @@ class SiteController extends CustomController
         $component = new SignupForms();
         $post = Yii::$app->request->post();
         $return = $component->signup_step2($post, Yii::$app->request->isAjax);
+
         if ((is_array($return)) && Yii::$app->request->isAjax) {
             return $return;
         } elseif (($return === true) && Yii::$app->request->isPost) {
-            $steps::saveStep($post, $cursors->current);
-            return $this->redirect($cursors->next);
+            $steps::saveStep($post, SignupStepsComponent::STEP2);
+            return $this->redirect(SignupStepsComponent::STEP3);
         } else {
-            $complete = false;
-            if ($this->checkifpreviscomplete($cursors->prev)) {
-                $complete = true;
-            } else {
-                return $this->redirect($cursors->prev);
+
+            if (!$this->checkifpreviscomplete(SignupStepsComponent::STEP1)) {
+                return $this->redirect(SignupStepsComponent::STEP1);
             }
-            if ($complete) {
-                $return->user_model->load($steps::getStep($cursors->current));
-                $return->profile_model->load($steps::getStep($cursors->current));
+            if (!$this->checkifcuriscomplete(SignupStepsComponent::STEP2)) {
+                $return->user_model->load($steps::getStep(SignupStepsComponent::STEP2));
+                $return->profile_model->load($steps::getStep(SignupStepsComponent::STEP2));
             }
 
             return $this->render($return->render, [
                 'user' => $return->user_model,
                 'profile' => $return->profile_model,
-                'url_prev' => $cursors->prev,
-                'url_next' => $cursors->next
+                'url_prev' => SignupStepsComponent::STEP1,
+                'url_next' => SignupStepsComponent::STEP3
             ]);
         }
     }
@@ -418,17 +417,15 @@ class SiteController extends CustomController
         if ((is_array($return)) && Yii::$app->request->isAjax) {
             return $return;
         } elseif (($return === true) && Yii::$app->request->isPost) {
-            $steps::saveStep($post, $cursors->current);
-            $this->finistSignup();
+            $steps::saveStep($post, SignupStepsComponent::STEP3);
+            $this->finishSignup();
         } else {
-            $complete = false;
-            if ($this->checkifpreviscomplete($cursors->prev)) {
-                $complete = true;
-            } else {
-                return $this->redirect($cursors->prev);
+            if (!$this->checkifpreviscomplete(SignupStepsComponent::STEP2)) {
+                return $this->redirect(SignupStepsComponent::STEP1);
             }
-            if ($complete) {
-                $return->model->load($steps::getStep($cursors->current));
+
+            if (!$this->checkifcuriscomplete(SignupStepsComponent::STEP3)) {
+                $return->model->load($steps::getStep(SignupStepsComponent::STEP3));
             }
 
             $query = new Query();
@@ -436,7 +433,7 @@ class SiteController extends CustomController
             return $this->render($return->render, [
                 'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
                 'profile' => $return->model,
-                'url_prev' => $cursors->prev
+                'url_prev' => SignupStepsComponent::STEP2
             ]);
         }
     }
@@ -467,26 +464,21 @@ class SiteController extends CustomController
         return SignupStepsComponent::isStepComplete($prev);
     }
 
-    private function finistSignup()
+    private function checkifcuriscomplete($current)
     {
-        $step1 = SignupStepsComponent::getSteps(SignupStepsComponent::STEP1);
-        $step2 = SignupStepsComponent::getSteps(SignupStepsComponent::STEP2);
-        $step3 = SignupStepsComponent::getSteps(SignupStepsComponent::STEP3);
+//        $key = SignupStepsComponent::getStepKey($prev);
+        return SignupStepsComponent::isStepComplete($current);
+    }
 
-        $user = new UsersSystem();
-        $user->load($step1);
-        $user->load($step2);
-        $user->save(false);
-        $profile = new ProfileAccount();
-        $profile->load($step2);
-        $profile->load($step3);
-        $profile->user_id = $user->id;
-        $profile->profile_type_id = Yii::$app->session->get(SignupForms::PROFILE_TYPE);
-        $profile->save(false);
-        SignupStepsComponent::sendVerifiedAccountEmail($user);
-        $autologin = new LoginForm();
-        $autologin->username = $user->username;
-        $autologin->createLogin();
+    private function finishSignup()
+    {
+        $step1 = SignupStepsComponent::getStep(SignupStepsComponent::STEP1);
+        $step2 = SignupStepsComponent::getStep(SignupStepsComponent::STEP2);
+        $step3 = SignupStepsComponent::getStep(SignupStepsComponent::STEP3);
+
+//        var_dump($step1);
+//        exit();
+        SignupForms::saveNewUser($step1, $step2, $step3);
         return $this->goHome();
     }
 }
