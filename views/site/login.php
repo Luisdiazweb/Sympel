@@ -68,7 +68,7 @@ $this->registerJsFile("app-assets/js/scripts/forms/form-login-register.js", [
                     'autofocus' => true,
                     'class' => 'form-control form-control-lg input-lg'
                 ]
-            ])->textInput()->input('text', ['placeholder' => "Your Username"])->label(false); ?>
+            ])->textInput()->input('text', ['placeholder' => "Your Username or email"])->label(false); ?>
             <div class="form-control-position">
                 <i class="ft-user"></i>
             </div>

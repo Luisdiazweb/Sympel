@@ -127,6 +127,11 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
         return self::findOne(['username' => $username]);
     }
 
+    public static function findByEmail($email)
+    {
+        return self::findOne(['email' => $email]);
+    }
+
     public function validatePassword($hash, $password)
     {
         return Yii::$app->getSecurity()->validatePassword($password, $hash);
