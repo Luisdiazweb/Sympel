@@ -51,5 +51,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at',
         ],
     ]) ?>
+    <?= Html::a('Go Back', Yii::$app->request->referrer ?: '/dashboard', ['class' => 'btn btn-warning']) ?>
 
 </div>

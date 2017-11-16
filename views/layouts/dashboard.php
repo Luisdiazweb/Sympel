@@ -3,6 +3,7 @@
 use app\assets\AdminAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\Breadcrumbs;
 
 /* @var $this \yii\web\View */
 
@@ -162,6 +163,10 @@ AdminAsset::register($this);
             <div class="content-header row">
             </div>
             <div class="content-body">
+                <?php //echo Breadcrumbs::widget([
+//                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                //]) ?>
+
                 <?= $content ?>
             </div>
         </div>
