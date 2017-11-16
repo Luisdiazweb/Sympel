@@ -293,7 +293,7 @@ class SiteController extends CustomController
                     [
                         'type' => Alert::TYPE_WARNING,
                         'title' => null,
-                        'body' => (($id === 'resend') ? ('Forwarded - ') : ('')) . Html::a('Resend Verification link', '/site/not-verified/resend')
+                        'body' => (($id === 'resend') ? ('Forwarded - ') : ('')) . Html::a('Resend Verification link', '/notverified/resend')
                     ]
                 ]
             ]);
@@ -412,7 +412,7 @@ class SiteController extends CustomController
     private function checkaccount()
     {
         if (!boolval(Yii::$app->user->identity->verified_account)) {
-            return $this->redirect(Url::to('/site/not-verified'));
+            return $this->redirect(Url::to('/notverified'));
         }
     }
 
