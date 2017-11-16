@@ -203,6 +203,7 @@ class SiteController extends CustomController
                     echo "Successfully updated password, redirecting ...";
                     echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("/") . "'>";
                 } else {
+                    $this->layout = 'login';
                     return $this->render('alert', [
                         'alerts' => [
                             [
@@ -275,12 +276,29 @@ class SiteController extends CustomController
         }
     }
 
-    public function actionNotVerified()
+    public function actionNotverified($id = false)
     {
         if (!boolval(Yii::$app->user->identity->verified_account)) {
-            throw new NotFoundHttpException("User not verified");
+            if ($id === 'resend') {
+                SignupStepsComponent::sendVerifiedAccountEmail(UsersSystem::findOne(Yii::$app->user->identity->getId()));
+            }
+            $this->layout = "login";
+            return $this->render('alert', [
+                'alerts' => [
+                    [
+                        'type' => Alert::TYPE_DANGER,
+                        'title' => 'Verify Account',
+                        'body' => 'User not verified'
+                    ],
+                    [
+                        'type' => Alert::TYPE_WARNING,
+                        'title' => null,
+                        'body' => (($id === 'resend') ? ('Forwarded - ') : ('')) . Html::a('Resend Verification link', '/site/not-verified/resend')
+                    ]
+                ]
+            ]);
         } else {
-            return $this->goBack();
+            return $this->goHome();
         }
 
     }
