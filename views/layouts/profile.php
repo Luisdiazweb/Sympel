@@ -44,11 +44,11 @@ $this->registerCssFile("@web/app-assets/css/core/colors/palette-tooltip.css",
     ]);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-$this->registerJsFile('@web/app-assets/vendors/js/extensions/jquery.steps.min.js',
-    [
-        'depends' => [AppAsset::className()],
-        'position' => \yii\web\View::POS_END
-    ]);
+//$this->registerJsFile('@web/app-assets/vendors/js/extensions/jquery.steps.min.js',
+//    [
+//        'depends' => [AppAsset::className()],
+//        'position' => \yii\web\View::POS_END
+//    ]);
 $this->registerJsFile('@web/app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js',
     [
         'depends' => [AppAsset::className()],
@@ -74,11 +74,11 @@ $this->registerJsFile('@web/app-assets/vendors/js/tables/datatable/dataTables.bo
         'depends' => [AppAsset::className()],
         'position' => \yii\web\View::POS_END
     ]);
-$this->registerJsFile('@web/app-assets/js/scripts/forms/wizard-steps.js',
-    [
-        'depends' => [AppAsset::className()],
-        'position' => \yii\web\View::POS_END
-    ]);
+//$this->registerJsFile('@web/app-assets/js/scripts/forms/wizard-steps.js',
+//    [
+//        'depends' => [AppAsset::className()],
+//        'position' => \yii\web\View::POS_END
+//    ]);
 $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
     [
         'depends' => [AppAsset::className()],

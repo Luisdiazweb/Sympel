@@ -6,6 +6,7 @@
 /* @var $model app\models\LoginForm */
 
 use app\assets\AppAsset;
+use yii\bootstrap\Dropdown;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\web\View;
@@ -93,8 +94,9 @@ $this->registerJsFile("app-assets/js/scripts/forms/form-login-register.js", [
                     ]) ?>
                 </fieldset>
             </div>
-            <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="/requestpassword"
-                                                                            class="card-link">Forgot Password?</a></div>
+            <div class="col-md-6 col-xs-12 text-xs-center text-md-right">
+                <a href="/requestpassword" class="card-link">Forgot Password?</a>
+            </div>
         </fieldset>
         <?= Html::submitButton('<i class="ft-unlock"></i> Login', ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button']) ?>
         <?php ActiveForm::end(); ?>
@@ -102,7 +104,7 @@ $this->registerJsFile("app-assets/js/scripts/forms/form-login-register.js", [
 </div>
 <div class="card-footer">
     <div class="">
-        <p class="float-sm-right text-xs-center m-0">New to Sympel? <a
-                    href="/signup1" class="card-link">Sign Up</a></p>
+        <p class="float-sm-left text-xs-center m-0"><a href="/requestusername" class="card-link">Forgot Username?</a></p>
+        <p class="float-sm-right text-xs-center m-0">New to Sympel?<a href="/signup1" class="card-link">Sign Up</a></p>
     </div>
 </div>

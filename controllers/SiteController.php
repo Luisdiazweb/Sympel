@@ -87,6 +87,57 @@ class SiteController extends CustomController
             ->send();
     }
 
+    /**
+     * @param $model UsersSystem
+     */
+    public function sendEmailReminderUsername($model)
+    {
+        $subject = "Reminder Username";
+        $body = "<h1>Your username to access is: $model->username</h1>";
+        $body .= "<p>Don't forget it</p>";
+
+        Yii::$app->mailer->compose()
+            ->setTo($model->email)
+            ->setFrom([Yii::$app->params["adminEmail"] => Yii::$app->params["title"]])
+            ->setSubject($subject)
+            ->setHtmlBody($body)
+            ->send();
+    }
+
+    public function actionRequestusername()
+    {
+        $model = new UsersSystem();
+
+        $model->scenario = UsersSystem::SCENARIO_REQUEST_PASS;
+        if ($model->load(Yii::$app->request->post())) {
+            if (Yii::$app->request->isAjax) {
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                return ActiveForm::validate($model);
+            }
+            $email = $model->email;
+            $model = UsersSystem::findOne(['email' => $email]);
+//            var_dump($email);
+//            exit();
+            $this->sendEmailReminderUsername($model);
+            $this->layout = 'login';
+            return $this->render('alert', [
+                'alerts' => [
+                    [
+                        'type' => Alert::TYPE_SUCCESS,
+                        'title' => 'Change Password',
+                        'body' => 'You will receive an email with your username access to ' . $email
+                    ]
+                ]
+            ]);
+
+        } else {
+            $this->layout = "login";
+            return $this->render('request_password', [
+                'user' => $model
+            ]);
+        }
+    }
+
     public function actionRequestpassword()
     {
 

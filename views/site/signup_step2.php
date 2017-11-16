@@ -105,12 +105,12 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         <p class="text-sm-center my-3">To get started, first we need your basic
                                             profile details.</p>
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <p>You can sign in with:</p>
-                                                <a href="#" class="btn btn-social btn-facebook">
-                                                    <span class="fa fa-facebook"></span> Sign in with Facebook</a>
-                                                <p class="my-2">Or you can create an account:</p>
-                                            </div>
+<!--                                            <div class="col-md-12">-->
+<!--                                                <p>You can sign in with:</p>-->
+<!--                                                <a href="#" class="btn btn-social btn-facebook">-->
+<!--                                                    <span class="fa fa-facebook"></span> Sign in with Facebook</a>-->
+<!--                                                <p class="my-2">Or you can create an account:</p>-->
+<!--                                            </div>-->
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?= $form->field($profile, 'firstname', [
