@@ -13,7 +13,7 @@ use yii\web\View;
 
 $this->title = 'Login Page - Stack Responsive Bootstrap 4 Admin Template';
 
-$this->registerCssFile("a@web/pp-assets/css/core/menu/menu-types/vertical-menu.css",
+$this->registerCssFile("@web/app-assets/css/core/menu/menu-types/vertical-menu.css",
     [
         'depends' => [AppAsset::className()],
         'position' => \yii\web\View::POS_HEAD
@@ -39,7 +39,6 @@ $this->registerCssFile("@web/app-assets/css/pages/login-register.css", [
     'depends' => AppAsset::className(),
     'position' => View::POS_HEAD
 ]);
-
 $this->registerJsFile("app-assets/vendors/js/forms/validation/jqBootstrapValidation.js", [
     'depends' => AppAsset::className(),
     'position' => View::POS_END

@@ -144,15 +144,10 @@ use yii\web\View;
             <div class="form-group">
                 <?= $form->field($profile, 'registered_ein', [
                     'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
-                ])->textInput([
-                    'data' => [
-                        'toggle' => "tooltip",
-                        'trigger' => "hover",
-                        'placement' => "top",
-                        'title' => "To make changes, please submit your request to support",
-                        'disabled' => true
-                    ]
+                    ])->textInput([
+                        'disabled' => true,
                 ]); ?>
+                <span class="text-muted">To make changes in your Registered Ein, please submit your request to support</span>
             </div>
         </div>
 

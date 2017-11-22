@@ -31,7 +31,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton($model_user->isNewRecord ? 'Create' : 'Update', ['class' => $model_user->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        <?= Html::a('Go Back', Yii::$app->request->referrer ?: '/dashboard', ['class' => 'btn btn-warning']) ?>
+        <?= Html::a('Go Back', Yii::$app->request->referrer ? Yii::$app->request->referrer : '/dashboard', ['class' => 'btn btn-warning']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

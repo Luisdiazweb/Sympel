@@ -1,18 +1,22 @@
 <?php
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+
+/* @var $user app\models\LoginForm */
+
 
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Html;
+use app\assets\AppAsset;
+use yii\web\View;
 
 ?>
-
-<div class="container-fluid">
+<div class="card-body collapse in">
+<div class="card-block">
 
     <?php
     $form = ActiveForm::begin([
             'enableAjaxValidation' => true,
-            'options' => [
-                'class' => 'steps-validation wizard-circle'
-            ]
         ]
     ); ?>
 
@@ -28,7 +32,9 @@ use yii\bootstrap\Html;
         </div>
     </fieldset>
     <fieldset>
-        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+    <?= Html::submitButton('<i class="ft-unlock"></i> Recovery', ['class' => 'btn btn-primary btn-md btn-block', 'name' => 'login-button']) ?>
+    <?= Html::a('Go Back', Yii::$app->request->referrer ? Yii::$app->request->referrer : '/', ['class' => 'btn btn-warning btn-md btn-block']) ?>
     </fieldset>
     <?php ActiveForm::end() ?>
+    </div>
 </div>

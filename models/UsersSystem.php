@@ -62,6 +62,7 @@ class UsersSystem extends ActiveRecord implements IdentityInterface
         return [
             [['username', 'password_hash', 'password_repeat', 'email'], 'required', 'on' => self::SCENARIO_SIGNUP],
             [['username', 'email'], 'required', 'on' => self::SCENARIO_ADMIN],
+            [['email'], 'required', 'on' => self::SCENARIO_REQUEST_PASS],
             [['password_hash', 'password_repeat'], 'required', 'on' => self::SCENARIO_PASSWORD],
             [['admin', 'verified_account'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],

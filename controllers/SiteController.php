@@ -111,6 +111,8 @@ class SiteController extends CustomController
         $model->scenario = UsersSystem::SCENARIO_REQUEST_PASS;
         if ($model->load(Yii::$app->request->post())) {
             if (Yii::$app->request->isAjax) {
+                var_dump($model->errors);
+                exit();
                 Yii::$app->response->format = Response::FORMAT_JSON;
                 return ActiveForm::validate($model);
             }
@@ -118,18 +120,21 @@ class SiteController extends CustomController
             $model = UsersSystem::findOne(['email' => $email]);
 //            var_dump($email);
 //            exit();
-            $this->sendEmailReminderUsername($model);
-            $this->layout = 'login';
-            return $this->render('alert', [
-                'alerts' => [
-                    [
-                        'type' => Alert::TYPE_SUCCESS,
-                        'title' => 'Change Password',
-                        'body' => 'You will receive an email with your username access to ' . $email
+            if ($model) {
+                $this->sendEmailReminderUsername($model);
+                $this->layout = 'login';
+                return $this->render('alert', [
+                    'alerts' => [
+                        [
+                            'type' => Alert::TYPE_SUCCESS,
+                            'title' => 'Remember Username',
+                            'body' => 'You will receive an email with your username access to ' . $email
+                        ]
                     ]
-                ]
-            ]);
-
+                ]);    
+            }else{
+                $this->redirect("requestusername");
+            }
         } else {
             $this->layout = "login";
             return $this->render('request_password', [
@@ -176,7 +181,7 @@ class SiteController extends CustomController
                 ]
             ]);
         } else {
-            throw new InvalidParamException();
+            $this->redirect("requestpassword");
         }
     }
 
