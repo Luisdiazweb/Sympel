@@ -2,101 +2,41 @@
 /** @var \app\models\ProfileAccount $profile */
 
 use yii\helpers\Url;
+use yii\bootstrap\Html;
 
 ?>
 <div class="row mt-2">
     <div class="col-md-10 offset-md-1">
-        <div class="col-md-3 col-sm-12 pl-0">
-            <div class="card box-shadow-1">
-                <div class="card-block">
-                    <div class="">
-                        <a href="#" class="profile-image">
-                            <img src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>"
-                                 class="rounded-circle img-border height-100 mx-auto d-block" alt="Card image">
-                        </a>
-                    </div>
-                    <h4 class="card-title text-xs-center mt-1"><?= $profile->firstname . " " . $profile->lastname ?></h4>
-                    <p class="card-text text-xs-center"><?= $profile->profileType->public_name ?></p>
-                    <?php if ($profile->profile_type_id != 3): ?>
-                        <p class="card-text text-xs-center"><a href="<?= $profile->website ?>"
-                                                               class=""><?= $profile->website ?></a></p>
-                    <?php endif; ?>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9 col-sm-12 pr-0">
-            <?php if ($profile->profile_type_id != 3): ?>
-                <div class="card">
-                    <div class="card-block">
-                        <!--<h4 class="card-title">Mission</h4>-->
-                        <blockquote class="blockquote blockquote-reverse">
-                            <p class="mb-0"><?= $profile->mission ?></p>
-                            <div class="blockquote-footer">This is the <cite title="Source Title">Mission</cite></div>
-                        </blockquote>
-                    </div>
-                </div>
-            <?php endif; ?>
-            <div class="row">
-                <div class="col-xl-4 col-lg-6 col-xs-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-block">
-                                <div class="media">
-                                    <div class="media-body text-xs-left">
-                                        <h3 class="primary">215</h3>
-                                        <span>Donation Items</span>
-                                    </div>
-                                    <div class="media-right media-middle">
-                                        <i class="fa fa-heart primary font-large-2 float-xs-right"></i>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 col-xs-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-block">
-                                <div class="media">
-                                    <div class="media-body text-xs-left">
-                                        <h3 class="danger">15</h3>
-                                        <span>Needs Posted</span>
-                                    </div>
-                                    <div class="media-right media-middle">
-                                        <i class="fa fa-inbox danger font-large-2 float-xs-right"></i>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 col-xs-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-block">
-                                <div class="media">
-                                    <div class="media-body text-xs-left">
-                                        <h3 class="success">Causes & Areas</h3>
-                                        <div class="tag tag-default">
-                                            <a href="#">Link Tag</a>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?= $this->render('public_profile_partials/_profile_picture', [
+            'profile' => $profile,
+        ]) ?>
+        <?php 
+        if ($profile->profile_type_id == 1){
+            echo $this->render('public_profile_partials/_information_1', [
+                'profile' => $profile,
+            ]);
+        }elseif($profile->profile_type_id == 2){
+            echo $this->render('public_profile_partials/_information_2', [
+                'profile' => $profile,
+            ]);
+        }else{
+            echo $this->render('public_profile_partials/_information_3', [
+                'profile' => $profile,
+            ]);
+        }
+        ?>
     </div>
 </div>
-
+<?php if ($profile->profile_type_id != 3):?>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <?= $this->render('public_profile_partials/_causes_areas', [
+                    'profile' => $profile,
+                ]);
+            ?>
+        </div>
+</div>
+<?php endif;?>
 <!-- Card headings examples section end -->
 
 
