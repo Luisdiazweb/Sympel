@@ -197,64 +197,6 @@ use yii\web\View;
             )->label(false); ?>
         </div>
     </div> <!--END OF CHECKBOX AREA-->
-    <h3 class="my-2 card-title">Donation items & categories of interest</h3>
-    <p class="mb-2">Select the types of goods you are looking for. Many donors will find non-profits at the time they
-        create
-        a donation. If you are interested in certain categories to support you cause, select them here. You can always
-        update this at anytime.</p>
-    <div class="row mb-3">
-        <div class="col-md-4 col-sm-12 skin skin-flat">
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Office equipment</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Furniture</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Clothing</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Books</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Toys</label>
-            </fieldset>
-
-        </div>
-        <div class="col-md-4 col-sm-12 skin skin-flat">
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Automobiles</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Tools</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Sporting Goods</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="input-11">
-                <label for="input-11">Musical Instruments</label>
-            </fieldset>
-            <fieldset>
-                <fieldset>
-                    <input type="checkbox" id="input-11">
-                    <label for="input-11">General Equipment</label>
-                </fieldset>
-
-        </div>
-
-        <div class="col-md-4 col-sm-12 skin skin-flat">
-
-        </div>
-    </div> <!--END OF CHECKBOX AREA-->
     <div class="row text-sm-center my-3">
         <?= Html::submitButton('SAVE CHANGES', ['class' => 'btn btn-primary']) ?>
     </div>
