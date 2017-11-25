@@ -11,11 +11,13 @@ use Yii;
 use yii\base\InvalidParamException;
 use yii\db\Query;
 use yii\helpers\ArrayHelper;
+use yii\helpers\BaseFileHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use app\models\LoginForm;
+use yii\web\UploadedFile;
 use yii\widgets\ActiveForm;
 
 class SiteController extends CustomController
@@ -356,6 +358,15 @@ class SiteController extends CustomController
         if (!$profile) {
             throw new NotFoundHttpException("The user has no profile.");
         }
+
+        // $profile_type = $profile->profile_type_id;
+        // if ($profile_type == 1) {
+        //     $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_1;
+        // } elseif ($profile_type == 2) {
+        //     $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_2;
+        // } elseif ($profile_type == 3) {
+        //     $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_3;
+        // }
         if ($user->load(Yii::$app->request->post())) {
             if (Yii::$app->request->isAjax) {
                 Yii::$app->response->format = Response::FORMAT_JSON;
@@ -370,10 +381,29 @@ class SiteController extends CustomController
                 $isValid = $user->validate();
                 $isValid = $profile->validate() && $isValid;
                 if ($isValid) {
-                    $user->save();
-                    $profile->save();
-
+                    $user->save(false);
+                    if(!empty($profile->profile_picture_upload)){
+                        $profile->profile_picture_upload = UploadedFile::getInstance($profile, 'profile_picture_upload');
+                        $path = 'profiles_picture/';
+                        if (!is_dir($path)) {
+                            BaseFileHelper::createDirectory($path, 0777, true);
+                        }
+        
+                        $filePath = $path . Yii::$app->security->generateRandomString() . '.' . $profile->profile_picture_upload->extension;
+        
+                        if ($profile->profile_picture_upload->saveAs($filePath)) {
+                            $profile->profile_picture_url = $filePath;
+                        }
+                    }
+                    $profile->save(false);
+                    var_dump($profile->profile_picture_upload);
+                    exit();
                     return $this->redirect(Url::to('@web/myprofile'));
+                }
+                else{
+                    var_dump($user->errors);
+                    var_dump($profile->errors);
+                    exit();
                 }
             }
         }
@@ -487,7 +517,6 @@ class SiteController extends CustomController
         $steps = new SignupStepsComponent();
         $steps::setCurrentStep(SignupStepsComponent::STEP3);
 //        $cursors = $steps->cursorArraySteps();
-
 
         $component = new SignupForms();
         $post = Yii::$app->request->post();

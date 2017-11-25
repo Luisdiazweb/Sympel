@@ -14,7 +14,8 @@ use yii\helpers\Url;
 <?php $form = ActiveForm::begin([
         'enableAjaxValidation' => true,
         'options' => [
-            'class' => 'steps-validation wizard-circle'
+            'class' => 'steps-validation wizard-circle',
+            'enctype' => 'multipart/form-data'
         ]
     ]
 ); ?>
@@ -67,8 +68,9 @@ use yii\helpers\Url;
     <div class="row">
         <div class="col-md-2">
             <fieldset class="form-group">
-            <img src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>"
-                                 class="rounded-circle img-border height-100 mx-auto d-block" alt="Card image">
+                <img src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" class="rounded-circle img-border height-100 mx-auto d-block" alt="Card image">
+                <br>
+                <?= $form->field($profile, 'profile_picture_upload')->fileInput()->label(false); ?>
             </fieldset>
         </div>
     </div>

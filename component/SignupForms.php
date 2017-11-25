@@ -146,7 +146,7 @@ class SignupForms
         } elseif ($profile_type == 2) {
             $model->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_2;
         } elseif ($profile_type == 3) {
-            $model->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_2;
+            $model->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_3;
         }
         if ($model->load($post)) {
             $model->areas_support = json_encode($model->areas_support);

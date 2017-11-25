@@ -13,7 +13,8 @@ use yii\web\View;
 <?php $form = ActiveForm::begin([
         'enableAjaxValidation' => true,
         'options' => [
-            'class' => 'steps-validation wizard-circle'
+            'class' => 'steps-validation wizard-circle',
+            'enctype' => 'multipart/form-data'
         ]
     ]
 ); ?>
@@ -65,13 +66,12 @@ use yii\web\View;
     </div>
     <div class="row">
         <div class="col-md-4">
-            <fieldset class="form-group">
-                <label for="file">Profile Image</label>
-                <label class="custom-file center-block block">
-                    <input type="file" id="file" class="custom-file-input">
-                    <span class="custom-file-control"></span>
-                </label>
-            </fieldset>
+        <fieldset class="form-group">
+            <img src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" class="rounded-circle img-border height-100 mx-auto d-block" alt="Card image">
+            <br>
+            <?= $form->field($profile, 'profile_picture_upload')->fileInput()->label(false); ?>
+            ?>
+        </fieldset>
         </div>
     </div>
     <div class="row">
