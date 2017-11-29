@@ -54,11 +54,11 @@ $this->registerCssFile("@web/app-assets/css/core/colors/palette-tooltip.css",
 //         'depends' => [AppAsset::className()],
 //         'position' => \yii\web\View::POS_END
 //     ]);
-$this->registerJsFile('@web/app-assets/vendors/js/pickers/daterange/daterangepicker.js',
-    [
-        'depends' => [AppAsset::className()],
-        'position' => \yii\web\View::POS_END
-    ]);
+//$this->registerJsFile('@web/app-assets/vendors/js/pickers/daterange/daterangepicker.js',
+//    [
+//        'depends' => [AppAsset::className()],
+//        'position' => \yii\web\View::POS_END
+//    ]);
 // $this->registerJsFile('@web/app-assets/vendors/js/forms/validation/jquery.validate.min.js',
 //     [
 //         'depends' => [AppAsset::className()],

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "profile_account".
@@ -124,5 +125,26 @@ class ProfileAccount extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(UsersSystem::className(), ['id' => 'user_id']);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+        if (!empty($this->profile_picture_upload)) {
+            /** @var UploadedFile $this ->profile_picture_upload */
+            $path = 'profiles_picture/';
+            if (!is_dir($path)) {
+                mkdir($path, 777);
+            }
+
+            $url_file = $path . Yii::$app->security->generateRandomString() . '.' . $this->profile_picture_upload->extension;
+            if ($this->profile_picture_upload->saveAs($url_file)) {
+                $this->profile_picture_url = $url_file;
+            }
+        }
+
+        return true;
     }
 }
