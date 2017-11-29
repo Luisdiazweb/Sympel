@@ -103,5 +103,6 @@ class SignupStepsComponent
             ->setSubject($subject)
             ->setHtmlBody($body)
             ->send();
+
     }
 }

@@ -38,9 +38,11 @@ class SignupForms
 
             $profile->user_id = $user->id;
             $profile->areas_support = json_encode($profile->areas_support);
+//            $profile->profile_picture_upload = UploadedFile::getInstance($profile, 'profile_picture_upload');
 
             if ($profile->save(false)) {
                 SignupStepsComponent::sendVerifiedAccountEmail($user);
+                Yii::$app->session->remove(SignupStepsComponent::SIGNUP);
                 $autologin = new LoginForm();
                 $autologin->username = $user->username;
                 return $autologin->createLogin();

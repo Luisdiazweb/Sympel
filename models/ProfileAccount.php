@@ -32,6 +32,9 @@ use yii\web\UploadedFile;
  */
 class ProfileAccount extends \yii\db\ActiveRecord
 {
+    /**
+     * @var UploadedFile
+     */
     public $profile_picture_upload;
 
     const SCENARIO_SIGNUP_STEP1 = 'step1';
@@ -78,6 +81,7 @@ class ProfileAccount extends \yii\db\ActiveRecord
             [['firstname', 'lastname', 'non_profit_name', 'company_name', 'title', 'address', 'state', 'city', 'zip_code', 'phone', 'registered_ein'], 'string', 'max' => 128],
             [['website'], 'string', 'max' => 256],
             [['profile_picture_url'], 'string', 'max' => 512],
+            [['profile_picture_upload'], 'safe'],
             [['profile_picture_upload'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['profile_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProfileType::className(), 'targetAttribute' => ['profile_type_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => UsersSystem::className(), 'targetAttribute' => ['user_id' => 'id']],
@@ -132,8 +136,9 @@ class ProfileAccount extends \yii\db\ActiveRecord
         if (!parent::beforeSave($insert)) {
             return false;
         }
+        $this->profile_picture_upload = UploadedFile::getInstance($this, 'profile_picture_upload');
         if (!empty($this->profile_picture_upload)) {
-            /** @var UploadedFile $this ->profile_picture_upload */
+
             $path = 'profiles_picture/';
             if (!is_dir($path)) {
                 mkdir($path, 777);
