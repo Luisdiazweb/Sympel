@@ -133,8 +133,8 @@ class SiteController extends CustomController
                             'body' => 'You will receive an email with your username access to ' . $email
                         ]
                     ]
-                ]);    
-            }else{
+                ]);
+            } else {
                 $this->redirect("requestusername");
             }
         } else {
@@ -359,14 +359,14 @@ class SiteController extends CustomController
             throw new NotFoundHttpException("The user has no profile.");
         }
 
-        // $profile_type = $profile->profile_type_id;
-        // if ($profile_type == 1) {
-        //     $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_1;
-        // } elseif ($profile_type == 2) {
-        //     $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_2;
-        // } elseif ($profile_type == 3) {
-        //     $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_3;
-        // }
+//         $profile_type = $profile->profile_type_id;
+//         if ($profile_type == 1) {
+//             $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_1;
+//         } elseif ($profile_type == 2) {
+//             $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_2;
+//         } elseif ($profile_type == 3) {
+//             $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_3;
+//         }
         if ($user->load(Yii::$app->request->post())) {
             if (Yii::$app->request->isAjax) {
                 Yii::$app->response->format = Response::FORMAT_JSON;
@@ -378,29 +378,15 @@ class SiteController extends CustomController
                     Yii::$app->response->format = Response::FORMAT_JSON;
                     return ActiveForm::validate($profile);
                 }
+//                $profile->profile_picture_upload = UploadedFile::getInstance($profile, 'profile_picture_upload');
                 $isValid = $user->validate();
                 $isValid = $profile->validate() && $isValid;
                 if ($isValid) {
+
                     $user->save(false);
-                    if(!empty($profile->profile_picture_upload)){
-                        $profile->profile_picture_upload = UploadedFile::getInstance($profile, 'profile_picture_upload');
-                        $path = 'profiles_picture/';
-                        if (!is_dir($path)) {
-                            BaseFileHelper::createDirectory($path, 0777, true);
-                        }
-        
-                        $filePath = $path . Yii::$app->security->generateRandomString() . '.' . $profile->profile_picture_upload->extension;
-        
-                        if ($profile->profile_picture_upload->saveAs($filePath)) {
-                            $profile->profile_picture_url = $filePath;
-                        }
-                    }
                     $profile->save(false);
-                    var_dump($profile->profile_picture_upload);
-                    exit();
-                    return $this->redirect(Url::to('@web/myprofile'));
-                }
-                else{
+//                    return $this->redirect(Url::to('@web/myprofile'));
+                } else {
                     var_dump($user->errors);
                     var_dump($profile->errors);
                     exit();
