@@ -89,9 +89,9 @@ NavBar::end();*/
         <div class="navbar-container content container-fluid">
             <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item icon hidden-sm-down"><a href="create-donation.html" class="nav-link"><i
+                    <li class="nav-item icon hidden-sm-down"><a href="/createdonation" class="nav-link"><i
                                     class="fa fa-pencil square-icon menu link-primary"></i>Post an Item</a></li>
-                    <li class="nav-item icon hidden-sm-down"><a href="request-donation.html" class="nav-link"><i
+                    <li class="nav-item icon hidden-sm-down"><a href="#" class="nav-link"><i
                                     class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
                 </ul>
                 <ul class="nav navbar-nav float-xs-right actions">
