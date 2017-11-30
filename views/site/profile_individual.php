@@ -1,24 +1,22 @@
 <?php
-/* @var $this View */
 /* @var $profile \app\models\ProfileAccount */
 
 /* @var $user \app\models\UsersSystem */
 
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Html;
-use yii\web\View;
 use yii\helpers\Url;
 
 ?>
 
-<?php $form = ActiveForm::begin([
+<?php $form = ActiveForm::begin(
+    [
         'enableAjaxValidation' => true,
         'options' => [
-            'class' => 'steps-validation wizard-circle',
             'enctype' => 'multipart/form-data'
         ]
     ]
-); ?>
+) ?>
     <div class="row mt-3">
         <div class="col-md-12">
             <h3 class="my-2 card-title">Account Owner Information</h3>
@@ -68,13 +66,13 @@ use yii\helpers\Url;
     <div class="row">
         <div class="col-md-2">
             <fieldset class="form-group">
-                <img src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" class="rounded-circle img-border height-100 mx-auto d-block" alt="Card image">
+                <img src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>"
+                     class="rounded-circle img-border height-100 mx-auto d-block" alt="Card image">
                 <br>
-                <?= $form->field($profile, 'profile_picture_upload')->fileInput()->label(false); ?>
+                <?= $form->field($profile, 'profile_picture_upload')->fileInput(['multiple' => false, 'accept' => 'image/*'])->label(false); ?>
             </fieldset>
         </div>
     </div>
-
 
     <div class="row">
         <div class="col-md-4">
@@ -103,7 +101,6 @@ use yii\helpers\Url;
         </div>
     </div>
 
-
     <h3 class="my-2 card-title">Causes & areas of interest</h3>
     <p class="mb-2">Select the causes and support areas that interest you most. We will only use this information to
         improve
@@ -120,7 +117,7 @@ use yii\helpers\Url;
                         'template' => '<fieldset class="col-md-4 col-sm-12 skin skin-flat">{input}<label>{label}</label></fieldset>'
                     ],
                     'item' => function ($index, $label, $name, $checked, $value) {
-                        $check = $checked ? 'checked=true' : '' ;
+                        $check = $checked ? 'checked=true' : '';
                         return '<fieldset class="col-md-4 col-sm-12 skin skin-flat">
                                                                 <label>
                                                                     <input type="checkbox" name="' . $name . '" value="' . $value . '" ' . $check . '/>

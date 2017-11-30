@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\component\SignupForms;
 use app\component\SignupStepsComponent;
+use app\models\Donations;
+use app\models\DonationsCategory;
 use app\models\ProfileAccount;
 use app\models\UsersSystem;
 use kartik\alert\Alert;
@@ -113,8 +115,8 @@ class SiteController extends CustomController
         $model->scenario = UsersSystem::SCENARIO_REQUEST_PASS;
         if ($model->load(Yii::$app->request->post())) {
             if (Yii::$app->request->isAjax) {
-                var_dump($model->errors);
-                exit();
+//                var_dump($model->errors);
+//                exit();
                 Yii::$app->response->format = Response::FORMAT_JSON;
                 return ActiveForm::validate($model);
             }
@@ -548,6 +550,50 @@ class SiteController extends CustomController
         $this->layout = 'profile_public';
         return $this->render('profile_public', [
             'profile' => $profile
+        ]);
+    }
+
+    public function actionCreatedonation()
+    {
+        $model = new Donations();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if (Yii::$app->request->isAjax) {
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                return ActiveForm::validate($model);
+            }
+//            var_dump($_POST);
+//            exit();
+
+            $model->id_type = 2;
+//            if (
+                $model->save()
+                    ;
+//            ) {
+                return $this->redirect(['reviewdonation', 'id' => $model->id_public]);
+//            } else {
+//                var_dump($model->errors);
+//                $cat_donations = ArrayHelper::map(DonationsCategory::find()->asArray()->all(), 'id', 'name');
+//                return $this->render('create_donation', [
+//                    'model' => $model,
+//                    'cat_donations' => $cat_donations
+//                ]);
+//            }
+
+        } else {
+            $cat_donations = ArrayHelper::map(DonationsCategory::find()->asArray()->all(), 'id', 'name');
+            return $this->render('create_donation', [
+                'model' => $model,
+                'cat_donations' => $cat_donations
+            ]);
+        }
+
+    }
+
+    public function actionReviewdonation($id){
+        $model = Donations::findOne(['id_public' => $id]);
+        return $this->render('review_create_donation', [
+            'model'=> $model
         ]);
     }
 
