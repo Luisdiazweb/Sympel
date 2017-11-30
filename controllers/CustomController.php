@@ -19,10 +19,10 @@ class CustomController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['login', 'logout', 'signup', 'myprofile'],
+                'only' => ['login', 'logout', 'signup', 'myprofile', 'createdonation', 'reviewdonation'],
                 'rules' => [
                     [
-                        'actions' => ['logout', 'myprofile'],
+                        'actions' => ['logout', 'myprofile', 'createdonation', 'reviewdonation'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
