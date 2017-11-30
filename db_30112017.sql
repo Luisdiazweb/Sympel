@@ -61,6 +61,79 @@ INSERT INTO `areas_support` (`id`, `name`) VALUES
 	(30, 'Civil Rights & Support');
 /*!40000 ALTER TABLE `areas_support` ENABLE KEYS */;
 
+-- Volcando estructura para tabla sympel_db.donations
+DROP TABLE IF EXISTS `donations`;
+CREATE TABLE IF NOT EXISTS `donations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_public` varchar(8) NOT NULL,
+  `id_category` int(11) DEFAULT NULL,
+  `id_type` int(11) NOT NULL DEFAULT '1',
+  `title` varchar(256) NOT NULL,
+  `city` varchar(256) NOT NULL,
+  `zip_code` varchar(256) NOT NULL,
+  `description` text,
+  `why_need` text,
+  `images_url` text,
+  `keywords` text,
+  `condition_new` tinyint(4) DEFAULT '1',
+  `checked` tinyint(4) NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `FK_category` (`id_category`),
+  KEY `FK_type` (`id_type`),
+  CONSTRAINT `FK_category` FOREIGN KEY (`id_category`) REFERENCES `donations_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_type` FOREIGN KEY (`id_type`) REFERENCES `donation_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Volcando datos para la tabla sympel_db.donations: ~3 rows (aproximadamente)
+DELETE FROM `donations`;
+/*!40000 ALTER TABLE `donations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `donations` ENABLE KEYS */;
+
+-- Volcando estructura para tabla sympel_db.donations_category
+DROP TABLE IF EXISTS `donations_category`;
+CREATE TABLE IF NOT EXISTS `donations_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+-- Volcando datos para la tabla sympel_db.donations_category: ~11 rows (aproximadamente)
+DELETE FROM `donations_category`;
+/*!40000 ALTER TABLE `donations_category` DISABLE KEYS */;
+INSERT INTO `donations_category` (`id`, `name`) VALUES
+	(1, 'Office Supplies'),
+	(2, 'Automobiles'),
+	(3, 'Appliances'),
+	(4, 'Furniture'),
+	(5, 'Tools'),
+	(6, 'Category 12'),
+	(7, 'Art\'s & Clothing'),
+	(8, 'Sporting Goods'),
+	(9, 'Category 13'),
+	(10, 'Books'),
+	(11, 'Musical Instruments'),
+	(12, 'Toys'),
+	(13, ' General Equipment');
+/*!40000 ALTER TABLE `donations_category` ENABLE KEYS */;
+
+-- Volcando estructura para tabla sympel_db.donation_type
+DROP TABLE IF EXISTS `donation_type`;
+CREATE TABLE IF NOT EXISTS `donation_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- Volcando datos para la tabla sympel_db.donation_type: ~2 rows (aproximadamente)
+DELETE FROM `donation_type`;
+/*!40000 ALTER TABLE `donation_type` DISABLE KEYS */;
+INSERT INTO `donation_type` (`id`, `name`) VALUES
+	(1, 'request'),
+	(2, 'post');
+/*!40000 ALTER TABLE `donation_type` ENABLE KEYS */;
+
 -- Volcando estructura para tabla sympel_db.profile_account
 DROP TABLE IF EXISTS `profile_account`;
 CREATE TABLE IF NOT EXISTS `profile_account` (
@@ -87,14 +160,13 @@ CREATE TABLE IF NOT EXISTS `profile_account` (
   KEY `profile_type_FK` (`profile_type_id`),
   CONSTRAINT `profile_type_FK` FOREIGN KEY (`profile_type_id`) REFERENCES `profile_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla sympel_db.profile_account: ~2 rows (aproximadamente)
 DELETE FROM `profile_account`;
 /*!40000 ALTER TABLE `profile_account` DISABLE KEYS */;
 INSERT INTO `profile_account` (`id`, `user_id`, `profile_type_id`, `firstname`, `lastname`, `non_profit_name`, `company_name`, `title`, `address`, `state`, `city`, `zip_code`, `phone`, `registered_ein`, `website`, `areas_support`, `mission`, `profile_picture_url`) VALUES
-	(10, 17, 3, 'Victor', 'Aguilar', '', NULL, '', '', 'san Salvador', 'Soyapango', '1101', '', '12312342341234', '', '["1","2","5","8","11","13","14","19","20","21","22","26","29"]', NULL, '  '),
-	(11, 18, 3, 'Victor', 'Aguilar', NULL, NULL, NULL, NULL, 'san Salvador', 'Soyapango', '1101', '79283733', NULL, NULL, '["2"]', NULL, NULL);
+	(10, 17, 3, 'Victor', 'Aguilar', '', NULL, '', '', 'san Salvador', 'Soyapango', '1101', '', '12312342341234', '', '["1","2","5","8","11","13","14","19","20","21","22","26","29"]', NULL, '  ');
 /*!40000 ALTER TABLE `profile_account` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.profile_type
@@ -125,13 +197,11 @@ CREATE TABLE IF NOT EXISTS `session` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla sympel_db.session: 3 rows
+-- Volcando datos para la tabla sympel_db.session: 1 rows
 DELETE FROM `session`;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
 INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-	('2kper34g8v012a2vtchctkpsp4', 1511393998, _binary 0x5F5F666C6173687C613A303A7B7D63757272656E745F737465707C693A323B70726F66696C655F747970657C4E3B73746570735F7369676E75707C613A333A7B733A373A227369676E757031223B613A323A7B733A353A225F63737266223B733A38383A226A764F3167546C6675464E346A44494B45374B594E4368433871517753414A764159646469664D48696E54424C634F31423651765F736F6F6F596A71686F6E304331347046697866417165364C4D7646797A473530773D3D223B733A31343A2250726F66696C654163636F756E74223B613A313A7B733A31353A2270726F66696C655F747970655F6964223B733A313A2233223B7D7D733A373A227369676E757032223B613A333A7B733A353A225F63737266223B733A38383A22616A6C684E53486342755F7173744D695769746D75335771554476473433427737433147665F7864346C6B6C3578634248796552516C6757514B436A483364375672614C69647230634C68586874417A784776525F673D3D223B733A31343A2250726F66696C654163636F756E74223B613A323A7B733A393A2266697273746E616D65223B733A363A22566963746F72223B733A383A226C6173746E616D65223B733A373A22416775696C6172223B7D733A31313A22557365727353797374656D223B613A343A7B733A353A22656D61696C223B733A32313A22766963746F72406463636F6C6F727765622E636F6D223B733A383A22757365726E616D65223B733A343A2274657374223B733A31333A2270617373776F72645F68617368223B733A363A22313233343536223B733A31353A2270617373776F72645F726570656174223B733A363A22313233343536223B7D7D733A373A227369676E757033223B613A323A7B733A353A225F63737266223B733A38383A22786738346573684A556E554751767954655462574B7749346B5A6879556D617379696B574A7833563152324A3055354F39724C46324C546D62784741417366724953524B4B6D35465A6D5278676F42724A65506D75673D3D223B733A31343A2250726F66696C654163636F756E74223B613A363A7B733A32323A2270726F66696C655F706963747572655F75706C6F6164223B733A303A22223B733A353A227374617465223B733A31323A2273616E2053616C7661646F72223B733A343A2263697479223B733A393A22536F796170616E676F223B733A383A227A69705F636F6465223B733A343A2231313031223B733A353A2270686F6E65223B733A383A223739323833373333223B733A31333A2261726561735F737570706F7274223B613A313A7B693A303B733A313A2232223B7D7D7D7D5F5F69647C693A31383B),
-	('v5h6burkhhq5mh2i5bei7ekub0', 1511393985, _binary 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A31373B),
-	('op679dko54bkfrqe9mogm9rr64', 1511549234, _binary 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A31373B);
+	('cv3m5qsfanqrr3ob1953kiupi7', 1512079865, _binary 0x5F5F666C6173687C613A303A7B7D);
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.user
@@ -151,14 +221,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla sympel_db.user: ~1 rows (aproximadamente)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `username`, `password_hash`, `password_reset_token`, `email`, `admin`, `verified_account`, `accessToken`, `authKey`, `created_at`, `updated_at`) VALUES
-	(17, 'admin', '$2y$13$G.iapHfvmSBZiakNBDF8TuXiiMs7aJqG65KHNPRGX2/EDvPjOfTB6', 'BxOvQwdt70yAHAFIJ_5y7HSuovezNf42', 'valbert1993@gmail.com', 1, 1, 'E4Q-ZmDjqdJXuD0GlPHE4orOQoKuvGtu', 'T0FJUVUAMfhNiAQSzYcSYCIKW2UXuigF', '2017-11-06 02:46:45', '2017-11-22 12:35:16'),
-	(18, 'test', '$2y$13$9.WnXQK8rxdzLOWPxzoBKe6MGb2s4Ig/DvlcrzPFBluWLzhnFR0z6', NULL, 'victor@dccolorweb.com', 0, 1, 'nYoeJco9QCfrZCfBHqmowhZrUVLDHyeC', 'IMPLe7RjDHQPZbc2s76sUdyQAButpqd-', '2017-11-22 17:14:44', '2017-11-22 17:15:44');
+	(17, 'admin', '$2y$13$G.iapHfvmSBZiakNBDF8TuXiiMs7aJqG65KHNPRGX2/EDvPjOfTB6', '', 'valbert1993@gmail.com', 1, 1, 'E4Q-ZmDjqdJXuD0GlPHE4orOQoKuvGtu', 'T0FJUVUAMfhNiAQSzYcSYCIKW2UXuigF', '2017-11-06 02:46:45', '2017-11-30 15:50:16');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
