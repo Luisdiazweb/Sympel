@@ -1,4 +1,5 @@
 web/profiles_picture/*
+web/donation_images/*
 # phpstorm project files
 .idea
 
