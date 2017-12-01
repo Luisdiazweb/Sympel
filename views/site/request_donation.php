@@ -11,7 +11,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $model app\models\Donations */
 /* @var $form ActiveForm */
 
-$this->title = "Create Donation - Sympel";
+$this->title = "Request Donation - Sympel";
 
 $this->registerCssFile('@web/app-assets/css/core/menu/menu-types/vertical-menu.css',
     [
@@ -94,7 +94,7 @@ $this->registerJsFile('@web/app-assets/vendors/js/bootstrap-tagsinput.min.js',
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h3 class="my-2 card-title">Kind of Donation </h3>
-                                            <p class="mb-2">What kind of donation is this?</p>
+                                            <p class="mb-2">What are you in need of?</p>
                                             <div class="row mb-3">
                                                 <?= $form->field($model, 'id_category')->radioList($cat_donations, [
                                                     'itemOptions' => [
@@ -119,7 +119,7 @@ $this->registerJsFile('@web/app-assets/vendors/js/bootstrap-tagsinput.min.js',
                                             <div class="form-group">
                                                 <?= $form->field($model, 'title')
                                                     ->textInput(['maxlength' => true])
-                                                    ->label('Title of Post') ?>
+                                                    ->label('Title of Need') ?>
 
                                             </div>
                                         </div>
@@ -139,7 +139,16 @@ $this->registerJsFile('@web/app-assets/vendors/js/bootstrap-tagsinput.min.js',
                                             <div class="form-group">
                                                 <?= $form->field($model, 'description')
                                                     ->textarea(['rows' => 5])
-                                                    ->label("Tell us about this donation") ?>
+                                                    ->label("Tell us about you are in need of") ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <?= $form->field($model, 'why_need')
+                                                    ->textarea(['rows' => 5])
+                                                    ->label("Why? (tell us about how this will help your organization or why it would help):") ?>
                                             </div>
                                         </div>
                                     </div>
@@ -150,16 +159,7 @@ $this->registerJsFile('@web/app-assets/vendors/js/bootstrap-tagsinput.min.js',
                                                 $condition_items = [1 => 'New', 0 => "Used"];
                                                 echo $form->field($model, 'condition_new', [
                                                     'template' => '{label}<div class="skin skin-flat">{input}{error}{hint}</div>'
-                                                ])->radioList($condition_items, [
-//                                                    'item' => function ($index, $label, $name, $checked, $value) {
-//                                                        $return = '<div class="d-inline';
-//                                                        $return .= '<label class="control-label">';
-//                                                        $return .= '<input type="radio" name="' . $name . '" value="' . $value . '>';
-//                                                        $return .= $label . '</label>';
-//                                                        $return .= '</div>';
-//                                                        return $return;
-//                                                    }
-                                                ]); ?>
+                                                ])->radioList($condition_items)->label('Condition Requirement'); ?>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -172,14 +172,6 @@ $this->registerJsFile('@web/app-assets/vendors/js/bootstrap-tagsinput.min.js',
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-md-12">
-                                            <!--                                            <p>Add images:</p>-->
-                                            <!--                                            <button id="select-files" class="btn btn-primary mb-1"><i-->
-                                            <!--                                                        class="icon-file2"></i> Click me to select files-->
-                                            <!--                                            </button>-->
-                                            <!--                                            <form action="#" class="dropzone" id="dpz-btn-select-files">-->
-                                            <!--                                                <input type="file" name="file" class="btn btn-primary mb-1" />-->
-                                            <!--                                            </form>-->
-                                            <?php //echo $form->field($model, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
                                             <?php
                                             $preview = false;
                                             if (!empty($model->images_url)) {
@@ -214,7 +206,7 @@ $this->registerJsFile('@web/app-assets/vendors/js/bootstrap-tagsinput.min.js',
                                     </div>
                                     <div class="row text-sm-center my-3">
 
-                                        <?= Html::submitButton($model->isNewRecord ? 'PREVIEW POST' : 'Update', ['class' => 'btn btn-primary']) ?>
+                                        <?= Html::submitButton($model->isNewRecord ? 'PREVIEW REQUEST' : 'Update', ['class' => 'btn btn-primary']) ?>
                                         <button type="button" class="btn btn-outline-danger">CANCEL</button>
                                     </div>
                                     <?php ActiveForm::end(); ?>

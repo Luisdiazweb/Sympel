@@ -12,6 +12,7 @@ use yii\web\UploadedFile;
  * @property string $id_public
  * @property integer $id_category
  * @property integer $id_type
+ * @property integer $id_user
  * @property string $title
  * @property string $city
  * @property string $zip_code
@@ -22,9 +23,11 @@ use yii\web\UploadedFile;
  * @property integer $condition_new
  * @property integer $checked
  * @property string $created_at
+ * @property string $updated_at
  *
  * @property DonationsCategory $idCategory
  * @property DonationType $idType
+ * @property UsersSystem $user
  */
 class Donations extends \yii\db\ActiveRecord
 {
@@ -49,13 +52,16 @@ class Donations extends \yii\db\ActiveRecord
     {
         return [
             [['condition_new', 'title', 'city', 'zip_code'], 'required'],
-            [['id_category', 'id_type', 'condition_new', 'checked'], 'integer'],
+            [['id_category', 'id_type', 'id_user', 'condition_new', 'checked'], 'integer'],
+            [['description', 'why_need', 'images_url', 'keywords'], 'string'],
+            [['created_at', 'updated_at'], 'safe'],
             [['description', 'why_need', 'images_url', 'keywords'], 'string'],
             [['id_public'], 'string', 'max' => 8],
-            [['imageFiles'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'maxFiles' => 4],
+            [['imageFiles'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'maxFiles' => 8],
             [['title', 'city', 'zip_code'], 'string', 'max' => 256],
             [['id_category'], 'exist', 'skipOnError' => true, 'targetClass' => DonationsCategory::className(), 'targetAttribute' => ['id_category' => 'id']],
             [['id_type'], 'exist', 'skipOnError' => true, 'targetClass' => DonationType::className(), 'targetAttribute' => ['id_type' => 'id']],
+            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => UsersSystem::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
     }
 
@@ -69,6 +75,7 @@ class Donations extends \yii\db\ActiveRecord
             'id_public' => 'Id Public',
             'id_category' => 'Category',
             'id_type' => 'Type',
+            'id_user' => 'User',
             'title' => 'Title',
             'city' => 'City',
             'zip_code' => 'Zip Code',
@@ -78,7 +85,9 @@ class Donations extends \yii\db\ActiveRecord
             'keywords' => 'Keywords',
             'condition_new' => 'Condition',
             'checked' => 'Checked',
-            'imageFiles'=> 'Add images'
+            'imageFiles' => 'Add images',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
         ];
     }
 
@@ -98,12 +107,25 @@ class Donations extends \yii\db\ActiveRecord
         return $this->hasOne(DonationType::className(), ['id' => 'id_type']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdUser()
+    {
+        return $this->hasOne(UsersSystem::className(), ['id' => 'id_user']);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function beforeSave($insert)
     {
         if (!parent::beforeSave($insert)) {
             return false;
         }
         $this->id_public = Yii::$app->security->generateRandomString(8);
+
+
         $this->imageFiles = UploadedFile::getInstances($this, 'imageFiles');
         if (!empty($this->imageFiles)) {
             $array_iamges = [];
@@ -119,7 +141,7 @@ class Donations extends \yii\db\ActiveRecord
                     $array_iamges[] = $url_file;
                 }
             }
-            $this->images_url  = json_encode($array_iamges);
+            $this->images_url = json_encode($array_iamges);
         }
         return true;
     }

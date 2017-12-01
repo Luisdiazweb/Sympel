@@ -553,24 +553,30 @@ class SiteController extends CustomController
         ]);
     }
 
-    public function actionCreatedonation()
+    public function actionCreatedonation($id = false)
     {
-        $model = new Donations();
+        if ($id) {
+            $model = Donations::findOne(['id_public' => $id]);
+            if (!$model) {
+                throw new NotFoundHttpException("Donation was not found.");
+            }
+        } else {
+            $model = new Donations();
+        }
+
 
         if ($model->load(Yii::$app->request->post())) {
             if (Yii::$app->request->isAjax) {
                 Yii::$app->response->format = Response::FORMAT_JSON;
                 return ActiveForm::validate($model);
             }
-//            var_dump($_POST);
-//            exit();
-
             $model->id_type = 2;
+            $model->id_user = Yii::$app->user->getId();
+
 //            if (
-                $model->save()
-                    ;
+            $model->save();
 //            ) {
-                return $this->redirect(['reviewdonation', 'id' => $model->id_public]);
+            return $this->redirect(['reviewdonation', 'id' => $model->id_public]);
 //            } else {
 //                var_dump($model->errors);
 //                $cat_donations = ArrayHelper::map(DonationsCategory::find()->asArray()->all(), 'id', 'name');
@@ -590,11 +596,68 @@ class SiteController extends CustomController
 
     }
 
-    public function actionReviewdonation($id){
+    public function actionReviewdonation($id)
+    {
         $model = Donations::findOne(['id_public' => $id]);
-        return $this->render('review_create_donation', [
-            'model'=> $model
-        ]);
+        if (!$model) {
+            throw new NotFoundHttpException("Donation was not found.");
+        }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->goHome();
+        } else {
+            return $this->render('review_create_donation', [
+                'model' => $model
+            ]);
+        }
+
+    }
+
+    public function actionRequestdonation($id = false)
+    {
+        if ($id) {
+            $model = Donations::findOne(['id_public' => $id]);
+            if (!$model) {
+                throw new NotFoundHttpException("Request was not found.");
+            }
+        } else {
+            $model = new Donations();
+        }
+
+
+        if ($model->load(Yii::$app->request->post())) {
+            if (Yii::$app->request->isAjax) {
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                return ActiveForm::validate($model);
+            }
+            $model->id_type = 1;
+            $model->id_user = Yii::$app->user->getId();
+
+            $model->save();
+            return $this->redirect(['reviewrequest', 'id' => $model->id_public]);
+        } else {
+            $cat_donations = ArrayHelper::map(DonationsCategory::find()->asArray()->all(), 'id', 'name');
+            return $this->render('request_donation', [
+                'model' => $model,
+                'cat_donations' => $cat_donations
+            ]);
+        }
+
+    }
+
+    public function actionReviewrequest($id)
+    {
+        $model = Donations::findOne(['id_public' => $id]);
+        if (!$model) {
+            throw new NotFoundHttpException("Request was not found.");
+        }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->goHome();
+        } else {
+            return $this->render('review_request_donation', [
+                'model' => $model
+            ]);
+        }
+
     }
 
     private function checkifpreviscomplete($prev)
