@@ -150,16 +150,7 @@ $this->registerJsFile('@web/app-assets/vendors/js/bootstrap-tagsinput.min.js',
                                                 $condition_items = [1 => 'New', 0 => "Used"];
                                                 echo $form->field($model, 'condition_new', [
                                                     'template' => '{label}<div class="skin skin-flat">{input}{error}{hint}</div>'
-                                                ])->radioList($condition_items, [
-//                                                    'item' => function ($index, $label, $name, $checked, $value) {
-//                                                        $return = '<div class="d-inline';
-//                                                        $return .= '<label class="control-label">';
-//                                                        $return .= '<input type="radio" name="' . $name . '" value="' . $value . '>';
-//                                                        $return .= $label . '</label>';
-//                                                        $return .= '</div>';
-//                                                        return $return;
-//                                                    }
-                                                ]); ?>
+                                                ])->radioList($condition_items); ?>
                                             </div>
                                         </div>
                                         <div class="col-md-6">

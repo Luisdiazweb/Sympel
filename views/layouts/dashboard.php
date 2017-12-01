@@ -46,7 +46,7 @@ AdminAsset::register($this);
                             <img alt="stack admin logo"
                                  src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png') ?>"
                                  class="brand-logo">
-<!--                            <h2 class="brand-text">Stack</h2>-->
+                            <!--                            <h2 class="brand-text">Stack</h2>-->
                         </a>
                     </li>
                     <li class="nav-item hidden-md-up float-xs-right">
@@ -112,18 +112,21 @@ AdminAsset::register($this);
                         <li class="dropdown dropdown-user nav-item">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
 	                        	<span class="avatar avatar-online">
-	                        		<img src="<?= Url::to('@web/admin/images/portrait/small/avatar-s-1.png') ?>" alt="avatar">
+	                        		<img src="<?= Url::to('@web/admin/images/portrait/small/avatar-s-1.png') ?>"
+                                         alt="avatar">
 	                        		<i></i>
 	                        	</span>
-                                <span class="user-name"><?= Yii::$app->user->identity->username?></span>
+                                <span class="user-name"><?= Yii::$app->user->identity->username ?></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a href="<?=Url::to(['profile/update', 'id'=> Yii::$app->session->get('profile_id')])?>" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
-<!--                                <a href="#" class="dropdown-item"><i class="ft-mail"></i> My Inbox</a>-->
-<!--                                <a href="#" class="dropdown-item"><i class="ft-check-square"></i> Task</a>-->
-<!--                                <a href="#" class="dropdown-item"><i class="ft-message-square"></i> Chats</a>-->
+                                <a href="<?= Url::to(['profile/update', 'id' => Yii::$app->session->get('profile_id')]) ?>"
+                                   class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
+                                <!--                                <a href="#" class="dropdown-item"><i class="ft-mail"></i> My Inbox</a>-->
+                                <!--                                <a href="#" class="dropdown-item"><i class="ft-check-square"></i> Task</a>-->
+                                <!--                                <a href="#" class="dropdown-item"><i class="ft-message-square"></i> Chats</a>-->
                                 <div class="dropdown-divider"></div>
-                                <a href="<?= Url::to('/logout')?>" class="dropdown-item"><i class="ft-power"></i> Logout</a>
+                                <a href="<?= Url::to('/logout') ?>" class="dropdown-item"><i class="ft-power"></i>
+                                    Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -140,19 +143,29 @@ AdminAsset::register($this);
                                                                       class=" ft-minus"></i>
                 </li>
                 <li class=" nav-item">
-                    <a href="<?= Url::to('dashboard')?>">
+                    <a href="<?= Url::to(['dashboard']) ?>">
                         <i class="ft-home"></i>
                         <span data-i18n="" class="menu-title">Dashboard</span>
                         <span class="tag tag tag-primary tag-pill float-xs-right mr-2">1</span>
                     </a>
                     <ul class="menu-content">
                         <li>
-                            <a href="/user/" class="menu-item">Users</a>
+                            <a href="/user/" class="menu-item"><i class="fa fa-users"></i>Users</a>
                         </li>
-<!--                        <li class="active"><a href="dashboard-analytics.html" class="menu-item">Analytics</a>-->
-<!--                        </li>-->
-<!--                        <li><a href="dashboard-fitness.html" class="menu-item">Fitness</a>-->
-<!--                        </li>-->
+                        <li class="nav-item has-sub"><a href="#">
+                                <i class="fa fa-pencil"></i>
+                                <span data-i18n="" class="menu-title">Donations</span></a>
+                            <ul class="menu-content" style="">
+                                <li class=""><a href="/donationadmin/?DonationsSearch[id_type]=2" class="menu-item">Creations</a>
+                                </li>
+                                <li class=""><a href="/donationadmin/?DonationsSearch[id_type]=1" class="menu-item">Request</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--                        <li class="active"><a href="dashboard-analytics.html" class="menu-item">Analytics</a>-->
+                        <!--                        </li>-->
+                        <!--                        <li><a href="dashboard-fitness.html" class="menu-item">Fitness</a>-->
+                        <!--                        </li>-->
                     </ul>
                 </li>
             </ul>
@@ -164,7 +177,7 @@ AdminAsset::register($this);
             </div>
             <div class="content-body">
                 <?php //echo Breadcrumbs::widget([
-//                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                //                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 //]) ?>
 
                 <?= $content ?>

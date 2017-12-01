@@ -27,7 +27,7 @@ use yii\web\UploadedFile;
  *
  * @property DonationsCategory $idCategory
  * @property DonationType $idType
- * @property UsersSystem $user
+ * @property UsersSystem $idUser
  */
 class Donations extends \yii\db\ActiveRecord
 {
@@ -123,8 +123,9 @@ class Donations extends \yii\db\ActiveRecord
         if (!parent::beforeSave($insert)) {
             return false;
         }
-        $this->id_public = Yii::$app->security->generateRandomString(8);
-
+        if (empty($this->id_public)) {
+            $this->id_public = Yii::$app->security->generateRandomString(8);
+        }
 
         $this->imageFiles = UploadedFile::getInstances($this, 'imageFiles');
         if (!empty($this->imageFiles)) {
