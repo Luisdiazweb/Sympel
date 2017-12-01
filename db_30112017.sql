@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS `donations` (
   `id_public` varchar(8) NOT NULL,
   `id_category` int(11) DEFAULT NULL,
   `id_type` int(11) NOT NULL DEFAULT '1',
+  `id_user` int(11) NOT NULL,
   `title` varchar(256) NOT NULL,
   `city` varchar(256) NOT NULL,
   `zip_code` varchar(256) NOT NULL,
@@ -82,11 +83,13 @@ CREATE TABLE IF NOT EXISTS `donations` (
   PRIMARY KEY (`id`),
   KEY `FK_category` (`id_category`),
   KEY `FK_type` (`id_type`),
+  KEY `FK_user` (`id_user`),
   CONSTRAINT `FK_category` FOREIGN KEY (`id_category`) REFERENCES `donations_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_type` FOREIGN KEY (`id_type`) REFERENCES `donation_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  CONSTRAINT `FK_type` FOREIGN KEY (`id_type`) REFERENCES `donation_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla sympel_db.donations: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla sympel_db.donations: ~0 rows (aproximadamente)
 DELETE FROM `donations`;
 /*!40000 ALTER TABLE `donations` DISABLE KEYS */;
 /*!40000 ALTER TABLE `donations` ENABLE KEYS */;
@@ -201,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `session` (
 DELETE FROM `session`;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
 INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-	('cv3m5qsfanqrr3ob1953kiupi7', 1512079865, _binary 0x5F5F666C6173687C613A303A7B7D);
+	('hs8fmbhfn2uf4ocktqiks4ja50', 1512158636, _binary 0x5F5F666C6173687C613A303A7B7D5F5F72657475726E55726C7C733A31353A222F646F6E6174696F6E61646D696E2F223B5F5F69647C693A31373B70726F66696C655F69647C693A31303B);
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.user
