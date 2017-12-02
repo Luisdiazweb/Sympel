@@ -22,6 +22,7 @@ use yii\web\UploadedFile;
  * @property string $zip_code
  * @property string $phone
  * @property string $registered_ein
+ * @property integer $ein_verified
  * @property string $website
  * @property string $areas_support
  * @property string $mission
@@ -76,7 +77,7 @@ class ProfileAccount extends \yii\db\ActiveRecord
             [['company_name', 'address', 'state', 'city', 'zip_code', 'phone', 'website'], 'required', 'on' => self::SCENARIO_SIGNUP_STEP3_2],
             [['non_profit_name', 'title', 'address', 'state', 'city', 'zip_code', 'phone', 'website', 'registered_ein'], 'required', 'on' => self::SCENARIO_SIGNUP_STEP3_1],
             [['user_id', 'profile_type_id', 'firstname', 'lastname', 'state', 'city', 'zip_code'], 'required'],
-            [['user_id', 'profile_type_id'], 'integer'],
+            [['user_id', 'profile_type_id', 'ein_verified'], 'integer'],
             [['areas_support', 'mission'], 'string'],
             [['firstname', 'lastname', 'non_profit_name', 'company_name', 'title', 'address', 'state', 'city', 'zip_code', 'phone', 'registered_ein'], 'string', 'max' => 128],
             [['website'], 'string', 'max' => 256],
@@ -108,6 +109,7 @@ class ProfileAccount extends \yii\db\ActiveRecord
             'zip_code' => 'Zip Code',
             'phone' => 'Phone',
             'registered_ein' => 'Registered Ein',
+            'ein_verified' => 'Ein # approval.',
             'website' => 'Website',
             'areas_support' => 'Areas Support',
             'mission' => 'Mission',

@@ -20,13 +20,29 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model->profileType, 'name')->textInput()->label('Profile type') ?>
 
-    <?php if ($model->profile_type_id == 1): ?><?= $form->field($model, 'non_profit_name')->textInput(['maxlength' => true]) ?><?php endif; ?>
+    <?php if ($model->profile_type_id == 1): ?>
 
-    <?php if ($model->profile_type_id == 1): ?><?= $form->field($model, 'company_name')->textInput(['maxlength' => true]) ?><?php endif; ?>
+        <?= $form->field($model, 'non_profit_name')->textInput(['maxlength' => true]) ?>
 
-    <?php if ($model->profile_type_id == 1): ?><?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?><?php endif; ?>
+    <?php endif; ?>
 
-    <?php if ($model->profile_type_id == 1 || $model->profile_type_id == 2): ?><?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?><?php endif; ?>
+    <?php if ($model->profile_type_id == 2): ?>
+
+        <?= $form->field($model, 'company_name')->textInput(['maxlength' => true]) ?>
+
+    <?php endif; ?>
+
+    <?php if ($model->profile_type_id == 1): ?>
+
+        <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+
+    <?php endif; ?>
+
+    <?php if ($model->profile_type_id == 1 || $model->profile_type_id == 2): ?>
+
+        <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
+
+    <?php endif; ?>
 
     <?= $form->field($model, 'state')->textInput(['maxlength' => true]) ?>
 
@@ -34,13 +50,34 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'zip_code')->textInput(['maxlength' => true]) ?>
 
-    <?php if ($model->profile_type_id == 1 || $model->profile_type_id == 2): ?><?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?><?php endif; ?>
+    <?php if ($model->profile_type_id == 1 || $model->profile_type_id == 2): ?>
 
-    <?php if ($model->profile_type_id == 1): ?><?= $form->field($model, 'registered_ein')->textInput(['maxlength' => true]) ?><?php endif; ?>
+        <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
-    <?php if ($model->profile_type_id == 1 || $model->profile_type_id == 2): ?><?= $form->field($model, 'website')->textInput(['maxlength' => true]) ?><?php endif; ?>
+    <?php endif; ?>
 
-    <?php if ($model->profile_type_id == 1 || $model->profile_type_id == 2): ?><?= $form->field($model, 'mission')->textarea(['rows' => 6]) ?><?php endif; ?>
+    <?php if ($model->profile_type_id == 1): ?>
+
+        <?= $form->field($model, 'registered_ein')->textInput(['maxlength' => true]) ?>
+
+        <?= $form->field($model, 'ein_verified')->dropDownList([
+            0 => 'Not Verified',
+            1 => 'Verified'
+        ]) ?>
+
+    <?php endif; ?>
+
+    <?php if ($model->profile_type_id == 1 || $model->profile_type_id == 2): ?>
+
+        <?= $form->field($model, 'website')->textInput(['maxlength' => true]) ?>
+
+    <?php endif; ?>
+
+    <?php if ($model->profile_type_id == 1 || $model->profile_type_id == 2): ?>
+
+        <?= $form->field($model, 'mission')->textarea(['rows' => 6]) ?>
+
+    <?php endif; ?>
 
     <?php
     $areas_list = json_decode($model->areas_support, true);

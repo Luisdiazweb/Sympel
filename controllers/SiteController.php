@@ -555,6 +555,7 @@ class SiteController extends CustomController
 
     public function actionCreatedonation($id = false)
     {
+        $this->restrict_nonprofit();
         if ($id) {
             $model = Donations::findOne(['id_public' => $id]);
             if (!$model) {
@@ -614,6 +615,7 @@ class SiteController extends CustomController
 
     public function actionRequestdonation($id = false)
     {
+        $this->restrict_nonprofit();
         if ($id) {
             $model = Donations::findOne(['id_public' => $id]);
             if (!$model) {
@@ -682,5 +684,15 @@ class SiteController extends CustomController
 //        exit();
         SignupForms::saveNewUser($step1, $step2, $step3);
         return $this->goHome();
+    }
+
+    private function restrict_nonprofit()
+    {
+        $profile = ProfileAccount::findOne(Yii::$app->session->get('profile_id'));
+        if ($profile) {
+            if ((($profile->profile_type_id == 1) && !boolval($profile->ein_verified))) {
+                throw new NotFoundHttpException("Ein # Not Verified.");
+            }
+        }
     }
 }

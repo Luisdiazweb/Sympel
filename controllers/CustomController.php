@@ -2,6 +2,9 @@
 
 namespace app\controllers;
 
+use app\models\ProfileAccount;
+use app\models\ProfileType;
+use Faker\Provider\pl_PL\Payment;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -70,7 +73,6 @@ class CustomController extends Controller
             ],
         ];
     }
-
 
 
 }
