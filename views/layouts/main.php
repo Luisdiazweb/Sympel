@@ -77,8 +77,8 @@ NavBar::end();*/
                 </li>
                 <li class="nav-item">
                     <a href=""<?= Url::to('@web/') ?>"" class="navbar-brand">
-                        <img alt="Sympel logo" src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png') ?>"
-                             class="brand-logo">
+                    <img alt="Sympel logo" src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png') ?>"
+                         class="brand-logo">
                 <li class="nav-item hidden-md-up float-xs-right">
                     <a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container">
                         <i class="fa fa-ellipsis-v"></i>
@@ -95,20 +95,25 @@ NavBar::end();*/
                                     class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
                 </ul>
                 <ul class="nav navbar-nav float-xs-right actions">
-                    <?=
-                    Yii::$app->user->isGuest ? ('
-                    <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
-                    <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
-                    '
-                    ) : (Yii::$app->user->identity->admin? '<li class="nav-item"><a class="nav-link nav-actions" href="/dashboard/">Dashboard</a></li>': '') . (
-                        '<li class="nav-item">
+                    <?php if (Yii::$app->user->isGuest): ?>
+                        <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
+                        <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
+                    <?php else: ?>
+                        <?php if (Yii::$app->user->identity->admin): ?>
+                            <li class="nav-item"><a class="nav-link nav-actions" href="/dashboard/">Dashboard</a></li>
+                        <?php endif; ?>
+                        <li class="nav-item">
                             <a class="nav-link nav-actions" href="/myprofile">
-                                ' . Yii::$app->user->identity->username . '
+                                <?php
+                                $img = \app\models\ProfileAccount::findOne(Yii::$app->session->get('profile_id'))->profile_picture_url;
+//                                echo $img;
+                                ?>
+                                <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>" class="rounded-circle img-border" style="height: 25px;margin-right: 10px;">
+                                <?= Yii::$app->user->identity->username ?>
                             </a>
                         </li>
-                        <li class="nav-item"><a class="nav-link nav-actions" href="/logout">Logout</a></li>
-                        ')
-                    ?>
+                        <li class="nav-item"><a class="nav-link nav-actions" href="/logout"> Logout</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

@@ -157,20 +157,25 @@ NavBar::end();*/
                                     class="fa fa-heart square-icon menu light"></i>How it Works</a></li>
                 </ul>
                 <ul class="nav navbar-nav float-xs-right actions">
-                    <?= Yii::$app->user->isGuest ? ('
-                    <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
-                    <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
-                    '
-                    ) :
-                        (Yii::$app->user->identity->admin ? '<li class="nav-item"><a class="nav-link nav-actions" href="/dashboard/index">Dashboard</a></li>' : '')
-                        . ('<li class="nav-item">
+                    <?php if (Yii::$app->user->isGuest): ?>
+                        <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
+                        <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
+                    <?php else: ?>
+                        <?php if (Yii::$app->user->identity->admin): ?>
+                            <li class="nav-item"><a class="nav-link nav-actions" href="/dashboard/">Dashboard</a></li>
+                        <?php endif; ?>
+                        <li class="nav-item">
                             <a class="nav-link nav-actions" href="/myprofile">
-                                ' . Yii::$app->user->identity->username . '
+                                <?php
+                                $img = \app\models\ProfileAccount::findOne(Yii::$app->session->get('profile_id'))->profile_picture_url;
+                                //                                echo $img;
+                                ?>
+                                <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>" class="rounded-circle img-border" style="height: 25px;margin-right: 10px;">
+                                <?= Yii::$app->user->identity->username ?>
                             </a>
                         </li>
-                        <li class="nav-item"><a class="nav-link nav-actions" href="/logout">Logout</a></li>
-                        ')
-                    ?>
+                        <li class="nav-item"><a class="nav-link nav-actions" href="/logout"> Logout</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
