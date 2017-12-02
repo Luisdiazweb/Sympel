@@ -154,6 +154,7 @@ CREATE TABLE IF NOT EXISTS `profile_account` (
   `zip_code` varchar(128) NOT NULL,
   `phone` varchar(128) DEFAULT NULL,
   `registered_ein` varchar(128) DEFAULT NULL,
+  `ein_verified` tinyint(4) NOT NULL DEFAULT '0',
   `website` varchar(256) DEFAULT NULL,
   `areas_support` text,
   `mission` text,
@@ -165,11 +166,11 @@ CREATE TABLE IF NOT EXISTS `profile_account` (
   CONSTRAINT `user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla sympel_db.profile_account: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla sympel_db.profile_account: ~1 rows (aproximadamente)
 DELETE FROM `profile_account`;
 /*!40000 ALTER TABLE `profile_account` DISABLE KEYS */;
-INSERT INTO `profile_account` (`id`, `user_id`, `profile_type_id`, `firstname`, `lastname`, `non_profit_name`, `company_name`, `title`, `address`, `state`, `city`, `zip_code`, `phone`, `registered_ein`, `website`, `areas_support`, `mission`, `profile_picture_url`) VALUES
-	(10, 17, 3, 'Victor', 'Aguilar', '', NULL, '', '', 'san Salvador', 'Soyapango', '1101', '', '12312342341234', '', '["1","2","5","8","11","13","14","19","20","21","22","26","29"]', NULL, '  ');
+INSERT INTO `profile_account` (`id`, `user_id`, `profile_type_id`, `firstname`, `lastname`, `non_profit_name`, `company_name`, `title`, `address`, `state`, `city`, `zip_code`, `phone`, `registered_ein`, `ein_verified`, `website`, `areas_support`, `mission`, `profile_picture_url`) VALUES
+	(10, 17, 3, 'Victor', 'Aguilar', '', NULL, '', '', 'san Salvador', 'Soyapango', '1101', '', '12312342341234', 0, '', '["1","2","5","8","11","13","14","19","20","21","22","26","29"]', NULL, '  ');
 /*!40000 ALTER TABLE `profile_account` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.profile_type
@@ -204,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `session` (
 DELETE FROM `session`;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
 INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-	('hs8fmbhfn2uf4ocktqiks4ja50', 1512158636, _binary 0x5F5F666C6173687C613A303A7B7D5F5F72657475726E55726C7C733A31353A222F646F6E6174696F6E61646D696E2F223B5F5F69647C693A31373B70726F66696C655F69647C693A31303B);
+	('3qek7p12duk8mtp5ifqqegauf3', 1512254491, _binary 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A31373B);
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.user
