@@ -142,7 +142,8 @@ class SiteController extends CustomController
         } else {
             $this->layout = "login";
             return $this->render('request_password', [
-                'user' => $model
+                'user' => $model,
+                'submit_text' => 'Recover Username'
             ]);
         }
     }
@@ -163,7 +164,8 @@ class SiteController extends CustomController
             } else {
                 $this->layout = "login";
                 return $this->render('request_password', [
-                    'user' => $model
+                    'user' => $model,
+                    'submit_text' => 'Recover Password'
                 ]);
             }
         } else {

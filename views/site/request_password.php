@@ -12,29 +12,29 @@ use yii\web\View;
 
 ?>
 <div class="card-body collapse in">
-<div class="card-block">
+    <div class="card-block">
 
-    <?php
-    $form = ActiveForm::begin([
-            'enableAjaxValidation' => true,
-        ]
-    ); ?>
+        <?php
+        $form = ActiveForm::begin([
+//                'enableAjaxValidation' => true,
+            ]
+        ); ?>
 
-    <fieldset>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <?= $form->field($user, 'email', [
-                        'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
-                    ])?>
+        <fieldset>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <?= $form->field($user, 'email', [
+                            'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+                        ])->input('email') ?>
+                    </div>
                 </div>
             </div>
-        </div>
-    </fieldset>
-    <fieldset>
-    <?= Html::submitButton('<i class="ft-unlock"></i> Recovery', ['class' => 'btn btn-primary btn-md btn-block', 'name' => 'login-button']) ?>
-    <?= Html::a('Go Back', Yii::$app->request->referrer ? Yii::$app->request->referrer : '/', ['class' => 'btn btn-warning btn-md btn-block']) ?>
-    </fieldset>
-    <?php ActiveForm::end() ?>
+        </fieldset>
+        <fieldset>
+            <?= Html::submitButton('<i class="ft-unlock"></i>&nbsp;' . $submit_text, ['class' => 'btn btn-primary btn-md btn-block', 'name' => 'login-button']) ?>
+            <?= Html::a('Go Back', Yii::$app->request->referrer ? Yii::$app->request->referrer : '/', ['class' => 'btn btn-warning btn-md btn-block']) ?>
+        </fieldset>
+        <?php ActiveForm::end() ?>
     </div>
 </div>
