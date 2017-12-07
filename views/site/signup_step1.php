@@ -111,7 +111,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                     ])*/ ?>
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test1"
-                                                               name="ProfileAccount[profile_type_id]" checked value="1">
+                                                               name="ProfileAccount[profile_type_id]" <?= $profile->profile_type_id == 1 ? 'checked' : '' ?>
+                                                               value="1">
                                                         <label for="test1" class="radio-primary label-big">Non
                                                             Profit</label>
                                                         <p class="radio-description">Non-profit profiles can create
@@ -124,7 +125,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             <div class="col-md-4 mb-3  card">
                                                 <div class="card-body">
                                                     <div class="card-block">
-                                                        <input class="big-radio" type="radio" id="test2" value="2"
+                                                        <input class="big-radio" type="radio" id="test2"
+                                                               value="2" <?= $profile->profile_type_id == 2 ? 'checked' : '' ?>
                                                                name="ProfileAccount[profile_type_id]">
                                                         <label for="test2"
                                                                class="radio-secondary label-big">Company</label>
@@ -136,7 +138,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             <div class="col-md-4 mb-3  card">
                                                 <div class="card-body">
                                                     <div class="card-block">
-                                                        <input class="big-radio" type="radio" id="test3" value="3"
+                                                        <input class="big-radio" type="radio" id="test3"
+                                                               value="3" <?= $profile->profile_type_id == 3 ? 'checked' : '' ?>
                                                                name="ProfileAccount[profile_type_id]">
                                                         <label for="test3"
                                                                class="radio-tertiary label-big">Individual</label>

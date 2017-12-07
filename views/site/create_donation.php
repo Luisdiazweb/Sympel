@@ -206,7 +206,7 @@ $this->registerJsFile('@web/app-assets/vendors/js/bootstrap-tagsinput.min.js',
                                     <div class="row text-sm-center my-3">
 
                                         <?= Html::submitButton($model->isNewRecord ? 'PREVIEW POST' : 'Update', ['class' => 'btn btn-primary']) ?>
-                                        <button type="button" class="btn btn-outline-danger">CANCEL</button>
+                                        <?= Html::a('CANCEL', Yii::$app->request->referrer ?: '/', ['class' => 'btn btn-outline-danger']) ?>
                                     </div>
                                     <?php ActiveForm::end(); ?>
                                 </div>

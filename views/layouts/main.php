@@ -105,8 +105,7 @@ NavBar::end();*/
                         <li class="nav-item">
                             <a class="nav-link nav-actions" href="/myprofile">
                                 <?php
-                                $img = \app\models\ProfileAccount::findOne(Yii::$app->session->get('profile_id'))->profile_picture_url;
-//                                echo $img;
+                                $img = \app\models\ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()])->profile_picture_url;
                                 ?>
                                 <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>" class="rounded-circle img-border" style="height: 25px;margin-right: 10px;">
                                 <?= Yii::$app->user->identity->username ?>

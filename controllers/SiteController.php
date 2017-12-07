@@ -456,8 +456,14 @@ class SiteController extends CustomController
             $steps::saveStep($post, SignupStepsComponent::STEP1);
             return $this->redirect(SignupStepsComponent::STEP2);
         } else {
+
+            if ($this->checkifcuriscomplete(SignupStepsComponent::STEP1)) {
+                $return->model->load($steps::getStep(SignupStepsComponent::STEP1));
+            }
+
             return $this->render($return->render, [
-                'url_next' => SignupStepsComponent::STEP2
+                'url_next' => SignupStepsComponent::STEP2,
+                'profile' => $return->model,
             ]);
         }
     }
@@ -660,6 +666,17 @@ class SiteController extends CustomController
             ]);
         }
 
+    }
+
+    public function actionDeleteDonation($id)
+    {
+
+        if (($model = Donations::findOne(['id_public' => $id])) !== null) {
+            $model->delete();
+            return $this->redirect('/');
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 
     private function checkifpreviscomplete($prev)
