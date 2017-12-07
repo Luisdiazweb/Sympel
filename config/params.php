@@ -2,5 +2,5 @@
 
 return [
     'adminEmail' => 'team.dccolorweb@gmail.com',
-    'title' => 'Sympel app',
+    'title' => 'sympel',
 ];

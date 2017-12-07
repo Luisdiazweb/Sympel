@@ -117,8 +117,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                             Profit</label>
                                                         <p class="radio-description">Non-profit profiles can create
                                                             donation requests and post items for donation </p>
-                                                        <p class="radio-description">*Registration will require
-                                                            501-c3 verification</p>
+                                                        <p class="radio-description">*Tax ID will be required for verification</p>
                                                     </div>
                                                 </div>
                                             </div>

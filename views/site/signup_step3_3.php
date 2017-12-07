@@ -151,7 +151,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                 </div>
                                             </div>
                                         </div>
-                                        <h3 class="my-2">Areas of support</h3>
+                                        <h3 class="my-2">Areas of Support</h3>
                                         <p class="mb-2">Almost done! Tell us a little about your area of support.
                                             This will allow others to find you based on similar cause and interests.
                                             You can always make changes in your profile settings at anytime.</p>
@@ -165,7 +165,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                 'item' => function ($index, $label, $name, $checked, $value) {
                                                     return '<fieldset class="col-md-4 col-sm-12 skin skin-flat">
                                                                 <label>
-                                                                    <input type="checkbox" name="' . $name . '" value="' . $value . '" />
+                                                                    <input class="JS_limit" type="checkbox" name="' . $name . '" value="' . $value . '" />
                                                                     ' . $label . '
                                                                 </label>
                                                             </fieldset>';
@@ -189,3 +189,5 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
         </div>
     </div>
 </div>
+
+<?php $this->render('script_maxcheckbox')?>

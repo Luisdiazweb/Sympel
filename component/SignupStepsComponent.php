@@ -93,9 +93,10 @@ class SignupStepsComponent
     public static function sendVerifiedAccountEmail($user_model)
     {
         $url_verified = $user_model->getUrlVerifiedUser();
-        $subject = "Confirm Sign Up";
-        $body = "<h1>Click on the following link to complete your registration</h1>";
-        $body .= "<a href='" . $url_verified . "'>Confirm</a>";
+        $subject = "Verify Your Email";
+        $body = "<h3>Hello and welcome to the giving community</h3><br>";
+        $body .= "<p>Thank you for registering with sympel.com. In order to authenticate yor registration please verify your email by clicking the link below.</p>><br>";
+        $body .= "<p><a style='text-decoration: underline;' href='" . $url_verified . "'>Confirm Email</a></p>";
 
         Yii::$app->mailer->compose()
             ->setTo($user_model->email)
