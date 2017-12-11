@@ -1,8 +1,15 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $modelSearchDonation app\models\DonationsSearch */
 
 use app\assets\AppAsset;
+use yii\bootstrap\ActiveForm;
+use yii\bootstrap\Html;
+use yii\helpers\Url;
+use yii\widgets\ListView;
+use yii\widgets\Pjax;
 
 $this->title = 'Giving is Sympel - Sympel';
 
@@ -10,22 +17,22 @@ $this->registerCssFile("@web/app-assets/css/core/menu/menu-types/vertical-menu.c
     [
         'depends' => [AppAsset::className()],
         'position' => \yii\web\View::POS_HEAD
-]);
+    ]);
 $this->registerCssFile("@web/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css",
     [
         'depends' => [AppAsset::className()],
         'position' => \yii\web\View::POS_HEAD
-]);
+    ]);
 $this->registerCssFile("@web/app-assets/css/plugins/forms/checkboxes-radios.css",
     [
         'depends' => [AppAsset::className()],
         'position' => \yii\web\View::POS_HEAD
-]);
+    ]);
 $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
-[
+    [
         'depends' => [AppAsset::className()],
         'position' => \yii\web\View::POS_END
-]);
+    ]);
 
 
 ?>
@@ -51,11 +58,24 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 <section class="search">
     <div class="container">
         <p>Quick Search</p>
+        <?php $form = ActiveForm::begin([
+            'action' => ['search'],
+            'method' => 'get',
+            'fieldConfig' => [
+                'options' => [
+                    'tag' => false,
+                ],
+            ],
+        ]); ?>
         <div class="row equal center">
             <div class="col-xs-5">
                 <fieldset class="form-group position-relative has-icon-left">
-                    <input type="text" class="form-control square form-control-xl input-xl" id="iconLeft"
-                           placeholder="Search for item or donation">
+                    <?= $form->field($modelSearchDonation, 'title', [
+                        'template' => '{input}'
+                    ])->textInput([
+                        'class' => 'form-control square form-control-xl input-xl',
+                        'placeholder' => 'Search for item or donation'
+                    ]) ?>
                     <div class="form-control-position">
                         <i class="ft-search danger font-medium-4"></i>
                     </div>
@@ -66,105 +86,68 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
             </div>
             <div class="col-xs-4">
                 <fieldset class="form-group position-relative has-icon-left">
-                    <input type="text" class="form-control square form-control-xl input-xl" id="iconLeft"
-                           placeholder="City, State or Zip">
+                    <?= $form->field($modelSearchDonation, 'city', [
+                        'template' => '{input}'
+                    ])->textInput([
+                        'class' => 'form-control square form-control-xl input-xl',
+                        'placeholder' => 'City or Zip'
+                    ]) ?>
                     <div class="form-control-position">
                         <i class="ft-search danger font-medium-4"></i>
                     </div>
                 </fieldset>
             </div>
             <div class="col-xs-2">
-                <input class="btn btn-primary btn-block square btn-lg mr-1 mb-1" type="button" value="Search">
+                <?= Html::submitButton('Search', ['class' => 'btn btn-primary btn-block square btn-lg mr-1 mb-1']) ?>
             </div>
         </div>
         <div class="skin skin-flat mt-2">
             <div class="d-inline mr-3">
-                <input type="checkbox" id="input-11">
+                <input type="checkbox" name="DonationsSearch[id_type]" id="DonationsSearch[id_type][1]"
+                       value="1" <?= $modelSearchDonation->id_type == 1 ? "checked" : "" ?>>
                 <label for="input-11">Show donations posts</label>
             </div>
             <div class="d-inline">
-                <input type="checkbox" id="input-12">
+                <input type="checkbox" name="DonationsSearch[id_type]" id="DonationsSearch[id_type][2]"
+                       value="2" <?= $modelSearchDonation->id_type == 2 ? "checked" : "" ?>>
                 <label for="input-12">Show requested posts</label>
             </div>
         </div>
+        <?php ActiveForm::end(); ?>
     </div>
 </section>
 <section class="donations-list">
     <div class="container-fluid">
         <div class="row match-height">
             <div class="col-xl-12">
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                    <div class="card" style="">
-                        <div class="card-body">
-                            <img class="card-img-top img-fluid" src="<?= \yii\helpers\Url::to('@web/app-assets/images/carousel/05.jpg')?>"
-                                 alt="Card image cap">
-                            <div class="card-block product-card-body">
-                                <h4 class="card-title">Name of need</h4>
-                                <p class="card-text">Name of Organization</p>
-                                <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i class="fa fa-eye"></i></a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i
-                                            class="fa fa-comment-o"></i></a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i
-                                            class="fa fa-share-square"></i></a>
+                <?php Pjax::begin();?>
+                <?= ListView::widget([
+                    'dataProvider' => $dataProvider,
+                    'itemOptions' => ['class' => 'item'],
+                    'itemView' => function ($model, $key, $index, $widget) {
+                        $images = empty($model->images_url) ? null : json_decode($model->images_url);
+                        $img = is_array($images) ? $images[0] : 'app-assets/images/carousel/05.jpg';
+                        $img_preview = Html::img(Url::to([$img]), [
+                            'class' => 'card-img-top img-fluid',
+                        ]);
+
+                        $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
+                        $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
+                    <div class=\"card\" style=\"\">
+                        <div class=\"card-body\">$img_preview
+                            <div class=\"card-block product-card-body\">
+                                <h4 class=\"card-title\">$model->title</h4>
+                                <p class=\"card-text\">$description</p>
+                                <a href=\"#\" class=\"btn btn-outline-success\">Go somewhere</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                    <div class="card" style="">
-                        <div class="card-body">
-                            <img class="card-img-top img-fluid" src="<?= \yii\helpers\Url::to('@web/app-assets/images/carousel/05.jpg')?>"
-                                 alt="Card image cap">
-                            <div class="card-block product-card-body">
-                                <h4 class="card-title">Name of need</h4>
-                                <p class="card-text">Name of Organization</p>
-                                <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i class="fa fa-eye"></i></a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i
-                                            class="fa fa-comment-o"></i></a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i
-                                            class="fa fa-share-square"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                    <div class="card" style="">
-                        <div class="card-body">
-                            <img class="card-img-top img-fluid" src="<?= \yii\helpers\Url::to('@web/app-assets/images/carousel/05.jpg')?>"
-                                 alt="Card image cap">
-                            <div class="card-block product-card-body">
-                                <h4 class="card-title">Name of need</h4>
-                                <p class="card-text">Name of Organization</p>
-                                <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i class="fa fa-eye"></i></a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i
-                                            class="fa fa-comment-o"></i></a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i
-                                            class="fa fa-share-square"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                    <div class="card" style="">
-                        <div class="card-body">
-                            <img class="card-img-top img-fluid" src="<?= \yii\helpers\Url::to('@web/app-assets/images/carousel/05.jpg')?>"
-                                 alt="Card image cap">
-                            <div class="card-block product-card-body">
-                                <h4 class="card-title">Name of need</h4>
-                                <p class="card-text">Name of Organization</p>
-                                <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i class="fa fa-eye"></i></a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i
-                                            class="fa fa-comment-o"></i></a>
-                                <a href="#" style="font-size: 20px; margin-left:10px;"><i
-                                            class="fa fa-share-square"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>";
+                        return $layout;
+                    },
+                    'summary'=>'',
+                ]) ?>
+                <?php Pjax::end(); ?>
             </div>
         </div>
     </div>

@@ -3,6 +3,7 @@
 
 use yii\helpers\Url;
 use yii\bootstrap\Html;
+use yii\widgets\ListView;
 
 ?>
 <div class="row mt-2">
@@ -10,33 +11,39 @@ use yii\bootstrap\Html;
         <?= $this->render('public_profile_partials/_profile_picture', [
             'profile' => $profile,
         ]) ?>
-        <?php 
-        if ($profile->profile_type_id == 1){
+        <?php
+        if ($profile->profile_type_id == 1) {
             echo $this->render('public_profile_partials/_information_1', [
                 'profile' => $profile,
             ]);
-        }elseif($profile->profile_type_id == 2){
+        } elseif ($profile->profile_type_id == 2) {
             echo $this->render('public_profile_partials/_information_2', [
                 'profile' => $profile,
             ]);
-        }else{
+        } else {
             echo $this->render('public_profile_partials/_information_3', [
                 'profile' => $profile,
+                'summaryNeeds' => $summaryNeeds,
+                'summaryDonations' => $summaryDonations,
+                'areas' => $areas,
             ]);
         }
         ?>
     </div>
 </div>
-<?php if ($profile->profile_type_id != 3):?>
+<?php if ($profile->profile_type_id != 3): ?>
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <?= $this->render('public_profile_partials/_causes_areas', [
-                    'profile' => $profile,
-                ]);
+                'profile' => $profile,
+                'summaryNeeds' => $summaryNeeds,
+                'summaryDonations' => $summaryDonations,
+                'areas' => $areas,
+            ]);
             ?>
         </div>
-</div>
-<?php endif;?>
+    </div>
+<?php endif; ?>
 <!-- Card headings examples section end -->
 
 
@@ -61,62 +68,32 @@ use yii\bootstrap\Html;
                              aria-expanded="true">
                             <div class="row mt-3">
                                 <div class="col-md-12">
-                                    <div class="col-xl-3 col-md-6 col-sm-12">
-                                        <div class="card" style="">
-                                            <div class="card-body">
-                                                <img class="card-img-top img-fluid"
-                                                     src="<?= Url::to('@web/app-assets/images/carousel/05.jpg')?>" alt="Card image cap">
-                                                <div class="card-block product-card-body">
-                                                    <h4 class="card-title">Name of need</h4>
-                                                    <p class="card-text">Some quick example text to build on the card
-                                                        title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-sm-12">
-                                        <div class="card" style="">
-                                            <div class="card-body">
-                                                <img class="card-img-top img-fluid"
-                                                     src="<?= Url::to('@web/app-assets/images/carousel/05.jpg')?>" alt="Card image cap">
-                                                <div class="card-block product-card-body">
-                                                    <h4 class="card-title">Name of need</h4>
-                                                    <p class="card-text">Some quick example text to build on the card
-                                                        title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-sm-12">
-                                        <div class="card" style="">
-                                            <div class="card-body">
-                                                <img class="card-img-top img-fluid"
-                                                     src="<?= Url::to('@web/app-assets/images/carousel/05.jpg')?>" alt="Card image cap">
-                                                <div class="card-block product-card-body">
-                                                    <h4 class="card-title">Name of need</h4>
-                                                    <p class="card-text">Some quick example text to build on the card
-                                                        title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-sm-12">
-                                        <div class="card" style="">
-                                            <div class="card-body">
-                                                <img class="card-img-top img-fluid"
-                                                     src="<?= Url::to('@web/app-assets/images/carousel/05.jpg')?>" alt="Card image cap">
-                                                <div class="card-block product-card-body">
-                                                    <h4 class="card-title">Name of need</h4>
-                                                    <p class="card-text">Some quick example text to build on the card
-                                                        title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?= ListView::widget([
+                                        'dataProvider' => $dataDonation,
+                                        'itemOptions' => ['class' => 'item'],
+                                        'itemView' => function ($model, $key, $index, $widget) {
+                                            $images = empty($model->images_url) ? null : json_decode($model->images_url);
+                                            $img = is_array($images) ? $images[0] : 'app-assets/images/carousel/05.jpg';
+                                            $img_preview = Html::img(Url::to([$img]), [
+                                                'class' => 'card-img-top img-fluid',
+                                            ]);
+
+                                            $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
+                                            $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
+                    <div class=\"card\" style=\"\">
+                        <div class=\"card-body\">$img_preview
+                            <div class=\"card-block product-card-body\">
+                                <h4 class=\"card-title\">$model->title</h4>
+                                <p class=\"card-text\">$description</p>
+                                <a href=\"#\" class=\"btn btn-outline-success\">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+                                            return $layout;
+                                        },
+                                        'summary'=>'',
+                                    ]) ?>
                                 </div>
                             </div>
                         </div> <!--END OF TAB 1-->
@@ -127,70 +104,32 @@ use yii\bootstrap\Html;
                                 <div class="card-block card-dashboard">
                                     <div class="row mt-2 mb-3">
                                         <div class="col-md-12">
-                                            <div class="col-xl-3 col-md-6 col-sm-12">
-                                                <div class="card" style="">
-                                                    <div class="card-body">
-                                                        <img class="card-img-top img-fluid"
-                                                             src="<?= Url::to('@web/app-assets/images/carousel/05.jpg')?>"
-                                                             alt="Card image cap">
-                                                        <div class="card-block product-card-body">
-                                                            <h4 class="card-title">Name of need</h4>
-                                                            <p class="card-text">Some quick example text to build on the
-                                                                card title and make up the bulk of the card's
-                                                                content.</p>
-                                                            <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6 col-sm-12">
-                                                <div class="card" style="">
-                                                    <div class="card-body">
-                                                        <img class="card-img-top img-fluid"
-                                                             src="<?= Url::to('@web/app-assets/images/carousel/05.jpg')?>"
-                                                             alt="Card image cap">
-                                                        <div class="card-block product-card-body">
-                                                            <h4 class="card-title">Name of need</h4>
-                                                            <p class="card-text">Some quick example text to build on the
-                                                                card title and make up the bulk of the card's
-                                                                content.</p>
-                                                            <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6 col-sm-12">
-                                                <div class="card" style="">
-                                                    <div class="card-body">
-                                                        <img class="card-img-top img-fluid"
-                                                             src="<?= Url::to('@web/app-assets/images/carousel/05.jpg')?>"
-                                                             alt="Card image cap">
-                                                        <div class="card-block product-card-body">
-                                                            <h4 class="card-title">Name of need</h4>
-                                                            <p class="card-text">Some quick example text to build on the
-                                                                card title and make up the bulk of the card's
-                                                                content.</p>
-                                                            <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6 col-sm-12">
-                                                <div class="card" style="">
-                                                    <div class="card-body">
-                                                        <img class="card-img-top img-fluid"
-                                                             src="<?= Url::to('@web/app-assets/images/carousel/05.jpg')?>"
-                                                             alt="Card image cap">
-                                                        <div class="card-block product-card-body">
-                                                            <h4 class="card-title">Name of need</h4>
-                                                            <p class="card-text">Some quick example text to build on the
-                                                                card title and make up the bulk of the card's
-                                                                content.</p>
-                                                            <a href="#" class="btn btn-outline-success">Go somewhere</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <?= ListView::widget([
+                                                'dataProvider' => $dataNeeded,
+                                                'itemOptions' => ['class' => 'item'],
+                                                'itemView' => function ($model, $key, $index, $widget) {
+                                                    $images = empty($model->images_url) ? null : json_decode($model->images_url);
+                                                    $img = is_array($images) ? $images[0] : 'app-assets/images/carousel/05.jpg';
+                                                    $img_preview = Html::img(Url::to([$img]), [
+                                                        'class' => 'card-img-top img-fluid',
+                                                    ]);
+
+                                                    $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
+                                                    $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
+                    <div class=\"card\" style=\"\">
+                        <div class=\"card-body\">$img_preview
+                            <div class=\"card-block product-card-body\">
+                                <h4 class=\"card-title\">$model->title</h4>
+                                <p class=\"card-text\">$description</p>
+                                <a href=\"#\" class=\"btn btn-outline-success\">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+                                                    return $layout;
+                                                },
+                                                'summary'=>'',
+                                            ]) ?>
                                         </div>
                                     </div>
                                 </div>

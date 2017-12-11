@@ -8,6 +8,9 @@ use yii\bootstrap\Html;
     <div class="row">
         <?= $this->render('_causes_areas', [
             'profile' => $profile,
+            'summaryNeeds' => $summaryNeeds,
+            'summaryDonations' => $summaryDonations,
+            'areas' => $areas,
         ]) ?>
         <!-- Contact Button -->
         <div class="col-xl-12 col-lg-3 col-xs-12 text-xl-center">

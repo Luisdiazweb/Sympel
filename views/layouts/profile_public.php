@@ -134,10 +134,12 @@ NavBar::end();*/
     <div class="navbar-wrapper">
         <div class="navbar-header">
             <ul class="nav navbar-nav">
-                <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a href="#"
-                                                                               class="nav-link nav-menu-main menu-toggle hidden-xs"><i
-                                class="ft-menu font-large-1"></i></a></li>
-                <li class="nav-item"><a href=""<?= Url::to('@web/') ?>"" class="navbar-brand"><img alt="Sympel logo"
+                <li class="nav-item mobile-menu hidden-md-up float-xs-left">
+                    <a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs">
+                        <i class="ft-menu font-large-1"></i>
+                    </a>
+                </li>
+                <li class="nav-item"><a href="/" class="navbar-brand"><img alt="Sympel logo"
                                                                                                    src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png') ?>"
                                                                                                    class="brand-logo">
                 </li>
@@ -167,8 +169,7 @@ NavBar::end();*/
                         <li class="nav-item">
                             <a class="nav-link nav-actions" href="/myprofile">
                                 <?php
-                                $img = \app\models\ProfileAccount::findOne(Yii::$app->session->get('profile_id'))->profile_picture_url;
-                                //                                echo $img;
+                                $img = \app\models\ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()])->profile_picture_url;
                                 ?>
                                 <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>" class="rounded-circle img-border" style="height: 25px;margin-right: 10px;">
                                 <?= Yii::$app->user->identity->username ?>
@@ -226,7 +227,7 @@ NavBar::end();*/
             </ul>
             <ul class="col-sm-12 col-lg-3">
                 <a href="http://www.sympelworks.com"><img
-                            src="<?= Url::to('@web/assets/img/sympel-works.png') ?>"
+                            src="<?= Url::to('@web/sympel-assets/img/sympel-works.png') ?>"
                             alt="sympel works"></a>
                 <p class="footer mt-1">SYMPEL WORKS is a creative consulting company that helps
                     non-profits, entreprenuers and businesses create, develop an launch their sales

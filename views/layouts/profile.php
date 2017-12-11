@@ -3,6 +3,9 @@
 /* @var $this \yii\web\View */
 
 /* @var $content string */
+/* @var $modelDonations app\models\DonationsSearch */
+$dataDonations = $this->params['dataDonations'];
+$modelDonations = $this->params['modelDonations'];
 
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -10,6 +13,8 @@ use yii\bootstrap\NavBar;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\widgets\ListView;
+use yii\widgets\Pjax;
 
 AppAsset::register($this);
 $this->registerCssFile("@web/app-assets/css/core/menu/menu-types/vertical-menu.css",
@@ -210,47 +215,28 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr>
-                                                            <td><img style="max-width: 195px;" class="img-fluid my-1"
-                                                                     src="<?= Url::to('@web/app-assets/images/carousel/09.jpg')?>"
-                                                                     alt="Card image cap"></td>
-                                                            <td>S213135132</td>
-                                                            <td>Pending</td>
-                                                            <td>011/04/25</td>
-                                                            <td>Item</td>
-                                                            <td>category</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><img style="max-width: 195px;" class="img-fluid my-1"
-                                                                     src="<?= Url::to('@web/app-assets/images/carousel/09.jpg')?>"
-                                                                     alt="Card image cap"></td>
-                                                            <td>S213135132</td>
-                                                            <td>Pending</td>
-                                                            <td>011/04/25</td>
-                                                            <td>Item</td>
-                                                            <td>category</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><img style="max-width: 195px;" class="img-fluid my-1"
-                                                                     src="<?= Url::to('@web/app-assets/images/carousel/09.jpg')?>"
-                                                                     alt="Card image cap"></td>
-                                                            <td>S213135132</td>
-                                                            <td>Pending</td>
-                                                            <td>011/04/25</td>
-                                                            <td>Item</td>
-                                                            <td>category</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><img style="max-width: 195px;" class="img-fluid my-1"
-                                                                     src="<?= Url::to("@web/app-assets/images/carousel/09.jpg")?>"
-                                                                     alt="Card image cap"></td>
-                                                            <td>S213135132</td>
-                                                            <td>Pending</td>
-                                                            <td>011/04/25</td>
-                                                            <td>Item</td>
-                                                            <td>category</td>
-                                                        </tr>
-
+                                                        <?= ListView::widget([
+                                                            'dataProvider' => $dataDonations,
+                                                            'itemView' => function ($modelDonations, $key, $index, $widget) {
+                                                                $images = empty($modelDonations->images_url) ? null : json_decode($modelDonations->images_url);
+                                                                $img = is_array($images) ? $images[0] : '/app-assets/images/carousel/09.jpg';
+                                                                $img_preview = Html::img(Url::to([$img]), [
+                                                                    'class' => 'img-fluid my-1',
+                                                                    'style' => 'max-width: 200px;'
+                                                                ]);
+                                                                $status = $modelDonations->checked ? "Checked" : "Pending";
+                                                                $date = Yii::$app->formatter->format($modelDonations->created_at, 'date');
+                                                                $category = $modelDonations->idCategory->name;
+                                                                $layout = "<td>$img_preview</td>
+                                                                            <td>$modelDonations->id_public</td>
+                                                                            <td>$status</td>
+                                                                            <td>$date</td>
+                                                                            <td>$modelDonations->title</td>
+                                                                            <td>$category</td>";
+                                                                return $layout;
+                                                            },
+                                                            'summary' => '',
+                                                        ]) ?>
                                                         </tbody>
 
                                                     </table>

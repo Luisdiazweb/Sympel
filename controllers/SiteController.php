@@ -6,6 +6,7 @@ use app\component\SignupForms;
 use app\component\SignupStepsComponent;
 use app\models\Donations;
 use app\models\DonationsCategory;
+use app\models\DonationsSearch;
 use app\models\ProfileAccount;
 use app\models\UsersSystem;
 use kartik\alert\Alert;
@@ -31,7 +32,12 @@ class SiteController extends CustomController
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new DonationsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMHOME);
+        return $this->render('index', [
+            'modelSearchDonation' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**
@@ -391,9 +397,9 @@ class SiteController extends CustomController
                     $profile->save(false);
 //                    return $this->redirect(Url::to('@web/myprofile'));
                 } else {
-                    var_dump($user->errors);
-                    var_dump($profile->errors);
-                    exit();
+//                    var_dump($user->errors);
+//                    var_dump($profile->errors);
+//                    exit();
                 }
             }
         }
@@ -403,10 +409,19 @@ class SiteController extends CustomController
         $areas_support = $query_areas->from('areas_support')->all();
 
 //        var_dump(json_decode($profile->areas_support));
+
+
+        $searchModel = new DonationsSearch();
+        $searchModel->id_user = $user->id;
+        $dataDonations = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMMYPROFILE);
+        Yii::$app->view->params['dataDonations'] = $dataDonations;
+        Yii::$app->view->params['modelDonations'] = $searchModel;
         return $this->render('profile_' . $profile->profileType->name, [
             'user' => $user,
             'profile' => $profile,
             'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
+            'dataDonations' => $dataDonations,
+            'modelDonations' => $searchModel,
         ]);
     }
 
@@ -555,9 +570,32 @@ class SiteController extends CustomController
             throw new NotFoundHttpException("The user has no profile.");
         }
 
+
+        $searchModel = new DonationsSearch();
+        $searchModel->id_user = $user->id;
+        $dataDonation = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMPROFILEPUBLIC_DONATION);
+        $dataNeeded = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMPROFILEPUBLIC_NEEDED);
+
         $this->layout = 'profile_public';
+        $summaryNeeds = Donations::find()->where(['id_type' => 1])->andWhere(['id_user' => $user->id])->andWhere(['checked' => 1])->count();
+        $summaryDonations = Donations::find()->where(['id_type' => 2])->andWhere(['id_user' => $user->id])->andWhere(['checked' => 1])->count();
+        $areas_id = empty($profile->areas_support) ? FALSE : json_decode($profile->areas_support);
+        $query_areas = new Query();
+        $areas_db = ArrayHelper::map($query_areas->from('areas_support')->all(), 'id', 'name');
+        $areas = [];
+        if ($areas_id) {
+            foreach ($areas_id as $area) {
+                $areas[] = $areas_db[$area];
+            }
+        }
         return $this->render('profile_public', [
-            'profile' => $profile
+            'profile' => $profile,
+            'modelSearchDonation' => $searchModel,
+            'dataDonation' => $dataDonation,
+            'dataNeeded' => $dataNeeded,
+            'summaryNeeds' => $summaryNeeds,
+            'summaryDonations' => $summaryDonations,
+            'areas' => $areas,
         ]);
     }
 
@@ -668,6 +706,18 @@ class SiteController extends CustomController
             ]);
         }
 
+    }
+
+    public function actionSearch()
+    {
+        $this->layout = 'profile_public';
+        $searchModel = new DonationsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, FALSE);
+
+        return $this->render('search', [
+            'model' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     public function actionDeleteDonation($id)

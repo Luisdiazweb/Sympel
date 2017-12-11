@@ -12,9 +12,13 @@ use yii\bootstrap\Html;
                 <div class="media">
                     <div class="media-body text-xs-left">
                         <h3 class="success">Causes & Areas</h3>
-                        <div class="tag tag-default">
-                            <a href="#">Link Tag</a>
-                        </div>
+                        <?php if (!empty($areas)):?>
+                            <?php foreach ($areas as $area): ?>
+                                <div class="tag tag-default">
+                                    <a href="#"><?= $area ?></a>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -27,7 +31,7 @@ use yii\bootstrap\Html;
             <div class="card-block">
                 <div class="media">
                     <div class="media-body text-xs-left">
-                        <h3 class="primary">215</h3>
+                        <h3 class="primary"><?= $summaryDonations?></h3>
                         <span>Donation Items</span>
                     </div>
                     <div class="media-right media-middle">
@@ -44,7 +48,7 @@ use yii\bootstrap\Html;
             <div class="card-block">
                 <div class="media">
                     <div class="media-body text-xs-left">
-                        <h3 class="danger">15</h3>
+                        <h3 class="danger"><?= $summaryNeeds?></h3>
                         <span>Needs Posted</span>
                     </div>
                     <div class="media-right media-middle">

@@ -12,6 +12,11 @@ use app\models\Donations;
  */
 class DonationsSearch extends Donations
 {
+    const FROMHOME = 'home';
+    const FROMPROFILEPUBLIC_DONATION = 'publicprofile_donation';
+    const FROMPROFILEPUBLIC_NEEDED = 'publicprofile_needed';
+    const FROMMYPROFILE = 'myprofile';
+
     /**
      * @inheritdoc
      */
@@ -37,9 +42,10 @@ class DonationsSearch extends Donations
      *
      * @param array $params
      *
+     * @param bool $isAdmin
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $isAdmin = true, $from = FALSE)
     {
         $query = Donations::find();
 
@@ -57,38 +63,72 @@ class DonationsSearch extends Donations
             return $dataProvider;
         }
 
-        // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'id_category' => $this->id_category,
-            'id_type' => $this->id_type,
-            'id_user' => $this->id_user,
-            'condition_new' => $this->condition_new,
 //            'checked' => $this->checked,
             'checked' => 1,
         ]);
 
-        if(isset($this->created_at) && $this->created_at!=''){
-            $date_explode = explode("TO", $this->date);
-            $date1 = trim($date_explode[0]);
-            $date2= trim($date_explode[1]);
-            $query->andFilterWhere(['between', 'date', $date1,$date2]);
-        }
-        if(isset($this->updated_at) && $this->updated_at!=''){
-            $date_explode = explode("TO", $this->date);
-            $date1 = trim($date_explode[0]);
-            $date2= trim($date_explode[1]);
-            $query->andFilterWhere(['between', 'date', $date1,$date2]);
-        }
+        if ($from === self::FROMHOME) {
+            $query->limit(4);
+        } elseif (($from === self::FROMPROFILEPUBLIC_DONATION) || ($from === self::FROMPROFILEPUBLIC_NEEDED) || ($from === self::FROMMYPROFILE)) {
+            $query->andFilterWhere(['id_user' => $this->id_user]);
+            if ($from === self::FROMPROFILEPUBLIC_DONATION) {
+                $query->andFilterWhere(['id_type' => 2]);
+            } elseif ($from === self::FROMPROFILEPUBLIC_NEEDED) {
+                $query->andFilterWhere(['id_type' => 1]);
+            }
+        } else {
 
-        $query->andFilterWhere(['like', 'id_public', $this->id_public])
-            ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'city', $this->city])
-            ->andFilterWhere(['like', 'zip_code', $this->zip_code])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'why_need', $this->why_need])
-            ->andFilterWhere(['like', 'images_url', $this->images_url])
-            ->andFilterWhere(['like', 'keywords', $this->keywords]);
+            // grid filtering conditions
+            $query->andFilterWhere([
+                'id' => $this->id,
+                'id_category' => $this->id_category,
+                'id_type' => $this->id_type,
+                'id_user' => $this->id_user,
+                'condition_new' => $this->condition_new,
+            ]);
+
+
+            if ($isAdmin) {
+                $query->andFilterWhere(['like', 'city', $this->city])
+                    ->andFilterWhere(['like', 'zip_code', $this->zip_code])
+                    ->andFilterWhere(['like', 'title', $this->title])
+                    ->andFilterWhere(['like', 'description', $this->description]);
+            } else {
+                $query->andFilterWhere([
+                    'or',
+                    ['like', 'title', $this->title],
+                    ['like', 'description', $this->title],
+                ]);
+
+                $query->andFilterWhere([
+                    'or',
+                    ['like', 'city', $this->city],
+                    ['like', 'zip_code', $this->city],
+                ]);
+            }
+
+
+            if (isset($this->created_at) && $this->created_at != '') {
+                $date_explode = explode("TO", $this->date);
+                $date1 = trim($date_explode[0]);
+                $date2 = trim($date_explode[1]);
+                $query->andFilterWhere(['between', 'date', $date1, $date2]);
+            }
+            if (isset($this->updated_at) && $this->updated_at != '') {
+                $date_explode = explode("TO", $this->date);
+                $date1 = trim($date_explode[0]);
+                $date2 = trim($date_explode[1]);
+                $query->andFilterWhere(['between', 'date', $date1, $date2]);
+            }
+
+            $query->andFilterWhere(['like', 'id_public', $this->id_public])
+                ->andFilterWhere(['like', 'title', $this->title])
+                ->andFilterWhere(['like', 'description', $this->description])
+                ->andFilterWhere(['like', 'why_need', $this->why_need])
+//            ->andFilterWhere(['like', 'images_url', $this->images_url])
+                ->andFilterWhere(['like', 'keywords', $this->keywords]);
+        }
 
         return $dataProvider;
     }
