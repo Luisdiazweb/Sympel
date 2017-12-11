@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `donations` (
   CONSTRAINT `FK_category` FOREIGN KEY (`id_category`) REFERENCES `donations_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_type` FOREIGN KEY (`id_type`) REFERENCES `donation_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla sympel_db.donations: ~0 rows (aproximadamente)
 DELETE FROM `donations`;
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `profile_account` (
 DELETE FROM `profile_account`;
 /*!40000 ALTER TABLE `profile_account` DISABLE KEYS */;
 INSERT INTO `profile_account` (`id`, `user_id`, `profile_type_id`, `firstname`, `lastname`, `non_profit_name`, `company_name`, `title`, `address`, `state`, `city`, `zip_code`, `phone`, `registered_ein`, `ein_verified`, `website`, `areas_support`, `mission`, `profile_picture_url`) VALUES
-	(10, 17, 3, 'Victor', 'Aguilar', '', NULL, '', '', 'san Salvador', 'Soyapango', '1101', '', '12312342341234', 0, '', '["1","2","5","8","11","13","14","19","20","21","22","26","29"]', NULL, '  ');
+	(10, 17, 3, 'Victor', 'Aguilar', '', '', '', '', 'san Salvador', 'Soyapango', '1101', '11222222', '12312342341234', 1, 'google.com', '["1","2","5","8","11","13","14","19","20","21","22","26","29"]', NULL, 'profiles_picture/G0vi6wWokGGg3_FJdFk4yGFDrgmj3HOW.jpg');
 /*!40000 ALTER TABLE `profile_account` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.profile_type
@@ -201,11 +201,9 @@ CREATE TABLE IF NOT EXISTS `session` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla sympel_db.session: 1 rows
+-- Volcando datos para la tabla sympel_db.session: 0 rows
 DELETE FROM `session`;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
-INSERT INTO `session` (`id`, `expire`, `data`) VALUES
-	('3qek7p12duk8mtp5ifqqegauf3', 1512254491, _binary 0x5F5F666C6173687C613A303A7B7D5F5F69647C693A31373B);
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sympel_db.user
@@ -231,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `username`, `password_hash`, `password_reset_token`, `email`, `admin`, `verified_account`, `accessToken`, `authKey`, `created_at`, `updated_at`) VALUES
-	(17, 'admin', '$2y$13$G.iapHfvmSBZiakNBDF8TuXiiMs7aJqG65KHNPRGX2/EDvPjOfTB6', '', 'valbert1993@gmail.com', 1, 1, 'E4Q-ZmDjqdJXuD0GlPHE4orOQoKuvGtu', 'T0FJUVUAMfhNiAQSzYcSYCIKW2UXuigF', '2017-11-06 02:46:45', '2017-11-30 15:50:16');
+	(17, 'admin', '$2y$13$G.iapHfvmSBZiakNBDF8TuXiiMs7aJqG65KHNPRGX2/EDvPjOfTB6', '', 'valbert1993@gmail.com', 1, 1, 'E4Q-ZmDjqdJXuD0GlPHE4orOQoKuvGtu', 'T0FJUVUAMfhNiAQSzYcSYCIKW2UXuigF', '2017-11-06 02:46:45', '2017-12-07 09:04:57');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
