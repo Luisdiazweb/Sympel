@@ -219,7 +219,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                             'dataProvider' => $dataDonations,
                                                             'itemView' => function ($modelDonations, $key, $index, $widget) {
                                                                 $images = empty($modelDonations->images_url) ? null : json_decode($modelDonations->images_url);
-                                                                $img = is_array($images) ? $images[0] : '/app-assets/images/carousel/09.jpg';
+                                                                $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/09.jpg');
                                                                 $img_preview = Html::img(Url::to([$img]), [
                                                                     'class' => 'img-fluid my-1',
                                                                     'style' => 'max-width: 200px;'

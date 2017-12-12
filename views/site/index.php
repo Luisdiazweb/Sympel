@@ -7,6 +7,7 @@
 use app\assets\AppAsset;
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Html;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
@@ -126,7 +127,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                     'itemOptions' => ['class' => 'item'],
                     'itemView' => function ($model, $key, $index, $widget) {
                         $images = empty($model->images_url) ? null : json_decode($model->images_url);
-                        $img = is_array($images) ? $images[0] : 'app-assets/images/carousel/05.jpg';
+                        $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/05.jpg');
                         $img_preview = Html::img(Url::to([$img]), [
                             'class' => 'card-img-top img-fluid',
                         ]);
