@@ -78,7 +78,7 @@ use yii\widgets\ListView;
                                             $img_preview = Html::img(Url::to([$img]), [
                                                 'class' => 'card-img-top img-fluid',
                                             ]);
-
+                                            $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
                                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                                             $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
                     <div class=\"card\" style=\"\">
@@ -86,14 +86,14 @@ use yii\widgets\ListView;
                             <div class=\"card-block product-card-body\">
                                 <h4 class=\"card-title\">$model->title</h4>
                                 <p class=\"card-text\">$description</p>
-                                <a href=\"#\" class=\"btn btn-outline-success\">Go somewhere</a>
+                                <a href=\"$details_url \" class=\"btn btn - outline - success\">Go somewhere</a>
                             </div>
                         </div>
                     </div>
                 </div>";
                                             return $layout;
                                         },
-                                        'summary'=>'',
+                                        'summary' => '',
                                     ]) ?>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ use yii\widgets\ListView;
                                                     $img_preview = Html::img(Url::to([$img]), [
                                                         'class' => 'card-img-top img-fluid',
                                                     ]);
-
+                                                    $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
                                                     $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                                                     $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
                     <div class=\"card\" style=\"\">
@@ -122,14 +122,14 @@ use yii\widgets\ListView;
                             <div class=\"card-block product-card-body\">
                                 <h4 class=\"card-title\">$model->title</h4>
                                 <p class=\"card-text\">$description</p>
-                                <a href=\"#\" class=\"btn btn-outline-success\">Go somewhere</a>
+                                <a href=\"$details_url\" class=\"btn btn-outline-success\">Go somewhere</a>
                             </div>
                         </div>
                     </div>
                 </div>";
                                                     return $layout;
                                                 },
-                                                'summary'=>'',
+                                                'summary' => '',
                                             ]) ?>
                                         </div>
                                     </div>

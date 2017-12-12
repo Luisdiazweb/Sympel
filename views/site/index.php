@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
+
 /* @var $modelSearchDonation app\models\DonationsSearch */
 
 use app\assets\AppAsset;
@@ -121,7 +122,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     <div class="container-fluid">
         <div class="row match-height">
             <div class="col-xl-12">
-                <?php Pjax::begin();?>
+                <?php Pjax::begin(); ?>
                 <?= ListView::widget([
                     'dataProvider' => $dataProvider,
                     'itemOptions' => ['class' => 'item'],
@@ -132,6 +133,8 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             'class' => 'card-img-top img-fluid',
                         ]);
 
+                        $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
+
                         $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                         $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
                     <div class=\"card\" style=\"\">
@@ -139,14 +142,14 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             <div class=\"card-block product-card-body\">
                                 <h4 class=\"card-title\">$model->title</h4>
                                 <p class=\"card-text\">$description</p>
-                                <a href=\"#\" class=\"btn btn-outline-success\">Go somewhere</a>
+                                <a href=\"$details_url \" class=\"btn btn-outline-success\">Go somewhere</a>
                             </div>
                         </div>
                     </div>
                 </div>";
                         return $layout;
                     },
-                    'summary'=>'',
+                    'summary' => '',
                 ]) ?>
                 <?php Pjax::end(); ?>
             </div>

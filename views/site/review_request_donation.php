@@ -91,15 +91,21 @@ use yii\widgets\DetailView;
                                                     'created_at',
                                                 ],
                                             ]) ?>
-                                            <?php $form = ActiveForm::begin(); ?>
-                                            <?= $form->field($model, 'checked')
-                                                ->hiddenInput(['value' => 1])
-                                                ->label(false) ?>
+                                            <?php if ($owner): ?>
                                             <div class="row text-sm-center my-3">
                                                 <?= Html::a('Edit', Url::to(['createdonation', 'id' => $model->id_public]), ['class' => 'btn btn-warning']) ?>
-                                                <?= Html::submitButton('Publish', ['class' => 'btn btn-primary']) ?>
+                                                <?= Html::a('Delete', Url::to(['deletedonation', 'id' => $model->id_public]), ['class' => 'btn btn-warning']) ?>
+
+                                                <?php if (!$model->checked): ?>
+                                                    <?php $form = ActiveForm::begin(); ?>
+                                                    <?= $form->field($model, 'checked')
+                                                        ->hiddenInput(['value' => 1])
+                                                        ->label(false) ?>
+                                                    <?= Html::submitButton('Publish', ['class' => 'btn btn-primary']) ?>
+                                                    <?php ActiveForm::end(); ?>
+                                                <?php endif; ?>
                                             </div>
-                                            <?php ActiveForm::end(); ?>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
