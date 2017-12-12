@@ -10,6 +10,7 @@ use app\models\DonationsSearch;
 use app\models\ProfileAccount;
 use app\models\UsersSystem;
 use kartik\alert\Alert;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\db\Query;
@@ -653,7 +654,8 @@ class SiteController extends CustomController
             return $this->goHome();
         } else {
             return $this->render('review_create_donation', [
-                'model' => $model
+                'model' => $model,
+                'owner' => $model->id_user === Yii::$app->user->getId(),
             ]);
         }
 
@@ -661,6 +663,7 @@ class SiteController extends CustomController
 
     public function actionRequestdonation($id = false)
     {
+        $this->restrict_only_nonprofit();
         $this->restrict_nonprofit();
         if ($id) {
             $model = Donations::findOne(['id_public' => $id]);
@@ -702,11 +705,30 @@ class SiteController extends CustomController
             return $this->goHome();
         } else {
             return $this->render('review_request_donation', [
-                'model' => $model
+                'model' => $model,
+                'owner' => $model->id_user === Yii::$app->user->getId(),
             ]);
         }
 
     }
+
+    public function actionItemdetails($id)
+    {
+        $model = Donations::findOne(['id_public' => $id]);
+        if (!$model) {
+            throw new NotFoundHttpException("Request was not found.");
+        }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->goHome();
+        } else {
+            return $this->render('review_request_donation', [
+                'model' => $model,
+                'owner' => $model->id_user === Yii::$app->user->getId(),
+            ]);
+        }
+
+    }
+
 
     public function actionSearch()
     {
@@ -720,15 +742,15 @@ class SiteController extends CustomController
         ]);
     }
 
-    public function actionDeleteDonation($id)
+    public function actionDeletedonation($id)
     {
-
-        if (($model = Donations::findOne(['id_public' => $id])) !== null) {
-            $model->delete();
-            return $this->redirect('/');
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+        $model = Donations::findOne(['id_public' => $id]);
+        if (!$model) {
+            throw new NotFoundHttpException("Donation was not found.");
         }
+
+        $model->delete();
+        return $this->redirect('/');
     }
 
     private function checkifpreviscomplete($prev)
@@ -755,12 +777,43 @@ class SiteController extends CustomController
         return $this->goHome();
     }
 
+    private function restrict_only_nonprofit()
+    {
+        $profile = ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
+        if ($profile) {
+            if ($profile->profile_type_id != 1) {
+                throw new NotFoundHttpException('You are not allowed to perform this action.');
+
+//                $this->layout = 'login';
+//                return $this->render('alert', [
+//                    'alerts' => [
+//                        [
+//                            'type' => Alert::TYPE_DANGER,
+//                            'title' => 'Forbidden',
+//                            'body' => ''
+//                        ]
+//                    ]
+//                ]);
+            }
+        }
+    }
+
     private function restrict_nonprofit()
     {
-        $profile = ProfileAccount::findOne(Yii::$app->session->get('profile_id'));
+        $profile = ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
         if ($profile) {
             if ((($profile->profile_type_id == 1) && !boolval($profile->ein_verified))) {
-                throw new NotFoundHttpException("Ein # Not Verified.");
+                throw new NotFoundHttpException('Ein # Not Verified.');
+//                $this->layout = 'login';
+//                return $this->render('alert', [
+//                    'alerts' => [
+//                        [
+//                            'type' => Alert::TYPE_DANGER,
+//                            'title' => 'Forbidden',
+//                            'body' => 'Ein # Not Verified.'
+//                        ]
+//                    ]
+//                ]);
             }
         }
     }
