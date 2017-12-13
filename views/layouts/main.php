@@ -11,6 +11,8 @@ use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
+$profile = \app\models\ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -91,8 +93,10 @@ NavBar::end();*/
                 <ul class="nav navbar-nav">
                     <li class="nav-item icon hidden-sm-down"><a href="/createdonation" class="nav-link"><i
                                     class="fa fa-pencil square-icon menu link-primary"></i>Post an Item</a></li>
-                    <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i
-                                    class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
+                    <?php if ($profile->profile_type_id == 1) : ?>
+                        <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i
+                                        class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
+                    <?php endif; ?>
                 </ul>
                 <ul class="nav navbar-nav float-xs-right actions">
                     <?php if (Yii::$app->user->isGuest): ?>
@@ -105,9 +109,10 @@ NavBar::end();*/
                         <li class="nav-item">
                             <a class="nav-link nav-actions" href="/myprofile">
                                 <?php
-                                $img = \app\models\ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()])->profile_picture_url;
+                                $img = $profile->profile_picture_url;
                                 ?>
-                                <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>" class="rounded-circle img-border" style="height: 25px;margin-right: 10px;">
+                                <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>"
+                                     class="rounded-circle img-border" style="height: 25px;margin-right: 10px;">
                                 <?= Yii::$app->user->identity->username ?>
                             </a>
                         </li>

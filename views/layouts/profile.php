@@ -146,8 +146,14 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
             <ul class="nav navbar-nav">
                 <li class="nav-item icon hidden-sm-down"><a href="/createdonation" class="nav-link"><i
                                 class="fa fa-pencil square-icon menu link-primary"></i>Post an Item</a></li>
-                <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i
-                                class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
+                <?php
+                $profile = \app\models\ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
+                if ($profile->profile_type_id == 1) :
+                    ?>
+                    <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i
+                                    class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
+                <?php endif; ?>
+
             </ul>
             <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
                 <ul class="nav navbar-nav float-xs-right actions">
