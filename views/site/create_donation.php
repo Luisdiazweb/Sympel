@@ -59,6 +59,19 @@ $this->registerJsFile('@web/app-assets/vendors/js/bootstrap-tagsinput.min.js',
         'position' => \yii\web\View::POS_END
     ]);
 
+$this->registerJs("$(function() {
+        $('.JS_tagsinput').tagsinput({
+            confirmKeys: [13, 188]
+        });
+
+        $('.JS_tagsinput input').on('keypress', function(e) {
+            if (e.keyCode == 13) {
+                e.keyCode = 188;
+                e.preventDefault();
+            };
+        });
+    });", View::POS_END);
+
 ?>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 <header class="masthead">
@@ -156,7 +169,8 @@ $this->registerJsFile('@web/app-assets/vendors/js/bootstrap-tagsinput.min.js',
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <?= $form->field($model, 'keywords')->textInput([
-                                                    "data-role" => "tagsinput"
+                                                    "data-role" => "tagsinput",
+                                                    'class' => 'JS_tagsinput'
                                                 ]) ?>
                                             </div>
                                         </div>

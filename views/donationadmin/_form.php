@@ -5,11 +5,27 @@ use kartik\file\FileInput;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Donations */
 /* @var $form yii\widgets\ActiveForm */
+
+$this->registerJs("$(function() {
+        $('.JS_tagsinput').tagsinput({
+            confirmKeys: [13, 188]
+        });
+
+        $('.JS_tagsinput input').on('keypress', function(e) {
+            if (e.keyCode == 13) {
+                e.keyCode = 188;
+                e.preventDefault();
+            };
+        });
+    });", View::POS_END);
+
+?>
 ?>
 
 <div class="donations-form">
@@ -32,7 +48,8 @@ use yii\widgets\ActiveForm;
     ?>
 
     <?= $form->field($model, 'keywords')->textInput([
-        "data-role" => "tagsinput"
+        "data-role" => "tagsinput",
+        'class' => 'JS_tagsinput'
     ]) ?>
 
     <?php
