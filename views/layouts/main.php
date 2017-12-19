@@ -93,9 +93,11 @@ NavBar::end();*/
                 <ul class="nav navbar-nav">
                     <li class="nav-item icon hidden-sm-down"><a href="/createdonation" class="nav-link"><i
                                     class="fa fa-pencil square-icon menu link-primary"></i>Post an Item</a></li>
-                    <?php if ($profile->profile_type_id == 1) : ?>
-                        <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i
-                                        class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
+                    <?php if($profile) : ?>
+                        <?php if ($profile->profile_type_id == 1) : ?>
+                            <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i
+                                            class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </ul>
                 <ul class="nav navbar-nav float-xs-right actions">
