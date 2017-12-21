@@ -38,7 +38,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 
 
 ?>
-prueba prueba prueba
+This is just a test
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100">
