@@ -37,8 +37,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     ]);
 
 
-?>
-This is just a test
+?><!-- 
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100">
@@ -155,4 +154,272 @@ This is just a test
             </div>
         </div>
     </div>
-</section>
+</section> -->
+
+ <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-12 my-auto">
+            <div class="header-content">
+              <p class="main-quote"><span>Make your donations count</span></p>
+              <p class="main-quote"><span>by giving where it's needed</span></p>
+              <p class="quote-paragraph">sympel offers a new way to give to the need by connecting <br >items for donations with churches, non-profits and <br >charitable organizations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+ 
+        
+    <section class="welcome-section">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 welcome-column quote">
+              <h2 class="welcome-quote">Welcome to the giving community</h2>
+              
+            </div> 
+            <div class="col-md-6 welcome-column description">
+                <p class="text-gray welcome-text">The sympel community...</p>
+                <p class="text-gray welcome-text">believes in a community that recycles, reuses and gives to make a greater impact to the everyday needs of organizations that make this world a better place.</p>
+                <p class="text-xs-center"><button type="button" class="btn button-description">Sign Up</button></p>
+                
+            </div>   
+        </div>
+      </div>
+    </section>
+        
+<!-- Card headings examples section end -->
+
+
+    <section class="welcome-options">
+      <div class="container">
+        <div class="row option-container">
+            <div class="col-md-2">
+              <button type="button" class="btn button-primary button-options">Create a Donation</button>
+            </div> 
+            <div class="col-md-10">
+                <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
+            </div>   
+        </div>
+        <div class="row option-container">
+            <div class="col-md-2">
+              <button type="button" class="btn button-secondary button-options">Request a Donation</button>
+            </div> 
+            <div class="col-md-10">
+                <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
+            </div>   
+        </div>
+        <div class="row option-container">
+            <div class="col-md-2">
+              <button type="button" class="btn button-tertiary button-options">Search</button>
+            </div> 
+            <div class="col-md-10">
+                <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
+            </div>   
+        </div>
+      </div>
+    </section>
+    
+    <div class="container-fluid">
+    <div class="row recent-container">
+        <div class="col-md-10 offset-md-1">
+      <h3 class="section-title"><i class="fa fa-arrow-circle-down color-primary icon-title"></i>Recent Needs</h3>
+             <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+                        <div class="card" style="">
+                            <div class="card-body">
+                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
+                                <div class="card-block product-card-body">
+                                    <h4 class="card-title">Name of need</h4>
+                                    <p class="card-text">Name of Organization</p>
+                                    <p class="card-text">Location, State</p>
+                                    <a href="#" class="card-link">category</a>
+                                    <div class="card-icon-container">
+                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+                        <div class="card" style="">
+                            <div class="card-body">
+                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
+                                <div class="card-block product-card-body">
+                                    <h4 class="card-title">Name of need</h4>
+                                    <p class="card-text">Name of Organization</p>
+                                    <p class="card-text">Location, State</p>
+                                    <a href="#" class="card-link">category</a>
+                                    <div class="card-icon-container">
+                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+                        <div class="card" style="">
+                            <div class="card-body">
+                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
+                                <div class="card-block product-card-body">
+                                    <h4 class="card-title">Name of need</h4>
+                                    <p class="card-text">Name of Organization</p>
+                                    <p class="card-text">Location, State</p>
+                                    <a href="#" class="card-link">category</a>
+                                    <div class="card-icon-container">
+                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+                        <div class="card" style="">
+                            <div class="card-body">
+                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
+                                <div class="card-block product-card-body">
+                                    <h4 class="card-title">Name of need</h4>
+                                    <p class="card-text">Name of Organization</p>
+                                    <p class="card-text">Location, State</p>
+                                    <a href="#" class="card-link">category</a>
+                                    <div class="card-icon-container">
+                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+      <div class="text-xs-center mt-3"><button type="button" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Needs</button></div>
+        </div>  
+    </div>
+  </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+     <div class="container-fluid">
+    <div class="row recent-container">
+    <div class="col-md-10 offset-md-1">
+      <h3 class="section-title"><i class="fa fa-arrow-circle-down color-secondary icon-title"></i>Recent Donations</h3>
+       <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+                        <div class="card" style="">
+                            <div class="card-body">
+                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
+                                <div class="card-block product-card-body">
+                                    <h4 class="card-title">Name of need</h4>
+                                    <p class="card-text">Name of Organization</p>
+                                    <p class="card-text">Location, State</p>
+                                    <a href="#" class="card-link">category</a>
+                                    <div class="card-icon-container">
+                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+                        <div class="card" style="">
+                            <div class="card-body">
+                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
+                                <div class="card-block product-card-body">
+                                    <h4 class="card-title">Name of need</h4>
+                                    <p class="card-text">Name of Organization</p>
+                                    <p class="card-text">Location, State</p>
+                                    <a href="#" class="card-link">category</a>
+                                    <div class="card-icon-container">
+                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+                        <div class="card" style="">
+                            <div class="card-body">
+                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
+                                <div class="card-block product-card-body">
+                                    <h4 class="card-title">Name of need</h4>
+                                    <p class="card-text">Name of Organization</p>
+                                    <p class="card-text">Location, State</p>
+                                    <a href="#" class="card-link">category</a>
+                                    <div class="card-icon-container">
+                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+                        <div class="card" style="">
+                            <div class="card-body">
+                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
+                                <div class="card-block product-card-body">
+                                    <h4 class="card-title">Name of need</h4>
+                                    <p class="card-text">Name of Organization</p>
+                                    <p class="card-text">Location, State</p>
+                                    <a href="#" class="card-link">category</a>
+                                    <div class="card-icon-container">
+                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
+                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+      </div>
+      <div class="text-xs-center mt-3"><button type="button" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Donations</button></div>
+    </div>  
+  </div>
+  </div>
+   <!-- ////////////////////////////////////////////////////////////////////////////-->
+   <section>
+      <div class="container-fluid">
+        <div class="row equal center">
+          <div class="col-md-6 bg-primary cta-box">
+            <h3>Start Making a Difference</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. mollit anim id est laborum.
+            </p>
+            <p class="text-xs-center"><button type="button" class="btn">Sign Up</button></p>
+          </div>
+          <div class="col-md-6 bg-secondary cta-box">
+            <h3>Learn More</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. mollit anim id est laborum.
+            </p>
+            <p class="text-xs-center"><button type="button" class="btn">How it works</button></p>
+          </div>
+        </div>
+      </div>
+    </section>

@@ -21,6 +21,62 @@ h1.sympel-title{
 h3.sympel-title{
   font-family: amatic_scregular;
     font-size: 50px;}
+
+.strong{
+  font-weight: 700;
+}
+
+.text-right{
+  text-align: right!important;
+}
+
+.text-gray{
+  color: #c8cab8;
+}
+
+.square {
+  border-radius: 0!important;
+}
+
+body{
+  font-family: 'Museo Sans';
+  font-weight: 100;
+}
+
+h3.section-title{
+  font-family: 'Museo Sans';
+  font-size: 30px;
+  color: #000;
+}
+
+.icon-title{
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.color-primary{
+  color: #1cbdcb!important;
+}
+
+.color-secondary{
+  color: #f05155!important;
+}
+
+.color-tertiary{
+  color: #252626!important;
+}
+
+.bg-primary{
+  background-color: #1cbdcb!important;
+}
+
+.bg-secondary{
+  background-color: #f05155!important;
+}
+
+
+
+
 /*================================================================================================
    FONT 
 ================================================================================================*/
@@ -31,14 +87,19 @@ h3.sympel-title{
   font-style: normal; }
 
 @font-face {
-  font-family: 'museo_sans300';
+  font-family: 'Museo Sans';
   src: url("../../app-assets/fonts/museo-sans/museosans_300-webfont.woff2") format("woff2"), url("../../fonts/museo-sans/museosans_300-webfont.woff") format("woff");
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal; }
 
-.square {
-  border-radius: 0!important;
+@font-face {
+    font-family: 'Museo Sans';
+    src: url('../../app-assets/fonts/museo-sans/MuseoSans-100.woff2') format('woff2'),
+        url('../../app-assets/fonts/museo-sans/MuseoSans-100.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
 }
+
 
 /*================================================================================================
    RADIO BUTTON STYLES
@@ -157,6 +218,19 @@ ul.actions li:last-child a:after{
   content: "";
 }
 
+.header-navbar .navbar-header .navbar-brand {
+    padding: 20px 0;
+}
+
+.header-navbar .navbar-container {
+    padding: 5px 18px;
+    height: 5rem;
+}
+
+.link-hiw{
+  padding: 8px 5% 0 5%;
+}    
+
 #mainNav.navbar-shrink {
     border-color: rgba(34,34,34,.1);
     background-color: #fff;
@@ -164,7 +238,11 @@ ul.actions li:last-child a:after{
 
 .square-icon.menu{
     font-size: 14px;
-    padding: 7px 9px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding-top: 8px;
+    margin-right: 15px;
 }
 
 .icon i.square-icon.menu:after{
@@ -181,7 +259,7 @@ ul.actions li:last-child a:after{
 
 .square-icon.light{
     background: #fff;
-    color: #000;
+    color: #fff;
 }
 
 .icon i.square-icon.light.menu:after{
@@ -189,11 +267,11 @@ ul.actions li:last-child a:after{
 }
 
 .icon i.square-icon.link-primary.menu:after{
-  border-left-color: #e75a4d;
+  border-left-color: #f05256;
 }
 
 .icon i.square-icon.link-secondary.menu:after{
-  border-left-color: #13a38d;
+  border-left-color: #1cbdcb;
 }
 
 .nav-item.icon{
@@ -206,13 +284,20 @@ ul.actions li:last-child a:after{
 
 
 .link-primary {
-  background-color: #e75a4d!important;
+  background-color: #f05256!important;
   color: #ffffff; }
 
 .link-secondary {
-  background-color: #13a38d!important; 
+  background-color: #1cbdcb!important; 
   color: #ffffff; }
 
+/*================================================================================================
+   HOME RECENT CONTAINERS STYLES
+================================================================================================*/
+
+.recent-container {
+  padding: 5% 0;
+}
 
 /*================================================================================================
    FORM WIZARD STYLES
@@ -284,11 +369,12 @@ header.masthead {
   width: 100%;
   padding-top: 10%;
   color: white;
-  background: url("../img/hand-small-2.png");
+  background: url("../img/main-img.jpg");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
-  padding-bottom: 10%;}
+  background-size: cover; 
+  padding-bottom: 10%;
+  z-index: -1;}
   header.masthead .header-content {
     margin-bottom: 100px;
     text-align: left; }
@@ -304,7 +390,7 @@ header.masthead {
     text-transform: uppercase; }
   header.masthead p.main-quote span {
     margin-bottom: 30px;
-    background: #f05256;
+    background: #1cbdcb;
     text-transform: uppercase;
     font-size: 50px; }
   header.masthead .quote-paragraph {
@@ -373,24 +459,107 @@ header.masthead {
    QUOTE STYLES
 ================================================================================================*/
 section.quote{
-  background: #13A38D; 
-  padding: 5% 0;
+  background: #252626;
+  padding: 5% 0 0;
 }
 section.quote .section-heading h2 {
   font-family: 'amatic_scregular';
-  font-size: 100px;
-  letter-spacing: 10px;
+  font-size: 70px;
+  letter-spacing: 5px;;
   color: #fff;}
 
 section.quote .section-heading p {
   margin-bottom: 0; }
 
 /*================================================================================================
+   WELCOME STYLES
+================================================================================================*/
+.welcome-section{
+  margin-top: -31px;
+  height: 361px;
+  z-index: 2;
+  background: url(../img/welcome-bg.png);
+  background-position: center;
+  /*background-repeat: no-repeat; */
+}
+.welcome-quote{
+  text-transform: uppercase;
+  font-size: 50px;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: 'Museo Sans';
+  font-weight: 100;
+}
+
+.welcome-options{
+  padding-top: 3%;
+}
+.welcome-text{
+  font-size: 20px;
+}
+
+.welcome-column{
+   /*background: #252626;*/
+   margin-top: 30px;
+   height: 295px;
+}
+
+.welcome-column.quote{
+   padding: 5%;
+}
+
+.welcome-column.description{
+  padding: 3% 10% 0;
+}
+
+.button-options{
+  border-radius: 0;
+  text-transform: uppercase;
+  padding: 20px;
+  width: 195px;
+}
+
+.options-description{
+  font-size: 25px;
+  padding-left: 5%;
+}
+
+.option-container{
+  padding-bottom: 2%;
+}
+
+.button-description{
+  color: #fff;
+  background-color: #252626;
+  border-color: #fff;
+  border-radius: 0;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.button-primary{
+  background-color: #1cbdcb!important;
+  color: #ffffff;
+}
+
+.button-secondary{
+  background-color: #f05155!important;
+  color: #ffffff;
+}
+
+.button-tertiary{
+  background-color: #252626!important;
+  color: #ffffff;
+}
+
+
+/*================================================================================================
    FOOTER STYLES
 ================================================================================================*/
 footer{
   background: #252626;
-  padding: 5%;
+  padding: 3% 5%;
 }
 
 footer ul{
@@ -422,6 +591,21 @@ form .form-section i.square-icon{
     margin: 0 10px 0 0;
 }
 
+footer .footer-company {
+    margin-top: 40px; }
+  footer .footer-company-text {
+    text-align: right !important; }
+  @media (max-width: 575px) {
+    footer .footer-company-text {
+      text-align: center !important;
+      margin-bottom: 20px; }
+    footer .footer-company {
+      text-align: center !important; } }
+
+      footer .border-right {
+    border-right: 2px solid #7b7b7d;
+}
+
 /*================================================================================================
    DONATIONS LIST STYLES
 ================================================================================================*/
@@ -431,9 +615,58 @@ form .form-section i.square-icon{
 }
 
 .product-card-body{
-    background: #000;
+    background: #fff;
+    color: #000;
+}
+
+.card-icon{
+    font-size: 25px;
+    color: #f05256;
+    padding: 0 5px;
+}
+
+.card-icon-container{
+  display: inline;
+  float: right;
+}
+
+.card .card-title {
+    text-transform: none;
+    font-weight: 100;
+    letter-spacing: 0.05rem;
+    font-size: 30px;
+    font-family: museo sans;
+}
+
+/*================================================================================================
+   DONATIONS LIST STYLES
+================================================================================================*/
+.cta-box{
+    padding: 8%;
+    font-size: 24px;
     color: #fff;
 }
+
+.cta-box h3{
+    font-family: museo sans;
+    font-size: 40px;
+    padding-bottom: 30px;
+}
+
+.cta-box .btn{
+    font-size: 20px;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid #fff;
+    color: white;
+    padding: 3% 10%;
+    margin-top: 5%;
+}
+
+
+
+
+
 
 /*================================================================================================
    OVERRIDING COLORS STYLES
