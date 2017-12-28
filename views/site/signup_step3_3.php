@@ -66,7 +66,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
     ]);
 ?>
 
-<header class="masthead">
+<!--<header class="masthead">
     <div class="container h-100">
         <div class="row h-100">
             <div class="col-lg-12">
@@ -77,7 +77,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
             </div>
         </div>
     </div>
-</header>
+</header>-->
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 <div class="app-content container-fluid">
     <div class="content-wrapper">
@@ -85,9 +85,9 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
             <!-- Form wizard with number tabs section start -->
             <!-- Form wizard with step validation section start -->
             <section id="validation">
-                <div class="row" style="background: #252626;">
-                    <div class="col-md-10 offset-md-1">
-                        <div class="card mt-2">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="mt-3">
                             <!--                 <div class="card-header">
                 <h4 class="card-title">Validation Example</h4>
             </div> -->
@@ -103,6 +103,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                     ); ?>
                                     <!-- Step 3 -->
                                     <fieldset>
+                                        <h3 class="section-title my-3 text-xs-center">Your Sympel's Profile</h3>
                                         <p class="text-sm-center my-3">We just need a little information before you
                                             get started.
                                             <br>Some of the information you can complete later or from your profile
@@ -175,8 +176,10 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         <p class="my-2">IMPORTANT: By submitting this form you are acknowledging
                                             that ou have the authority to represent the listed party and have read
                                             our account creation policies.</p>
-                                        <?= Html::a('Previous', $url_prev, ['class' => 'btn btn-primary']) ?>
-                                        <?= Html::submitButton('Finish', ['class' => 'btn btn-success']) ?>
+                                            <div class="text-xs-center my-3">
+                                        <?= Html::a('Previous', $url_prev, ['class' => 'btn btn-secondary btn-lg']) ?>
+                                        <?= Html::submitButton('Finish', ['class' => 'btn btn-primary btn-lg']) ?>
+                                        </div>
                                     </fieldset>
                                     <?php ActiveForm::end() ?>
                                 </div>

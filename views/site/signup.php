@@ -106,7 +106,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         <p class="text-sm-center my-3">First, we need to know what type of profile
                                             you are interested in setting up.</p>
                                         <div class="row">
-                                            <div class="col-md-4 mb-3  card">
+                                            <div class="col-md-8 offset-md-2 mb-1  card">
                                                 <div class="card-body">
                                                     <?php /*$form->field($profile, 'profile_type_id')->radioList([
                                                         'non', 'company', 'individual'
@@ -123,7 +123,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-3  card">
+                                            <div class="col-md-8 offset-md-2 mb-1  card">
                                                 <div class="card-body">
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test2" value="2"
@@ -135,7 +135,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-3  card">
+                                            <div class="col-md-8 offset-md-2 mb-1  card">
                                                 <div class="card-body">
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test3" value="3"

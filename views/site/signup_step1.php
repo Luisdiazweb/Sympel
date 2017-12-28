@@ -66,7 +66,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
     ]);
 ?>
 
-<header class="masthead">
+<!--<header class="masthead">
     <div class="container h-100">
         <div class="row h-100">
             <div class="col-lg-12">
@@ -77,7 +77,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
             </div>
         </div>
     </div>
-</header>
+</header> -->
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 <div class="app-content container-fluid">
     <div class="content-wrapper">
@@ -85,9 +85,9 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
             <!-- Form wizard with number tabs section start -->
             <!-- Form wizard with step validation section start -->
             <section id="validation">
-                <div class="row" style="background: #252626;">
+                <div class="row">
                     <div class="col-md-10 offset-md-1">
-                        <div class="card mt-2">
+                        <div class="mt-3">
                             <!--                 <div class="card-header">
                 <h4 class="card-title">Validation Example</h4>
             </div> -->
@@ -101,10 +101,11 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         ]
                                     ); ?>
                                     <fieldset>
+                                        <h3 class="section-title my-3 text-xs-center">Let's Start creating your account</h3>
                                         <p class="text-sm-center my-3">First, we need to know what type of profile
                                             you are interested in setting up.</p>
                                         <div class="row">
-                                            <div class="col-md-4 mb-3  card">
+                                            <div class="col-md-8 offset-md-2 mb-1  card">
                                                 <div class="card-body">
                                                     <?php /*$form->field($profile, 'profile_type_id')->radioList([
                                                         'non', 'company', 'individual'
@@ -121,7 +122,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-3  card">
+                                            <div class="col-md-8 offset-md-2 mb-1  card">
                                                 <div class="card-body">
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test2"
@@ -134,7 +135,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-3  card">
+                                            <div class="col-md-8 offset-md-2 mb-1  card">
                                                 <div class="card-body">
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test3"
@@ -148,7 +149,9 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                 </div>
                                             </div>
                                         </div>
-                                        <?= Html::submitButton('Next Step', ['class' => 'btn btn-success']) ?>
+                                        <div class="text-xs-center my-3">
+                                        <?= Html::submitButton('Next Step', ['class' => 'btn btn-primary btn-lg']) ?>
+                                        <div>
                                     </fieldset>
                                     <?php ActiveForm::end() ?>
                                 </div>
