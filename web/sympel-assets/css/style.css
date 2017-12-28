@@ -219,10 +219,10 @@ p.radio-description {
    NAV STYLES
 ================================================================================================*/
 .nav-actions{
-  text-transform: uppercase;
+  /*text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
-  padding: 9px;
+  padding: 9px;*/
 }
 ul.actions li a.nav-actions:after {
     content: "|";
@@ -711,6 +711,17 @@ footer .footer-company {
     font-size: 35px;
     text-align: center;
     color: #13a38d;
+}
+
+.form-section-heading{
+  font-weight: 500;
+  border-bottom: 1px #00000038 solid;
+  padding-bottom: 10px;
+}
+
+.form-section-heading i{
+    margin-right: 10px;
+    color: #f05256;
 }
      
 

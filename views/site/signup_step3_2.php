@@ -111,7 +111,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             settings page.</p>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <h3 class="my-2">Profile Information</h3>
+                                                <h3 class="form-section-heading my-2"><i class="fa fa-user"></i>Profile Information</h3>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -180,7 +180,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                 </div>
                                             </div>
                                         </div>
-                                        <h3 class="my-2">Areas of Support</h3>
+                                        <h3 class="form-section-heading my-2"><i class="fa fa-heart"></i>Areas of Support</h3>
                                         <p class="mb-2">Almost done! Tell us a little about your area of support.
                                             This will allow others to find you based on similar cause and interests.
                                             You can always make changes in your profile settings at anytime.</p>
