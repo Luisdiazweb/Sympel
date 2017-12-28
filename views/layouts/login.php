@@ -24,15 +24,14 @@ AppAsset::register($this);
 
     <?php $this->head() ?>
 </head>
-<body data-open="click" data-menu="vertical-menu" data-col="1-column"
-      class="vertical-layout vertical-menu 1-column   menu-expanded blank-page blank-page">
+<body data-open="click" class="menu-expanded blank-page blank-page">
 <?php $this->beginBody() ?>
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
         <div class="content-header row">
         </div>
         <div class="content-body">
-            <section class="flexbox-container" style="background: #252626">
+            <section class="flexbox-container" style="background: #f5f7fa">
                 <div class="col-md-4 offset-md-4 col-xs-10 offset-xs-1  box-shadow-2 p-0">
                     <div class="card border-grey border-lighten-3 m-0">
                         <div class="card-header no-border">
