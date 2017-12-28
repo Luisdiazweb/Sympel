@@ -90,7 +90,7 @@ $this->registerJs("$(function() {
     <div class="overlay"></div>
 </header>-->
 <!-- ////////////////////////////////////////////////////////////////////////////-->
-<div class="app-content content container-fluid">
+<div class="app-content content container-fluid form-content">
     <div class="content-wrapper>
         <div class="content-body">
             <!-- Form wizard with number tabs section start -->

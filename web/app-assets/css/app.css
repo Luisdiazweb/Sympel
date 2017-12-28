@@ -10,7 +10,7 @@ html body.fixed-navbar {
   padding-top : 4rem;
 }
 html body .content {
-  padding: 70px;
+  padding: 0x;
   position : relative;
   -webkit-transition : 300ms ease all;
      -moz-transition : 300ms ease all;

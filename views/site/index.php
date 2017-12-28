@@ -198,7 +198,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
       <div class="container">
         <div class="row option-container">
             <div class="col-md-2">
-              <button type="button" class="btn button-primary button-options">Create a Donation</button>
+              <a href="#" type="button" class="btn button-primary button-options">Create a Donation</a>
             </div> 
             <div class="col-md-10">
                 <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
