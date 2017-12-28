@@ -151,6 +151,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                     'summary' => '',
                 ]) ?>
                 <?php Pjax::end(); ?>
+
             </div>
         </div>
     </div>
@@ -221,89 +222,53 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         </div>
       </div>
     </section>
-    
+
     <div class="container-fluid">
     <div class="row recent-container">
         <div class="col-md-10 offset-md-1">
       <h3 class="section-title"><i class="fa fa-arrow-circle-down color-primary icon-title"></i>Recent Needs</h3>
              <div class="row mt-3">
                 <div class="col-md-12">
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-                        <div class="card" style="">
-                            <div class="card-body">
-                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
-                                <div class="card-block product-card-body">
-                                    <h4 class="card-title">Name of need</h4>
-                                    <p class="card-text">Name of Organization</p>
-                                    <p class="card-text">Location, State</p>
-                                    <a href="#" class="card-link">category</a>
-                                    <div class="card-icon-container">
-                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
+                    <?php Pjax::begin(); ?>
+                    <?= ListView::widget([
+                        'dataProvider' => $dataProvider,
+                        'itemOptions' => ['class' => 'item'],
+                        'itemView' => function ($model, $key, $index, $widget) {
+                            $images = empty($model->images_url) ? null : json_decode($model->images_url);
+                            $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/05.jpg');
+                            $img_preview = Html::img(Url::to([$img]), [
+                                'class' => 'card-img-top img-fluid',
+                            ]);
+
+                            $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
+
+                            $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
+                            $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
+                            <div class=\"card\" style=\"\">
+                                <div class=\"card-body\">
+                                    <figure style=\"\">
+                                    $img_preview</figure>
+                                    <div class=\"card-block product-card-body\">
+                                        <h4 class=\"card-title\">$model->title</h4>
+                                        <p class=\"card-text\">Name of Organization</p>
+                                        <p class=\"card-text\">Location, State</p>
+                                        <a href=\"#\" class=\"card-link\">category</a>
+                                        <div class=\"card-icon-container\">
+                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
+                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-comment-o\"></i></a>
+                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-share-alt\"></i></a>
+                                        </div>
+                                        
                                     </div>
-                                    
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-                        <div class="card" style="">
-                            <div class="card-body">
-                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
-                                <div class="card-block product-card-body">
-                                    <h4 class="card-title">Name of need</h4>
-                                    <p class="card-text">Name of Organization</p>
-                                    <p class="card-text">Location, State</p>
-                                    <a href="#" class="card-link">category</a>
-                                    <div class="card-icon-container">
-                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-                        <div class="card" style="">
-                            <div class="card-body">
-                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
-                                <div class="card-block product-card-body">
-                                    <h4 class="card-title">Name of need</h4>
-                                    <p class="card-text">Name of Organization</p>
-                                    <p class="card-text">Location, State</p>
-                                    <a href="#" class="card-link">category</a>
-                                    <div class="card-icon-container">
-                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-                        <div class="card" style="">
-                            <div class="card-body">
-                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
-                                <div class="card-block product-card-body">
-                                    <h4 class="card-title">Name of need</h4>
-                                    <p class="card-text">Name of Organization</p>
-                                    <p class="card-text">Location, State</p>
-                                    <a href="#" class="card-link">category</a>
-                                    <div class="card-icon-container">
-                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </div>";
+                            return $layout;
+                        },
+                        'summary' => '',
+                    ]) ?>
+                    <?php Pjax::end(); ?>
+                   
                 </div>
 
             </div>
@@ -319,82 +284,44 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
       <h3 class="section-title"><i class="fa fa-arrow-circle-down color-secondary icon-title"></i>Recent Donations</h3>
        <div class="row mt-3">
                 <div class="col-md-12">
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-                        <div class="card" style="">
-                            <div class="card-body">
-                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
-                                <div class="card-block product-card-body">
-                                    <h4 class="card-title">Name of need</h4>
-                                    <p class="card-text">Name of Organization</p>
-                                    <p class="card-text">Location, State</p>
-                                    <a href="#" class="card-link">category</a>
-                                    <div class="card-icon-container">
-                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
+                    <?php Pjax::begin(); ?>
+                    <?= ListView::widget([
+                        'dataProvider' => $dataProvider,
+                        'itemOptions' => ['class' => 'item'],
+                        'itemView' => function ($model, $key, $index, $widget) {
+                            $images = empty($model->images_url) ? null : json_decode($model->images_url);
+                            $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/05.jpg');
+                            $img_preview = Html::img(Url::to([$img]), [
+                                'class' => 'card-img-top img-fluid',
+                            ]);
+
+                            $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
+
+                            $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
+                            $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
+                            <div class=\"card\" style=\"\">
+                                <div class=\"card-body\">
+                                    $img_preview
+                                    <div class=\"card-block product-card-body\">
+                                        <h4 class=\"card-title\">$model->title</h4>
+                                        <p class=\"card-text\">Name of Organization</p>
+                                        <p class=\"card-text\">Location, State</p>
+                                        <a href=\"#\" class=\"card-link\">category</a>
+                                        <div class=\"card-icon-container\">
+                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
+                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-comment-o\"></i></a>
+                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-share-alt\"></i></a>
+                                        </div>
+                                        
                                     </div>
-                                    
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-                        <div class="card" style="">
-                            <div class="card-body">
-                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
-                                <div class="card-block product-card-body">
-                                    <h4 class="card-title">Name of need</h4>
-                                    <p class="card-text">Name of Organization</p>
-                                    <p class="card-text">Location, State</p>
-                                    <a href="#" class="card-link">category</a>
-                                    <div class="card-icon-container">
-                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-                        <div class="card" style="">
-                            <div class="card-body">
-                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
-                                <div class="card-block product-card-body">
-                                    <h4 class="card-title">Name of need</h4>
-                                    <p class="card-text">Name of Organization</p>
-                                    <p class="card-text">Location, State</p>
-                                    <a href="#" class="card-link">category</a>
-                                    <div class="card-icon-container">
-                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-                        <div class="card" style="">
-                            <div class="card-body">
-                                <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
-                                <div class="card-block product-card-body">
-                                    <h4 class="card-title">Name of need</h4>
-                                    <p class="card-text">Name of Organization</p>
-                                    <p class="card-text">Location, State</p>
-                                    <a href="#" class="card-link">category</a>
-                                    <div class="card-icon-container">
-                                        <a href="#" class="card-icon"><i class="fa fa-eye"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-comment-o"></i></a>
-                                        <a href="#" class="card-icon"><i class="fa fa-share-alt"></i></a>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </div>";
+                            return $layout;
+                        },
+                        'summary' => '',
+                    ]) ?>
+                    <?php Pjax::end(); ?>
                 </div>
 
       </div>

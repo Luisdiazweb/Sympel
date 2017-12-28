@@ -76,7 +76,7 @@ NavBar::end();*/
             <li class="nav-item mobile-menu hidden-md-up float-xs-left">
               <a href="/" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu font-large-1"></i></a></li>
             <li class="nav-item">
-              <a href=""<?= Url::to('@web/') ?>"" class="navbar-brand">
+              <a href="<?= Url::to('@web/') ?>" class="navbar-brand">
               <img alt="Sympel logo" src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png')?>" class="brand-logo">
             <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="fa fa-ellipsis-v"></i></a></li>
           </ul>

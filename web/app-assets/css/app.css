@@ -10,7 +10,7 @@ html body.fixed-navbar {
   padding-top : 4rem;
 }
 html body .content {
-  padding : 0;
+  padding: 70px;
   position : relative;
   -webkit-transition : 300ms ease all;
      -moz-transition : 300ms ease all;
@@ -32,9 +32,7 @@ html body .content .content-wrapper .content-header-title {
   letter-spacing : 1px;
   color : #1B2942;
 }
-html body[data-col='1-column']:not(.vertical-content-menu) .content, html body[data-col='1-column']:not(.vertical-content-menu) .footer {
-  margin-left : 0 !important;
-}
+
 html body[data-col='1-column'].horizontal-layout .content, html body[data-col='1-column'].horizontal-layout .footer {
   margin : 0 auto !important;
 }

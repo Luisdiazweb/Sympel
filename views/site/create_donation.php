@@ -74,28 +74,31 @@ $this->registerJs("$(function() {
 
 ?>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
-<header class="masthead">
+
+
+<!--<header class="masthead inner alt-bg">
     <div class="container h-100">
         <div class="row h-100">
             <div class="col-lg-12">
                 <div class="header-content">
-                    <h1 class="content-header-title text-sm-center sympel-title" style="font-size: 70px; color:black;">
+                    <h1 class="content-header-title text-sm-center sympel-title" style="font-size: 85px;">
                         Create Donation</h1>
                 </div>
             </div>
         </div>
     </div>
-</header>
+    <div class="overlay"></div>
+</header>-->
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 <div class="app-content content container-fluid">
-    <div class="content-wrapper" style="background: #252626;">
+    <div class="content-wrapper>
         <div class="content-body">
             <!-- Form wizard with number tabs section start -->
             <!-- Form wizard with step validation section start -->
             <section id="validation">
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
-                        <div class="card box-shadow-2">
+                        <div class="">
                             <div class="card-body collapse in">
                                 <div class="card-block">
                                     <?php $form = ActiveForm::begin([
@@ -106,7 +109,7 @@ $this->registerJs("$(function() {
                                     ]); ?>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="my-2 card-title">Kind of Donation </h3>
+                                            <h3 class="section-title my-3">Donate where it's needed </h3>
                                             <p class="mb-2">What kind of donation is this?</p>
                                             <div class="row mb-3">
                                                 <?= $form->field($model, 'id_category')->radioList($cat_donations, [
@@ -196,7 +199,8 @@ $this->registerJs("$(function() {
                                                 };
                                             }
                                             ?>
-                                            <?php echo $form->field($model, 'imageFiles[]')->widget(FileInput::classname(), [
+                                            <?php //BLOCK COMMMENTED AS IT CALLS SOME CSS THAT BREAKS THE MAIN CSS ?>
+                                            <?php /*echo $form->field($model, 'imageFiles[]')->widget(FileInput::classname(), [
                                                 'options' => [
                                                     'accept' => 'image/*',
                                                     'multiple' => true
@@ -214,7 +218,7 @@ $this->registerJs("$(function() {
 //                                                    ],
                                                     'maxFileCount' => 8
                                                 ]
-                                            ]); ?>
+                                            ]); */?>
                                         </div>
                                     </div>
                                     <div class="row text-sm-center my-3">

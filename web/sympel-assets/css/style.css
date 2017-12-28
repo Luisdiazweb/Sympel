@@ -40,7 +40,8 @@ h3.sympel-title{
 
 body{
   font-family: 'Museo Sans';
-  font-weight: 100;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 h3.section-title{
@@ -72,6 +73,16 @@ h3.section-title{
 
 .bg-secondary{
   background-color: #f05155!important;
+}
+
+.overlay{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(0,0,0,0.5);
 }
 
 
@@ -225,6 +236,7 @@ ul.actions li:last-child a:after{
 .header-navbar .navbar-container {
     padding: 5px 18px;
     height: 5rem;
+    margin-left: 240px!important;
 }
 
 .link-hiw{
@@ -367,14 +379,20 @@ ul.actions li:last-child a:after{
 header.masthead {
   position: relative;
   width: 100%;
-  padding-top: 10%;
+  padding-top: 15%;
   color: white;
   background: url("../img/main-img.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover; 
-  padding-bottom: 10%;
+  padding-bottom: 5%;
   z-index: -1;}
+  
+  header.masthead.inner{
+  	padding-top: 18%;
+    color: white;
+    padding-bottom: 5%;
+  }
   header.masthead .header-content {
     margin-bottom: 100px;
     text-align: left; }
@@ -400,6 +418,7 @@ header.masthead {
   .header-navbar .navbar-container ul.nav li > a.nav-link {
     padding: 1.4rem 0.6rem;
     color: black;
+    font-size: 14px;
  }
 
  .btn-outline-header{
@@ -413,6 +432,15 @@ header.masthead {
     color: #FFFFFF;
     background-color: #000;
     border-color: #000;
+}
+
+/*================================================================================================
+   HEADER STYLES
+================================================================================================*/
+
+header.masthead.alt-bg{
+	background: url(../img/img-min.jpg);
+	background-size: cover;
 }
 
 /*================================================================================================
@@ -638,6 +666,13 @@ footer .footer-company {
     font-family: museo sans;
 }
 
+.card-img-top {
+    width: 100%;
+    height: 14vw;
+    object-fit: cover;
+    min-height: 180px;
+}
+
 /*================================================================================================
    DONATIONS LIST STYLES
 ================================================================================================*/
@@ -682,9 +717,5 @@ footer .footer-company {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#13A38D', endColorstr='#13A38D', GradientType=1);
 }
 
-.btn-primary {
-    border-color: #13A38D !important;
-    background-color: #13A38D !important;
-    color: #FFFFFF;
-}
+
 
