@@ -86,7 +86,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
             <!-- Form wizard with step validation section start -->
             <section id="validation">
                 <div class="row">
-                    <div class="col-md-8 offset-md-2">
+                    <div class="col-md-10 offset-md-1">
                         <div class="mt-3">
                             <!--                 <div class="card-header">
                 <h4 class="card-title">Validation Example</h4>
@@ -103,6 +103,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                     ); ?>
                                     <!-- Step 3 -->
                                     <fieldset>
+                                        <i class="fa fa-id-badge heading-icon"></i>
                                         <h3 class="section-title my-3 text-xs-center">Your Sympel's Profile</h3>
                                         <p class="text-sm-center my-3">We just need a little information before you
                                             get started.

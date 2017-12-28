@@ -223,8 +223,8 @@ $this->registerJs("$(function() {
                                     </div>
                                     <div class="row text-sm-center my-3">
 
-                                        <?= Html::submitButton($model->isNewRecord ? 'PREVIEW POST' : 'Update', ['class' => 'btn btn-primary']) ?>
-                                        <?= Html::a('CANCEL', Yii::$app->request->referrer ?: '/', ['class' => 'btn btn-outline-danger']) ?>
+                                        <?= Html::submitButton($model->isNewRecord ? 'Preview Post' : 'Update', ['class' => 'btn btn-primary btn-lg']) ?>
+                                        <?= Html::a('Cancel', Yii::$app->request->referrer ?: '/', ['class' => 'btn btn-outline-danger btn-lg']) ?>
                                     </div>
                                     <?php ActiveForm::end(); ?>
                                 </div>

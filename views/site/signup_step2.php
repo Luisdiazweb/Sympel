@@ -102,6 +102,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                     ); ?>
                                     <!-- Step 2 -->
                                     <fieldset>
+                                        <i class="fa fa-pencil-square-o heading-icon"></i>
                                         <h3 class="section-title my-3 text-xs-center">Your Sympel's account details</h3>
                                         <p class="text-sm-center my-3">Please provide the information for the account. This information is  not public.</p>
                                         <div class="row">
