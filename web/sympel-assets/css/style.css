@@ -307,6 +307,15 @@ ul.actions li:last-child a:after{
   background-color: #1cbdcb!important; 
   color: #ffffff; }
 
+.login-nav{
+  position: relative;
+}
+.login-nav img{
+    position: absolute;
+    top: 15px;
+    left: -25px;
+}
+
 /*================================================================================================
    HOME RECENT CONTAINERS STYLES
 ================================================================================================*/
@@ -636,6 +645,102 @@ footer .footer-company {
 
       footer .border-right {
     border-right: 2px solid #7b7b7d;
+}
+
+/*================================================================================================
+   PUBLIC PROFILE STYLES
+================================================================================================*/
+.profile-link:before{
+    content: "";
+    padding: 20px;
+    font-size: 25px;
+    line-height: 14px;
+}
+
+.profile-link a.phone{
+  color: #252626;
+}
+
+.profile-type{
+  margin-bottom: 40px;
+}
+
+.profile-info .section-title{
+  font-size: 35px;
+}
+.profile-links-container{
+  padding-left: 25px;
+  font-weight: 600;
+  color: #f05256;
+}
+
+.profile-links-container .map{
+  font-size: 25px;
+  color: #f05256;
+  position: absolute;
+  left: 15px;
+}
+
+.profile-links-container .web{
+  color: #00b5b8;
+  margin-right: 10px;
+}
+
+.profile-links-container .phone{
+  color: #252626;
+  margin-right: 10px;
+}
+
+.profile-stats{
+  background-color: #fff;
+}
+
+.profile-stats .card-block{
+  padding: .5rem;
+}
+
+.profile-stats p{
+  margin-bottom: 0;
+}
+
+.profile-cta{
+  background: #00b5b8;
+}
+
+.profile-cta a{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 20px;
+}
+
+.profile-info .tag{
+   margin: 3px;
+}
+
+.profile-info .ein{
+    font-size: 14px;
+    font-weight: 600;
+    color: #f05256;
+}
+
+.nav.nav-tabs.nav-linetriangle .nav-item a.nav-link{
+    color: #252626;
+    background: #e8eaec;
+    border-radius: 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.nav.nav-tabs.nav-linetriangle.nav-justified .nav-item a.nav-link.active {
+    top: 0;
+    font-size: 20px;
+    font-weight: 500;
+    background: transparent;
 }
 
 /*================================================================================================

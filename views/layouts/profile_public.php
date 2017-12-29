@@ -159,7 +159,7 @@ NavBar::end();*/
                 </div>
                 </li>
               </ul>
-              <ul class="nav navbar-nav float-xs-right actions">
+              <ul class="nav navbar-nav float-xs-right actions login-nav">
                 <?php if (Yii::$app->user->isGuest): ?>
                 <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
                 <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>

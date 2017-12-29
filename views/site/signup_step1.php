@@ -102,7 +102,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                     ); ?>
                                     <fieldset>
                                         <i class="fa fa-user-plus heading-icon"></i>
-                                        <h3 class="section-title my-3 text-xs-center">Let's Start creating your account</h3>
+                                        <h3 class="section-title my-3 text-xs-center">Let's start creating your account</h3>
                                         <p class="text-sm-center my-3">First, we need to know what type of profile
                                             you are interested in setting up.</p>
                                         <div class="row">
