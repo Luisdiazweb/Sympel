@@ -25,7 +25,7 @@ body.vertical-layout.vertical-menu.menu-expanded .navbar.navbar-brand-center .na
   width: auto; }
 
 body.vertical-layout.vertical-menu.menu-expanded .navbar .navbar-container {
-  margin-left: 240px; }
+  /*margin-left: 240px;*/ }
 
 body.vertical-layout.vertical-menu.menu-expanded .navbar .navbar-brand .brand-text {
   -webkit-animation: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
@@ -77,7 +77,7 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu {
 
 body.vertical-layout.vertical-menu.menu-expanded .content,
 body.vertical-layout.vertical-menu.menu-expanded .footer {
-  margin-left: 240px; }
+  /*margin-left: 240px;*/ }
 
 body.vertical-layout.vertical-menu.menu-expanded .navbar-brand-center .content,
 body.vertical-layout.vertical-menu.menu-expanded .navbar-brand-center .footer {
