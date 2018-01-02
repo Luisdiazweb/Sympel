@@ -231,7 +231,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                 <div class="col-md-12">
                     <?php Pjax::begin(); ?>
                     <?= ListView::widget([
-                        'dataProvider' => $dataProvider,
+                        'dataProvider' => $needs,
                         'itemOptions' => ['class' => 'item'],
                         'itemView' => function ($model, $key, $index, $widget) {
                             $images = empty($model->images_url) ? null : json_decode($model->images_url);
@@ -286,7 +286,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                 <div class="col-md-12">
                     <?php Pjax::begin(); ?>
                     <?= ListView::widget([
-                        'dataProvider' => $dataProvider,
+                        'dataProvider' => $donate,
                         'itemOptions' => ['class' => 'item'],
                         'itemView' => function ($model, $key, $index, $widget) {
                             $images = empty($model->images_url) ? null : json_decode($model->images_url);
