@@ -243,13 +243,13 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
-                            $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
+                            $layout = "<div class=\"col-xl-4 col-md-4 col-sm-6\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     <figure style=\"\">
                                     $img_preview</figure>
                                     <div class=\"card-block product-card-body\">
-                                        <h4 class=\"card-title\">$model->title</h4>
+                                        <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         <p class=\"card-text\">Name of Organization</p>
                                         <p class=\"card-text\">Location, State</p>
                                         <a href=\"#\" class=\"card-link\">category</a>
@@ -298,12 +298,12 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
-                            $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
+                            $layout = "<div class=\"col-xl-4 col-md-4 col-sm-6\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     $img_preview
                                     <div class=\"card-block product-card-body\">
-                                        <h4 class=\"card-title\">$model->title</h4>
+                                        <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         <p class=\"card-text\">Name of Organization</p>
                                         <p class=\"card-text\">Location, State</p>
                                         <a href=\"#\" class=\"card-link\">category</a>

@@ -707,6 +707,12 @@ footer .footer-company {
   background: #00b5b8;
 }
 
+.profile-image-container{
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
 .profile-cta a{
     margin: 0;
     position: absolute;
@@ -741,6 +747,31 @@ footer .footer-company {
     font-size: 20px;
     font-weight: 500;
     background: transparent;
+}
+
+/*================================================================================================
+   POSTS VIEW STYLES
+================================================================================================*/
+
+.post-info h2{
+  font-size: 45px;
+}
+
+.post-details-container{
+  display: flex;
+  justify-content: center;
+}
+
+.post-category{
+  color: #00b5b8;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.post-condition{
+  color: #f05256;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 /*================================================================================================

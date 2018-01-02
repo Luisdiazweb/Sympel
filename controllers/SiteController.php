@@ -721,7 +721,7 @@ class SiteController extends CustomController
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->goHome();
         } else {
-            return $this->render('review_request_donation', [
+            return $this->render('view_donation', [
                 'model' => $model,
                 'owner' => $model->id_user === Yii::$app->user->getId(),
             ]);

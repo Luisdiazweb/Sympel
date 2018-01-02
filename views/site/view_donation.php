@@ -60,31 +60,12 @@ use yii\widgets\DetailView;
     </div>
 </div>
 
-<div class="container">
+<div class="container mb-3">
     <div class="row">
         <div class="col-md-12">
             <h3 class="form-section-heading my-2"><i class="fa fa-th-list"></i>Description</h3>
             <p><?= $model->description ?></p>
         </div>
     </div>
-</div>
-
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <?php $form = ActiveForm::begin(); ?>
-            <?= $form->field($model, 'checked')
-                ->hiddenInput(['value' => 1])
-                ->label(false) ?>
-            <div class="row text-sm-center my-3">
-                <?= Html::a('Back to Edit', Url::to(['createdonation', 'id' => $model->id_public]), ['class' => 'btn btn-secondary btn-lg']) ?>
-                <?= Html::submitButton('Publish Post', ['class' => 'btn btn-primary btn-lg']) ?>
-            </div>
-            <?php ActiveForm::end(); ?>
-        </div>
-    </div>                      
 </div>
 

@@ -106,7 +106,7 @@ NavBar::end();*/
                             <li class="nav-item"><a class="nav-link nav-actions" href="/dashboard/">Dashboard</a></li>
                         <?php endif; ?>
                         <li class="nav-item">
-                            <a class="nav-link nav-actions" href="/myprofile">
+                            <a class="nav-link nav-actions" href="/publicprofile/<?=Yii::$app->user->identity->username?>">
                                 <?php
                                 $img = $profile->profile_picture_url;
                                 ?>

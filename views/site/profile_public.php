@@ -10,8 +10,8 @@ use yii\widgets\ListView;
 
 <div class="container">
     <div class="row my-3">
-    <div class="col-md-12">
-        <div class="col-md-3 col-sm-12 pl-0">
+    <div class="col-md-12 equal">
+        <div class="col-md-3 col-sm-12 pl-0 profile-image-container">
             <a href="#" class="profile-image">
                  <img style="height:200px;float:right;" src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" class="rounded-circle img-border mx-auto d-block" alt="Card image">
             </a>
@@ -29,19 +29,23 @@ use yii\widgets\ListView;
                 <?php if ($profile->profile_type_id == 1): ?>
                     <span class="ein ml-1">EIN: #<?= $profile->registered_ein ?></span>
                 <?php endif?>
-
                 </h3>
+                <?php if ($profile->profile_type_id == 1): ?>
+                <blockquote class="blockquote profile-type">
+                    <p><?=$profile->mission?></p>
+                </blockquote>
+                <?php endif?>
                 
                 <p class="profile-links-container">
                     <i class="fa fa-map-marker map"></i>
                     <?= $profile->city ?>, <?= $profile->state ?>
                     <span class="profile-link">
                         <i class="fa fa-globe web"></i>
-                        <a href="#"><?= $profile->website ?></a>
+                        <a href="http://<?= $profile->website ?>"><?= $profile->website ?></a>
                     </span>
                     <span class="profile-link">
                         <i class="fa fa-phone phone"></i>
-                        <a class="phone" href="#"><?= $profile->phone ?></a>
+                        <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
                     </span>
                 </p>
 
