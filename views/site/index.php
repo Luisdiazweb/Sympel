@@ -298,7 +298,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
-                            $layout = "<div class=\"col-xl-4 col-md-4 col-sm-6\">
+                            $layout = "<div class=\"col-xl-3 col-md-4 col-sm-6\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     $img_preview

@@ -17,9 +17,9 @@ use yii\helpers\Url;
         ]
     ]
 ) ?>
-    <div class="row mt-3">
+    <div class="row mt-3 mb-1">
         <div class="col-md-12">
-            <h3 class="my-2 card-title">Account Owner Information</h3>
+            <h3 class="form-section-heading mt-3 mb-1"><i class="fa fa-user"></i>Account Owner Information</h3>
         </div>
     </div>
     <div class="row">
@@ -58,9 +58,9 @@ use yii\helpers\Url;
         </div>
     </div>
 
-    <div class="row mt-3">
+   <div class="row mt-3 mb-1">
         <div class="col-md-12">
-            <h3 class="my-2 card-title">Profile Information</h3>
+            <h3 class="form-section-heading my-2"><i class="fa fa-user"></i>Profile Information</h3>
         </div>
     </div>
     <div class="row">
@@ -101,7 +101,7 @@ use yii\helpers\Url;
         </div>
     </div>
 
-    <h3 class="my-2 card-title">Causes & areas of interest</h3>
+    <h3 class="form-section-heading mt-3 mb-1"><i class="fa fa-heart"></i>Areas of Support</h3>
     <p class="mb-2">Select the causes and support areas that interest you most. We will only use this information to
         improve
         your searching experience.</p>

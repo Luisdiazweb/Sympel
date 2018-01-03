@@ -91,10 +91,10 @@ NavBar::end();*/
                  <?php endif; ?>
                 <?php endif; ?>
                 <li class="nav-item icon hidden-sm-down link-hiw"><a href="#" class="nav-link">How it Works</a></li>
-                <li class="nav-item nav-search"><a href="#" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
-                <div class="search-input">
+                <li class="nav-item nav-search"><a href="<?= Url::to('@web/search') ?>" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
+                <!--<div class="search-input">
                   <input type="text" placeholder="Search..." class="input">
-                </div>
+                </div>-->
                 </li>
               </ul>
               <ul class="nav navbar-nav float-xs-right actions login-nav">

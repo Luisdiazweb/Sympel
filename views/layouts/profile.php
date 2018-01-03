@@ -124,64 +124,74 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
 <?php $this->beginBody() ?>
 
 <!-- navbar-fixed-top-->
-<nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-light navbar-border">
-    <div class="navbar-wrapper">
+<nav id="mainNav" class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-light navbar-shadow">
+      <div class="navbar-wrapper">
         <div class="navbar-header">
-            <ul class="nav navbar-nav">
-                <li class="nav-item mobile-menu hidden-md-up float-xs-left">
-                    <a href="#"
-                       class="nav-link nav-menu-main menu-toggle hidden-xs"><i
-                                class="ft-menu font-large-1"></i></a></li>
-                <li class="nav-item"><a href="<?= Url::to('@web/') ?>" class="navbar-brand">
-                        <img alt="Sympel logo"
-                             src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png') ?>"
-                             class="brand-logo">
-                <li class="nav-item hidden-md-up float-xs-right">
-                    <a data-toggle="collapse" data-target="#navbar-mobile"
-                       class="nav-link open-navbar-container"><i
-                                class="fa fa-ellipsis-v"></i></a>
-                </li>
-            </ul>
+          <ul class="nav navbar-nav">
+            <li class="nav-item mobile-menu hidden-md-up float-xs-left">
+              <a href="/" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu font-large-1"></i></a></li>
+            <li class="nav-item">
+              <a href="<?= Url::to('@web/') ?>" class="navbar-brand">
+              <img alt="Sympel logo" src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png')?>" class="brand-logo">
+            <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="fa fa-ellipsis-v"></i></a></li>
+          </ul>
         </div>
         <div class="navbar-container content container-fluid">
-            <ul class="nav navbar-nav">
-                <li class="nav-item icon hidden-sm-down"><a href="/createdonation" class="nav-link"><i
-                                class="fa fa-pencil square-icon menu link-primary"></i>Post an Item</a></li>
-                <?php
-                $profile = \app\models\ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
-                if ($profile->profile_type_id == 1) :
-                    ?>
-                    <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i
-                                    class="fa fa-heart square-icon menu link-secondary"></i>Ask for an Item</a></li>
-                <?php endif; ?>
-
+          <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
+              <ul class="nav navbar-nav">
+                <li class="nav-item icon hidden-sm-down"><a href="/createdonation" class="nav-link"><i class="fa fa-pencil square-icon menu light link-primary"></i>Create a Donation</a></li>
+                <?php // if($profile) : ?>
+                  <?php // if ($profile->profile_type_id == 1) : ?>
+                <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i>Request a Donation</a></li>
+                 <?php // endif; ?>
+                <?php // endif; ?>
+                <li class="nav-item icon hidden-sm-down link-hiw"><a href="#" class="nav-link">How it Works</a></li>
+                <li class="nav-item nav-search"><a href="<?= Url::to('@web/search') ?>" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
+                <!--<div class="search-input">
+                  <input type="text" placeholder="Search..." class="input">
+                </div>-->
+                </li>
+              </ul>
+              <ul class="nav navbar-nav float-xs-right actions login-nav">
+                <?php if (Yii::$app->user->isGuest): ?>
+                <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
+                <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
+                 <?php else: ?>
+                        <?php if (Yii::$app->user->identity->admin): ?>
+                            <li class="nav-item"><a class="nav-link nav-actions" href="/dashboard/">Dashboard</a></li>
+                        <?php endif; ?>
+                        <li class="nav-item">
+                            <a class="nav-link nav-actions" href="/publicprofile/<?=Yii::$app->user->identity->username?>">
+                                <?php
+                                // $img = $profile->profile_picture_url;
+                                ?>
+                                <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>"
+                                     class="rounded-circle img-border" style="height: 25px;margin-right: 10px;">
+                                <?= Yii::$app->user->identity->username ?>
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link nav-actions" href="/logout"> Logout</a></li>
+                    <?php endif; ?>
             </ul>
-            <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
-                <ul class="nav navbar-nav float-xs-right actions">
-                    <!--                    <li class="nav-item"><a class="nav-link nav-actions" href="signup.html">Signup</a></li>-->
-                    <li class="nav-item"><a class="nav-link nav-actions" href="/logout">Logout</a></li>
-                </ul>
-
-            </div>
+          </div>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
+
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
-        <div class="content-header row">
-            <div class="content-header-left col-md-12 col-xs-12 my-3">
-                <h1 class="content-header-title text-sm-center sympel-title">Profile Settings</h1>
-            </div>
-        </div>
+
         <div class="content-body"><!-- Form wizard with number tabs section start -->
 
             <!-- Form wizard with step validation section start -->
             <section id="validation">
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
-                        <div class="card box-shadow-2">
+                        <div class="mt2">
                             <div class="card-body collapse in">
                                 <div class="card-block">
+                                    <i class="fa fa-id-badge heading-icon"></i>
+                                        <h3 class="section-title my-3 text-xs-center">Your Sympel's Profile</h3>
                                     <ul class="nav nav-tabs nav-linetriangle no-hover-bg nav-justified">
                                         <li class="nav-item">
                                             <a class="nav-link active card-title" id="active-tab3" data-toggle="tab"
@@ -207,7 +217,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                 <div class="card-block card-dashboard">
                                                     <div class="row mt-2 mb-3">
                                                         <div class="col-md-12">
-                                                            <h3 class="my-2 card-title">Items for Donation</h3>
+                                                            <h3 class="form-section-heading mt-3 mb-1"><i class="fa fa-heart"></i>Items for Donation</h3>
                                                         </div>
                                                     </div>
                                                     <table class="table table-striped table-no-vertical table-bordered zero-configuration">
@@ -231,6 +241,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                                     'class' => 'img-fluid my-1',
                                                                     'style' => 'max-width: 200px;'
                                                                 ]);
+                                                                $details_url = Url::to(['itemdetails', 'id' => $modelDonations->id_public]);
                                                                 $status = $modelDonations->checked ? "Checked" : "Pending";
                                                                 $date = Yii::$app->formatter->format($modelDonations->created_at, 'date');
                                                                 $category = $modelDonations->idCategory->name;
@@ -238,7 +249,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                                             <td>$modelDonations->id_public</td>
                                                                             <td>$status</td>
                                                                             <td>$date</td>
-                                                                            <td>$modelDonations->title</td>
+                                                                            <td><a href=\"$details_url\">$modelDonations->title</a></td>
                                                                             <td>$category</td>";
                                                                 return $layout;
                                                             },
@@ -266,14 +277,83 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
 </div>
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
-<footer class="footer footer-static footer-light navbar-border">
-    <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span
-                class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a
-                    href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank"
-                    class="text-bold-800 grey darken-2">SYMPEL </a>, All rights reserved. </span><span
-                class="float-md-right d-xs-block d-md-inline-block hidden-md-down">Hand-crafted & Made with <i
-                    class="ft-heart pink"></i></span></p>
-</footer>
+
+    <footer class="hidden-md-down">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <ul class="col-sm-12 col-md-6 col-lg-6">
+              <li><h3>Company</h3></li>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Press</a></li>
+              <li><a href="">Jobs</a></li>
+              <li><a href="">FAQ's</a></li>
+              <li><a href="">Privacy Policy</a></li>
+              <li><a href="">Site Terms</a></li>
+            </ul>
+            <ul class="col-sm-12 col-md-6 col-lg-6">
+              <li><h3>Connect</h3></li>
+              <li><a href="">Facebook</a></li>
+              <li><a href="">Twitter</a></li>
+              <li><a href="">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6 border-right">
+                    <h3 class="text-right">Looking to grow<br> your business?</h3>
+                    <p class="text-right footer mt-1">Check out our <br> sister company</p>
+                  </div>
+                   <div class="col-md-6">
+                   <a href="http://www.sympelworks.com"><img src="<?= Url::to('@web/sympel-assets/img/sympel-works.png') ?>" alt="sympel works"></a>
+                   <p class="footer mt-1">SYMPEL WORKS is a creative consulting company that helps non-profits, entreprenuers and businesses create, develop an launch their sales and marketing strategies.</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <footer class="hidden-lg-up">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <ul class="col-sm-12 col-md-4 col-lg-3">
+              <li><h3>Company</h3></li>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Press</a></li>
+              <li><a href="">Jobs</a></li>
+              <li><a href="">FAQ's</a></li>
+              <li><a href="">Privacy Policy</a></li>
+              <li><a href="">Site Terms</a></li>
+            </ul>
+            <ul class="col-sm-12 col-md-4 col-lg-2">
+              <li><h3>Connect</h3></li>
+              <li><a href="">Facebook</a></li>
+              <li><a href="">Twitter</a></li>
+              <li><a href="">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-12">
+              <div class="container footer-company">
+                <div class="row">
+                  <div class="col-sm-6 border-right footer-company-text">
+                    <h3>Looking to grow<br> your business?</h3>
+                    <p class="footer mt-1">Check out our <br> sister company</p>
+                  </div>
+                   <div class="col-sm-6">
+                    <a href="http://www.sympelworks.com"><img
+                            src="<?= Url::to('@web/sympel-assets/img/sympel-works.png') ?>" alt="sympel works"></a>
+                   <p class="footer mt-1">SYMPEL WORKS is a creative consulting company that helps non-profits, entreprenuers and businesses create, develop an launch their sales and marketing strategies.</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 <?php $this->endBody() ?>
 </body>
