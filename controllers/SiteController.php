@@ -34,14 +34,11 @@ class SiteController extends CustomController
     public function actionIndex()
     {
         $searchModel = new DonationsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMHOME);
-
         $donate = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMPROFILEPUBLIC_DONATION);
         $needs = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMPROFILEPUBLIC_NEEDED);
 
         return $this->render('index', [
             'modelSearchDonation' => $searchModel,
-            'dataProvider' => $dataProvider,
             'donate' => $donate,
             'needs' => $needs
         ]);

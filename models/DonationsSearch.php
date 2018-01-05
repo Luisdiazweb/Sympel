@@ -47,7 +47,9 @@ class DonationsSearch extends Donations
      */
     public function search($params, $isAdmin = true, $from = FALSE)
     {
+
         $query = Donations::find();
+        $query->joinWith('profile_account');
 
         // add conditions that should always apply here
 
@@ -62,6 +64,8 @@ class DonationsSearch extends Donations
             // $query->where('0=1');
             return $dataProvider;
         }
+
+
 
         $query->andFilterWhere([
 //            'checked' => $this->checked,

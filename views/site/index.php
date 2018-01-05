@@ -37,193 +37,70 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     ]);
 
 
-?><!-- 
+?>
+
 <header class="masthead">
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-lg-10">
-                <div class="header-content">
-                    <p class="main-quote"><span>Make your donations count</span></p>
-                    <p class="main-quote"><span>by giving where it's needed</span></p>
-                    <p class="quote-paragraph">sympel offers a new way to give to the need by connecting
-                        <br>items for donations with churches, non-profits and
-                        <br>charitable organizations.</p>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <button class="btn btn-outline-header square btn-min-width mr-1 mb-1">How it works</button>
-            </div>
+  <div class="container h-100">
+    <div class="row h-100">
+      <div class="col-lg-12 my-auto">
+        <div class="header-content">
+          <p class="main-quote"><span>Make your donations count</span></p>
+          <p class="main-quote"><span>by giving where it's needed</span></p>
+          <p class="quote-paragraph">sympel offers a new way to give to the need by connecting <br >items for donations with churches, non-profits and <br >charitable organizations.</p>
         </div>
+      </div>
     </div>
+  </div>
 </header>
-<section class="search">
-    <div class="container">
-        <p>Quick Search</p>
-        <?php $form = ActiveForm::begin([
-            'action' => ['search'],
-            'method' => 'get',
-            'fieldConfig' => [
-                'options' => [
-                    'tag' => false,
-                ],
-            ],
-        ]); ?>
-        <div class="row equal center">
-            <div class="col-xs-5">
-                <fieldset class="form-group position-relative has-icon-left">
-                    <?= $form->field($modelSearchDonation, 'title', [
-                        'template' => '{input}'
-                    ])->textInput([
-                        'class' => 'form-control square form-control-xl input-xl',
-                        'placeholder' => 'Search for item or donation'
-                    ]) ?>
-                    <div class="form-control-position">
-                        <i class="ft-search danger font-medium-4"></i>
-                    </div>
-                </fieldset>
-            </div>
-            <div class="col-xs-1">
-                <p class="form-text">near</p>
-            </div>
-            <div class="col-xs-4">
-                <fieldset class="form-group position-relative has-icon-left">
-                    <?= $form->field($modelSearchDonation, 'city', [
-                        'template' => '{input}'
-                    ])->textInput([
-                        'class' => 'form-control square form-control-xl input-xl',
-                        'placeholder' => 'City or Zip'
-                    ]) ?>
-                    <div class="form-control-position">
-                        <i class="ft-search danger font-medium-4"></i>
-                    </div>
-                </fieldset>
-            </div>
-            <div class="col-xs-2">
-                <?= Html::submitButton('Search', ['class' => 'btn btn-primary btn-block square btn-lg mr-1 mb-1']) ?>
-            </div>
+
+<section class="welcome-section">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 welcome-column quote">
+          <h2 class="welcome-quote">Welcome to the giving community</h2>
+
         </div>
-        <div class="skin skin-flat mt-2">
-            <div class="d-inline mr-3">
-                <input type="checkbox" name="DonationsSearch[id_type]" id="DonationsSearch[id_type][1]"
-                       value="1" <?= $modelSearchDonation->id_type == 1 ? "checked" : "" ?>>
-                <label for="input-11">Show donations posts</label>
-            </div>
-            <div class="d-inline">
-                <input type="checkbox" name="DonationsSearch[id_type]" id="DonationsSearch[id_type][2]"
-                       value="2" <?= $modelSearchDonation->id_type == 2 ? "checked" : "" ?>>
-                <label for="input-12">Show requested posts</label>
-            </div>
+        <div class="col-md-6 welcome-column description">
+            <p class="text-gray welcome-text">The sympel community...</p>
+            <p class="text-gray welcome-text">believes in a community that recycles, reuses and gives to make a greater impact to the everyday needs of organizations that make this world a better place.</p>
+            <p class="text-xs-center"><button type="button" class="btn button-description">Sign Up</button></p>
+
         </div>
-        <?php ActiveForm::end(); ?>
     </div>
+  </div>
 </section>
-<section class="donations-list">
-    <div class="container-fluid">
-        <div class="row match-height">
-            <div class="col-xl-12">
-                <?php Pjax::begin(); ?>
-                <?= ListView::widget([
-                    'dataProvider' => $dataProvider,
-                    'itemOptions' => ['class' => 'item'],
-                    'itemView' => function ($model, $key, $index, $widget) {
-                        $images = empty($model->images_url) ? null : json_decode($model->images_url);
-                        $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/05.jpg');
-                        $img_preview = Html::img(Url::to([$img]), [
-                            'class' => 'card-img-top img-fluid',
-                        ]);
-
-                        $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
-
-                        $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
-                        $layout = "<div class=\"col-xl-3 col-md-6 col-sm-12\">
-                    <div class=\"card\" style=\"\">
-                        <div class=\"card-body\">$img_preview
-                            <div class=\"card-block product-card-body\">
-                                <h4 class=\"card-title\">$model->title</h4>
-                                <p class=\"card-text\">$description</p>
-                                <a href=\"$details_url \" class=\"btn btn-outline-success\">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>";
-                        return $layout;
-                    },
-                    'summary' => '',
-                ]) ?>
-                <?php Pjax::end(); ?>
-
-            </div>
-        </div>
-    </div>
-</section> -->
-
- <header class="masthead">
-      <div class="container h-100">
-        <div class="row h-100">
-          <div class="col-lg-12 my-auto">
-            <div class="header-content">
-              <p class="main-quote"><span>Make your donations count</span></p>
-              <p class="main-quote"><span>by giving where it's needed</span></p>
-              <p class="quote-paragraph">sympel offers a new way to give to the need by connecting <br >items for donations with churches, non-profits and <br >charitable organizations.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-
- 
-        
-    <section class="welcome-section">
-      <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 welcome-column quote">
-              <h2 class="welcome-quote">Welcome to the giving community</h2>
-              
-            </div> 
-            <div class="col-md-6 welcome-column description">
-                <p class="text-gray welcome-text">The sympel community...</p>
-                <p class="text-gray welcome-text">believes in a community that recycles, reuses and gives to make a greater impact to the everyday needs of organizations that make this world a better place.</p>
-                <p class="text-xs-center"><button type="button" class="btn button-description">Sign Up</button></p>
-                
-            </div>   
-        </div>
-      </div>
-    </section>
         
 <!-- Card headings examples section end -->
-
-
-    <section class="welcome-options">
-      <div class="container">
-        <div class="row option-container">
-            <div class="col-md-2">
-              <a href="#" type="button" class="btn button-primary button-options">Create a Donation</a>
-            </div> 
-            <div class="col-md-10">
-                <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
-            </div>   
+<section class="welcome-options">
+  <div class="container">
+    <div class="row option-container">
+        <div class="col-md-2">
+          <a href="#" type="button" class="btn button-primary button-options">Create a Donation</a>
         </div>
-        <div class="row option-container">
-            <div class="col-md-2">
-              <button type="button" class="btn button-secondary button-options">Request a Donation</button>
-            </div> 
-            <div class="col-md-10">
-                <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
-            </div>   
+        <div class="col-md-10">
+            <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
         </div>
-        <div class="row option-container">
-            <div class="col-md-2">
-              <button type="button" class="btn button-tertiary button-options">Search</button>
-            </div> 
-            <div class="col-md-10">
-                <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
-            </div>   
+    </div>
+    <div class="row option-container">
+        <div class="col-md-2">
+          <button type="button" class="btn button-secondary button-options">Request a Donation</button>
         </div>
-      </div>
-    </section>
+        <div class="col-md-10">
+            <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
+        </div>
+    </div>
+    <div class="row option-container">
+        <div class="col-md-2">
+          <button type="button" class="btn button-tertiary button-options">Search</button>
+        </div>
+        <div class="col-md-10">
+            <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
+        </div>
+    </div>
+  </div>
+</section>
 
-    <div class="container-fluid">
+<div class="container-fluid">
     <div class="row recent-container">
         <div class="col-md-10 offset-md-1">
       <h3 class="section-title"><i class="fa fa-arrow-circle-down color-primary icon-title"></i>Recent Needs</h3>
@@ -243,6 +120,8 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
+                            $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
+
                             $layout = "<div class=\"col-xl-4 col-md-4 col-sm-6\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
@@ -250,7 +129,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                                     $img_preview</figure>
                                     <div class=\"card-block product-card-body\">
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
-                                        <p class=\"card-text\">Name of Organization</p>
+                                        <p class=\"card-text\">$nameOrganization</p>
                                         <p class=\"card-text\">Location, State</p>
                                         <a href=\"#\" class=\"card-link\">category</a>
                                         <div class=\"card-icon-container\">
@@ -298,13 +177,16 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
+
+                            $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
                             $layout = "<div class=\"col-xl-3 col-md-4 col-sm-6\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     $img_preview
                                     <div class=\"card-block product-card-body\">
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
-                                        <p class=\"card-text\">Name of Organization</p>
+                                        
+                                        <p class=\"card-text\">$nameOrganization</p>
                                         <p class=\"card-text\">Location, State</p>
                                         <a href=\"#\" class=\"card-link\">category</a>
                                         <div class=\"card-icon-container\">
