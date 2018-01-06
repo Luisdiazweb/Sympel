@@ -24,7 +24,7 @@ $config = [
                     //'js' => ['js/bootstrap.js'],
                    // 'sourcePath' => null,   // do not publish the bundle
                     'css' => [
-                        'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css',
+                        '/app-assets/css/bootstrap.css',
                     ]
                 ],
             ],
