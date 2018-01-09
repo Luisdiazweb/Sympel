@@ -7,7 +7,7 @@ use yii\web\View;
 
 /* @var $this yii\web\View */
 
-$this->title = "How it Works - Sympel";
+$this->title = "Privacy Policy - Sympel";
 
 $this->registerCssFile("@web/app-assets/css/core/menu/menu-types/vertical-menu.css",
     [

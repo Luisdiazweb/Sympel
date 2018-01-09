@@ -315,9 +315,15 @@ class SiteController extends CustomController
 
     }
 
-      public function actionPrivacypolicy()
+     public function actionPrivacypolicy()
     {
         return $this->render('privacy_policy');
+
+    }
+
+    public function actionPress()
+    {
+        return $this->render('press');
 
     }
 
