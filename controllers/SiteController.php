@@ -312,6 +312,18 @@ class SiteController extends CustomController
 
     }
 
+    public function actionSiteterms()
+    {
+        return $this->render('site_terms');
+
+    }
+
+      public function actionPrivacypolicy()
+    {
+        return $this->render('privacy_policy');
+
+    }
+
     public function actionNotverified($id = false)
     {
         if (!boolval(Yii::$app->user->identity->verified_account)) {

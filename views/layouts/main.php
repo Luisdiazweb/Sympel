@@ -143,12 +143,12 @@ NavBar::end();*/
           <div class="col-md-6 text-center">
             <ul class="col-sm-12 col-md-6 col-lg-6">
               <li><h3>Company</h3></li>
-              <li><a href="">About Us</a></li>
-              <li><a href="">Press</a></li>
-              <li><a href="">Jobs</a></li>
-              <li><a href="">FAQ's</a></li>
-              <li><a href="">Privacy Policy</a></li>
-              <li><a href="">Site Terms</a></li>
+              <li><a href="<?= Url::to('@web/howitworks') ?>">About Us</a></li>
+              <li><a href="<?= Url::to('@web/press') ?>">Press</a></li>
+              <li><a href="<?= Url::to('@web/job') ?>">Jobs</a></li>
+              <li><a href="<?= Url::to('@web/faq') ?>">FAQ's</a></li>
+              <li><a href="<?= Url::to('@web/privacypolicy') ?>">Privacy Policy</a></li>
+              <li><a href="<?= Url::to('@web/siteterms') ?>">Site Terms</a></li>
             </ul>
             <ul class="col-sm-12 col-md-6 col-lg-6">
               <li><h3>Connect</h3></li>
@@ -181,12 +181,12 @@ NavBar::end();*/
           <div class="col-md-12 text-center">
             <ul class="col-sm-12 col-md-4 col-lg-3">
               <li><h3>Company</h3></li>
-              <li><a href="">About Us</a></li>
-              <li><a href="">Press</a></li>
-              <li><a href="">Jobs</a></li>
-              <li><a href="">FAQ's</a></li>
-              <li><a href="">Privacy Policy</a></li>
-              <li><a href="">Site Terms</a></li>
+              <li><a href="<?= Url::to('@web/howitworks') ?>">About Us</a></li>
+              <li><a href="<?= Url::to('@web/press') ?>">Press</a></li>
+              <li><a href="<?= Url::to('@web/job') ?>">Jobs</a></li>
+              <li><a href="<?= Url::to('@web/faq') ?>">FAQ's</a></li>
+              <li><a href="<?= Url::to('@web/privacypolicy') ?>">Privacy Policy</a></li>
+              <li><a href="<?= Url::to('@web/siteterms') ?>">Site Terms</a></li>
             </ul>
             <ul class="col-sm-12 col-md-4 col-lg-2">
               <li><h3>Connect</h3></li>

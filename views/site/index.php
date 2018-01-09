@@ -338,14 +338,14 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. mollit anim id est laborum.
             </p>
-            <p class="text-xs-center"><button type="button" class="btn">Sign Up</button></p>
+            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">Sign Up</a></p>
           </div>
           <div class="col-md-6 bg-secondary cta-box">
             <h3>Learn More</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. mollit anim id est laborum.
             </p>
-            <p class="text-xs-center"><button type="button" class="btn">How it works</button></p>
+            <p class="text-xs-center"><a href="<?= Url::to('@web/howitworks') ?>" class="btn">How it works</a></p>
           </div>
         </div>
       </div>
