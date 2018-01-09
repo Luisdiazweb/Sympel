@@ -18,6 +18,17 @@ $config = [
         ]
     ],
     'components' => [
+        'assetManager' => [
+            'bundles' => [
+                'yii\bootstrap\BootstrapAsset' => [
+                    //'js' => ['js/bootstrap.js'],
+                   // 'sourcePath' => null,   // do not publish the bundle
+                    'css' => [
+                        '/app-assets/css/bootstrap.css',
+                    ]
+                ],
+            ],
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'i4QSluHNBnwT6ihiNii7GAwrUTve4NUK',

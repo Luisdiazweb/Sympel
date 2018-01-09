@@ -75,20 +75,6 @@ $this->registerJs("$(function() {
 ?>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
-
-<!--<header class="masthead inner alt-bg">
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-lg-12">
-                <div class="header-content">
-                    <h1 class="content-header-title text-sm-center sympel-title" style="font-size: 85px;">
-                        Create Donation</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="overlay"></div>
-</header>-->
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 <div class="app-content content container-fluid form-content">
     <div class="content-wrapper>
@@ -200,7 +186,7 @@ $this->registerJs("$(function() {
                                             }
                                             ?>
                                             <?php //BLOCK COMMMENTED AS IT CALLS SOME CSS THAT BREAKS THE MAIN CSS ?>
-                                            <?php /*echo $form->field($model, 'imageFiles[]')->widget(FileInput::classname(), [
+                                            <?php echo $form->field($model, 'imageFiles[]')->widget(FileInput::classname(), [
                                                 'options' => [
                                                     'accept' => 'image/*',
                                                     'multiple' => true
@@ -218,7 +204,7 @@ $this->registerJs("$(function() {
 //                                                    ],
                                                     'maxFileCount' => 8
                                                 ]
-                                            ]); */?>
+                                            ]); ?>
                                         </div>
                                     </div>
                                     <div class="row text-sm-center my-3">
