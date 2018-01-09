@@ -56,7 +56,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     </section>
 
     <!-- Icons Grid -->
-    <section class="features-icons bg-light text-xs-center">
+    <section class="features-icons bg-light text-xs-center my-3">
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
@@ -108,7 +108,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         <div class="row align-items-center">
           <div class="feature-half order-lg-2">
             <div class="p-5">
-              <img class="img-fluid rounded-circle" src="<?= Url::to('@web/app-assets/img/01.jpg')?>" alt="">
+              <img class="img-feature rounded-circle" src="<?= Url::to('@web/app-assets/img/01.jpg')?>" alt="">
             </div>
           </div>
           <div class="feature-half order-lg-1">
@@ -126,7 +126,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         <div class="row align-items-center">
           <div class="col-lg-6 feature-half">
             <div class="p-5">
-              <img class="img-fluid rounded-circle" src="<?= Url::to('@web/app-assets/img/02.jpg')?>" alt="">
+              <img class="img-feature rounded-circle" src="<?= Url::to('@web/app-assets/img/02.jpg')?>" alt="">
             </div>
           </div>
           <div class="col-lg-6 feature-half">
@@ -144,7 +144,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         <div class="row align-items-center">
           <div class="col-lg-6 feature-half order-lg-2">
             <div class="p-5">
-              <img class="img-fluid rounded-circle" src="<?= Url::to('@web/app-assets/img/03.jpg')?>" alt="">
+              <img class="img-feature rounded-circle" src="<?= Url::to('@web/app-assets/img/03.jpg')?>" alt="">
             </div>
           </div>
           <div class="col-lg-6 feature-half order-lg-1">
@@ -168,21 +168,21 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
               <img class="img-fluid rounded-circle mb-3" src="<?= Url::to('@web/app-assets/img/testimonials-1.jpg')?>" alt="">
               <h5>Margaret E.</h5>
-              <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+              <p class="font-weight-light mb-0">"Lorem ipsum dolor sit amet, consectetur adipisicing elit"</p>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
               <img class="img-fluid rounded-circle mb-3" src="<?= Url::to('@web/app-assets/img/testimonials-2.jpg')?>" alt="">
               <h5>Fred S.</h5>
-              <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+              <p class="font-weight-light mb-0">"Lorem ipsum dolor sit amet, consectetur adipisicing elit"</p>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
               <img class="img-fluid rounded-circle mb-3" src="<?= Url::to('@web/app-assets/img/testimonials-3.jpg')?>" alt="">
               <h5>Sarah	W.</h5>
-              <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
+              <p class="font-weight-light mb-0">"Lorem ipsum dolor sit amet, consectetur adipisicing elit"</p>
             </div>
           </div>
         </div>

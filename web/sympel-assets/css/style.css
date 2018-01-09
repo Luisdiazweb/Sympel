@@ -688,6 +688,24 @@ section.quote .section-heading p {
     padding: 1% 2%;
     margin-top: 1%;
 }
+
+.img-feature{
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+
+.card-header .card-title.faq{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.card-block.faq{
+    background: #f05256;
+    color: white;
+}
 /*================================================================================================
    FOOTER STYLES
 ================================================================================================*/

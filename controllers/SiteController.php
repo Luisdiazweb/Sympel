@@ -305,7 +305,13 @@ class SiteController extends CustomController
         return $this->render('how_it_works');
 
     }
-    
+
+    public function actionFaq()
+    {
+        return $this->render('faq');
+
+    }
+
     public function actionNotverified($id = false)
     {
         if (!boolval(Yii::$app->user->identity->verified_account)) {
