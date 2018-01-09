@@ -90,7 +90,7 @@ NavBar::end();*/
                 <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i>Request a Donation</a></li>
                  <?php endif; ?>
                 <?php endif; ?>
-                <li class="nav-item icon hidden-sm-down link-hiw"><a href="#" class="nav-link">How it Works</a></li>
+                <li class="nav-item icon hidden-sm-down link-hiw"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
                 <li class="nav-item nav-search"><a href="<?= Url::to('@web/search') ?>" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
                 <!--<div class="search-input">
                   <input type="text" placeholder="Search..." class="input">

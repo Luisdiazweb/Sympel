@@ -300,6 +300,12 @@ class SiteController extends CustomController
         }
     }
 
+    public function actionHowitworks()
+    {
+        return $this->render('how_it_works');
+
+    }
+    
     public function actionNotverified($id = false)
     {
         if (!boolval(Yii::$app->user->identity->verified_account)) {
