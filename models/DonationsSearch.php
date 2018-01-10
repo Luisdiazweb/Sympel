@@ -23,8 +23,8 @@ class DonationsSearch extends Donations
     public function rules()
     {
         return [
-            [['id', 'id_category', 'id_type', 'id_user', 'condition_new', 'checked'], 'integer'],
-            [['id_public', 'title', 'city', 'zip_code', 'description', 'why_need', 'images_url', 'keywords', 'created_at', 'updated_at'], 'safe'],
+            [['id', 'id_category', 'id_type','condition_new', 'checked'], 'integer'],
+            [['id_public', 'title', 'city', 'id_user', 'zip_code', 'description', 'why_need', 'images_url', 'keywords', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -49,6 +49,7 @@ class DonationsSearch extends Donations
     {
 
         $query = Donations::find();
+
         $query->joinWith('profile_account');
 
         // add conditions that should always apply here
@@ -88,7 +89,7 @@ class DonationsSearch extends Donations
                 'id' => $this->id,
                 'id_category' => $this->id_category,
                 'id_type' => $this->id_type,
-                'id_user' => $this->id_user,
+                //'id_user' => $this->id_user,
                 'condition_new' => $this->condition_new,
             ]);
 
@@ -96,12 +97,16 @@ class DonationsSearch extends Donations
             if ($isAdmin) {
                 $query->andFilterWhere(['like', 'city', $this->city])
                     ->andFilterWhere(['like', 'zip_code', $this->zip_code])
-                    ->andFilterWhere(['like', 'title', $this->title])
+                    ->andFilterWhere(['like', 'donations.title', $this->title])
                     ->andFilterWhere(['like', 'description', $this->description]);
+
+                $query->andFilterWhere(['or', ['like' , 'profile_account.firstname', $this->id_user],
+                    ['like', 'profile_account.lastname', $this->id_user] ]);
+
             } else {
                 $query->andFilterWhere([
                     'or',
-                    ['like', 'title', $this->title],
+                    ['like', 'donations.title', $this->title],
                     ['like', 'description', $this->title],
                 ]);
 
@@ -114,23 +119,24 @@ class DonationsSearch extends Donations
 
 
             if (isset($this->created_at) && $this->created_at != '') {
-                $date_explode = explode("TO", $this->date);
+
+                $date_explode = explode(" - ", $this->created_at);
                 $date1 = trim($date_explode[0]);
                 $date2 = trim($date_explode[1]);
-                $query->andFilterWhere(['between', 'date', $date1, $date2]);
+                $query->andFilterWhere(['between', 'created_at', $date1, $date2]);
             }
+
             if (isset($this->updated_at) && $this->updated_at != '') {
-                $date_explode = explode("TO", $this->date);
+                $date_explode = explode(" - ", $this->updated_at);
                 $date1 = trim($date_explode[0]);
                 $date2 = trim($date_explode[1]);
-                $query->andFilterWhere(['between', 'date', $date1, $date2]);
+                $query->andFilterWhere(['between', 'updated_at', $date1, $date2]);
             }
 
             $query->andFilterWhere(['like', 'id_public', $this->id_public])
-                ->andFilterWhere(['like', 'title', $this->title])
+                ->andFilterWhere(['like', 'donations.title', $this->title])
                 ->andFilterWhere(['like', 'description', $this->description])
                 ->andFilterWhere(['like', 'why_need', $this->why_need])
-//            ->andFilterWhere(['like', 'images_url', $this->images_url])
                 ->andFilterWhere(['like', 'keywords', $this->keywords]);
         }
 

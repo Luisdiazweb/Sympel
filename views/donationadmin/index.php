@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'presetDropdown' => true,
                     'pluginOptions' => [
                         'format' => 'YYYY-MM-DD',
-                        'separator' => ' TO ',
+                        'separator' => ' - ',
                         'opens' => 'left',
                     ],
                     'pluginEvents' => [
@@ -82,7 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'presetDropdown' => true,
                     'pluginOptions' => [
                         'format' => 'YYYY-MM-DD',
-                        'separator' => ' TO ',
+                        'separator' => ' - ',
                         'opens' => 'left',
                     ],
                     'pluginEvents' => [
