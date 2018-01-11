@@ -120,6 +120,10 @@ class Donations extends \yii\db\ActiveRecord
         return $this->hasOne(ProfileAccount::className(), ['user_id' => 'id_user']);
     }
 
+    public function getuser(){
+        return $this->hasOne(UsersSystem::className(), ['id' => 'id_user']);
+    }
+
     /**
      * @inheritdoc
      */

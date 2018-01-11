@@ -39,37 +39,6 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
         ]); ?>
         <div class="row equal">
 
-            <?php // echo $form->field($model, 'id') ?>
-
-            <?php // echo $form->field($model, 'id_public') ?>
-
-            <?php // echo $form->field($model, 'id_category') ?>
-
-            <?php // echo $form->field($model, 'id_type') ?>
-
-            <?php // echo $form->field($model, 'id_user') ?>
-
-
-
-            <?php // echo $form->field($model, 'city') ?>
-
-            <?php // echo $form->field($model, 'zip_code') ?>
-
-            <?php // echo $form->field($model, 'description') ?>
-
-            <?php // echo $form->field($model, 'why_need') ?>
-
-            <?php // echo $form->field($model, 'images_url') ?>
-
-            <?php // echo $form->field($model, 'keywords') ?>
-
-            <?php // echo $form->field($model, 'condition_new') ?>
-
-            <?php // echo $form->field($model, 'checked') ?>
-
-            <?php // echo $form->field($model, 'created_at') ?>
-
-            <?php // echo $form->field($model, 'updated_at') ?>
             <div class="col-xs-5">
                 <fieldset class="form-group position-relative has-icon-left">
                     <?= $form->field($model, 'title', [

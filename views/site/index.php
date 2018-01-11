@@ -129,7 +129,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                                     $img_preview</figure>
                                     <div class=\"card-block product-card-body\">
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
-                                        <p class=\"card-text\">$nameOrganization</p>
+                                        <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
                                         <p class=\"card-text\">Location, State</p>
                                         <a href=\"#\" class=\"card-link\">category</a>
                                         <div class=\"card-icon-container\">
@@ -186,7 +186,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                                     <div class=\"card-block product-card-body\">
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         
-                                        <p class=\"card-text\">$nameOrganization</p>
+                                        <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
                                         <p class=\"card-text\">Location, State</p>
                                         <a href=\"#\" class=\"card-link\">category</a>
                                         <div class=\"card-icon-container\">

@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Donations;
+use app\models\User;
 
 /**
  * DonationsSearch represents the model behind the search form about `app\models\Donations`.
@@ -51,6 +52,7 @@ class DonationsSearch extends Donations
         $query = Donations::find();
 
         $query->joinWith('profile_account');
+        $query->joinWith('user');
 
         // add conditions that should always apply here
 
