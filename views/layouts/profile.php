@@ -245,12 +245,12 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                                 $status = $modelDonations->checked ? "Checked" : "Pending";
                                                                 $date = Yii::$app->formatter->format($modelDonations->created_at, 'date');
                                                                 $category = $modelDonations->idCategory->name;
-                                                                $layout = "<td>$img_preview</td>
+                                                                $layout = "<tr><td>$img_preview</td>
                                                                             <td>$modelDonations->id_public</td>
                                                                             <td>$status</td>
                                                                             <td>$date</td>
                                                                             <td><a href=\"$details_url\">$modelDonations->title</a></td>
-                                                                            <td>$category</td>";
+                                                                            <td>$category</td></tr>";
                                                                 return $layout;
                                                             },
                                                             'summary' => '',
