@@ -110,8 +110,13 @@ NavBar::end();*/
                                 <?php
                                 $img = $profile->profile_picture_url;
                                 ?>
-                                <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>"
-                                     class="rounded-circle img-border" style="height: 25px;margin-right: 10px;">
+                                <div class="frame-square">
+                                   <div class="crop">
+                                     <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>"
+                                     class="">
+                                   </div>
+                                </div>
+                                
                                 <?= Yii::$app->user->identity->username ?>
                             </a>
                         </li>
@@ -145,7 +150,7 @@ NavBar::end();*/
               <li><h3>Company</h3></li>
               <li><a href="<?= Url::to('@web/howitworks') ?>">About Us</a></li>
               <li><a href="<?= Url::to('@web/press') ?>">Press</a></li>
-              <li><a href="<?= Url::to('@web/job') ?>">Jobs</a></li>
+             <!--<li><a href="<?= Url::to('@web/job') ?>">Jobs</a></li>-->
               <li><a href="<?= Url::to('@web/faq') ?>">FAQ's</a></li>
               <li><a href="<?= Url::to('@web/privacypolicy') ?>">Privacy Policy</a></li>
               <li><a href="<?= Url::to('@web/siteterms') ?>">Site Terms</a></li>
@@ -183,7 +188,7 @@ NavBar::end();*/
               <li><h3>Company</h3></li>
               <li><a href="<?= Url::to('@web/howitworks') ?>">About Us</a></li>
               <li><a href="<?= Url::to('@web/press') ?>">Press</a></li>
-              <li><a href="<?= Url::to('@web/job') ?>">Jobs</a></li>
+              <!--<li><a href="<?= Url::to('@web/job') ?>">Jobs</a></li>-->
               <li><a href="<?= Url::to('@web/faq') ?>">FAQ's</a></li>
               <li><a href="<?= Url::to('@web/privacypolicy') ?>">Privacy Policy</a></li>
               <li><a href="<?= Url::to('@web/siteterms') ?>">Site Terms</a></li>

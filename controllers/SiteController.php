@@ -327,6 +327,12 @@ class SiteController extends CustomController
 
     }
 
+    public function actionProhibiteditems()
+    {
+        return $this->render('prohibited_items');
+
+    }
+
     public function actionNotverified($id = false)
     {
         if (!boolval(Yii::$app->user->identity->verified_account)) {

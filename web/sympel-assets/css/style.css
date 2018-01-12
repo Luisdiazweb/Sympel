@@ -89,6 +89,55 @@ h3.section-title{
 	padding: 70px
 }
 
+.frame-square, .frame-round {
+  background: #fff;
+  border: 1px solid #f5f7fa;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1px;
+  width: 30px;
+  height: 30px;
+  margin-right: .5em;
+  margin-bottom: .3em;
+  position: absolute;
+  left: -25px;
+  top: 14px;
+}
+
+.frame-round {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.frame-round .crop {
+  border-radius: 50%;
+}
+
+.crop {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.crop img {
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  margin: auto;
+  position: absolute;
+  top: -100%;
+  right: -100%;
+  bottom: -100%;
+  left: -100%;
+}
+
+.retina .crop img {
+  transform: scale(0.5, 0.5);
+}
+
+small {
+  display: block;
+  font-weight: normal;
+  opacity: .8;
+}
 
 
 
@@ -311,9 +360,10 @@ ul.actions li:last-child a:after{
   position: relative;
 }
 .login-nav img{
-    position: absolute;
+   /* position: absolute;
     top: 15px;
-    left: -25px;
+    left: -25px;*/
+    height: 5px;
 }
 
 /*================================================================================================
@@ -700,11 +750,15 @@ section.quote .section-heading p {
 .card-header .card-title.faq{
   font-size: 22px;
   font-weight: 600;
+  display: block;
 }
 
+.collapse-icon.left a.inner-link{
+  padding-left: 0;
+}
 .card-block.faq{
-    background: #f05256;
-    color: white;
+    background: #ececec;
+    color: #000000;
 }
 /*================================================================================================
    FOOTER STYLES
