@@ -760,6 +760,59 @@ section.quote .section-heading p {
     background: #ececec;
     color: #000000;
 }
+
+.title-full{
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.title-full h2{
+  font-size: 45px;
+  color: white;
+}
+.title-full.primary{
+  background-color: #00b5b8;
+}
+.title-full.secondary{
+  background-color: #f05256;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 50px solid #f05256;
+  margin: 0 auto;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid #00b5b8;
+  margin: 0 auto;
+}
+
+.justify-center-columns{
+    justify-content: center!important;
+    display: flex;
+}
+
+.triangle-bg{
+  position: absolute;
+  top: -245px;
+}
+
+.bg-triangle{
+  position: relative;
+}
+
+
+
+
+
 /*================================================================================================
    FOOTER STYLES
 ================================================================================================*/
