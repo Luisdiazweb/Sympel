@@ -69,7 +69,7 @@ use yii\web\View;
     </div>
     <div class="row">
         <div class="col-md-4">
-        <fieldset class="form-group">
+        <fieldset class="form-group profile-image">
             <img src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" class="rounded-circle img-border height-100 mx-auto d-block" alt="Card image">
             <br>
             <?= $form->field($profile, 'profile_picture_upload')->fileInput()->label(false); ?>

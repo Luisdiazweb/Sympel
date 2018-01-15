@@ -39,7 +39,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 
 ?>
 
-<header class="masthead">
+<header class="masthead d-lg-none">
   <div class="container h-100">
     <div class="row h-100">
       <div class="col-lg-12 my-auto">
@@ -74,26 +74,26 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 <section class="welcome-options">
   <div class="container">
     <div class="row option-container">
-        <div class="col-md-2">
+        <div class="col-lg-2 col-md-4">
           <a href="<?= Url::to('@web/createdonation') ?>" class="btn button-primary button-options">Create a Donation</a>
         </div>
-        <div class="col-md-10">
+        <div class="col-lg-10 col-md-8">
             <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
         </div>
     </div>
     <div class="row option-container">
-        <div class="col-md-2">
+        <div class="col-lg-2 col-md-4">
           <a href="<?= Url::to('@web/requestdonation') ?>" class="btn button-secondary button-options">Request a Donation</a>
         </div>
-        <div class="col-md-10">
+        <div class="col-lg-10 col-md-8">
             <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
         </div>
     </div>
     <div class="row option-container">
-        <div class="col-md-2">
+        <div class="col-lg-2 col-md-4">
           <a href="<?= Url::to('@web/search') ?>" class="btn button-tertiary button-options">Search</a>
         </div>
-        <div class="col-md-10">
+        <div class="col-lg-10 col-md-8">
             <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
         </div>
     </div>

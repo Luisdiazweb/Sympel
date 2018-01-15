@@ -85,8 +85,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/switch.js',
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link rel="apple-touch-icon" href="<?= Url::to('@web/app-assets/images/ico/apple-icon-120.png') ?>">
-    <link rel="shortcut icon" type="image/x-icon" href="<?= Url::to('@web/app-assets/images/ico/favicon.ico') ?>">
+    <link rel="apple-touch-icon" href="<?= Url::to('@web/app-assets/images/logo/sympel-fav.png') ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= Url::to('@web/app-assets/images/logo/sympel-fav.png') ?>">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
           rel="stylesheet">
 
@@ -152,7 +152,7 @@ NavBar::end();*/
                 <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i>Request a Donation</a></li>
                  <?php endif; ?>
                 <?php endif; ?>
-                <li class="nav-item icon hidden-sm-down link-hiw"><a href="#" class="nav-link">How it Works</a></li>
+                <li class="nav-item icon hidden-sm-down link-hiw"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
                 <li class="nav-item nav-search"><a href="<?= Url::to('@web/search') ?>" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
                 <!--<div class="search-input">
                   <input type="text" placeholder="Search..." class="input">
@@ -172,8 +172,13 @@ NavBar::end();*/
                                 <?php
                                 $img = $profile->profile_picture_url;
                                 ?>
-                                <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>"
-                                     class="rounded-circle img-border" style="height: 25px;margin-right: 10px;">
+                                <div class="frame-square">
+                                   <div class="crop">
+                                     <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>"
+                                     class="">
+                                   </div>
+                                </div>
+                                
                                 <?= Yii::$app->user->identity->username ?>
                             </a>
                         </li>

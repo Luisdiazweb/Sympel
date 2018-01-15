@@ -47,12 +47,12 @@ use yii\widgets\DetailView;
             
                 <h5 class="profile-type">Condition: <span class="post-condition"><?= boolval($model->condition_new) ? 'new' : 'used'; ?></span></h5>
                 
-                <p class="profile-links-container">
+                <p class="profile-links-container mb-3">
                     <i class="fa fa-map-marker map"></i>
                     <?= $model->city ?>
                 </p>
 
-                <a href="#" class="btn-primary btn-lg float-md-right">Contact</a>
+                <a href="#" class="button-primary btn-lg">Contact</a>
 
             </div>
         </div>

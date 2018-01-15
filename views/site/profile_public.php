@@ -13,7 +13,7 @@ use yii\widgets\ListView;
     <div class="col-md-12 equal">
         <div class="col-md-3 col-sm-12 pl-0 profile-image-container">
             <a href="#" class="profile-image">
-                 <img style="height:200px;float:right;" src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" class="rounded-circle img-border mx-auto d-block" alt="Card image">
+                 <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" class="rounded-circle img-border mx-auto d-block" alt="Card image">
             </a>
         </div>
         <div class="col-md-9 col-sm-12 pr-0">
@@ -41,7 +41,7 @@ use yii\widgets\ListView;
                     <?= $profile->city ?>, <?= $profile->state ?>
                     <span class="profile-link">
                         <i class="fa fa-globe web"></i>
-                        <a href="http://<?= $profile->website ?>"><?= $profile->website ?></a>
+                        <a href="http://<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
                     </span>
                     <span class="profile-link">
                         <i class="fa fa-phone phone"></i>

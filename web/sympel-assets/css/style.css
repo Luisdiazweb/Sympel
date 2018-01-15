@@ -101,7 +101,7 @@ h3.section-title{
   margin-bottom: .3em;
   position: absolute;
   left: -25px;
-  top: 14px;
+  top: 12px;
 }
 
 .frame-round {
@@ -618,7 +618,7 @@ section.quote .section-heading p {
 
 .options-description{
   font-size: 25px;
-  padding-left: 5%;
+  padding-left: 10%;
 }
 
 .option-container{
@@ -634,20 +634,66 @@ section.quote .section-heading p {
   text-transform: uppercase;
 }
 
+.button-description:hover{
+    color: #252626;
+    background: white;
+    font-weight: 600;
+}
+
 .button-primary{
   background-color: #1cbdcb!important;
   color: #ffffff;
+  transition: .3s;
+}
+
+.button-primary:hover{
+    border: 2px solid #1cbdcb;
+    color: #1cbdcb;
+    background-color: #fff!important;
+    font-weight: 600;
 }
 
 .button-secondary{
   background-color: #f05155!important;
   color: #ffffff;
+  transition: .3s;
+}
+
+.button-secondary:hover{
+    border: 2px solid #f05155;
+    color: #f05155;
+    background-color: #fff!important;
+    font-weight: 600;
 }
 
 .button-tertiary{
   background-color: #252626!important;
   color: #ffffff;
+  transition: .3s;
 }
+
+.button-primary.button-options:hover{
+    border: 2px solid #1cbdcb;
+    color: #1cbdcb;
+    background-color: #fff!important;
+    font-weight: 600;
+}
+
+.button-secondary.button-options:hover{
+    border: 2px solid #f05155;
+    color: #f05155;
+    background-color: #fff!important;
+    font-weight: 600;
+}
+
+
+.button-tertiary.button-options:hover{
+    border: 2px solid #252626;
+    color: #252626;
+    background-color: #fff!important;
+    font-weight: 600;
+}
+
 
 
 /*================================================================================================
@@ -931,6 +977,13 @@ footer .footer-company {
   justify-content: center
 }
 
+.profile-image img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    min-height: 200px;
+}
+
 .profile-cta a{
     margin: 0;
     position: absolute;
@@ -1054,6 +1107,21 @@ footer .footer-company {
     color: white;
     padding: 3% 10%;
     margin-top: 5%;
+    transition: .3s;
+}
+
+.bg-primary.cta-box .btn:hover{
+    text-decoration: none;
+    background-color: #fff;
+    color: #1cbdcb!important;
+    font-weight: 600;
+}
+
+.bg-secondary.cta-box .btn:hover{
+    text-decoration: none;
+    background-color: #fff;
+    color: #f05155!important;
+    font-weight: 600;
 }
 
 /*================================================================================================

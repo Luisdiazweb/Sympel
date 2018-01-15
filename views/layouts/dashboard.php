@@ -7,6 +7,7 @@ use yii\widgets\Breadcrumbs;
 
 /* @var $this \yii\web\View */
 
+$profile = \app\models\ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
 AdminAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -19,8 +20,8 @@ AdminAsset::register($this);
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
-        <link rel="apple-touch-icon" href="<?= Url::to('@web/admin/images/ico/apple-icon-120.png') ?>">
-        <link rel="shortcut icon" type="image/x-icon" href="<?= Url::to('@web/admin/images/ico/favicon.ico') ?>">
+        <link rel="apple-touch-icon" href="<?= Url::to('@web/app-assets/images/logo/sympel-fav.png') ?>">
+        <link rel="shortcut icon" type="image/x-icon" href="<?= Url::to('@web/app-assets/images/logo/sympel-fav.png') ?>">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
               rel="stylesheet">
         <?php $this->head() ?>
@@ -43,17 +44,12 @@ AdminAsset::register($this);
                     </li>
                     <li class="nav-item">
                         <a href="/" class="navbar-brand">
-                            <img alt="stack admin logo"
-                                 src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png') ?>"
-                                 class="brand-logo">
+                            <img alt="stack admin logo" src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png') ?>"class="brand-logo">
                             <!--                            <h2 class="brand-text">Stack</h2>-->
                         </a>
                     </li>
                     <li class="nav-item hidden-md-up float-xs-right">
-                        <a data-toggle="collapse"
-                           data-target="#navbar-mobile"
-                           class="nav-link open-navbar-container">
-                            <i class="fa fa-ellipsis-v"></i>
+                        <a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"> <i class="fa fa-ellipsis-v"></i>
                         </a>
                     </li>
                 </ul>
@@ -61,11 +57,12 @@ AdminAsset::register($this);
             <div class="navbar-container content container-fluid">
                 <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item hidden-sm-down"><a href="#"
-                                                               class="nav-link nav-menu-main menu-toggle hidden-xs"><i
-                                        class="ft-menu"></i></a></li>
-                        <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-link-expand"><i
-                                        class="ficon ft-maximize"></i></a></li>
+                        <li class="nav-item hidden-sm-down">
+                            <a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu"></i></a>
+                        </li>
+                        <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-link-expand">
+                            <i class="ficon ft-maximize"></i></a>
+                        </li>
                         <!-- <li class="nav-item nav-search"><a href="#" class="nav-link nav-link-search"><i class="ficon ft-search"></i></a>
                             <div class="search-input">
                                 <input type="text" placeholder="Explore Stack..." class="input">
@@ -73,7 +70,7 @@ AdminAsset::register($this);
                         </li> -->
                     </ul>
                     <ul class="nav navbar-nav float-xs-right">
-                        <li class="dropdown dropdown-notification nav-item"><a href="#" data-toggle="dropdown"
+                        <!--<li class="dropdown dropdown-notification nav-item"><a href="#" data-toggle="dropdown"
                                                                                class="nav-link nav-link-label"><i
                                         class="ficon ft-bell"></i><span
                                         class="tag tag-pill tag-default tag-danger tag-default tag-up">5</span></a>
@@ -108,15 +105,14 @@ AdminAsset::register($this);
                                         all
                                         notifications</a></li>
                             </ul>
-                        </li>
-                        <li class="dropdown dropdown-user nav-item">
+                        </li>-->
+                        <li class="dropdown dropdown-user nav-item user-nav">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
-	                        	<span class="avatar avatar-online">
-	                        		<img src="<?= Url::to('@web/admin/images/portrait/small/avatar-s-1.png') ?>"
-                                         alt="avatar">
+	                        	<!--<span class="avatar">
+	                        		<img src="<?= Url::to('@web/admin/images/portrait/small/avatar-s-1.png') ?>" alt="avatar">
 	                        		<i></i>
-	                        	</span>
-                                <span class="user-name"><?= Yii::$app->user->identity->username ?></span>
+	                        	</span>-->
+                                <span class=""><?= Yii::$app->user->identity->username ?></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a href="<?= Url::to(['profile/update', 'id' => Yii::$app->session->get('profile_id')]) ?>"
@@ -146,7 +142,7 @@ AdminAsset::register($this);
                     <a href="<?= Url::to(['dashboard']) ?>">
                         <i class="ft-home"></i>
                         <span data-i18n="" class="menu-title">Dashboard</span>
-                        <span class="tag tag tag-primary tag-pill float-xs-right mr-2">1</span>
+                        <!--<span class="tag tag tag-primary tag-pill float-xs-right mr-2">1</span>-->
                     </a>
                     <ul class="menu-content">
                         <li>
@@ -187,11 +183,9 @@ AdminAsset::register($this);
     <!-- ////////////////////////////////////////////////////////////////////////////-->
     <footer class="footer footer-static footer-dark navbar-border">
         <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span
-                    class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a
-                        href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank"
-                        class="text-bold-800 grey darken-2">PIXINVENT </a>, All rights reserved. </span><span
-                    class="float-md-right d-xs-block d-md-inline-block hidden-md-down">Hand-crafted & Made with <i
-                        class="ft-heart pink"></i></span></p>
+                    class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2018 <a
+                        href="http://sympel.com" target="_blank"
+                        class="text-bold-800 grey darken-2">Sympel </a>, All rights reserved. </span></p>
     </footer>
     <?php $this->endBody() ?>
     </body>
