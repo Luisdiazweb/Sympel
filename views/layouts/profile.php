@@ -163,9 +163,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                  <?php else: ?>
                         <li class="nav-item">
                             <a class="nav-link nav-actions" href="/publicprofile/<?=Yii::$app->user->identity->username?>">
-                                <?php
-                                $img = $profile->profile_picture_url;
-                                ?>
+                     
                                 <div class="frame-square">
                                    <div class="crop">
                                      <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>"
@@ -192,6 +190,9 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                             <span class="">
                               <div class="frame-square">
                                  <div class="crop">
+                                       <?php
+                                $img = $profile->profile_picture_url;
+                                ?>
                               <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>" alt="avatar">   </div>
                                </div><i></i>
                             </span>

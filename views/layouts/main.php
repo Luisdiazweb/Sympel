@@ -107,6 +107,9 @@ NavBar::end();*/
                             <span class="">
                               <div class="frame-square">
                                  <div class="crop">
+                                     <?php
+                                $img = $profile->profile_picture_url;
+                                ?>
                               <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>" alt="avatar">   </div>
                                </div><i></i>
                             </span>
