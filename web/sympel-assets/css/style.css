@@ -278,7 +278,7 @@ ul.actions li a.nav-actions:after {
     margin-left: 10px;
     font-weight: 300;
 }
-ul.actions li:last-child a:after{
+ul.actions li.nav-item:last-child a:after{
   content: "";
 }
 

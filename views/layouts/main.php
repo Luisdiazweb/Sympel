@@ -102,10 +102,26 @@ NavBar::end();*/
                 <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
                 <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
                  <?php else: ?>
-                        <?php if (Yii::$app->user->identity->admin): ?>
-                            <li class="nav-item"><a class="nav-link nav-actions" href="/dashboard/">Dashboard</a></li>
-                        <?php endif; ?>
-                        <li class="nav-item">
+                        <li class="dropdown dropdown-user">
+                          <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link" aria-expanded="false">
+                            <span class="">
+                              <div class="frame-square">
+                                 <div class="crop">
+                              <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>" alt="avatar">   </div>
+                               </div><i></i>
+                            </span>
+                            <span class=""><?= Yii::$app->user->identity->username ?></span>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                             <?php if (Yii::$app->user->identity->admin): ?>
+                             <a href="/dashboard/" class="dropdown-item"><i class="ft-monitor"></i> Dashboard</a>
+                            <?php endif; ?>
+                            <a href="/myprofile" class="dropdown-item"><i class="ft-edit"></i> Edit Profile</a>
+                            <a href="/publicprofile/<?=Yii::$app->user->identity->username?>" class="dropdown-item"><i class="ft-user"></i> View Profile</a>
+                            <div class="dropdown-divider"></div><a href="/logout" class="dropdown-item"><i class="ft-power"></i> Logout</a>
+                          </div>
+                        </li>
+                        <!--<li class="nav-item">
                             <a class="nav-link nav-actions" href="/publicprofile/<?=Yii::$app->user->identity->username?>">
                                 <?php
                                 $img = $profile->profile_picture_url;
@@ -119,8 +135,7 @@ NavBar::end();*/
                                 
                                 <?= Yii::$app->user->identity->username ?>
                             </a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link nav-actions" href="/logout"> Logout</a></li>
+                        </li>-->
                     <?php endif; ?>
             </ul>
           </div>
