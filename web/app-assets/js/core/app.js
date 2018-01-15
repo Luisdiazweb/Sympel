@@ -302,6 +302,10 @@
                 $(this).appendTo($(this).siblings('span.step'));
             }
         });
+
+        $('.iCheck-helper').on('click',function(){
+            $('#w0').submit();
+        });
     });
 
     // Update manual scroller when window is resized
@@ -335,5 +339,7 @@
             $this.addClass('active');
         }, 100);
     });
+
+
 
 })(window, document, jQuery);

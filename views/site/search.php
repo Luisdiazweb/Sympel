@@ -74,29 +74,15 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
         </div>
         <div class="skin skin-flat mt-2">
             <div class="d-inline mr-3">
-                <input type="checkbox" name="DonationsSearch[id_type]" id="DonationsSearch[id_type][1]"
+                <input type="checkbox" class="checkbox_submit" name="DonationsSearch[id_type]" id="DonationsSearch[id_type][1]"
                        value="1" <?= $model->id_type == 1 ? "checked" : "" ?>>
-                <label class="search-radio-label" for="DonationsSearch[id_type][1]">Show Needed items only</label>
+                <label class="search-radio-label"  for="DonationsSearch[id_type][1]">Show Needed items only</label>
             </div>
             <div class="d-inline">
-                <input type="checkbox" name="DonationsSearch[id_type]" id="DonationsSearch[id_type][2]"
+                <input type="checkbox" class="checkbox_submit" name="DonationsSearch[id_type]" id="DonationsSearch[id_type][2]"
                        value="2" <?= $model->id_type == 2 ? "checked" : "" ?>>
                 <label class="search-radio-label for="DonationsSearch[id_type][2]">Show Items for Donation only</label>
             </div>
-            <?php
-            //            $id_type = [1 => ' Show Needed items only', 2 => "Show Items for Donation only"];
-            //            echo $form->field($model, 'id_type', [
-            //                'template' => '{input}{label}'
-            //            ])->radioList($id_type, [
-            //                'item' => function ($index, $label, $name, $checked, $value) {
-            //                    $check = $checked ? 'checked=true' : '';
-            //                    return '<div class="d-inline mr-3">
-            //                                <input type="radio" name="' . $name . '" value="' . $value . '" ' . $check . '/>
-            //                                <label for="' . $name . '">' . $label . '</label>
-            //                            </div>';
-            //                }
-            //            ])->label(false);
-            ?>
 
         </div>
         <?php ActiveForm::end(); ?>
