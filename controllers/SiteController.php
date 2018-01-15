@@ -476,19 +476,6 @@ class SiteController extends CustomController
             ->send();
     }
 
-    public function actionTest()
-    {
-//        $user = UsersSystem::findOne(Yii::$app->request->get('id'));
-//        return Html::a('Click on the following link to complete your registration', $user->getUrlChangePassword());
-
-
-        $test = new SignupStepsComponent();
-//        $cursors = $test->cursorArraySteps();
-        var_dump($cursors);
-        $test::setCurrentStep($cursors->next);
-
-    }
-
     private function checkaccount()
     {
         if (!boolval(Yii::$app->user->identity->verified_account)) {
@@ -771,8 +758,12 @@ class SiteController extends CustomController
 
     public function actionSearch()
     {
+
         $this->layout = 'profile_public';
         $searchModel = new DonationsSearch();
+        if(isset($_REQUEST['tag'])){
+            $searchModel->title = $_REQUEST['tag'];
+        }
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, FALSE);
 
         return $this->render('search', [
