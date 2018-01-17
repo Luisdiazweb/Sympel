@@ -30,19 +30,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     if($profile_model){
                         $profile_id = $profile_model->id;
 
-                        return Html::a('View Profile', Url::to(['profile/view', 'id' => $profile_id]));
+                        $options = Html::a('View', Url::to(['profile/view', 'id' => $profile_id]));
+                        $options .= ' | ';
+                        $options .= Html::a('Update', Url::to(['profile/update', 'id' => $profile_id]));
+                        $options .= ' | ';
+                        $options .= Html::a('Delete', Url::to(['profile/delete', 'id' => $profile_id]));
+
+                        return $options;
                     }else{
                         return "User have not profile";
                     }
                 },
                 'format' => 'raw'
             ],
-//             'admin',
-//             'verified_account',
-//             'authKey',
-//             'accessToken',
-//             'created_at',
-//             'updated_at',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

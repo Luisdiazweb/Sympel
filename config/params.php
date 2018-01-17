@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'adminEmail' => 'team.dccolorweb@gmail.com',
+    'adminEmail' => 'davidrosales270@gmail.com',
     'title' => 'sympel',
 ];

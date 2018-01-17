@@ -303,7 +303,7 @@
             }
         });
 
-        $('.iCheck-helper').on('click',function(){
+        $('.search .iCheck-helper').on('click',function(){
             $('#w0').submit();
         });
     });
