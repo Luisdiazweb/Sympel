@@ -97,8 +97,8 @@ class DonationsSearch extends Donations
 
 
             if ($isAdmin) {
-                $query->andFilterWhere(['like', 'city', $this->city])
-                    ->andFilterWhere(['like', 'zip_code', $this->zip_code])
+                $query->andFilterWhere(['like', 'donations.city', $this->city])
+                    ->andFilterWhere(['like', 'donations.zip_code', $this->zip_code])
                     ->andFilterWhere(['like', 'donations.title', $this->title])
                     ->andFilterWhere(['like', 'description', $this->description]);
 
@@ -114,8 +114,8 @@ class DonationsSearch extends Donations
 
                 $query->andFilterWhere([
                     'or',
-                    ['like', 'city', $this->city],
-                    ['like', 'zip_code', $this->city],
+                    ['like', 'donations.city', $this->city],
+                    ['like', 'donations.zip_code', $this->city],
                 ]);
             }
 

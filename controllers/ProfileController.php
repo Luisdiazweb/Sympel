@@ -5,6 +5,8 @@ namespace app\controllers;
 use Yii;
 use app\models\ProfileAccount;
 use app\models\ProfileAccountSearch;
+use app\models\Donations;
+use app\models\UsersSystem;
 use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
@@ -97,9 +99,29 @@ class ProfileController extends AdminController
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $profile = $this->findModel($id);
 
-        return $this->redirect(['user']);
+        $query = new Query;
+        $query->select('id')
+            ->from('donations')
+        ->where(['id_user' => $profile->user_id]);
+
+        $rows = $query->all();
+
+
+        if(count($rows)){
+            foreach ($rows[0] as $row){
+
+                $donation = Donations::findOne($row);
+                $donation->delete();
+            }
+        }
+
+        $user = UsersSystem::findOne($profile->user_id);
+        $user->delete();
+        $profile->delete();
+
+       return $this->redirect('/user/');
     }
 
     /**
