@@ -280,6 +280,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                             <th>Date</th>
                                                             <th>Title</th>
                                                             <th>Optional Category</th>
+                                                            <th></th>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
@@ -301,7 +302,9 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                                             <td>$status</td>
                                                                             <td>$date</td>
                                                                             <td><a href=\"$details_url\">$modelDonations->title</a></td>
-                                                                            <td>$category</td></tr>";
+                                                                            <td>$category</td>
+                                                                            <td><a href='#'><i class='fa fa-pencil'></i></a><a href='#'><i class='fa fa-times'></i></a></td></tr>";
+
                                                                 return $layout;
                                                             },
                                                             'summary' => '',
