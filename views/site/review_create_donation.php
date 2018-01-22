@@ -11,7 +11,7 @@ use yii\widgets\DetailView;
 
 <div class="container-fluid">
     <div class="row my-3">
-    <div class="col-md-12 equal">
+    <div class="col-md-12 mt-3 equal">
         <div class="col-md-6 col-sm-12 pl-0 profile-image-container">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -19,16 +19,21 @@ use yii\widgets\DetailView;
                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                 </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <img src="../../../app-assets/images/carousel/02.jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../../../app-assets/images/carousel/03.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../../../app-assets/images/carousel/01.jpg" alt="Third slide">
-                    </div>
+                <div class="carousel-inner carousel-donation" role="listbox">
+                    <?php 
+                        $images = json_decode($model->images_url);
+                        $flag = 0;
+                         foreach ($images as $img){
+                            if($flag == 0){
+                                echo'<div class="carousel-item active"><img src="'.$img.'" alt="slide"></div>';
+                                $flag = 1;
+                            }
+                            else{
+                                echo'<div class="carousel-item"><img src="'.$img.'" alt="slide"></div>';
+                            }
+                            
+                        }
+                    ?>
                 </div>
                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                     <span class="icon-prev" aria-hidden="true"></span>
