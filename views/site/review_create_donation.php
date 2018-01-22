@@ -22,16 +22,18 @@ use yii\widgets\DetailView;
                 <div class="carousel-inner carousel-donation" role="listbox">
                     <?php 
                         $images = json_decode($model->images_url);
-                        $flag = 0;
-                         foreach ($images as $img){
-                            if($flag == 0){
-                                echo'<div class="carousel-item active"><img src="'.$img.'" alt="slide"></div>';
-                                $flag = 1;
+                        if ($images != ""){
+                            $flag = 0;
+                             foreach ($images as $img){
+                                if($flag == 0){
+                                    echo'<div class="carousel-item active"><img src="'.$img.'" alt="slide"></div>';
+                                    $flag = 1;
+                                }
+                                else{
+                                    echo'<div class="carousel-item"><img src="'.$img.'" alt="slide"></div>';
+                                }
+                                
                             }
-                            else{
-                                echo'<div class="carousel-item"><img src="'.$img.'" alt="slide"></div>';
-                            }
-                            
                         }
                     ?>
                 </div>
@@ -52,12 +54,12 @@ use yii\widgets\DetailView;
             
                 <h5 class="profile-type">Condition: <span class="post-condition"><?= boolval($model->condition_new) ? 'new' : 'used'; ?></span></h5>
                 
-                <p class="profile-links-container">
+                <p class="profile-links-container mb-3">
                     <i class="fa fa-map-marker map"></i>
                     <?= $model->city ?>
                 </p>
 
-                <a href="#" class="btn-primary btn-lg float-md-right">Contact</a>
+                <a href="#" class="btn-primary btn-lg">Contact</a>
 
             </div>
         </div>

@@ -75,29 +75,17 @@ $this->registerJs("$(function() {
 ?>
 
 ?>
+
 <!-- ////////////////////////////////////////////////////////////////////////////-->
-<header class="masthead">
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-lg-12">
-                <div class="header-content">
-                    <h1 class="content-header-title text-sm-center sympel-title" style="font-size: 70px; color:black;">
-                        Create Donation</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- ////////////////////////////////////////////////////////////////////////////-->
-<div class="app-content content container-fluid">
-    <div class="content-wrapper" style="background: #252626;">
+<div class="app-content content container-fluid form-content">
+    <div class="content-wrapper">
         <div class="content-body">
             <!-- Form wizard with number tabs section start -->
             <!-- Form wizard with step validation section start -->
             <section id="validation">
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
-                        <div class="card box-shadow-2">
+                        <div class="">
                             <div class="card-body collapse in">
                                 <div class="card-block">
                                     <?php $form = ActiveForm::begin([
@@ -108,7 +96,7 @@ $this->registerJs("$(function() {
                                     ]); ?>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="my-2 card-title">Kind of Donation </h3>
+                                            <h3 class="section-title my-3">Request a Donation </h3>
                                             <p class="mb-2">What are you in need of?</p>
                                             <div class="row mb-3">
                                                 <?= $form->field($model, 'id_category')->radioList($cat_donations, [
@@ -221,9 +209,8 @@ $this->registerJs("$(function() {
                                         </div>
                                     </div>
                                     <div class="row text-sm-center my-3">
-
-                                        <?= Html::submitButton($model->isNewRecord ? 'PREVIEW REQUEST' : 'Update', ['class' => 'btn btn-primary']) ?>
-                                        <?= Html::a('CANCEL', Yii::$app->request->referrer ?: '/', ['class' => 'btn btn-outline-danger']) ?>
+                                        <?= Html::submitButton($model->isNewRecord ? 'Preview Request' : 'Update', ['class' => 'btn btn-primary btn-lg']) ?>
+                                        <?= Html::a('Cancel', Yii::$app->request->referrer ?: '/', ['class' => 'btn btn-outline-danger btn-lg']) ?>
                                     </div>
                                     <?php ActiveForm::end(); ?>
                                 </div>

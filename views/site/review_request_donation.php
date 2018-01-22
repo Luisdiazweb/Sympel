@@ -20,15 +20,22 @@ use yii\widgets\DetailView;
                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <img src="../../../app-assets/images/carousel/02.jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../../../app-assets/images/carousel/03.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../../../app-assets/images/carousel/01.jpg" alt="Third slide">
-                    </div>
+                    <?php 
+                        $images = json_decode($model->images_url);
+                        if ($images != ""){
+                            $flag = 0;
+                             foreach ($images as $img){
+                                if($flag == 0){
+                                    echo'<div class="carousel-item active"><img src="'.$img.'" alt="slide"></div>';
+                                    $flag = 1;
+                                }
+                                else{
+                                    echo'<div class="carousel-item"><img src="'.$img.'" alt="slide"></div>';
+                                }
+                                
+                            }
+                        }
+                    ?>
                 </div>
                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                     <span class="icon-prev" aria-hidden="true"></span>
@@ -47,12 +54,12 @@ use yii\widgets\DetailView;
             
                 <h5 class="profile-type">Condition: <span class="post-condition"><?= boolval($model->condition_new) ? 'new' : 'used'; ?></span></h5>
                 
-                <p class="profile-links-container">
+                <p class="profile-links-container mb-3">
                     <i class="fa fa-map-marker map"></i>
                     <?= $model->city ?>
                 </p>
 
-                <a href="#" class="btn-primary btn-lg float-md-right">Contact</a>
+                <a href="#" class="btn-primary btn-lg">Contact</a>
 
             </div>
         </div>
@@ -63,8 +70,17 @@ use yii\widgets\DetailView;
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="form-section-heading my-2"><i class="fa fa-th-list"></i>Description</h3>
+            <h3 class="form-section-heading my-2"><i class="fa fa-th-list"></i>Description of Need</h3>
             <p><?= $model->description ?></p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="form-section-heading my-2"><i class="fa fa-question"></i>Why we need it</h3>
+            <p><?= $model->why_need ?></p>
         </div>
     </div>
 </div>
@@ -80,7 +96,7 @@ use yii\widgets\DetailView;
                 ->hiddenInput(['value' => 1])
                 ->label(false) ?>
             <div class="row text-sm-center my-3">
-                <?= Html::a('Back to Edit', Url::to(['createdonation', 'id' => $model->id_public]), ['class' => 'btn btn-secondary btn-lg']) ?>
+                <?= Html::a('Back to Edit', Url::to(['requestdonation', 'id' => $model->id_public]), ['class' => 'btn btn-secondary btn-lg']) ?>
                 <?= Html::submitButton('Publish Post', ['class' => 'btn btn-primary btn-lg']) ?>
             </div>
             <?php ActiveForm::end(); ?>

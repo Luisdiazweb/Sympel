@@ -77,7 +77,7 @@ $this->registerJs("$(function() {
 
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 <div class="app-content content container-fluid form-content">
-    <div class="content-wrapper>
+    <div class="content-wrapper">
         <div class="content-body">
             <!-- Form wizard with number tabs section start -->
             <!-- Form wizard with step validation section start -->

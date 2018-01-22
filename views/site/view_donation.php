@@ -22,16 +22,18 @@ use yii\widgets\DetailView;
                 <div class="carousel-inner carousel-donation" role="listbox">
                     <?php 
                         $images = json_decode($model->images_url);
-                        $flag = 0;
-                         foreach ($images as $img){
-                            if($flag == 0){
-                                echo'<div class="carousel-item active"><img src="'.$img.'" alt="slide"></div>';
-                                $flag = 1;
+                        if ($images != ""){
+                            $flag = 0;
+                             foreach ($images as $img){
+                                if($flag == 0){
+                                    echo'<div class="carousel-item active"><img src="'.$img.'" alt="slide"></div>';
+                                    $flag = 1;
+                                }
+                                else{
+                                    echo'<div class="carousel-item"><img src="'.$img.'" alt="slide"></div>';
+                                }
+                                
                             }
-                            else{
-                                echo'<div class="carousel-item"><img src="'.$img.'" alt="slide"></div>';
-                            }
-                            
                         }
                     ?>
                 </div>
@@ -73,4 +75,15 @@ use yii\widgets\DetailView;
         </div>
     </div>
 </div>
+
+<?php if($model->why_need != ""){ ?>
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="form-section-heading my-2"><i class="fa fa-question"></i>Why we need it</h3>
+                <p><?= $model->why_need ?></p>
+            </div>
+        </div>
+    </div>
+<?php } ?>
 
