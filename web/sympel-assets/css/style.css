@@ -926,7 +926,7 @@ footer .footer-company {
 }
 
 .profile-type{
-  margin-bottom: 40px;
+ font-size: 15px;
 }
 
 .profile-info .section-title{
@@ -936,13 +936,34 @@ footer .footer-company {
   padding-left: 25px;
   font-weight: 600;
   color: #f05256;
+  position: relative;
 }
+
+.profile-links-landmark{
+  padding-left: 25px;
+  font-weight: 600;
+  color: #f05256;
+  margin-left: 50px;
+  position: relative;
+  left: 4px;
+  top: -2px
+}
+
+.profile-links-landmark .map{
+  font-size: 25px;
+  color: #f05256;
+  position: absolute;
+  left: 4px;
+  top: -2px
+}
+
 
 .profile-links-container .map{
   font-size: 25px;
   color: #f05256;
   position: absolute;
-  left: 15px;
+  left: 4px;
+  top: -2px
 }
 
 .profile-links-container .web{
@@ -1020,12 +1041,16 @@ footer .footer-company {
     background: transparent;
 }
 
+hr{    
+  border-color: #c5c5c5;
+}
+
 /*================================================================================================
    POSTS VIEW STYLES
 ================================================================================================*/
 
 .post-info h2{
-  font-size: 45px;
+  font-size: 38px;
 }
 
 .post-details-container{
@@ -1085,7 +1110,7 @@ footer .footer-company {
 }
 
 /*================================================================================================
-   DONATIONS LIST STYLES
+   DONATIONS STYLES
 ================================================================================================*/
 .cta-box{
     padding: 8%;
@@ -1110,6 +1135,17 @@ footer .footer-company {
     transition: .3s;
 }
 
+.cta-donation{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.cta-donation a{
+    color: white;
+    padding: 20px;
+}
+
 .bg-primary.cta-box .btn:hover{
     text-decoration: none;
     background-color: #fff;
@@ -1122,6 +1158,31 @@ footer .footer-company {
     background-color: #fff;
     color: #f05155!important;
     font-weight: 600;
+}
+
+.donation-head{
+    padding-top: 5%;
+}
+
+.donation-description-title{
+  font-weight: 500;
+}
+
+.donation-description-title i{
+    margin-right: 10px;
+    color: #f05256;
+}
+
+.donation-image-profile {
+    display: flex;
+    align-items: center;
+}
+
+.donation-cta-img img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    min-height: 100px;
 }
 
 /*================================================================================================
