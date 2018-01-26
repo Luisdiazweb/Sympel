@@ -90,7 +90,7 @@ use yii\widgets\DetailView;
     <div class="row my-3">
     <div class="col-md-12 equal">
         <div class="col-md-3 col-sm-12 pl-0 donation-image-profile">
-            <a href="#" class="donation-cta-image">
+            <a href="#" class="profile-image">
                  <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="/app-assets/images/carousel/05.jpg" alt="Card image">
             </a>
         </div>
