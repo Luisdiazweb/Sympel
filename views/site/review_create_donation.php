@@ -135,6 +135,7 @@ use yii\widgets\DetailView;
             <div class="row text-sm-center my-3">
                 <?= Html::a('Back to Edit', Url::to(['createdonation', 'id' => $model->id_public]), ['class' => 'btn btn-secondary btn-lg']) ?>
                 <?= Html::submitButton('Publish Post', ['class' => 'btn btn-primary btn-lg']) ?>
+                <?= Html::a('Delete', Url::to(['deletedonation', 'id' => $model->id_public]), ['class' => 'btn button-secondary btn-lg']) ?>
             </div>
             <?php ActiveForm::end(); ?>
         </div>
