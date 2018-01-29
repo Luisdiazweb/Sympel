@@ -1,13 +1,4 @@
-<?php
-/** @var Donations $model */
 
-use app\models\Donations;
-use yii\bootstrap\ActiveForm;
-use yii\bootstrap\Html;
-use yii\helpers\Url;
-use yii\widgets\DetailView;
-
-?>
 
 <div class="container">
     <div class="row my-3">
