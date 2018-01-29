@@ -155,19 +155,19 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
+                            $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
                             $layout = "<div class=\"col-xl-3 col-md-4 col-sm-6\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     $img_preview
                                     <div class=\"card-block product-card-body\">
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
-                                        <p class=\"card-text\">Name of Organization</p>
-                                        <p class=\"card-text\">Location, State</p>
-                                        <a href=\"#\" class=\"card-link\">category</a>
+                                        <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
+                                        <p class=\"card-text\">".$model->city."</p>
+                                        <a href=\"#\" class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-comment-o\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-share-alt\"></i></a>
+                                            <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
+                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
                                         </div>
                                         
                                     </div>

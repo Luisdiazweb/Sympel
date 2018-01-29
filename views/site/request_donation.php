@@ -175,7 +175,7 @@ $this->registerJs("$(function() {
                                         </div>
                                     </div>
                                     <div class="row mt-2">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <?php
                                             $preview = false;
                                             if (!empty($model->images_url)) {

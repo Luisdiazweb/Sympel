@@ -91,10 +91,10 @@ NavBar::end();*/
                  <?php endif; ?>
                 <?php endif; ?>
                 <li class="nav-item icon hidden-sm-down link-hiw"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
-                <li class="nav-item nav-search"><a href="<?= Url::to('@web/search') ?>" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
-                <!--<div class="search-input">
+                <li class="nav-item nav-search"><a href="#" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
+                <div class="search-input">
                   <input type="text" placeholder="Search..." class="input">
-                </div>-->
+                </div>
                 </li>
               </ul>
               <ul class="nav navbar-nav float-xs-right actions login-nav">
@@ -167,11 +167,8 @@ NavBar::end();*/
             <ul class="col-sm-12 col-md-6 col-lg-6">
               <li><h3>Company</h3></li>
               <li><a href="<?= Url::to('@web/howitworks') ?>">About Us</a></li>
-              <li><a href="<?= Url::to('@web/press') ?>">Press</a></li>
-             <!--<li><a href="<?= Url::to('@web/job') ?>">Jobs</a></li>-->
               <li><a href="<?= Url::to('@web/faq') ?>">FAQ's</a></li>
-              <li><a href="<?= Url::to('@web/privacypolicy') ?>">Privacy Policy</a></li>
-              <li><a href="<?= Url::to('@web/siteterms') ?>">Site Terms</a></li>
+              <li><a href="<?= Url::to('@web/legalstuff') ?>">Legal Stuff</a></li>
             </ul>
             <ul class="col-sm-12 col-md-6 col-lg-6">
               <li><h3>Connect</h3></li>
@@ -185,11 +182,11 @@ NavBar::end();*/
                 <div class="row">
                   <div class="col-md-6 border-right">
                     <h3 class="text-right">Looking to grow<br> your business?</h3>
-                    <p class="text-right footer mt-1">Check out our <br> sister company</p>
+                    <p class="text-right footer-text mt-1">Check out our <br> sister company</p>
                   </div>
                    <div class="col-md-6">
-                   <a href="http://www.sympelworks.com"><img src="<?= Url::to('@web/sympel-assets/img/sympel-works.png') ?>" alt="sympel works"></a>
-                   <p class="footer mt-1">SYMPEL WORKS is a creative consulting company that helps non-profits, entreprenuers and businesses create, develop an launch their sales and marketing strategies.</p>
+                   <a href="http://www.sympelworks.com"><img src="<?= Url::to('@web/sympel-assets/img/sympel-works.png') ?>" alt="sympel works" class="img-fluid"></a>
+                   <p class="footer-text mt-1">SYMPEL WORKS is a creative consulting company that helps non-profits, entreprenuers and businesses create, develop an launch their sales and marketing strategies.</p>
                   </div>
                 </div>
               </div>
@@ -201,15 +198,12 @@ NavBar::end();*/
     <footer class="hidden-lg-up">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 text-center">
+          <div class="col-md-12 footer-menu-section">
             <ul class="col-sm-12 col-md-4 col-lg-3">
               <li><h3>Company</h3></li>
               <li><a href="<?= Url::to('@web/howitworks') ?>">About Us</a></li>
-              <li><a href="<?= Url::to('@web/press') ?>">Press</a></li>
-              <!--<li><a href="<?= Url::to('@web/job') ?>">Jobs</a></li>-->
               <li><a href="<?= Url::to('@web/faq') ?>">FAQ's</a></li>
-              <li><a href="<?= Url::to('@web/privacypolicy') ?>">Privacy Policy</a></li>
-              <li><a href="<?= Url::to('@web/siteterms') ?>">Site Terms</a></li>
+              <li><a href="<?= Url::to('@web/legalstuff') ?>">Legal Stuff</a></li>
             </ul>
             <ul class="col-sm-12 col-md-4 col-lg-2">
               <li><h3>Connect</h3></li>
@@ -223,12 +217,12 @@ NavBar::end();*/
                 <div class="row">
                   <div class="col-sm-6 border-right footer-company-text">
                     <h3>Looking to grow<br> your business?</h3>
-                    <p class="footer mt-1">Check out our <br> sister company</p>
+                    <p class="footer-text mt-1">Check out our <br> sister company</p>
                   </div>
                    <div class="col-sm-6">
                     <a href="http://www.sympelworks.com"><img
-                            src="<?= Url::to('@web/sympel-assets/img/sympel-works.png') ?>" alt="sympel works"></a>
-                   <p class="footer mt-1">SYMPEL WORKS is a creative consulting company that helps non-profits, entreprenuers and businesses create, develop an launch their sales and marketing strategies.</p>
+                            src="<?= Url::to('@web/sympel-assets/img/sympel-works.png') ?>" alt="sympel works" class="img-fluid"></a>
+                   <p class="footer-text mt-1">SYMPEL WORKS is a creative consulting company that helps non-profits, entreprenuers and businesses create, develop an launch their sales and marketing strategies.</p>
                   </div>
                 </div>
               </div>
@@ -246,6 +240,7 @@ NavBar::end();*/
             $("#mainNav").removeClass("navbar-shrink");
         }
     });
+    $('.nav-link-search').click(function(e){e.preventDefault()})
 </script>
 </body>
 </html>

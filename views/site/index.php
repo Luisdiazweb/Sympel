@@ -39,7 +39,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 
 ?>
 
-<header class="masthead d-lg-none">
+<header class="masthead d-lg-none hidden-md-down">
   <div class="container h-100">
     <div class="row h-100">
       <div class="col-lg-12 my-auto">
@@ -53,7 +53,20 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
   </div>
 </header>
 
-<section class="welcome-section">
+<header class="masthead d-lg-none hidden-lg-up">
+  <div class="container h-100">
+    <div class="row h-100">
+      <div class="col-lg-12 my-auto">
+        <div class="header-content">
+          <p class="main-quote"><span>Make your donations count by giving where it's needed</span></p>
+          <p class="quote-paragraph">sympel offers a new way to give to the need by connecting <br >items for donations with churches, non-profits and <br >charitable organizations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="welcome-section hidden-md-down">
   <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 welcome-column quote">
@@ -63,7 +76,24 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         <div class="col-md-6 welcome-column description">
             <p class="text-gray welcome-text">The sympel community...</p>
             <p class="text-gray welcome-text">believes in a community that recycles, reuses and gives to make a greater impact to the everyday needs of organizations that make this world a better place.</p>
-            <p class="text-xs-center"><button type="button" class="btn button-description">Sign Up</button></p>
+            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn button-description">Sign Up</a></p>
+
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="welcome-section-small hidden-lg-up">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 welcome-column-small quote">
+          <h2 class="welcome-quote">Welcome to the giving community</h2>
+
+        </div>
+        <div class="col-md-12 welcome-column-small description text-xs-center">
+            <p class="text-gray welcome-text">The sympel community...</p>
+            <p class="text-gray welcome-text">believes in a community that recycles, reuses and gives to make a greater impact to the everyday needs of organizations that make this world a better place.</p>
+            <p class="text-xs-center mt-2"><a href="<?= Url::to('@web/signup1') ?>" class="btn button-description">Sign Up</a></p>
 
         </div>
     </div>
@@ -71,30 +101,30 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 </section>
         
 <!-- Card headings examples section end -->
-<section class="welcome-options">
+<section class="welcome-options mt-3">
   <div class="container">
     <div class="row option-container">
-        <div class="col-lg-2 col-md-4">
+        <div class="col-lg-2 col-md-4 col-sm-4 action-option">
           <a href="<?= Url::to('@web/createdonation') ?>" class="btn button-primary button-options">Create a Donation</a>
         </div>
-        <div class="col-lg-10 col-md-8">
+        <div class="col-lg-10 col-md-8 col-sm-8">
             <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
         </div>
     </div>
     <div class="row option-container">
-        <div class="col-lg-2 col-md-4">
+        <div class="col-lg-2 col-md-4 col-sm-4 action-option">
           <a href="<?= Url::to('@web/requestdonation') ?>" class="btn button-secondary button-options">Request a Donation</a>
         </div>
-        <div class="col-lg-10 col-md-8">
-            <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
+        <div class="col-lg-10 col-md-8 col-sm-8">
+            <p class="options-description">Charitible organizations that are in need of items can create a need request.</p>
         </div>
     </div>
     <div class="row option-container">
-        <div class="col-lg-2 col-md-4">
+        <div class="col-lg-2 col-md-4 col-sm-4 action-option">
           <a href="<?= Url::to('@web/search') ?>" class="btn button-tertiary button-options">Search</a>
         </div>
-        <div class="col-lg-10 col-md-8">
-            <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
+        <div class="col-lg-10 col-md-8 col-sm-8">
+            <p class="options-description">Find opportunities to support causes you care about and  support direct needs.</p>
         </div>
     </div>
   </div>
@@ -122,7 +152,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
 
-                            $layout = "<div class=\"col-xl-4 col-md-4 col-sm-6\">
+                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     <figure style=\"\">
@@ -130,12 +160,11 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                                     <div class=\"card-block product-card-body\">
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
-                                        <p class=\"card-text\">Location, State</p>
-                                        <a href=\"#\" class=\"card-link\">category</a>
+                                        <p class=\"card-text\">".$model->city."</p>
+                                        <a href=\"#\" class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-comment-o\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-share-alt\"></i></a>
+                                            <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
+                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
                                         </div>
                                         
                                     </div>
@@ -151,7 +180,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                 </div>
 
             </div>
-      <div class="text-xs-center mt-3"><button type="button" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Needs</button></div>
+      <div class="text-xs-center mt-3"><a href="http://sympel.env:81/search?DonationsSearch%5Btitle%5D=&DonationsSearch%5Bcity%5D=&DonationsSearch%5Bid_type%5D=1&DonationsSearch%5Bid_type%5D=2" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Needs</a></div>
         </div>  
     </div>
   </div>
@@ -179,7 +208,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
 
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
-                            $layout = "<div class=\"col-xl-3 col-md-4 col-sm-6\">
+                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     $img_preview
@@ -187,12 +216,11 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         
                                         <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
-                                        <p class=\"card-text\">Location, State</p>
-                                        <a href=\"#\" class=\"card-link\">category</a>
+                                        <p class=\"card-text\">".$model->city."</p>
+                                        <a href=\"#\" class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-comment-o\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-share-alt\"></i></a>
+                                            <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
+                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
                                         </div>
                                         
                                     </div>
@@ -207,7 +235,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                 </div>
 
       </div>
-      <div class="text-xs-center mt-3"><button type="button" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Donations</button></div>
+      <div class="text-xs-center mt-3"><a href="http://sympel.env:81/search?DonationsSearch%5Btitle%5D=&DonationsSearch%5Bcity%5D=&DonationsSearch%5Bid_type%5D=1" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Donations</a></div>
     </div>  
   </div>
   </div>

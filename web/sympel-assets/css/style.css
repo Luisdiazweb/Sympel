@@ -133,10 +133,14 @@ h3.section-title{
   transform: scale(0.5, 0.5);
 }
 
-small {
+.small {
   display: block;
   font-weight: normal;
   opacity: .8;
+}
+
+.flex{
+  display: flex;
 }
 
 
@@ -283,7 +287,7 @@ ul.actions li.nav-item:last-child a:after{
 }
 
 .header-navbar .navbar-header .navbar-brand {
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .header-navbar .navbar-container {
@@ -578,6 +582,17 @@ section.quote .section-heading p {
   background-position: center;
   /*background-repeat: no-repeat; */
 }
+
+.welcome-section-small{
+  margin-top: -31px;
+  z-index: 2;
+  background: #252626;
+  padding: 5%;
+}
+
+.welcome-column-small{
+    margin-top: 30px;
+}
 .welcome-quote{
   text-transform: uppercase;
   font-size: 50px;
@@ -606,7 +621,7 @@ section.quote .section-heading p {
 }
 
 .welcome-column.description{
-  padding: 3% 10% 0;
+  padding: 3% 5% 0 12%;
 }
 
 .button-options{
@@ -879,7 +894,7 @@ footer li a{
   color: #998B7B;
 }
 
-p.footer{
+p.footer-text{
   color: #DBD8CF;
 }
 
@@ -910,6 +925,22 @@ footer .footer-company {
       footer .border-right {
     border-right: 2px solid #7b7b7d;
 }
+
+@media(max-width: 991px) and (min-width: 545px){
+  .footer-menu-section{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media(max-width: 545px){
+  footer .border-right {
+    border-right: none;
+  }
+}
+
+  
 
 /*================================================================================================
    PUBLIC PROFILE STYLES
@@ -1045,6 +1076,30 @@ hr{
   border-color: #c5c5c5;
 }
 
+
+/*================================================================================================
+   HORIZONTAL TAB STYLES
+================================================================================================*/
+
+.nav.nav-tabs.nav-iconfall .nav-item a.active {
+    color: #f05256;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.nav.nav-tabs.nav-iconfall .nav-item a.nav-link{
+  font-size: 18px;
+}
+
+.nav.nav-tabs.nav-iconfall .nav-item a i:after{
+  background: #f05256;
+}
+
+.nav.nav-tabs.nav-iconfall .nav-item a:hover, .nav.nav-tabs.nav-iconfall .nav-item a:focus{
+  color: #f05256;
+}
+
+
 /*================================================================================================
    POSTS VIEW STYLES
 ================================================================================================*/
@@ -1108,6 +1163,18 @@ hr{
     object-fit: cover;
     min-height: 180px;
 }
+
+@media (max-width: 544px){
+  .card-img-top {
+    min-height: 250px;
+  }
+  .action-option{
+    text-align: center;
+    margin: 15px 0;
+  }
+}
+
+
 
 /*================================================================================================
    DONATIONS STYLES
@@ -1178,7 +1245,7 @@ hr{
     align-items: center;
 }
 
-.donation-cta-img img {
+.donation-cta-image img {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -1198,7 +1265,7 @@ hr{
 
 .form-section-heading{
   font-weight: 500;
-  border-bottom: 1px #00000038 solid;
+  /*border-bottom: 1px #00000038 solid;*/
   padding-bottom: 10px;
 }
 

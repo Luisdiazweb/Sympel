@@ -95,7 +95,7 @@ $this->registerJs("$(function() {
                                     ]); ?>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="section-title my-3">Donate where it's needed </h3>
+                                            <h3 class="section-title my-3">Ready to give something? </h3>
                                             <p class="mb-2">What kind of donation is this?</p>
                                             <div class="row mb-3">
                                                 <?= $form->field($model, 'id_category')->radioList($cat_donations, [
@@ -165,7 +165,7 @@ $this->registerJs("$(function() {
                                         </div>
                                     </div>
                                     <div class="row mt-2">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <!--                                            <p>Add images:</p>-->
                                             <!--                                            <button id="select-files" class="btn btn-primary mb-1"><i-->
                                             <!--                                                        class="icon-file2"></i> Click me to select files-->

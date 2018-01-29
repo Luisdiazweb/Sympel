@@ -64,7 +64,13 @@ use yii\widgets\DetailView;
                 </h5>
                 <h3 class="donation-description-title my-2"><i class="fa fa-th-list"></i>Description</h3>
                 <p><?= $model->description ?></p>
-            <h6 class="mt-2 post-category"><?= $model->idCategory->name ?></h6>
+                
+                <?php if($model->why_need != ""){ ?>
+                <h3 class="form-section-heading my-2"><i class="fa fa-question"></i>Why we need it</h3>
+                <p><?= $model->why_need ?></p>
+                <?php } ?>
+
+                <h6 class="mt-2 post-category"><?= $model->idCategory->name ?></h6>
                 
 
             </div>
@@ -81,6 +87,8 @@ use yii\widgets\DetailView;
         </div>
     </div>
 </div>-->
+
+
 <div class="container">
     <hr>
 </div>
@@ -127,14 +135,5 @@ use yii\widgets\DetailView;
 </div>
 
 
-<?php if($model->why_need != ""){ ?>
-    <div class="container my-3">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="form-section-heading my-2"><i class="fa fa-question"></i>Why we need it</h3>
-                <p><?= $model->why_need ?></p>
-            </div>
-        </div>
-    </div>
-<?php } ?>
+
 

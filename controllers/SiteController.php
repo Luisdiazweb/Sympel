@@ -309,29 +309,12 @@ class SiteController extends CustomController
 
     }
 
-    public function actionSiteterms()
+     public function actionLegalstuff()
     {
-        return $this->render('site_terms');
+        return $this->render('legal_stuff');
 
     }
 
-     public function actionPrivacypolicy()
-    {
-        return $this->render('privacy_policy');
-
-    }
-
-    public function actionPress()
-    {
-        return $this->render('press');
-
-    }
-
-    public function actionProhibiteditems()
-    {
-        return $this->render('prohibited_items');
-
-    }
 
     public function actionNotverified($id = false)
     {
