@@ -73,17 +73,10 @@ use yii\widgets\DetailView;
     </div>
 </div>
 
-<!--<div class="container mb-3">
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="donation-description-title my-2"><i class="fa fa-th-list"></i>Description</h3>
-            <p><?= $model->description ?></p>
-        </div>
-    </div>
-</div>-->
 <div class="container">
     <hr>
 </div>
+
 
 <div class="container">
     <h1 class="mt-2">Posted By</h1>
@@ -96,25 +89,32 @@ use yii\widgets\DetailView;
         </div>
         <div class="col-md-5 col-sm-12 pr-0">
             <div class="profile-info">
-                <h2 class="section-title">Nonprofit</h2>
-                <h3 class="profile-type mb-3">Non Profit</h3>
+                <h2 class="section-title"><?php print $profile->non_profit_name ?></h2>
+                <h3 class="profile-type mb-3"><?php print $profile->company_name ?></h3>
                                 
                 <p class="profile-links-container">
                     <i class="fa fa-map-marker map"></i>
-                    lala, lala                    <span class="profile-link">
+                    <?php print $profile->city ?>, <?php print $profile->state ?>                    <span class="profile-link">
                         <i class="fa fa-globe web"></i>
-                        <a href="http://sadf" target="_blank">sadf</a>
+                        <a href="<?php print $profile->website ?>" target="_blank"><?php print $profile->website ?></a>
                     </span>
                     <span class="profile-link">
                         <i class="fa fa-phone phone"></i>
-                        <a class="phone" href="tel:123123">123123</a>
+                        <a class="phone" href="tel:<?php print $profile->phone ?>"><?php print $profile->phone ?></a>
                     </span>
                 </p>
 
                 <p>
-                </p><div class="tag tag-default">
-                <a href="#">Advocacy and Human Rights</a>
-                 </div>
+                </p>
+                <?php  $keywords = explode(",", $model->keywords); ?>
+                <?php if(count($keywords)) : ?>
+                    <?php foreach($keywords as $keyword): ?>
+                        <div class="tag tag-default">
+                            <a href="#"><?php print $keyword ?></a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                 
                 <p></p>
             </div>
         </div>

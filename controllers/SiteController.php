@@ -687,6 +687,8 @@ class SiteController extends CustomController
 
     }
 
+    
+
     public function actionRequestdonation($id = false)
     {
         $this->restrict_only_nonprofit();
@@ -747,9 +749,12 @@ class SiteController extends CustomController
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->goHome();
         } else {
+
+            $profile_information = ProfileAccount::findOne(['user_id' => $model->id_user]);
             return $this->render('view_donation', [
                 'model' => $model,
                 'owner' => $model->id_user === Yii::$app->user->getId(),
+                'profile' => $profile_information,
             ]);
         }
 
