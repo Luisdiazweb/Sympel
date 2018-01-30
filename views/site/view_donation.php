@@ -64,7 +64,12 @@ use yii\widgets\DetailView;
                 </h5>
                 <h3 class="donation-description-title my-2"><i class="fa fa-th-list"></i>Description</h3>
                 <p><?= $model->description ?></p>
-            <h6 class="mt-2 post-category"><?= $model->idCategory->name ?></h6>
+                <?php if($model->why_need != ""){ ?>
+                    <h3 class="form-section-heading my-2"><i class="fa fa-question"></i>Why we need it</h3>
+                    <p><?= $model->why_need ?></p>
+                <?php } ?>
+
+                <h6 class="mt-2 post-category"><?= $model->idCategory->name ?></h6>
                 
 
             </div>
@@ -82,25 +87,35 @@ use yii\widgets\DetailView;
     <h1 class="mt-2">Posted By</h1>
     <div class="row my-3">
     <div class="col-md-12 equal">
-        <div class="col-md-3 col-sm-12 pl-0 donation-image-profile">
-            <a href="#" class="profile-image">
+        <div class="col-md-2 col-sm-12 pl-0 donation-image-profile">
+            <a href="#" class="donation-cta-image">
                  <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="/app-assets/images/carousel/05.jpg" alt="Card image">
             </a>
         </div>
-        <div class="col-md-5 col-sm-12 pr-0">
+        <div class="col-md-6 col-sm-12 pr-0">
             <div class="profile-info">
-                <h2 class="section-title"><?php print $profile->non_profit_name ?></h2>
-                <h3 class="profile-type mb-3"><?php print $profile->company_name ?></h3>
+                 <?php if ($profile->profile_type_id == 1): ?>
+                    <h2 class="section-title"><?= $profile->non_profit_name ?></h2>
+                <?php elseif($profile->profile_type_id == 2):?>
+                    <h2 class="section-title"><?= $profile->company_name ?></h2>
+                <?php else:?>
+                    <h2 class="section-title"><?= $profile->firstname . " " . $profile->lastname ?></h2>
+                <?php endif;?>
+                <h3 class="profile-type mb-3">Non Profit
+                <?php if ($profile->profile_type_id == 1): ?>
+                    <span class="ein ml-1">EIN: #<?= $profile->registered_ein ?></span>
+                <?php endif?>
+                </h3>
                                 
                 <p class="profile-links-container">
                     <i class="fa fa-map-marker map"></i>
-                    <?php print $profile->city ?>, <?php print $profile->state ?>                    <span class="profile-link">
+                    <?= $profile->city ?>, <?= $profile->state ?>                    <span class="profile-link">
                         <i class="fa fa-globe web"></i>
-                        <a href="<?php print $profile->website ?>" target="_blank"><?php print $profile->website ?></a>
+                        <a href="<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
                     </span>
                     <span class="profile-link">
                         <i class="fa fa-phone phone"></i>
-                        <a class="phone" href="tel:<?php print $profile->phone ?>"><?php print $profile->phone ?></a>
+                        <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
                     </span>
                 </p>
 
@@ -127,13 +142,3 @@ use yii\widgets\DetailView;
 </div>
 
 
-<?php if($model->why_need != ""){ ?>
-    <div class="container my-3">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="form-section-heading my-2"><i class="fa fa-question"></i>Why we need it</h3>
-                <p><?= $model->why_need ?></p>
-            </div>
-        </div>
-    </div>
-<?php } ?>

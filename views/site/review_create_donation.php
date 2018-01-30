@@ -87,32 +87,49 @@ use yii\widgets\DetailView;
     <h1 class="mt-2">Posted By</h1>
     <div class="row my-3">
     <div class="col-md-12 equal">
-        <div class="col-md-3 col-sm-12 pl-0 donation-image-profile">
+        <div class="col-md-2 col-sm-12 pl-0 donation-image-profile">
             <a href="#" class="donation-cta-image">
-                 <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="/profiles_picture/58Lg3pkTl5IINq1cW_II2VxoAiqvEM_3.jpg" alt="Card image">
+                 <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="/app-assets/images/carousel/05.jpg" alt="Card image">
             </a>
         </div>
-        <div class="col-md-5 col-sm-12 pr-0">
+        <div class="col-md-6 col-sm-12 pr-0">
             <div class="profile-info">
-                <h2 class="section-title">Nonprofit</h2>
-                <h3 class="profile-type mb-3">Non Profit</h3>
+                 <?php if ($profile->profile_type_id == 1): ?>
+                    <h2 class="section-title"><?= $profile->non_profit_name ?></h2>
+                <?php elseif($profile->profile_type_id == 2):?>
+                    <h2 class="section-title"><?= $profile->company_name ?></h2>
+                <?php else:?>
+                    <h2 class="section-title"><?= $profile->firstname . " " . $profile->lastname ?></h2>
+                <?php endif;?>
+                <h3 class="profile-type mb-3">Non Profit
+                <?php if ($profile->profile_type_id == 1): ?>
+                    <span class="ein ml-1">EIN: #<?= $profile->registered_ein ?></span>
+                <?php endif?>
+                </h3>
                                 
                 <p class="profile-links-container">
                     <i class="fa fa-map-marker map"></i>
-                    lala, lala                    <span class="profile-link">
+                    <?= $profile->city ?>, <?= $profile->state ?>                    <span class="profile-link">
                         <i class="fa fa-globe web"></i>
-                        <a href="http://sadf" target="_blank">sadf</a>
+                        <a href="<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
                     </span>
                     <span class="profile-link">
                         <i class="fa fa-phone phone"></i>
-                        <a class="phone" href="tel:123123">123123</a>
+                        <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
                     </span>
                 </p>
 
                 <p>
-                </p><div class="tag tag-default">
-                <a href="#">Advocacy and Human Rights</a>
-                 </div>
+                </p>
+                <?php  $keywords = explode(",", $model->keywords); ?>
+                <?php if(count($keywords)) : ?>
+                    <?php foreach($keywords as $keyword): ?>
+                        <div class="tag tag-default">
+                            <a href="#"><?php print $keyword ?></a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                 
                 <p></p>
             </div>
         </div>
