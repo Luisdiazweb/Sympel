@@ -180,7 +180,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                 </div>
 
             </div>
-      <div class="text-xs-center mt-3"><a href="http://sympel.env:81/search?DonationsSearch%5Btitle%5D=&DonationsSearch%5Bcity%5D=&DonationsSearch%5Bid_type%5D=1&DonationsSearch%5Bid_type%5D=2" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Needs</a></div>
+      <div class="text-xs-center mt-3"><a href="<?= Url::to('@web/search?DonationsSearch%5Btitle%5D=&DonationsSearch%5Bcity%5D=&DonationsSearch%5Bid_type%5D=1&DonationsSearch%5Bid_type%5D=2') ?>" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Needs</a></div>
         </div>  
     </div>
   </div>
@@ -235,7 +235,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                 </div>
 
       </div>
-      <div class="text-xs-center mt-3"><a href="http://sympel.env:81/search?DonationsSearch%5Btitle%5D=&DonationsSearch%5Bcity%5D=&DonationsSearch%5Bid_type%5D=1" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Donations</a></div>
+      <div class="text-xs-center mt-3"><a href="<?= Url::to('@web/search?DonationsSearch%5Btitle%5D=&DonationsSearch%5Bcity%5D=&DonationsSearch%5Bid_type%5D=1') ?>" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Donations</a></div>
     </div>  
   </div>
   </div>

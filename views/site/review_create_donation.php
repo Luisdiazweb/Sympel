@@ -89,7 +89,7 @@ use yii\widgets\DetailView;
     <div class="col-md-12 equal">
         <div class="col-md-2 col-sm-12 pl-0 donation-image-profile">
             <a href="#" class="donation-cta-image">
-                 <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="/app-assets/images/carousel/05.jpg" alt="Card image">
+                 <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" alt="Card image">
             </a>
         </div>
         <div class="col-md-6 col-sm-12 pr-0">

@@ -980,7 +980,7 @@ footer .footer-company {
   font-size: 35px;
 }
 .profile-links-container{
-  padding-left: 25px;
+  /*padding-left: 25px;*/
   font-weight: 600;
   color: #f05256;
   position: relative;
@@ -999,18 +999,14 @@ footer .footer-company {
 .profile-links-landmark .map{
   font-size: 25px;
   color: #f05256;
-  position: absolute;
-  left: 4px;
-  top: -2px
+  margin-right: 10px;
 }
 
 
 .profile-links-container .map{
   font-size: 25px;
   color: #f05256;
-  position: absolute;
-  left: 4px;
-  top: -2px
+  margin-right: 10px;
 }
 
 .profile-links-container .web{
@@ -1096,14 +1092,32 @@ hr{
   .profile-info h2, .profile-info h3{
     text-align: center;
   }
-  .profile-type{
-    margin-bottom: 35px;
+  .post-details-container{
+    padding: 5%;
+  }
+  .post-details-container h2{
+    margin-top: 25px;
+  }
+  .profile-link {
+      margin-bottom: 10px;
+  }
+  .profile-links-container{
+    text-align: center;
   }
 }
 
 @media (max-width: 543px){
   .profile-cta {
       height: 70px;
+  }
+}
+
+@media (max-width: 992px){
+  .profile-link {
+      display: block;
+  }
+  .profile-link:before{
+    padding: 0px;
   }
 }
 
