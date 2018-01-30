@@ -88,18 +88,18 @@ use yii\widgets\DetailView;
     <div class="row my-3">
     <div class="col-md-12 equal">
         <div class="col-md-2 col-sm-12 col-xs-12 pl-0 donation-image-profile">
-            <a href="#" class="donation-cta-image">
+            <a href="/publicprofile/<?= $model->user->username?>" class="donation-cta-image">
                  <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" alt="Card image">
             </a>
         </div>
         <div class="col-md-6 col-sm-12 col-xs-12 pr-0">
             <div class="profile-info">
                  <?php if ($profile->profile_type_id == 1): ?>
-                    <h2 class="section-title"><?= $profile->non_profit_name ?></h2>
+                    <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>"><?= $profile->non_profit_name ?></a></h2>
                 <?php elseif($profile->profile_type_id == 2):?>
-                    <h2 class="section-title"><?= $profile->company_name ?></h2>
+                    <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>"><?= $profile->company_name ?></a></h2>
                 <?php else:?>
-                    <h2 class="section-title"><?= $profile->firstname . " " . $profile->lastname ?></h2>
+                    <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>"><?= $profile->firstname . " " . $profile->lastname ?></a></h2>
                 <?php endif;?>
                 <h3 class="profile-type mb-2">Non Profit
                 <?php if ($profile->profile_type_id == 1): ?>

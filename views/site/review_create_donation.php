@@ -87,21 +87,21 @@ use yii\widgets\DetailView;
     <h1 class="mt-2">Posted By</h1>
     <div class="row my-3">
     <div class="col-md-12 equal">
-        <div class="col-md-2 col-sm-12 pl-0 donation-image-profile">
-            <a href="#" class="donation-cta-image">
+        <div class="col-md-2 col-sm-12 col-xs-12 pl-0 donation-image-profile">
+            <a href="/publicprofile/<?= $model->user->username?>" class="donation-cta-image">
                  <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" alt="Card image">
             </a>
         </div>
-        <div class="col-md-6 col-sm-12 pr-0">
+        <div class="col-md-6 col-sm-12 col-xs-12 pr-0">
             <div class="profile-info">
                  <?php if ($profile->profile_type_id == 1): ?>
-                    <h2 class="section-title"><?= $profile->non_profit_name ?></h2>
+                    <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>"><?= $profile->non_profit_name ?></a></h2>
                 <?php elseif($profile->profile_type_id == 2):?>
-                    <h2 class="section-title"><?= $profile->company_name ?></h2>
+                    <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>"><?= $profile->company_name ?></a></h2>
                 <?php else:?>
-                    <h2 class="section-title"><?= $profile->firstname . " " . $profile->lastname ?></h2>
+                    <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>"><?= $profile->firstname . " " . $profile->lastname ?></a></h2>
                 <?php endif;?>
-                <h3 class="profile-type mb-3">Non Profit
+                <h3 class="profile-type mb-2">Non Profit
                 <?php if ($profile->profile_type_id == 1): ?>
                     <span class="ein ml-1">EIN: #<?= $profile->registered_ein ?></span>
                 <?php endif?>
@@ -134,7 +134,7 @@ use yii\widgets\DetailView;
             </div>
         </div>
 
-        <div class="col-md-4 cta-donation"> 
+        <div class="col-md-4 col-sm-12 col-xs-12 cta-donation"> 
                <a href="#" class="profile-cta"><i class="fa fa-send-o mr-1"></i>Send Message</a>
         </div>
       </div>
@@ -149,7 +149,7 @@ use yii\widgets\DetailView;
             <?= $form->field($model, 'checked')
                 ->hiddenInput(['value' => 1])
                 ->label(false) ?>
-            <div class="row text-sm-center my-3">
+            <div class="row text-xs-center my-3">
                 <?= Html::a('Back to Edit', Url::to(['createdonation', 'id' => $model->id_public]), ['class' => 'btn btn-secondary btn-lg']) ?>
                 <?= Html::submitButton('Publish Post', ['class' => 'btn btn-primary btn-lg']) ?>
             </div>
