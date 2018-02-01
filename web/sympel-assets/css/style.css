@@ -203,7 +203,6 @@ h3.section-title{
   font: normal normal normal 14px/1 FontAwesome;
   width: 15px;
   height: 15px;
-  color: #f27267;
   position: absolute;
   top: 7px;
   left: 10px;
@@ -211,6 +210,19 @@ h3.section-title{
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   border-radius: 100%; }
+
+[type="radio"].big-radio:checked + label.radio-primary:after,
+[type="radio"].big-radio:not(:checked) + label.radio-primary:after {
+  color: #f05256; }
+
+[type="radio"].big-radio:checked + label.radio-secondary:after,
+[type="radio"].big-radio:not(:checked) + label:after {
+  color: #1cbdcb;}
+
+[type="radio"].big-radio:checked + label.radio-tertiary:after,
+[type="radio"].big-radio:not(:checked) + label:after {
+  color: #252626;}
+
 
 [type="radio"].big-radio:not(:checked) + label:after {
   opacity: 0;
@@ -235,10 +247,10 @@ p.radio-description {
   padding-left: 60px; }
 
 [type="radio"].big-radio:checked + label.radio-primary:before, [type="radio"]:not(:checked) + label.radio-primary:before {
-  border-color: #e75a4d; }
+  border-color: #f05256; }
 
 [type="radio"].big-radio:checked + label.radio-secondary:before, [type="radio"]:not(:checked) + label.radio-secondary:before {
-  border-color: #13a38d; }
+  border-color: #1cbdcb; }
 
 [type="radio"].big-radio:checked + label.radio-tertiary:before, [type="radio"]:not(:checked) + label.radio-tertiary:before {
   border-color: #252626; }
@@ -1129,6 +1141,10 @@ hr{
     color: #00A5A8;
 }
 
+.carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
+    height: 300px;
+}
+
 /*================================================================================================
    HORIZONTAL TAB STYLES
 ================================================================================================*/
@@ -1312,7 +1328,7 @@ hr{
     margin-top: 50px;
     font-size: 35px;
     text-align: center;
-    color: #13a38d;
+    color: #1cbdcb;
 }
 
 .form-section-heading{

@@ -230,7 +230,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             that you have the authority to represent the listed party and acccept our Registration Policies.</p>
                                             <div class="text-xs-center my-3">
                                         <?= Html::a('Previous', $url_prev, ['class' => 'btn btn-secondary btn-lg']) ?>
-                                        <?= Html::submitButton('Finish', ['class' => 'btn btn-primary btn-lg']) ?>
+                                        <?= Html::submitButton('Finish', ['class' => 'btn button-primary btn-lg']) ?>
                                         </div>
                                     </fieldset>
                                     <?php ActiveForm::end() ?>
