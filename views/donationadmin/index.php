@@ -24,10 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-//            ['class' => 'yii\grid\SerialColumn'],
-
-//            'id',
-//            'id_public',
             'title',
             [
                 'attribute' => 'id_category',
@@ -42,7 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterInputOptions'=>['placeholder'=>'Select Category'],
                 'format'=>'html',
             ],
-//            'id_type',
                 [
                     'attribute' => 'id_user',
                     'value' => function ($model) {
@@ -50,14 +45,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
                     'format' => 'raw'
                 ],
-//             'city',
-//             'zip_code',
-            // 'description:ntext',
-            // 'why_need:ntext',
-            // 'images_url:ntext',
-            // 'keywords:ntext',
-            // 'condition_new',
-//            'checked'
             [
                 'attribute' => 'created_at',
                 'format' => 'date',
@@ -89,6 +76,15 @@ $this->params['breadcrumbs'][] = $this->title;
                         "apply.daterangepicker" => "function() { apply_filter('updated_at') }",
                     ]
                 ],
+            ],
+            [
+                'label' => 'Actions',
+                'value' => function ($model) {
+                    $options = Html::a('Update', Url::to(['donationadmin/update', 'id' => $model->id]), ['class' => 'btn btn-primary']);
+                    $options .= Html::a('Delete', Url::to(['donationadmin/delete', 'id' => $model->id]), ['class' => 'btn btn-danger']);
+                    return $options;
+                },
+                'format' => 'raw'
             ],
             ['class' => 'yii\grid\ActionColumn'],
         ],

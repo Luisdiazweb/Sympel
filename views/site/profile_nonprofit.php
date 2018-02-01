@@ -23,7 +23,7 @@ use yii\web\View;
         <div class="col-md-12">
             <h3 class="form-section-heading mt-3 mb-1"><i class="fa fa-user"></i>Account Owner Information</h3>
         </div>
-    </div>>
+    </div>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">

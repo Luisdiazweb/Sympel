@@ -609,6 +609,24 @@ class SiteController extends CustomController
         ]);
     }
 
+    public function actionUpdatedonation($id){
+        $this->restrict_nonprofit();
+
+        $model = Donations::findOne(['id' => $id]);
+
+        $cat_conations = ArrayHelper::map(DonationsCategory::find()->asArray()->all(), 'id', 'name');
+
+        if($model->load(Yii::$app->request->post())){
+            $model->save();
+            return $this->redirect('/myprofile');
+        }
+
+        return $this->render('create_donation',[
+            'model' => $model,
+            'cat_donations' => $cat_conations
+        ]);
+    }
+
     public function actionCreatedonation($id = false)
     {
         $this->restrict_nonprofit();
@@ -630,18 +648,10 @@ class SiteController extends CustomController
             $model->id_type = 2;
             $model->id_user = Yii::$app->user->getId();
 
-//            if (
             $model->save();
-//            ) {
+
             return $this->redirect(['reviewdonation', 'id' => $model->id_public]);
-//            } else {
-//                var_dump($model->errors);
-//                $cat_donations = ArrayHelper::map(DonationsCategory::find()->asArray()->all(), 'id', 'name');
-//                return $this->render('create_donation', [
-//                    'model' => $model,
-//                    'cat_donations' => $cat_donations
-//                ]);
-//            }
+     
 
         } else {
             $cat_donations = ArrayHelper::map(DonationsCategory::find()->asArray()->all(), 'id', 'name');

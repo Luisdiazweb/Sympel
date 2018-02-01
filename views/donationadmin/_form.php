@@ -26,7 +26,6 @@ $this->registerJs("$(function() {
     });", View::POS_END);
 
 ?>
-?>
 
 <div class="donations-form">
 

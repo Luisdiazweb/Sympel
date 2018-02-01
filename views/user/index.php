@@ -30,11 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     if($profile_model){
                         $profile_id = $profile_model->id;
 
-                        $options = Html::a('View', Url::to(['profile/view', 'id' => $profile_id]));
-                        $options .= ' | ';
-                        $options .= Html::a('Update', Url::to(['profile/update', 'id' => $profile_id]));
-                        $options .= ' | ';
-                        $options .= Html::a('Delete', Url::to(['profile/delete', 'id' => $profile_id]));
+                        $options = Html::a('View', Url::to(['profile/view', 'id' => $profile_id]), ['class' => 'btn btn-info']);
+                       
+                        $options .= Html::a('Update', Url::to(['profile/update', 'id' => $profile_id]), ['class' => 'btn btn-primary']);
+                        
+                        $options .= Html::a('Delete', Url::to(['profile/delete', 'id' => $profile_id]), ['class' => 'btn btn-danger']);
 
                         return $options;
                     }else{
