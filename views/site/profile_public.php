@@ -11,7 +11,7 @@ use yii\widgets\ListView;
 <div class="container">
     <div class="row my-3">
     <div class="col-md-12 equal">
-        <div class="col-md-3 col-sm-12 pl-0 profile-image-container">
+        <div class="col-md-3 col-sm-12 col-xs-12 pl-0 profile-image-container">
             <a href="#" class="profile-image">
                  <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" class="rounded-circle img-border mx-auto d-block" alt="Card image">
             </a>
@@ -25,7 +25,7 @@ use yii\widgets\ListView;
                 <?php else:?>
                     <h2 class="section-title mt-3"><?= $profile->firstname . " " . $profile->lastname ?></h2>
                 <?php endif;?>
-                <h3 class="profile-type">Non Profit
+                <h3 class="profile-type mb-2">Non Profit
                 <?php if ($profile->profile_type_id == 1): ?>
                     <span class="ein ml-1">EIN: #<?= $profile->registered_ein ?></span>
                 <?php endif?>
@@ -36,7 +36,7 @@ use yii\widgets\ListView;
                 </blockquote>
                 <?php endif?>
                 
-                <p class="profile-links-container">
+                <!--<p class="profile-links-container">
                     <i class="fa fa-map-marker map"></i>
                     <?= $profile->city ?>, <?= $profile->state ?>
                     <span class="profile-link">
@@ -47,7 +47,22 @@ use yii\widgets\ListView;
                         <i class="fa fa-phone phone"></i>
                         <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
                     </span>
-                </p>
+                </p>-->
+
+                <div class="profile-links-container">
+                    <span class="profile-link">
+                        <i class="fa fa-map-marker map"></i>
+                        <?= $profile->city ?>, <?= $profile->state ?>
+                    </span>
+                    <span class="profile-link">
+                        <i class="fa fa-globe web"></i>
+                        <a href="http://<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
+                    </span>
+                    <span class="profile-link">
+                        <i class="fa fa-phone phone"></i>
+                        <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
+                    </span>
+                </div>
 
                 <p>
                      <?php if (!empty($areas)):?>
@@ -77,7 +92,7 @@ use yii\widgets\ListView;
 <div class="container-fluid">
     <div class="row profile-stats">
         <div class="col-md-12 equal">
-            <div class="col-xl-4 col-md-4 col-xs-12">
+            <div class="col-xl-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="card-block">
                     <div class="media">
                         <div class="media-body text-xs-center">
@@ -87,7 +102,7 @@ use yii\widgets\ListView;
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-md-4 col-xs-12">
+            <div class="col-xl-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="card-block">
                     <div class="media">
                         <div class="media-body text-xs-center">
@@ -97,7 +112,7 @@ use yii\widgets\ListView;
                     </div>
                 </div>
             </div> 
-            <div class="col-xl-4 col-md-4 col-xs-12 profile-cta"> 
+            <div class="col-xl-4 col-md-4 col-sm-4 col-xs-12 profile-cta"> 
                <a href="#" class=""><i class="fa fa-send-o mr-1"></i>Send Message</a>
             </div>    
         </div>

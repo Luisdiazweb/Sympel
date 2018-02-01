@@ -151,7 +151,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             </div>
                                         </div>
                                         <div class="text-xs-center my-3">
-                                        <?= Html::submitButton('Next Step', ['class' => 'btn btn-primary btn-lg']) ?>
+                                        <?= Html::submitButton('Next Step', ['class' => 'btn button-primary btn-lg']) ?>
                                         <div>
                                     </fieldset>
                                     <?php ActiveForm::end() ?>

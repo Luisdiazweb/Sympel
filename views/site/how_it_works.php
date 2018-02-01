@@ -68,10 +68,10 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     <div class="arrow-down"></div>  
 
     <!-- Icons Grid -->
-    <section class="features-icons bg-light text-xs-center my-3">
+    <section class="features-icons bg-light text-xs-center">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="my-3 col-lg-6 col-md-6 col-sm-6">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
                 <i class="fa fa-list-alt m-auto text-primary"></i>
@@ -80,7 +80,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
               <p class="lead mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="my-3 col-lg-6 col-md-6 col-sm-6">
             <div class="features-icons-item mx-auto mb-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
                 <i class="fa fa-heart m-auto text-primary"></i>
@@ -92,11 +92,11 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         </div>
       </div>
     </section>
-      <section class="features-icons bg-light bg-triangle text-xs-center my-3">
+      <section class="features-icons bg-light bg-triangle text-xs-center">
       <div class="container">
         <div class="row justify-center-columns">
           <img class="triangle-bg" src="<?= Url::to('@web/app-assets/img/triangle-bg.png')?>" alt="">
-          <div class="col-lg-6">
+          <div class="my-3 col-lg-6 col-md-6 col-sm-6">
             <div class="features-icons-item mx-auto mb-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
                 <i class="fa fa-handshake-o m-auto text-primary"></i>
@@ -110,10 +110,10 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     </section>
 
      <!-- Icons Grid -->
-    <section class="features-icons bg-light text-xs-center my-3">
+    <section class="features-icons bg-light text-xs-center">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="my-3 col-lg-6 col-md-6 col-sm-6">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
                 <i class="fa fa-list-alt m-auto text-primary"></i>
@@ -122,7 +122,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
               <p class="lead mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="my-3 col-lg-6 col-md-6 col-sm-6">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
                 <i class="fa fa-heart m-auto text-primary"></i>

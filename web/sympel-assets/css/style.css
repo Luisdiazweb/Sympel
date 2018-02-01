@@ -203,7 +203,6 @@ h3.section-title{
   font: normal normal normal 14px/1 FontAwesome;
   width: 15px;
   height: 15px;
-  color: #f27267;
   position: absolute;
   top: 7px;
   left: 10px;
@@ -211,6 +210,19 @@ h3.section-title{
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   border-radius: 100%; }
+
+[type="radio"].big-radio:checked + label.radio-primary:after,
+[type="radio"].big-radio:not(:checked) + label.radio-primary:after {
+  color: #f05256; }
+
+[type="radio"].big-radio:checked + label.radio-secondary:after,
+[type="radio"].big-radio:not(:checked) + label:after {
+  color: #1cbdcb;}
+
+[type="radio"].big-radio:checked + label.radio-tertiary:after,
+[type="radio"].big-radio:not(:checked) + label:after {
+  color: #252626;}
+
 
 [type="radio"].big-radio:not(:checked) + label:after {
   opacity: 0;
@@ -235,10 +247,10 @@ p.radio-description {
   padding-left: 60px; }
 
 [type="radio"].big-radio:checked + label.radio-primary:before, [type="radio"]:not(:checked) + label.radio-primary:before {
-  border-color: #e75a4d; }
+  border-color: #f05256; }
 
 [type="radio"].big-radio:checked + label.radio-secondary:before, [type="radio"]:not(:checked) + label.radio-secondary:before {
-  border-color: #13a38d; }
+  border-color: #1cbdcb; }
 
 [type="radio"].big-radio:checked + label.radio-tertiary:before, [type="radio"]:not(:checked) + label.radio-tertiary:before {
   border-color: #252626; }
@@ -759,18 +771,34 @@ section.quote .section-heading p {
     margin-right: auto!important;
 }
 
-@media (min-width: 992px){
-.order-lg-1 {
-    -ms-flex-order: 1;
-    order: 1;
+@media (max-width: 991px) and (min-width: 544px){
+  .triangle-bg {
+    top: -152px!important;
+    width: 520px;
+  }
 }
+
+@media (max-width: 543px){
+  .triangle-bg {
+    display: none;
+  }
+  .features-icons {
+    padding-bottom: 0;
+  }
 }
 
 @media (min-width: 992px){
-.order-lg-2 {
-    -ms-flex-order: 2;
-    order: 2;
+  .order-lg-1 {
+      -ms-flex-order: 1;
+      order: 1;
+  }
 }
+
+@media (min-width: 992px){
+  .order-lg-2 {
+      -ms-flex-order: 2;
+      order: 2;
+  }
 }
 
 @media (min-width: 992px){
@@ -964,7 +992,7 @@ footer .footer-company {
   font-size: 35px;
 }
 .profile-links-container{
-  padding-left: 25px;
+  /*padding-left: 25px;*/
   font-weight: 600;
   color: #f05256;
   position: relative;
@@ -983,18 +1011,14 @@ footer .footer-company {
 .profile-links-landmark .map{
   font-size: 25px;
   color: #f05256;
-  position: absolute;
-  left: 4px;
-  top: -2px
+  margin-right: 10px;
 }
 
 
 .profile-links-container .map{
   font-size: 25px;
   color: #f05256;
-  position: absolute;
-  left: 4px;
-  top: -2px
+  margin-right: 10px;
 }
 
 .profile-links-container .web{
@@ -1076,6 +1100,50 @@ hr{
   border-color: #c5c5c5;
 }
 
+@media (max-width: 767px){
+  .profile-info h2, .profile-info h3{
+    text-align: center;
+  }
+  .post-details-container{
+    padding: 5%;
+  }
+  .post-details-container h2{
+    margin-top: 25px;
+  }
+  .profile-link {
+      margin-bottom: 10px;
+  }
+  .profile-links-container{
+    text-align: center;
+  }
+}
+
+@media (max-width: 543px){
+  .profile-cta {
+      height: 70px;
+  }
+}
+
+@media (max-width: 992px){
+  .profile-link {
+      display: block;
+  }
+  .profile-link:before{
+    padding: 0px;
+  }
+}
+
+.section-title a {
+    color: #404e67;
+}
+
+.section-title a:hover {
+    color: #00A5A8;
+}
+
+.carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
+    height: 300px;
+}
 
 /*================================================================================================
    HORIZONTAL TAB STYLES
@@ -1260,7 +1328,7 @@ hr{
     margin-top: 50px;
     font-size: 35px;
     text-align: center;
-    color: #13a38d;
+    color: #1cbdcb;
 }
 
 .form-section-heading{

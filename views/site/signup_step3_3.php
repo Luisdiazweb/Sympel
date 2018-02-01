@@ -175,11 +175,11 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             ])->label(false); ?>
                                         </div>
                                         <p class="my-2">IMPORTANT: By submitting this form you are acknowledging
-                                            that ou have the authority to represent the listed party and have read
+                                            that you have the authority to represent the listed party and have read
                                             our account creation policies.</p>
                                             <div class="text-xs-center my-3">
                                         <?= Html::a('Previous', $url_prev, ['class' => 'btn btn-secondary btn-lg']) ?>
-                                        <?= Html::submitButton('Finish', ['class' => 'btn btn-primary btn-lg']) ?>
+                                        <?= Html::submitButton('Finish', ['class' => 'btn button-primary btn-lg']) ?>
                                         </div>
                                     </fieldset>
                                     <?php ActiveForm::end() ?>
