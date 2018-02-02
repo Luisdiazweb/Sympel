@@ -671,10 +671,11 @@ section.quote .section-heading p {
   background-color: #1cbdcb!important;
   color: #ffffff;
   transition: .3s;
+  border: 2px solid;
 }
 
 .button-primary:hover{
-    border: 2px solid #1cbdcb;
+    border-color: #1cbdcb;
     color: #1cbdcb;
     background-color: #fff!important;
     font-weight: 600;

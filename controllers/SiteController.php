@@ -566,6 +566,13 @@ class SiteController extends CustomController
         }
     }
 
+    public function actionSignupconfirm(){
+         $profile = ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
+        return $this->render('signup_confirmation', [
+            'profile' => $profile,
+        ]);
+    }
+
     public function actionPublicprofile($id)
     {
 
@@ -806,7 +813,8 @@ class SiteController extends CustomController
 //        var_dump($step1);
 //        exit();
         SignupForms::saveNewUser($step1, $step2, $step3);
-        return $this->goHome();
+
+        return $this->redirect('/signupconfirm');
     }
 
     private function restrict_only_nonprofit()

@@ -156,7 +156,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
-                            $layout = "<div class=\"col-xl-3 col-md-4 col-sm-6\">
+                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     $img_preview
