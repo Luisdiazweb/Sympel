@@ -172,8 +172,8 @@ NavBar::end();*/
             </ul>
             <ul class="col-sm-12 col-md-6 col-lg-6">
               <li><h3>Connect</h3></li>
-              <li><a href="">Facebook</a></li>
-              <li><a href="">Twitter</a></li>
+              <li><a href="https://www.facebook.com/itssympel/">Facebook</a></li>
+              <li><a href="https://twitter.com/itssympel">Twitter</a></li>
               <li><a href="">Contact</a></li>
             </ul>
           </div>
@@ -207,8 +207,8 @@ NavBar::end();*/
             </ul>
             <ul class="col-sm-12 col-md-4 col-lg-2">
               <li><h3>Connect</h3></li>
-              <li><a href="">Facebook</a></li>
-              <li><a href="">Twitter</a></li>
+              <li><a href="https://www.facebook.com/itssympel/">Facebook</a></li>
+              <li><a href="https://twitter.com/itssympel">Twitter</a></li>
               <li><a href="">Contact</a></li>
             </ul>
           </div>
