@@ -102,12 +102,15 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
 								                 <img class="rounded-circle img-border height-100 mx-auto d-block" src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" class="rounded-circle img-border mx-auto d-block" alt="Card image">
 								            </a>
 								        </div>
-                                        <h3 class="section-title my-3 text-xs-center">Welcome to the community, <?= $profile->firstname?>!</h3>
-                                        <p class="text-sm-center my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                            <br>Praesentium laborum voluptatibus corporis quis repellat ipsam sed vero.</p>
-                                        
+                                        <h3 class="section-title my-3 text-xs-center">Your Registration is Complete, <?= $profile->firstname?>!</h3>
 
-                                       
+                                        <?php if ($profile->profile_type_id == 1): ?>
+                                        	<p class="text-sm-center my-3">Thank you for registering to be part of the <strong>sympel</strong> community. <br>Your Account Profile is currently being reviewed and authenticated by our team.</p>  
+
+                                        	<p class="text-sm-center my-3">You will receive a response withing 24-48 hours with the status of your account profile.</p>       
+										<?php else:?>
+											 <p class="text-sm-center my-3">Thank you for registering to be part of the <strong>sympel</strong> community. Your Account has been created.</p>
+                                        <?php endif?>
                                        
                                             <div class="text-xs-center my-3">
                                       	<a href="<?= Url::to('@web/search') ?>" class="btn button-primary btn-lg">Start Exploring</a>

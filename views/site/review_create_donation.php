@@ -120,17 +120,13 @@ use yii\widgets\DetailView;
                 </p>
 
                 <p>
-                </p>
-                <?php  $keywords = explode(",", $model->keywords); ?>
-                <?php if(count($keywords)) : ?>
-                    <?php foreach($keywords as $keyword): ?>
-                        <div class="tag tag-default">
-                            <a href="#"><?php print $keyword ?></a>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-                 
-                <p></p>
+             <?php if (!empty($areas)):?>
+                            <?php foreach ($areas as $area): ?>
+                                <div class="tag tag-default">
+                                    <a href="#"><?= $area ?></a>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?></p>
             </div>
         </div>
 

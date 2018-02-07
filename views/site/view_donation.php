@@ -65,7 +65,7 @@ use yii\widgets\DetailView;
                 <h3 class="donation-description-title my-2"><i class="fa fa-th-list"></i>Description</h3>
                 <p><?= $model->description ?></p>
                 <?php if($model->why_need != ""){ ?>
-                    <h3 class="form-section-heading my-2"><i class="fa fa-question"></i>Why we need it</h3>
+                    <h3 class="form-section-heading my-2"><i class="fa fa-question-circle"></i>Why we need it</h3>
                     <p><?= $model->why_need ?></p>
                 <?php } ?>
 
@@ -120,17 +120,13 @@ use yii\widgets\DetailView;
                 </p>
 
                 <p>
-                </p>
-                <?php  $keywords = explode(",", $model->keywords); ?>
-                <?php if(count($keywords)) : ?>
-                    <?php foreach($keywords as $keyword): ?>
-                        <div class="tag tag-default">
-                            <a href="#"><?php print $keyword ?></a>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-                 
-                <p></p>
+             <?php if (!empty($areas)):?>
+                            <?php foreach ($areas as $area): ?>
+                                <div class="tag tag-default">
+                                    <a href="#"><?= $area ?></a>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?></p>
             </div>
         </div>
 
@@ -140,5 +136,7 @@ use yii\widgets\DetailView;
       </div>
     </div>
 </div>
+
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a7a38da8b94a80013b6afda&product=sticky-share-buttons"></script>
 
 

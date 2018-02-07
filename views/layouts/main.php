@@ -242,6 +242,7 @@ NavBar::end();*/
     });
     $('.nav-link-search').click(function(e){e.preventDefault()})
 </script>
+
 </body>
 </html>
 <?php $this->endPage() ?>

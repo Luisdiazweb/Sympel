@@ -680,10 +680,20 @@ class SiteController extends CustomController
             return $this->goHome();
         } else {
              $profile_information = ProfileAccount::findOne(['user_id' => $model->id_user]);
+             $areas_id = empty($profile_information->areas_support) ? FALSE : json_decode($profile_information->areas_support);
+             $query_areas = new Query();
+             $areas_db = ArrayHelper::map($query_areas->from('areas_support')->all(), 'id', 'name');
+             $areas = [];
+             if ($areas_id) {
+                foreach ($areas_id as $area) {
+                    $areas[] = $areas_db[$area];
+                }
+             }
             return $this->render('review_create_donation', [
                 'model' => $model,
                 'owner' => $model->id_user === Yii::$app->user->getId(),
                 'profile' => $profile_information,
+                'areas' => $areas,
             ]);
         }
 
@@ -734,11 +744,21 @@ class SiteController extends CustomController
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->goHome();
         } else {
-            $profile_information = ProfileAccount::findOne(['user_id' => $model->id_user]);
+             $profile_information = ProfileAccount::findOne(['user_id' => $model->id_user]);
+             $areas_id = empty($profile_information->areas_support) ? FALSE : json_decode($profile_information->areas_support);
+             $query_areas = new Query();
+             $areas_db = ArrayHelper::map($query_areas->from('areas_support')->all(), 'id', 'name');
+             $areas = [];
+             if ($areas_id) {
+                foreach ($areas_id as $area) {
+                    $areas[] = $areas_db[$area];
+                }
+             }
             return $this->render('review_request_donation', [
                 'model' => $model,
                 'owner' => $model->id_user === Yii::$app->user->getId(),
                 'profile' => $profile_information,
+                'areas' => $areas,
             ]);
         }
 
@@ -755,10 +775,20 @@ class SiteController extends CustomController
         } else {
 
             $profile_information = ProfileAccount::findOne(['user_id' => $model->id_user]);
+             $areas_id = empty($profile_information->areas_support) ? FALSE : json_decode($profile_information->areas_support);
+             $query_areas = new Query();
+             $areas_db = ArrayHelper::map($query_areas->from('areas_support')->all(), 'id', 'name');
+             $areas = [];
+             if ($areas_id) {
+                foreach ($areas_id as $area) {
+                    $areas[] = $areas_db[$area];
+                }
+             }
             return $this->render('view_donation', [
                 'model' => $model,
                 'owner' => $model->id_user === Yii::$app->user->getId(),
                 'profile' => $profile_information,
+                'areas' => $areas,
             ]);
         }
 
