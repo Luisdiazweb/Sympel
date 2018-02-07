@@ -575,7 +575,7 @@ class SiteController extends CustomController
 
     public function actionPublicprofile($id)
     {
-
+        $show_phone = $this->show_phone_number();
         $user = UsersSystem::findOne(['username' => $id]);
         if (!$user) {
             throw new NotFoundHttpException("The user was not found.");
@@ -613,6 +613,7 @@ class SiteController extends CustomController
             'summaryNeeds' => $summaryNeeds,
             'summaryDonations' => $summaryDonations,
             'areas' => $areas,
+            'show_phone' => $show_phone,
         ]);
     }
 
@@ -706,6 +707,7 @@ class SiteController extends CustomController
     {
         $this->restrict_only_nonprofit();
         $this->restrict_nonprofit();
+        $this->checkaccount();
         if ($id) {
             $model = Donations::findOne(['id_public' => $id]);
             if (!$model) {
@@ -766,7 +768,8 @@ class SiteController extends CustomController
     }
 
     public function actionItemdetails($id)
-    {
+    {   
+        $show_phone = $this->show_phone_number();
         $model = Donations::findOne(['id_public' => $id]);
         if (!$model) {
             throw new NotFoundHttpException("Request was not found.");
@@ -790,6 +793,7 @@ class SiteController extends CustomController
                 'owner' => $model->id_user === Yii::$app->user->getId(),
                 'profile' => $profile_information,
                 'areas' => $areas,
+                'show_phone' => $show_phone,
             ]);
         }
 
@@ -885,6 +889,19 @@ class SiteController extends CustomController
 //                        ]
 //                    ]
 //                ]);
+            }
+        }
+    }
+
+    private function show_phone_number()
+    {
+        $profile = ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
+        if ($profile) {
+            if ((($profile->profile_type_id == 1))) {
+               return true;
+            }
+            else{
+                return false;
             }
         }
     }

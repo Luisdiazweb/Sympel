@@ -59,10 +59,12 @@ use yii\widgets\ListView;
                         <a href="http://<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
                         <?php endif;?>
                     </span>
+                    <?php if($show_phone): ?>
                     <span class="profile-link">
                         <i class="fa fa-phone phone"></i>
                         <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
                     </span>
+                    <?php endif;?>
                 </div>
                  <?php if ($profile->profile_type_id == 3): ?>
                     <p class="profile-label mt-2">Causes I care about</p>

@@ -107,14 +107,19 @@ use yii\widgets\DetailView;
                                 
                 <p class="profile-links-container">
                     <i class="fa fa-map-marker map"></i>
-                    <?= $profile->city ?>, <?= $profile->state ?>                    <span class="profile-link">
+                    <?= $profile->city ?>, <?= $profile->state ?>                    
+                    <span class="profile-link">
+                       <?php if($profile->website): ?>
                         <i class="fa fa-globe web"></i>
-                        <a href="<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
+                        <a href="http://<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
+                        <?php endif;?>
                     </span>
+                     <?php if($show_phone): ?>
                     <span class="profile-link">
                         <i class="fa fa-phone phone"></i>
                         <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
                     </span>
+                    <?php endif;?>
                 </p>
                 <p>
              <?php if (!empty($areas)):?>

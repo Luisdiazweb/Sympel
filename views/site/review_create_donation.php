@@ -111,10 +111,12 @@ use yii\widgets\DetailView;
                         <i class="fa fa-globe web"></i>
                         <a href="<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
                     </span>
+                     <?php if($show_phone): ?>
                     <span class="profile-link">
                         <i class="fa fa-phone phone"></i>
                         <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
                     </span>
+                    <?php endif;?>
                 </p>
 
                 <p>
