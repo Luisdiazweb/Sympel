@@ -47,7 +47,6 @@ body{
 h3.section-title{
   font-family: 'Museo Sans';
   font-size: 30px;
-  color: #000;
 }
 
 .icon-title{
@@ -1001,9 +1000,7 @@ footer .footer-company {
 
 .profile-label{
     font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #000;
+    font-family: 'Montserrat', Georgia, 'Times New Roman', Times, serif;
 }
 
 .profile-info .section-title{

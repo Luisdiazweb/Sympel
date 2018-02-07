@@ -133,8 +133,8 @@ use yii\widgets\ListView;
                 <div class="card-block">
                     <div class="media">
                         <div class="media-body text-xs-center">
-                            <h3 class="primary font-large-2 donations-big-count"><i class="fa fa-heart primary mr-1"></i><?= $summaryDonations?></h3>
-                            <p class="donations-big-description">Donations</p>
+                           <h3 class="primary font-large-2"><i class="fa fa-heart primary mr-1"></i><?= $summaryDonations?></h3>
+                            <p class="">Donations</p>
                         </div>
                     </div>
                 </div>
