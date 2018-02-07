@@ -242,7 +242,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                             <div class="card-body collapse in">
                                 <div class="card-block">
                                     <i class="fa fa-id-badge heading-icon"></i>
-                                        <h3 class="section-title my-3 text-xs-center">Your Sympel's Profile</h3>
+                                        <h3 class="section-title my-3 text-xs-center">Your Profile</h3>
                                     <ul class="nav nav-tabs nav-linetriangle no-hover-bg nav-justified">
                                         <li class="nav-item">
                                             <a class="nav-link active card-title" id="active-tab3" data-toggle="tab"

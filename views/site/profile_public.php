@@ -20,18 +20,17 @@ use yii\widgets\ListView;
             <div class="profile-info">
                  <?php if ($profile->profile_type_id == 1): ?>
                     <h2 class="section-title mt-3"><?= $profile->non_profit_name ?></h2>
+                    <h3 class="profile-type mb-2">Non Profit<span class="ein ml-1">EIN: #<?= $profile->registered_ein ?></span></h3>
                 <?php elseif($profile->profile_type_id == 2):?>
                     <h2 class="section-title mt-3"><?= $profile->company_name ?></h2>
+                     <h3 class="profile-type mb-2">Company</h3>
                 <?php else:?>
                     <h2 class="section-title mt-3"><?= $profile->firstname . " " . $profile->lastname ?></h2>
+                    <h3 class="profile-type mb-2">Individual</h3>
                 <?php endif;?>
-                <h3 class="profile-type mb-2">Non Profit
+               
                 <?php if ($profile->profile_type_id == 1): ?>
-                    <span class="ein ml-1">EIN: #<?= $profile->registered_ein ?></span>
-                <?php endif?>
-                </h3>
-                <?php if ($profile->profile_type_id == 1): ?>
-                <blockquote class="blockquote profile-type">
+                <blockquote class="profile-mission">
                     <p><?=$profile->mission?></p>
                 </blockquote>
                 <?php endif?>
@@ -55,8 +54,10 @@ use yii\widgets\ListView;
                         <?= $profile->city ?>, <?= $profile->state ?>
                     </span>
                     <span class="profile-link">
+                        <?php if($profile->website): ?>
                         <i class="fa fa-globe web"></i>
                         <a href="http://<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
+                        <?php endif;?>
                     </span>
                     <span class="profile-link">
                         <i class="fa fa-phone phone"></i>
@@ -89,6 +90,7 @@ use yii\widgets\ListView;
     </div>
 </div>
 
+<?php if ($profile->profile_type_id == 1): ?>
 <div class="container-fluid">
     <div class="row profile-stats">
         <div class="col-md-12 equal">
@@ -97,7 +99,7 @@ use yii\widgets\ListView;
                     <div class="media">
                         <div class="media-body text-xs-center">
                             <h3 class="primary font-large-2"><i class="fa fa-heart primary mr-1"></i><?= $summaryDonations?></h3>
-                            <p class="">Donation Items</p>
+                            <p class="">Donations</p>
                         </div>
                     </div>
                 </div>
@@ -107,7 +109,7 @@ use yii\widgets\ListView;
                     <div class="media">
                         <div class="media-body text-xs-center">
                             <h3 class="danger font-large-2"><i class="fa fa-inbox danger mr-1"></i><?= $summaryNeeds?></h3>
-                            <p class="">Needs Posted</p>
+                            <p class="">Requests</p>
                         </div>
                     </div>
                 </div>
@@ -118,11 +120,33 @@ use yii\widgets\ListView;
         </div>
     </div>
 </div>
+<?php else:?>
+    <div class="container-fluid">
+    <div class="row profile-stats">
+        <div class="col-md-12 equal">
+            <div class="col-xl-8 col-md-8 col-sm-8 col-xs-12">
+                <div class="card-block">
+                    <div class="media">
+                        <div class="media-body text-xs-center">
+                            <h3 class="primary font-large-2"><i class="fa fa-heart primary mr-1"></i><?= $summaryDonations?></h3>
+                            <p class="">Donations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-4 col-sm-4 col-xs-12 profile-cta"> 
+               <a href="#" class=""><i class="fa fa-send-o mr-1"></i>Send Message</a>
+            </div>    
+        </div>
+    </div>
+</div>
+<?php endif; ?>
 
+<?php if ($profile->profile_type_id == 1): ?>
  <div class="container-fluid">
     <div class="row recent-container">
         <div class="col-md-10 offset-md-1">
-      <h3 class="section-title"><i class="fa fa-arrow-circle-down color-primary icon-title"></i>Last Needs</h3>
+      <h3 class="section-title"><i class="fa fa-arrow-circle-down color-primary icon-title"></i>Items in Request</h3>
              <div class="row mt-3">
                 <div class="col-md-12">
                     <?= ListView::widget([
@@ -170,10 +194,11 @@ use yii\widgets\ListView;
         </div>  
     </div>
   </div>
+<?php endif; ?>
 <div class="container-fluid">
     <div class="row recent-container">
     <div class="col-md-10 offset-md-1">
-      <h3 class="section-title"><i class="fa fa-arrow-circle-down color-secondary icon-title"></i>Recent Donations</h3>
+      <h3 class="section-title"><i class="fa fa-arrow-circle-down color-secondary icon-title"></i>Items for Donation</h3>
        <div class="row mt-3">
                 <div class="col-md-12">
     

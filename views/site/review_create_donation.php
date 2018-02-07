@@ -94,18 +94,16 @@ use yii\widgets\DetailView;
         </div>
         <div class="col-md-6 col-sm-12 col-xs-12 pr-0">
             <div class="profile-info">
-                 <?php if ($profile->profile_type_id == 1): ?>
-                    <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>"><?= $profile->non_profit_name ?></a></h2>
+               <?php if ($profile->profile_type_id == 1): ?>
+                    <h2 class="section-title mt-3"><?= $profile->non_profit_name ?></h2>
+                    <h3 class="profile-type mb-2">Non Profit<span class="ein ml-1">EIN: #<?= $profile->registered_ein ?></span></h3>
                 <?php elseif($profile->profile_type_id == 2):?>
-                    <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>"><?= $profile->company_name ?></a></h2>
+                    <h2 class="section-title mt-3"><?= $profile->company_name ?></h2>
+                     <h3 class="profile-type mb-2">Company</h3>
                 <?php else:?>
-                    <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>"><?= $profile->firstname . " " . $profile->lastname ?></a></h2>
+                    <h2 class="section-title mt-3"><?= $profile->firstname . " " . $profile->lastname ?></h2>
+                    <h3 class="profile-type mb-2">Individual</h3>
                 <?php endif;?>
-                <h3 class="profile-type mb-2">Non Profit
-                <?php if ($profile->profile_type_id == 1): ?>
-                    <span class="ein ml-1">EIN: #<?= $profile->registered_ein ?></span>
-                <?php endif?>
-                </h3>
                                 
                 <p class="profile-links-container">
                     <i class="fa fa-map-marker map"></i>

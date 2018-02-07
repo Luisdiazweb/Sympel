@@ -989,6 +989,11 @@ footer .footer-company {
  font-size: 15px;
 }
 
+.profile-mission{
+  padding: 0.5rem 0;
+  font-size: 15px;
+}
+
 .profile-info .section-title{
   font-size: 35px;
 }
