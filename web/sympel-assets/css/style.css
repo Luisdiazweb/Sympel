@@ -722,6 +722,11 @@ section.quote .section-heading p {
     font-weight: 600;
 }
 
+@media (max-width: 1300px) and (min-width: 991px) {
+  .welcome-quote {
+    margin-right: 24px;
+  }
+}
 
 
 /*================================================================================================
@@ -994,6 +999,13 @@ footer .footer-company {
   font-size: 15px;
 }
 
+.profile-label{
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #000;
+}
+
 .profile-info .section-title{
   font-size: 35px;
 }
@@ -1149,6 +1161,18 @@ hr{
 
 .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
     height: 300px;
+}
+
+.donations-big-description{
+    display: inline-block;
+    border-left: 2px solid #00b5b8;
+    font-size: 32px;
+    padding-left: 10px;
+}
+
+.donations-big-count{
+    display: inline-block;
+    margin-right: 10px;
 }
 
 /*================================================================================================

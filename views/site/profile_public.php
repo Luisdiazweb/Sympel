@@ -64,6 +64,9 @@ use yii\widgets\ListView;
                         <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
                     </span>
                 </div>
+                 <?php if ($profile->profile_type_id == 3): ?>
+                    <p class="profile-label mt-2">Causes I care about</p>
+                <?php endif?>
 
                 <p>
                      <?php if (!empty($areas)):?>
@@ -128,8 +131,8 @@ use yii\widgets\ListView;
                 <div class="card-block">
                     <div class="media">
                         <div class="media-body text-xs-center">
-                            <h3 class="primary font-large-2"><i class="fa fa-heart primary mr-1"></i><?= $summaryDonations?></h3>
-                            <p class="">Donations</p>
+                            <h3 class="primary font-large-2 donations-big-count"><i class="fa fa-heart primary mr-1"></i><?= $summaryDonations?></h3>
+                            <p class="donations-big-description">Donations</p>
                         </div>
                     </div>
                 </div>

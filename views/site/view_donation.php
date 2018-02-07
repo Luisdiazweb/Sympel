@@ -95,13 +95,13 @@ use yii\widgets\DetailView;
         <div class="col-md-6 col-sm-12 col-xs-12 pr-0">
             <div class="profile-info">
                <?php if ($profile->profile_type_id == 1): ?>
-                    <h2 class="section-title mt-3"><?= $profile->non_profit_name ?></h2>
+                    <h2 class="section-title"> <a href="/publicprofile/<?= $model->user->username?>" class=""><?= $profile->non_profit_name ?></a></h2>
                     <h3 class="profile-type mb-2">Non Profit<span class="ein ml-1">EIN: #<?= $profile->registered_ein ?></span></h3>
                 <?php elseif($profile->profile_type_id == 2):?>
-                    <h2 class="section-title mt-3"><?= $profile->company_name ?></h2>
+                     <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>" class=""><?= $profile->company_name ?></a></h2>
                      <h3 class="profile-type mb-2">Company</h3>
                 <?php else:?>
-                    <h2 class="section-title mt-3"><?= $profile->firstname . " " . $profile->lastname ?></h2>
+                    <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>" class=""><?= $profile->firstname . " " . $profile->lastname ?></a></h2>
                     <h3 class="profile-type mb-2">Individual</h3>
                 <?php endif;?>
                                 
@@ -116,7 +116,6 @@ use yii\widgets\DetailView;
                         <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
                     </span>
                 </p>
-
                 <p>
              <?php if (!empty($areas)):?>
                             <?php foreach ($areas as $area): ?>

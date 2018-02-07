@@ -145,8 +145,7 @@ use yii\web\View;
 
     <h3 class="form-section-heading mt-3 mb-1"><i class="fa fa-heart"></i>Areas of Support</h3>
     <p class="mb-2">Select the causes and support areas that interest you most. We will only use this information to
-        improve
-        your searching experience.</p>
+        improve your searching experience.</p>
     <div class="row mb-3">
         <div class="col-md-12">
             <?php

@@ -636,6 +636,7 @@ class SiteController extends CustomController
 
     public function actionCreatedonation($id = false)
     {
+        $this->checkaccount();
         $this->restrict_nonprofit();
         if ($id) {
             $model = Donations::findOne(['id_public' => $id]);
