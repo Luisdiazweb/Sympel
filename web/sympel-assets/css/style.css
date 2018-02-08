@@ -1171,7 +1171,8 @@ hr{
 .carousel-inner > .carousel-item{
   background-size: cover!important;
   background-repeat: no-repeat!important;
-  height: 275px;
+  height: 285px;
+  background-position: center center;
 }
 
 .donations-big-description{
