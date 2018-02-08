@@ -33,7 +33,7 @@ use yii\widgets\DetailView;
                                                 $flag = 1;
                                             }
                                             else{
-                                                echo'<div class="carousel-item" style="background:url('.$img.')></div>';
+                                                echo'<div class="carousel-item" style="background:url('.$img.')""></div>';
                                             }
                                             
                                         }
