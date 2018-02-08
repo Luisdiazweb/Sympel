@@ -59,7 +59,7 @@ use yii\widgets\ListView;
                         <a href="http://<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
                         <?php endif;?>
                     </span>
-                    <?php if($show_phone): ?>
+                    <?php if($show_phone == true || $profile->profile_type_id == 1): ?>
                     <span class="profile-link">
                         <i class="fa fa-phone phone"></i>
                         <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
@@ -168,7 +168,7 @@ use yii\widgets\ListView;
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
-                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6\">
+                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     <figure style=\"\">
@@ -221,7 +221,7 @@ use yii\widgets\ListView;
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
-                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6\">
+                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     $img_preview

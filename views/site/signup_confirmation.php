@@ -102,14 +102,14 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
 								                 <img class="rounded-circle img-border height-100 mx-auto d-block" src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" class="rounded-circle img-border mx-auto d-block" alt="Card image">
 								            </a>
 								        </div>
-                                        <h3 class="section-title my-3 text-xs-center">Your Registration is Complete, <?= $profile->firstname?>!</h3>
+                                        <h3 class="section-title my-3 text-xs-center">Hello, <?= $profile->firstname?>! <br>Your account has been created but needs to be validated.</h3>
 
                                         <?php if ($profile->profile_type_id == 1): ?>
-                                        	<p class="text-sm-center my-3">Thank you for registering to be part of the <strong>sympel</strong> community. <br>Your Account Profile is currently being reviewed and authenticated by our team.</p>  
+                                        	<p class="text-sm-center my-3">Thank you for registering to be a part of the sympel community. <br>You should receive a validation email shortly. Please validate your account.</p>  
 
-                                        	<p class="text-sm-center my-3">You will receive a response withing 24-48 hours with the status of your account profile.</p>       
+                                        	<p class="text-sm-center my-3">Our team is currently reviewing your account eligablity from the Tax-ID you provided. <br>Please allow 24-48 hours to confirm your account.</p>       
 										<?php else:?>
-											 <p class="text-sm-center my-3">Thank you for registering to be part of the <strong>sympel</strong> community. Your Account has been created.</p>
+											 <p class="text-sm-center my-3">Now, we know you are very excited to start making an impact, so don't forget to <strong>check your email</strong> and <strong>validate your account.</strong></p>
                                         <?php endif?>
                                        
                                             <div class="text-xs-center my-3">

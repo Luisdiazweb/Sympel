@@ -152,13 +152,13 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
 
-                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6\">
+                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     <figure style=\"\">
                                     $img_preview</figure>
                                     <div class=\"card-block product-card-body\">
-                                        <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
+                                        <h4 class=\"card-title section-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
                                         <p class=\"card-text\">".$model->city."</p>
                                         <a href=\"#\" class=\"card-link\">".$model->idCategory->name."</a>
@@ -208,12 +208,12 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
 
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
-                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6\">
+                            $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
                                 <div class=\"card-body\">
                                     $img_preview
                                     <div class=\"card-block product-card-body\">
-                                        <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
+                                        <h4 class=\"card-title section-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         
                                         <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
                                         <p class=\"card-text\">".$model->city."</p>

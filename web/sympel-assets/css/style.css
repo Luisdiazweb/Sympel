@@ -989,6 +989,14 @@ footer .footer-company {
   color: #252626;
 }
 
+.profile-link.phone{
+  display: block;
+  margin-top: 10px;
+}
+
+.profile-link.phone:before{
+  padding: 0;
+}
 .profile-type{
  font-size: 15px;
 }
@@ -1160,6 +1168,12 @@ hr{
     height: 300px;
 }
 
+.carousel-inner > .carousel-item{
+  background-size: cover!important;
+  background-repeat: no-repeat!important;
+  height: 275px;
+}
+
 .donations-big-description{
     display: inline-block;
     border-left: 2px solid #00b5b8;
@@ -1233,6 +1247,18 @@ hr{
     color: #000;
 }
 
+.product-card-body.card-block{
+    padding: 15px;
+}
+
+.card-title {
+   margin-bottom: 2px;
+}
+
+.list-view .list-item{
+  padding: 3%;
+}
+
 .card-icon{
     font-size: 25px;
     color: #f05256;
@@ -1250,6 +1276,7 @@ hr{
     letter-spacing: 0.05rem;
     font-size: 30px;
     font-family: museo sans;
+    line-height: 30px;
 }
 
 .card-img-top {

@@ -29,11 +29,11 @@ use yii\widgets\DetailView;
                                         $flag = 0;
                                          foreach ($images as $img){
                                             if($flag == 0){
-                                                echo'<div class="carousel-item active"><img src="'.$img.'" alt="slide"></div>';
+                                                echo'<div class="carousel-item active" style="background:url('.$img.')"></div>';
                                                 $flag = 1;
                                             }
                                             else{
-                                                echo'<div class="carousel-item"><img src="'.$img.'" alt="slide"></div>';
+                                                echo'<div class="carousel-item" style="background:url('.$img.')></div>';
                                             }
                                             
                                         }
@@ -114,8 +114,8 @@ use yii\widgets\DetailView;
                         <a href="http://<?= $profile->website ?>" target="_blank"><?= $profile->website ?></a>
                         <?php endif;?>
                     </span>
-                     <?php if($show_phone): ?>
-                    <span class="profile-link">
+                     <?php if($show_phone == true || $profile->profile_type_id == 1): ?>
+                    <span class="profile-link phone">
                         <i class="fa fa-phone phone"></i>
                         <a class="phone" href="tel:<?= $profile->phone ?>"><?= $profile->phone ?></a>
                     </span>
