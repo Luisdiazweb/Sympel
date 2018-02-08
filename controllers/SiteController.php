@@ -660,7 +660,7 @@ class SiteController extends CustomController
             $model->save();
 
             return $this->redirect(['reviewdonation', 'id' => $model->id_public]);
-     
+            
 
         } else {
             $cat_donations = ArrayHelper::map(DonationsCategory::find()->asArray()->all(), 'id', 'name');
@@ -691,11 +691,13 @@ class SiteController extends CustomController
                     $areas[] = $areas_db[$area];
                 }
              }
+             $show_phone = $this->show_phone_number();
             return $this->render('review_create_donation', [
                 'model' => $model,
                 'owner' => $model->id_user === Yii::$app->user->getId(),
                 'profile' => $profile_information,
                 'areas' => $areas,
+                'show_phone' => $show_phone,
             ]);
         }
 
@@ -757,11 +759,13 @@ class SiteController extends CustomController
                     $areas[] = $areas_db[$area];
                 }
              }
+             $show_phone = $this->show_phone_number();
             return $this->render('review_request_donation', [
                 'model' => $model,
                 'owner' => $model->id_user === Yii::$app->user->getId(),
                 'profile' => $profile_information,
                 'areas' => $areas,
+                'show_phone' => $show_phone,
             ]);
         }
 
