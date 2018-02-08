@@ -1278,6 +1278,7 @@ hr{
     font-size: 30px;
     font-family: museo sans;
     line-height: 30px;
+    min-height: 66px;
 }
 
 .card-img-top {

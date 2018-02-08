@@ -120,7 +120,7 @@ $this->registerJs("$(function() {
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <?= $form->field($model, 'title')
-                                                    ->textInput(['maxlength' => true])
+                                                    ->textInput(['maxlength' => 30])
                                                     ->label('Title of Post') ?>
 
                                             </div>

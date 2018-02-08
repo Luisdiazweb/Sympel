@@ -15,13 +15,8 @@ use yii\widgets\DetailView;
         <div class="col-md-6 col-sm-12 pl-0 profile-image-container">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 offset-md-2">
+                    <div class="col-md-10 col-sm-10 offset-md-1 offset-sm-1">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
                             <div class="carousel-inner carousel-donation" role="listbox">
                                 <?php 
                                     $images = json_decode($model->images_url);
@@ -29,11 +24,11 @@ use yii\widgets\DetailView;
                                         $flag = 0;
                                          foreach ($images as $img){
                                             if($flag == 0){
-                                                echo'<div class="carousel-item active"><img src="'.$img.'" alt="slide"></div>';
+                                                echo'<div class="carousel-item active" style="background:url('.$img.')"></div>';
                                                 $flag = 1;
                                             }
                                             else{
-                                                echo'<div class="carousel-item"><img src="'.$img.'" alt="slide"></div>';
+                                                echo'<div class="carousel-item" style="background:url('.$img.')"></div>';
                                             }
                                             
                                         }
