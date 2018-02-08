@@ -1172,7 +1172,7 @@ hr{
   background-size: cover!important;
   background-repeat: no-repeat!important;
   height: 285px;
-  background-position: center center;
+  background-position: center center!important;
 }
 
 .donations-big-description{
