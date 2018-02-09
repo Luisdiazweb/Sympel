@@ -34,9 +34,10 @@ class SiteController extends CustomController
     public function actionIndex()
     {
         $searchModel = new DonationsSearch();
-        $donate = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMPROFILEPUBLIC_DONATION);
-        $needs = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMPROFILEPUBLIC_NEEDED);
+        $donate = $searchModel->getDonationsByType(Yii::$app->request->queryParams,2);
+        $needs = $searchModel->getDonationsByType(Yii::$app->request->queryParams, 1);
 
+        
         return $this->render('index', [
             'modelSearchDonation' => $searchModel,
             'donate' => $donate,
@@ -498,12 +499,8 @@ class SiteController extends CustomController
     public function actionSignup2()
     {
         $steps = new SignupStepsComponent();
-//        $cursors = $steps->cursorArraySteps();
-        $steps::setCurrentStep(SignupStepsComponent::STEP2);
-//        var_dump($cursors);
-//        var_dump($this->checkifpreviscomplete($cursors->prev));
-//        exit();
 
+        $steps::setCurrentStep(SignupStepsComponent::STEP2);
 
         $component = new SignupForms();
         $post = Yii::$app->request->post();
@@ -537,7 +534,6 @@ class SiteController extends CustomController
     {
         $steps = new SignupStepsComponent();
         $steps::setCurrentStep(SignupStepsComponent::STEP3);
-//        $cursors = $steps->cursorArraySteps();
 
         $component = new SignupForms();
         $post = Yii::$app->request->post();
@@ -809,9 +805,22 @@ class SiteController extends CustomController
 
         $this->layout = 'profile_public';
         $searchModel = new DonationsSearch();
+
         if(isset($_REQUEST['tag'])){
-            $searchModel->title = $_REQUEST['tag'];
+            $searchModel->keywords = $_REQUEST['tag'];
         }
+
+        if(isset($_REQUEST['cat'])){
+            $searchModel->id_category = $_REQUEST['cat'];
+        }
+
+        if(isset($_REQUEST['type'])){
+            $searchModel->id_type = $_REQUEST['type'];
+        }
+        if(isset($_REQUEST['user'])){
+            $searchModel->id_user = $_REQUEST['user'];
+        }
+
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, FALSE);
 
         return $this->render('search', [

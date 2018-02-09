@@ -77,22 +77,13 @@ class DonationsSearch extends Donations
 
         if ($from === self::FROMHOME) {
             $query->limit(4);
-        } elseif (($from === self::FROMPROFILEPUBLIC_DONATION) || ($from === self::FROMPROFILEPUBLIC_NEEDED) || ($from === self::FROMMYPROFILE)) {
-            $query->andFilterWhere(['id_user' => $this->id_user]);
-            if ($from === self::FROMPROFILEPUBLIC_DONATION) {
-                $query->andFilterWhere(['id_type' => 2]);
-            } elseif ($from === self::FROMPROFILEPUBLIC_NEEDED) {
-                $query->andFilterWhere(['id_type' => 1]);
-            }
         } else {
-
-            // grid filtering conditions
             $query->andFilterWhere([
                 'id' => $this->id,
                 'id_category' => $this->id_category,
                 'id_type' => $this->id_type,
-                //'id_user' => $this->id_user,
                 'condition_new' => $this->condition_new,
+                'id_user' => $this->id_user
             ]);
 
 
@@ -140,7 +131,32 @@ class DonationsSearch extends Donations
                 ->andFilterWhere(['like', 'description', $this->description])
                 ->andFilterWhere(['like', 'why_need', $this->why_need])
                 ->andFilterWhere(['like', 'keywords', $this->keywords]);
+
         }
+
+        return $dataProvider;
+    }
+
+    public function getDonationsByType($params, $type){
+        $query = Donations::find();
+
+        $query->joinWith('profile_account');
+        $query->joinWith('user');
+
+        $dataProvider = new ActiveDataProvider([
+                'query' => $query,
+        ]); 
+        
+        $this->load($params);
+
+        if(!$this->validate()){
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'checked' => 1,
+            'id_type' => $type
+        ]);
 
         return $dataProvider;
     }
