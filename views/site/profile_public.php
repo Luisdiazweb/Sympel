@@ -74,7 +74,7 @@ use yii\widgets\ListView;
                      <?php if (!empty($areas)):?>
                             <?php foreach ($areas as $area): ?>
                                 <div class="tag tag-default">
-                                    <a href="#"><?= $area ?></a>
+                                    <a href="<?= Url::to('@web/search?tag='.$area) ?>"><?= $area ?></a>
                                 </div>
                             <?php endforeach; ?>
                         <?php endif; ?>
@@ -177,7 +177,7 @@ use yii\widgets\ListView;
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
                                         <p class=\"card-text\">".$model->city."</p>
-                                        <a href=\"#\" class=\"card-link\">".$model->idCategory->name."</a>
+                                        <a href='/search?cat=".$model->idCategory->id."' class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
                                             <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
@@ -195,8 +195,9 @@ use yii\widgets\ListView;
                 </div>
 
             </div>
-      <div class="text-xs-center mt-3"><button type="button" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Needs</button></div>
-        </div>  
+      <div class="text-xs-center mt-3">
+        <a href="<?= Url::to('@web/search?type=1&user='.$profile->user_id) ?>" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Needs</a>
+      </div>  
     </div>
   </div>
 <?php endif; ?>
@@ -229,7 +230,7 @@ use yii\widgets\ListView;
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
                                         <p class=\"card-text\">".$model->city."</p>
-                                        <a href=\"#\" class=\"card-link\">".$model->idCategory->name."</a>
+                                        <a href='/search?cat=".$model->idCategory->id."' class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                            <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
                                             <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
@@ -247,7 +248,7 @@ use yii\widgets\ListView;
                 </div>
 
       </div>
-      <div class="text-xs-center mt-3"><button type="button" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Donations</button></div>
+      <div class="text-xs-center mt-3"><a href="<?= Url::to('@web/search?type=2&user='.$profile->user_id) ?>" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Donations</a></div>
     </div>  
   </div>
   </div>

@@ -74,20 +74,22 @@ NavBar::end();*/
         <div class="navbar-header">
           <ul class="nav navbar-nav">
             <li class="nav-item mobile-menu hidden-md-up float-xs-left">
-              <a href="/" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu font-large-1"></i></a></li>
+              <a href="/" class="nav-link nav-menu-main menu-toggle hidden-xs"><!--<i class="ft-menu font-large-1"></i>--></a></li>
             <li class="nav-item">
               <a href="<?= Url::to('@web/') ?>" class="navbar-brand">
               <img alt="Sympel logo" src="<?= Url::to('@web/app-assets/images/logo/sympel-logo.png')?>" class="brand-logo">
-            <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="fa fa-ellipsis-v"></i></a></li>
+            <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="ft-menu font-large-1"></i></a></li>
           </ul>
         </div>
-        <div class="navbar-container content container-fluid">
-          <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
-              <ul class="nav navbar-nav">
-                <li class="nav-item icon hidden-sm-down"><a href="/createdonation" class="nav-link"><i class="fa fa-pencil square-icon menu light link-primary"></i>Create a Donation</a></li>
+        <div class="navbar-container content">
+          <div id="navbar-mobile" class="navbar-collapse collapse navbar-toggleable-sm">
+              <ul class="nav navbar-nav hidden-sm-down">
+                <?php if($profile) : ?>
+                <li class="nav-item icon"><a href="/createdonation" class="nav-link"><i class="fa fa-pencil square-icon menu light link-primary"></i><span class="menu-icon-description hidden-sm-down">Create a Donation</span></a></li>
+                <?php endif; ?>
                 <?php if($profile) : ?>
                   <?php if ($profile->profile_type_id == 1) : ?>
-                <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i>Request a Donation</a></li>
+                <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i><span class="menu-icon-description hidden-sm-down">Request a Donation</span></a></li>
                  <?php endif; ?>
                 <?php endif; ?>
                 <li class="nav-item icon hidden-sm-down link-hiw"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
@@ -97,12 +99,12 @@ NavBar::end();*/
                 </div>
                 </li>
               </ul>
-              <ul class="nav navbar-nav float-xs-right actions login-nav">
+              <ul class="nav navbar-nav float-xs-right actions login-nav hidden-sm-down">
                 <?php if (Yii::$app->user->isGuest): ?>
                 <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
                 <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
                  <?php else: ?>
-                        <li class="dropdown dropdown-user">
+                        <li class="dropdown dropdown-user nav-item">
                           <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link" aria-expanded="false">
                             <span class="">
                               <div class="frame-square">
@@ -113,7 +115,7 @@ NavBar::end();*/
                               <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>" alt="avatar">   </div>
                                </div><i></i>
                             </span>
-                            <span class=""><?= Yii::$app->user->identity->username ?></span>
+                            <span class="user-name"><?= Yii::$app->user->identity->username ?></span>
                           </a>
                           <div class="dropdown-menu dropdown-menu-right">
                              <?php if (Yii::$app->user->identity->admin): ?>
@@ -124,27 +126,44 @@ NavBar::end();*/
                             <div class="dropdown-divider"></div><a href="/logout" class="dropdown-item"><i class="ft-power"></i> Logout</a>
                           </div>
                         </li>
-                        <!--<li class="nav-item">
-                            <a class="nav-link nav-actions" href="/publicprofile/<?=Yii::$app->user->identity->username?>">
-                                <?php
-                                $img = $profile->profile_picture_url;
-                                ?>
-                                <div class="frame-square">
-                                   <div class="crop">
-                                     <img src="<?= empty($img) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $img) ?>"
-                                     class="">
-                                   </div>
-                                </div>
-                                
-                                <?= Yii::$app->user->identity->username ?>
-                            </a>
-                        </li>-->
                     <?php endif; ?>
             </ul>
+
+              <ul class="nav navbar-nav hidden-md-up ">
+                 <?php if($profile) : ?>
+                <li class="nav-item"><a href="/createdonation" class="nav-link"><span class="">Create a Donation</span></a></li>
+                <?php endif; ?>
+                <?php if($profile) : ?>
+                  <?php if ($profile->profile_type_id == 1) : ?>
+                <li class="nav-item"><a href="/requestdonation" class="nav-link"><span class="">Request a Donation</span></a></li>
+                 <?php endif; ?>
+                <?php endif; ?>
+                <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+                <li class="nav-item"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
+                <?php if (Yii::$app->user->isGuest): ?>
+                <li class="nav-item"><a class="nav-link nav-actions" href="/signup1">Signup</a></li>
+                <li class="nav-item"><a class="nav-link nav-actions" href="/login">Login</a></li>
+                 <?php else: ?>
+                  <li class="dropdown dropdown-user nav-item">
+                          <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link" aria-expanded="false">
+                            <?= Yii::$app->user->identity->username ?>
+                          </a>
+                             <div class="dropdown-menu dropdown-menu-right sub-menu">
+                             <?php if (Yii::$app->user->identity->admin): ?>
+                             <a href="/dashboard/" class="dropdown-item"><i class="ft-monitor"></i> Dashboard</a>
+                            <?php endif; ?>
+                            <a href="/myprofile" class="dropdown-item"><i class="ft-edit"></i> Edit Profile</a>
+                            <a href="/publicprofile/<?=Yii::$app->user->identity->username?>" class="dropdown-item"><i class="ft-user"></i> View Profile</a>
+                            <div class="dropdown-divider"></div><a href="/logout" class="dropdown-item"><i class="ft-power"></i> Logout</a>
+                          </div>
+                   </li>
+                    <?php endif; ?>
+              </ul>
           </div>
         </div>
       </div>
     </nav>
+
 <?php //=Breadcrumbs::widget([
 //            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
 //        ]) ?>

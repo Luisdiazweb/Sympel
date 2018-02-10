@@ -161,7 +161,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                                         <h4 class=\"card-title section-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
                                         <p class=\"card-text\">".$model->city."</p>
-                                        <a href=\"#\" class=\"card-link\">".$model->idCategory->name."</a>
+                                        <a href='/search?cat=".$model->idCategory->id."' class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
                                             <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
@@ -180,7 +180,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                 </div>
 
             </div>
-      <div class="text-xs-center mt-3"><a href="<?= Url::to('@web/search?DonationsSearch%5Btitle%5D=&DonationsSearch%5Bcity%5D=&DonationsSearch%5Bid_type%5D=1&DonationsSearch%5Bid_type%5D=1') ?>" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Needs</a></div>
+      <div class="text-xs-center mt-3"><a href="<?= Url::to('@web/search?type=1') ?>" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Needs</a></div>
         </div>  
     </div>
   </div>
@@ -217,7 +217,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                                         
                                         <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
                                         <p class=\"card-text\">".$model->city."</p>
-                                        <a href=\"#\" class=\"card-link\">".$model->idCategory->name."</a>
+                                        <a href='/search?cat=".$model->idCategory->id."' class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
                                             <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
@@ -235,7 +235,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                 </div>
 
       </div>
-      <div class="text-xs-center mt-3"><a href="<?= Url::to('@web/search?DonationsSearch%5Btitle%5D=&DonationsSearch%5Bcity%5D=&DonationsSearch%5Bid_type%5D=2') ?>" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Donations</a></div>
+      <div class="text-xs-center mt-3"><a href="<?= Url::to('@web/search?type=2') ?>" class="btn mr-1 mb-1 btn-secondary btn-lg">View All Donations</a></div>
     </div>  
   </div>
   </div>

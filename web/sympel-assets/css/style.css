@@ -293,7 +293,7 @@ ul.actions li a.nav-actions:after {
     margin-left: 10px;
     font-weight: 300;
 }
-ul.actions li.nav-item:last-child a:after{
+ul.actions li.nav-item:last-child a.nav-actions:after{
   content: "";
 }
 
@@ -306,6 +306,12 @@ ul.actions li.nav-item:last-child a:after{
     height: 5rem;
     margin-left: 240px!important;
 }
+@media (max-width: 767px) {
+  .header-navbar .navbar-container {
+    margin-left: 0px!important;
+  }
+}
+
 
 .link-hiw{
   padding: 8px 5% 0 5%;
@@ -322,7 +328,7 @@ ul.actions li.nav-item:last-child a:after{
     height: 30px;
     text-align: center;
     padding-top: 8px;
-    margin-right: 15px;
+    margin-right: 15px!important;
 }
 
 .icon i.square-icon.menu:after{
@@ -380,6 +386,41 @@ ul.actions li.nav-item:last-child a:after{
     left: -25px;*/
     height: 5px;
 }
+
+.sub-menu{
+    padding-left: 30px;
+}
+
+@media(max-width: 820px){
+   .menu-icon-description{
+      display: none;
+   }
+}
+
+@media (max-width: 767px){
+  #navbar-mobile.navbar-toggleable-sm .navbar-nav .nav-item {
+      float: none;
+  }
+
+  .header-navbar .navbar-container .open .dropdown-menu {
+    left: 0!important;
+  }
+
+  .header-navbar .navbar-container ul.nav li > a.nav-link{
+      padding: 1rem 0.6rem!important;
+  }
+
+  .square-icon.menu {
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding-top: 8px;
+    margin-right: 15px!important;
+  }
+}
+
+
 
 /*================================================================================================
    HOME RECENT CONTAINERS STYLES
@@ -465,7 +506,12 @@ header.masthead {
   background-size: cover; 
   padding-bottom: 5%;
   z-index: -1;}
-  
+
+@media(max-width: 767px){
+  header.masthead{
+    padding-top: 85px;
+  }
+}
   header.masthead.inner{
   	padding-top: 18%;
     color: white;
@@ -511,6 +557,7 @@ header.masthead {
     background-color: #000;
     border-color: #000;
 }
+
 
 /*================================================================================================
    HEADER STYLES

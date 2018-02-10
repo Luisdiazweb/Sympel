@@ -118,7 +118,7 @@ use yii\widgets\DetailView;
              <?php if (!empty($areas)):?>
                             <?php foreach ($areas as $area): ?>
                                 <div class="tag tag-default">
-                                    <a href="#"><?= $area ?></a>
+                                    <a href="<?= Url::to('@web/search?tag='.$area) ?>"><?= $area ?></a>
                                 </div>
                             <?php endforeach; ?>
                         <?php endif; ?></p>
