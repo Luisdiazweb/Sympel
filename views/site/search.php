@@ -39,7 +39,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
         ]); ?>
         <div class="row equal">
 
-            <div class="col-xs-5">
+            <div class="col-md-5 col-xs-12">
                 <fieldset class="form-group position-relative has-icon-left">
                     <?= $form->field($model, 'title', [
                         'template' => '{input}'
@@ -52,10 +52,10 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                     </div>
                 </fieldset>
             </div>
-            <div class="col-xs-1">
+            <div class="col-md-1 col-xs-12 hidden-sm-down">
                 <p class="form-text">near</p>
             </div>
-            <div class="col-xs-4">
+            <div class="col-md-4 col-xs-12">
                 <fieldset class="form-group position-relative has-icon-left">
                     <?= $form->field($model, 'city', [
                         'template' => '{input}'
@@ -68,12 +68,17 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                     </div>
                 </fieldset>
             </div>
-            <div class="col-xs-2">
+            <div class="col-md-2 col-xs-12">
                 <?= Html::submitButton('Search', ['class' => 'btn btn-primary btn-block square mr-1 mb-1']) ?>
             </div>
         </div>
         <div class="skin skin-flat mt-2">
-            <div class="d-inline mr-3">
+            <div class="d-inline hidden-sm-down mr-3">
+                <input type="checkbox" class="checkbox_submit" name="DonationsSearch[id_type]" id="DonationsSearch[id_type][1]"
+                       value="1" <?= $model->id_type == 1 ? "checked" : "" ?>>
+                <label class="search-radio-label"  for="DonationsSearch[id_type][1]">Show Needed items only</label>
+            </div>
+            <div class="hidden-md-up mr-3">
                 <input type="checkbox" class="checkbox_submit" name="DonationsSearch[id_type]" id="DonationsSearch[id_type][1]"
                        value="1" <?= $model->id_type == 1 ? "checked" : "" ?>>
                 <label class="search-radio-label"  for="DonationsSearch[id_type][1]">Show Needed items only</label>
@@ -167,7 +172,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         <a href=\"#\" class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
+                                            <a href=\"mailto:".$model->user->email."\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
                                         </div>
                                         
                                     </div>

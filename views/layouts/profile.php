@@ -151,8 +151,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                  <?php endif; ?>
                 <?php endif; ?>
                 <li class="nav-item icon hidden-sm-down link-hiw"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
-                <li class="nav-item nav-search"><a href="#" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
-                <div class="search-input">
+                <li class="nav-item nav-search"><a href="<?= Url::to('@web/search') ?>" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
+                <div class="search-input open">
                   <input type="text" placeholder="Search..." class="input">
                 </div>
                 </li>
@@ -398,7 +398,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
 
 <?php $this->endBody() ?>
 <script>
-  $('.nav-link-search').click(function(e){e.preventDefault()})
+ // $('.nav-link-search').click(function(e){e.preventDefault()})
 </script>
 </body>
 </html>

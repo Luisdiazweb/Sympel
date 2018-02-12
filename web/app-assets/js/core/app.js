@@ -187,7 +187,7 @@
             }
         }
 
-        $('.nav-link-search').on('click',function(){
+       /* $('.nav-link-search').on('click',function(){
             var $this = $(this),
             searchInput = $(this).siblings('.search-input');
 
@@ -197,7 +197,7 @@
             else{
                 searchInput.addClass('open');
             }
-        });
+        });*/
     });
 
 

@@ -71,13 +71,13 @@ use yii\widgets\ListView;
                 <?php endif?>
 
                 <p>
-                     <?php if (!empty($areas)):?>
-                            <?php foreach ($areas as $area): ?>
-                                <div class="tag tag-default">
-                                    <a href="<?= Url::to('@web/search?tag='.$area) ?>"><?= $area ?></a>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                    <?php if (!empty($areas)):?>
+                        <?php foreach ($areas as $area): ?>
+                            <div class="tag tag-default">
+                                <a href="<?= Url::to('@web/search?tag='.$area) ?>"><?= $area ?></a>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </p>
 
                 <!--<a href="#" class="btn-primary btn float-xs-right"><i class="fa fa-send-o" style="margin-right: 5px;"></i> Send Message</a> 
@@ -120,7 +120,7 @@ use yii\widgets\ListView;
                 </div>
             </div> 
             <div class="col-xl-4 col-md-4 col-sm-4 col-xs-12 profile-cta"> 
-               <a href="#" class=""><i class="fa fa-send-o mr-1"></i>Send Message</a>
+               <a href="mailto:<?= $profile->user->email ?>" class=""><i class="fa fa-send-o mr-1"></i>Send Message</a>
             </div>    
         </div>
     </div>
@@ -180,7 +180,7 @@ use yii\widgets\ListView;
                                         <a href='/search?cat=".$model->idCategory->id."' class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
+                                            <a href=\"mailto:".$model->user->email."\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
                                         </div>
                                         
                                     </div>
@@ -233,7 +233,7 @@ use yii\widgets\ListView;
                                         <a href='/search?cat=".$model->idCategory->id."' class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                            <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
+                                            <a href=\"mailto:".$model->user->email."\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
                                         </div>
                                         
                                     </div>

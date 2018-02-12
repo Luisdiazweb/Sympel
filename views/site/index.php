@@ -164,7 +164,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                                         <a href='/search?cat=".$model->idCategory->id."' class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
+                                            <a href=\"mailto:".$model->user->email."\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
                                         </div>
                                         
                                     </div>
@@ -220,7 +220,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                                         <a href='/search?cat=".$model->idCategory->id."' class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
-                                            <a href=\"#\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
+                                            <a href=\"mailto:".$model->user->email."\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
                                         </div>
                                         
                                     </div>

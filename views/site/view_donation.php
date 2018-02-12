@@ -128,7 +128,7 @@ use yii\widgets\DetailView;
         </div>
 
         <div class="col-md-4 col-sm-12 col-xs-12 cta-donation"> 
-               <a href="#" class="profile-cta"><i class="fa fa-send-o mr-1"></i>Send Message</a>
+               <a href="mailto:<?= $profile->user->email ?>" class="profile-cta"><i class="fa fa-send-o mr-1"></i>Send Message</a>
         </div>
       </div>
     </div>
