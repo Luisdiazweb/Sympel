@@ -153,7 +153,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                 <li class="nav-item icon hidden-sm-down link-hiw"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
                 <li class="nav-item nav-search"><a href="<?= Url::to('@web/search') ?>" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
                 <div class="search-input open">
-                  <input type="text" placeholder="Search..." class="input">
+                  <input type="text" placeholder="Search..." class="input" id="search-query">
                 </div>
                 </li>
               </ul>
@@ -399,6 +399,12 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
 <?php $this->endBody() ?>
 <script>
  // $('.nav-link-search').click(function(e){e.preventDefault()})
+    $('#search-query').keypress(function( event ) {
+    if ( event.which == 13 ) {
+      var query = $(this).val();
+      window.location.href = "/search?DonationsSearch%5Btitle%5D="+query;
+    }
+  });
 </script>
 </body>
 </html>
