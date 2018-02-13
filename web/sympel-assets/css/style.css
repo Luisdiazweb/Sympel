@@ -54,6 +54,10 @@ h3.section-title{
   margin-right: 10px;
 }
 
+.icon-big{
+   font-size: 100px;
+}
+
 .color-primary{
   color: #1cbdcb!important;
 }

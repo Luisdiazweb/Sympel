@@ -344,18 +344,20 @@ class SiteController extends CustomController
 
     }
 
-    public function actionVerifiedAccount($id, $auth)
+    /*  public function actionVerifiedAccount($id, $auth)
     {
         $auth = Html::decode($auth);
         $id = Html::decode($id);
 
         $user = UsersSystem::findOne([
             'username' => $id,
-            'authKey' => $auth
+            'authKey' => $auth,
         ]);
+       $profile = ProfileAccount::findOne(['user_id' => $user->id]);
 
         if ($user) {
             $user->verified_account = 1;
+            
             if ($user->update(false)) {
                 echo "Congratulations registration successfully, redirecting ...";
                 echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("/") . "'>";
@@ -371,7 +373,47 @@ class SiteController extends CustomController
             echo "User not identified, redirecting ...";
             echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("/") . "'>";
         }
+    }*/
+
+    public function actionVerifiedAccount($id, $auth)
+    {
+        $auth = Html::decode($auth);
+        $id = Html::decode($id);
+
+        $user = UsersSystem::findOne([
+            'username' => $id,
+            'authKey' => $auth,
+        ]);
+
+        $profile = ProfileAccount::findOne(['user_id' => $user->id]);
+        $status;
+        $message = "";
+
+        if ($user) {
+            $user->verified_account = 1;
+            
+            if ($user->update(false)) {
+                $status = true;
+                $message = "Congratulations registration successfully, redirecting ...";
+
+            } else {
+                $status = false;
+               $message = "An error occurred while performing the registration, redirecting ...";
+            }
+        } else {
+            $status = false;
+            $message = "User not identified, redirecting ...";
+        }
+
+         return $this->render('signup_verification', [
+                    'user' => $user,
+                    'profile' => $profile,
+                    'status' => $status,
+                    'message'=> $message,
+                ]);
     }
+
+           
 
     public function actionMyprofile()
     {
