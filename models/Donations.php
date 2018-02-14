@@ -15,6 +15,7 @@ use yii\web\UploadedFile;
  * @property integer $id_user
  * @property string $title
  * @property string $city
+ * @property string $state
  * @property string $zip_code
  * @property string $description
  * @property string $why_need
@@ -51,14 +52,14 @@ class Donations extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['condition_new', 'title', 'city', 'zip_code'], 'required'],
+            [['condition_new', 'title', 'city', 'state','zip_code'], 'required'],
             [['id_category', 'id_type', 'id_user', 'condition_new', 'checked'], 'integer'],
             [['description', 'why_need', 'images_url', 'keywords'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
             [['description', 'why_need', 'images_url', 'keywords'], 'string'],
             [['id_public'], 'string', 'max' => 8],
             [['imageFiles'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'maxFiles' => 8],
-            [['title', 'city', 'zip_code'], 'string', 'max' => 256],
+            [['title', 'city', 'state', 'zip_code'], 'string', 'max' => 256],
             [['id_category'], 'exist', 'skipOnError' => true, 'targetClass' => DonationsCategory::className(), 'targetAttribute' => ['id_category' => 'id']],
             [['id_type'], 'exist', 'skipOnError' => true, 'targetClass' => DonationType::className(), 'targetAttribute' => ['id_type' => 'id']],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => UsersSystem::className(), 'targetAttribute' => ['id_user' => 'id']],
@@ -78,6 +79,7 @@ class Donations extends \yii\db\ActiveRecord
             'id_user' => 'User',
             'title' => 'Title',
             'city' => 'City',
+            'state' => 'State',
             'zip_code' => 'Zip Code',
             'description' => 'Description',
             'why_need' => 'Why Need',

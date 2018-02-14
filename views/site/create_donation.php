@@ -117,7 +117,7 @@ $this->registerJs("$(function() {
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <?= $form->field($model, 'title')
                                                     ->textInput(['maxlength' => 30])
@@ -125,12 +125,17 @@ $this->registerJs("$(function() {
 
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <?= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <?= $form->field($model, 'state')->textInput(['maxlength' => true]) ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <?= $form->field($model, 'zip_code')->textInput(['maxlength' => true]) ?>
                                             </div>

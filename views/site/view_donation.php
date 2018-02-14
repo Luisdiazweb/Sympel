@@ -55,7 +55,7 @@ use yii\widgets\DetailView;
             
                 <h5 class="profile-type">
                     Condition: <span class="post-condition"><?= boolval($model->condition_new) ? 'new' : 'used'; ?></span>
-                    <span class="profile-links-landmark mb-3"><i class="fa fa-map-marker map"></i><?= $model->city ?></span>
+                    <span class="profile-links-landmark mb-3"><i class="fa fa-map-marker map"></i><?= $model->city ?>, <?= $model->state ?></span>
                 </h5>
                 <h3 class="donation-description-title my-2"><i class="fa fa-th-list"></i>Description</h3>
                 <p><?= $model->description ?></p>

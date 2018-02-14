@@ -176,7 +176,7 @@ use yii\widgets\ListView;
                                     <div class=\"card-block product-card-body\">
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
-                                        <p class=\"card-text\">".$model->city."</p>
+                                        <p class=\"card-text\">".$model->city.", ".$model->state."</p>
                                         <a href='/search?cat=".$model->idCategory->id."' class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
@@ -229,7 +229,7 @@ use yii\widgets\ListView;
                                     <div class=\"card-block product-card-body\">
                                         <h4 class=\"card-title\"><a href=\"$details_url\">$model->title</a></h4>
                                         <p class=\"card-text\"><a href='/publicprofile/".$model->user->username."'>$nameOrganization</a></p>
-                                        <p class=\"card-text\">".$model->city."</p>
+                                        <p class=\"card-text\">".$model->city.", ".$model->state."</p>
                                         <a href='/search?cat=".$model->idCategory->id."' class=\"card-link\">".$model->idCategory->name."</a>
                                         <div class=\"card-icon-container\">
                                            <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
