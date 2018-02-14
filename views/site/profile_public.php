@@ -140,7 +140,7 @@ use yii\widgets\ListView;
                 </div>
             </div>
             <div class="col-xl-4 col-md-4 col-sm-4 col-xs-12 profile-cta"> 
-               <a href="#" class=""><i class="fa fa-send-o mr-1"></i>Send Message</a>
+               <a href="mailto:<?= $profile->user->email ?>" class=""><i class="fa fa-send-o mr-1"></i>Send Message</a>
             </div>    
         </div>
     </div>
