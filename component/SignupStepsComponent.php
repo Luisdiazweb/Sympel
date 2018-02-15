@@ -137,8 +137,8 @@ class SignupStepsComponent
         
     <div style="Margin-left: 20px;Margin-right: 20px;">
       <div style="mso-line-height-rule: exactly;mso-text-raise: 4px;">
-        <p style="Margin-top: 0;Margin-bottom: 0;font-family: montserrat,dejavu sans,verdana,sans-serif; font-size: 18px;letter-spacing: 2px;line-height: 24px;"><span class="font-montserrat"><span style="color:#000000">Thank you for registering with sympel.com. <br /> In order to authenticate your registration please verify your email by clicking the link below.</span></span></p>
-        <p class="font-montserrat" style="margin-top: 50px;margin-bottom: 50;font-family: montserrat,dejavu sans,verdana,sans-serif; font-size: 24px;color: #eb5454;letter-spacing: 2px;line-height: 24px;"><a href="'. $url_verified .'">Confirm Email</a></p>
+        <p style="Margin-top: 0;Margin-bottom: 0;font-size: 18px;letter-spacing: 2px;line-height: 24px;padding:25px;"><span class="font-montserrat"><span style="color:#000000">Thank you for registering with sympel.com. <br /> In order to authenticate your registration please verify your email by clicking the link below.</span></span></p>
+        <p style="margin-top: 50px;margin-bottom: 50; font-size: 24px;color: #eb5454;letter-spacing: 2px;line-height: 24px;padding:25px;"><a href="'. $url_verified .'">Confirm Email</a></p>
       </div>
     </div>
         
