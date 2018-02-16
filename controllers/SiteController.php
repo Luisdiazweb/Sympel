@@ -325,8 +325,9 @@ class SiteController extends CustomController
             if ($id === 'resend') {
                 SignupStepsComponent::sendVerifiedAccountEmail(UsersSystem::findOne(Yii::$app->user->identity->getId()));
             }
-            $this->layout = "login";
-            return $this->render('alert', [
+              return $this->render('notverified');
+            
+           /* return $this->render('alert', [
                 'alerts' => [
                     [
                         'type' => Alert::TYPE_DANGER,
@@ -339,7 +340,7 @@ class SiteController extends CustomController
                         'body' => (($id === 'resend') ? ('Forwarded - ') : ('')) . Html::a('Resend Verification link', '/notverified/resend')
                     ]
                 ]
-            ]);
+            ]);*/
         } else {
             return $this->goHome();
         }
