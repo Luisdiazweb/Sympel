@@ -435,14 +435,6 @@ class SiteController extends CustomController
             throw new NotFoundHttpException("The user has no profile.");
         }
 
-//         $profile_type = $profile->profile_type_id;
-//         if ($profile_type == 1) {
-//             $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_1;
-//         } elseif ($profile_type == 2) {
-//             $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_2;
-//         } elseif ($profile_type == 3) {
-//             $profile->scenario = ProfileAccount::SCENARIO_SIGNUP_STEP3_3;
-//         }
         if ($user->load(Yii::$app->request->post())) {
             if (Yii::$app->request->isAjax) {
                 Yii::$app->response->format = Response::FORMAT_JSON;
@@ -454,18 +446,12 @@ class SiteController extends CustomController
                     Yii::$app->response->format = Response::FORMAT_JSON;
                     return ActiveForm::validate($profile);
                 }
-//                $profile->profile_picture_upload = UploadedFile::getInstance($profile, 'profile_picture_upload');
                 $isValid = $user->validate();
                 $isValid = $profile->validate() && $isValid;
                 if ($isValid) {
-
                     $user->save(false);
                     $profile->save(false);
-//                    return $this->redirect(Url::to('@web/myprofile'));
-                } else {
-//                    var_dump($user->errors);
-//                    var_dump($profile->errors);
-//                    exit();
+
                 }
             }
         }
@@ -473,8 +459,6 @@ class SiteController extends CustomController
 
         $query_areas = new Query();
         $areas_support = $query_areas->from('areas_support')->all();
-
-//        var_dump(json_decode($profile->areas_support));
 
 
         $searchModel = new DonationsSearch();
@@ -495,7 +479,7 @@ class SiteController extends CustomController
     {
         Yii::$app->mailer->compose()
             ->setFrom(Yii::$app->params['adminEmail'])
-            ->setTo('valbert1993@gmail.com')
+            ->setTo('davidrosales270@gmail.com')
             ->setSubject('Message subject')
             ->setTextBody('Plain text content')
             ->setHtmlBody('<b>HTML content</b>')
@@ -511,14 +495,11 @@ class SiteController extends CustomController
 
     public function actionSignup1()
     {
-//        Yii::$app->session->destroy();
         $component = new SignupForms();
         $post = Yii::$app->request->post();
         $steps = new SignupStepsComponent();
         $steps::setCurrentStep(SignupStepsComponent::STEP1);
-//        $cursors = $steps->cursorArraySteps();
-//        var_dump($steps::getSteps());
-//        exit();
+
         $return = $component->signup_step1($post, Yii::$app->request->isAjax);
         if ((is_array($return)) && Yii::$app->request->isAjax) {
             return $return;
@@ -740,9 +721,6 @@ class SiteController extends CustomController
         }
 
     }
-
-    
-
     public function actionRequestdonation($id = false)
     {
         $this->restrict_only_nonprofit();
@@ -861,6 +839,9 @@ class SiteController extends CustomController
         }
         if(isset($_REQUEST['user'])){
             $searchModel->id_user = $_REQUEST['user'];
+        }
+        if(isset($_REQUEST['city'])){
+            $searchModel->city = $_REQUEST['city'];
         }
 
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, FALSE);
