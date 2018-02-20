@@ -36,12 +36,13 @@ class SiteController extends CustomController
         $searchModel = new DonationsSearch();
         $donate = $searchModel->getDonationsByType(Yii::$app->request->queryParams,2);
         $needs = $searchModel->getDonationsByType(Yii::$app->request->queryParams, 1);
-
+        $verified = $this->checkverified();
         
         return $this->render('index', [
             'modelSearchDonation' => $searchModel,
             'donate' => $donate,
-            'needs' => $needs
+            'needs' => $needs,
+            'verified' => $verified,
         ]);
     }
 
@@ -57,6 +58,7 @@ class SiteController extends CustomController
 //        exit();
         $this->layout = "login";
         $model = new LoginForm();
+        
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             Yii::$app->session->set('profile_id', ProfileAccount::findOne([
                 'user_id' => Yii::$app->user->identity->id
@@ -323,8 +325,9 @@ class SiteController extends CustomController
             if ($id === 'resend') {
                 SignupStepsComponent::sendVerifiedAccountEmail(UsersSystem::findOne(Yii::$app->user->identity->getId()));
             }
-            $this->layout = "login";
-            return $this->render('alert', [
+              return $this->render('notverified');
+            
+           /* return $this->render('alert', [
                 'alerts' => [
                     [
                         'type' => Alert::TYPE_DANGER,
@@ -337,7 +340,7 @@ class SiteController extends CustomController
                         'body' => (($id === 'resend') ? ('Forwarded - ') : ('')) . Html::a('Resend Verification link', '/notverified/resend')
                     ]
                 ]
-            ]);
+            ]);*/
         } else {
             return $this->goHome();
         }
@@ -491,6 +494,16 @@ class SiteController extends CustomController
         if (!boolval(Yii::$app->user->identity->verified_account)) {
             return $this->redirect(Url::to('/notverified'));
         }
+    }
+
+    private function checkverified()
+    {   
+        if(!Yii::$app->user->isGuest){
+            if (!boolval(Yii::$app->user->identity->verified_account)) {
+                return false;
+            }
+        }
+       
     }
 
     public function actionSignup1()

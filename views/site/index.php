@@ -25,6 +25,18 @@ $this->registerCssFile("@web/app-assets/css/core/menu/menu-types/vertical-overla
         'depends' => [AppAsset::className()],
         'position' => \yii\web\View::POS_HEAD
     ]);
+
+$this->registerCssFile("@web/app-assets/vendors/css/extensions/toastr.css",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+    ]);
+$this->registerCssFile("@web/app-assets/css/plugins/extensions/toastr.css",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+    ]);
+
 $this->registerCssFile("@web/app-assets/css/plugins/forms/checkboxes-radios.css",
     [
         'depends' => [AppAsset::className()],
@@ -35,7 +47,16 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         'depends' => [AppAsset::className()],
         'position' => \yii\web\View::POS_END
     ]);
-
+$this->registerJsFile("@web/app-assets/vendors/js/extensions/toastr.min.js",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
+$this->registerJsFile("@web/app-assets/js/scripts/extensions/toastr.js",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
 
 ?>
 
@@ -262,3 +283,12 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     </section>
 
 <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a7a38da8b94a80013b6afda&product=sticky-share-buttons"></script>
+
+<?php 
+  if($verified == false){?>
+    <script>
+      toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
+    </script>
+    
+ <?php }
+?>

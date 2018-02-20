@@ -118,7 +118,7 @@ class SignupStepsComponent
         <div class="header" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);" id="emb-email-header-container">
         <!--[if (mso)|(IE)]><table align="center" class="header" cellpadding="0" cellspacing="0" role="presentation"><tr><td style="width: 600px"><![endif]-->
           <div class="logo emb-logo-margin-box" style="line-height: 32px;Margin-top: 6px;Margin-bottom: 20px;" align="center">
-            <div class="logo-center" align="center" id="emb-email-header"><img style="display: block;height: auto;width: 100%;border: 0;max-width: 560px;" src="http://104.131.97.208/sympel-assets/img/sympel-banner1.jpg" alt="" width="560" /></div>
+            <div class="logo-center" align="center" id="emb-email-header"><img style="display: block;height: auto;width: 100%;border: 0;max-width: 560px;" src="http://104.131.97.208/sympel-assets/img/sympel-banner.jpg" alt="" width="560" /></div>
           </div>
         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
         </div>
@@ -137,8 +137,8 @@ class SignupStepsComponent
         
     <div style="Margin-left: 20px;Margin-right: 20px;">
       <div style="mso-line-height-rule: exactly;mso-text-raise: 4px;">
-        <p style="Margin-top: 0;Margin-bottom: 0;font-family: montserrat,dejavu sans,verdana,sans-serif; font-size: 18px;letter-spacing: 2px;line-height: 24px;"><span class="font-montserrat"><span style="color:#000000">Thank you for registering with sympel.com. <br /> In order to authenticate your registration please verify your email by clicking the link below.</span></span></p>
-        <p class="font-montserrat" style="margin-top: 50px;margin-bottom: 50;font-family: montserrat,dejavu sans,verdana,sans-serif; font-size: 24px;color: #eb5454;letter-spacing: 2px;line-height: 24px;"><a href="'. $url_verified .'">Confirm Email</a></p>
+        <p style="Margin-top: 0;Margin-bottom: 0;font-size: 18px;letter-spacing: 2px;line-height: 24px;padding:25px;"><span class="font-montserrat"><span style="color:#000000">Thank you for registering with <a href="http://sympel.com" style="color: #1cbdcb;text-decoration: none;font-weight: 600;">sympel.com</a>. <br /> In order to authenticate your registration please verify your email by clicking the link below.</span></span></p>
+        <p style="margin-top: 25px;margin-bottom: 50px; text-align:center;letter-spacing: 2px;line-height: 24px;padding:25px;"><a href="'. $url_verified .'" style="background: #1cbdcb; padding: 14px 25px; color: #fff; text-decoration: none; text-transform: uppercase; font-size: 16px; margin: 0 auto; font-weight: 600; text-align: center;">Confirm Email</a></p>
       </div>
     </div>
         
