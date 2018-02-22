@@ -351,6 +351,46 @@ ul.actions li.nav-item:last-child a.nav-actions:after{
   left: 38px;
 }
 
+.section-title.icon{
+  margin-left: 35px;
+}
+
+.square-icon.heading-category{
+    font-size: 16px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    margin-right: 14px!important;
+    position: absolute;
+    left: 0;
+    padding-top: 9px;
+}
+
+.icon i.square-icon.heading-category:after{
+  content:"";
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid;
+  position: absolute;
+  top: 10px;
+  left: 35px;
+}
+
+.square-icon.list-tag {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    margin-right: 14px!important;
+    position: absolute;
+    /* left: 0; */
+    padding-top: 10px;
+    z-index: 1;
+    right: 3%;
+}
+
 .square-icon.light{
     background: #fff;
     color: #fff;
@@ -364,7 +404,15 @@ ul.actions li.nav-item:last-child a.nav-actions:after{
   border-left-color: #f05256;
 }
 
+.icon i.square-icon.link-primary.heading-category:after{
+  border-left-color: #f05256;
+}
+
 .icon i.square-icon.link-secondary.menu:after{
+  border-left-color: #1cbdcb;
+}
+
+.icon i.square-icon.link-secondary.heading-category:after{
   border-left-color: #1cbdcb;
 }
 
@@ -788,6 +836,20 @@ section.quote .section-heading p {
   }
 }
 
+/*================================================================================================
+   SHARE BAR
+================================================================================================*/
+#st-2 .st-btn[data-network='facebook'] {
+    background-color: #f05155!important;
+}
+
+#st-2 .st-btn[data-network='twitter'] {
+    background-color: #35bcce!important;
+}
+
+#st-2 .st-btn[data-network='sharethis'] {
+    background-color: #263152!important;
+}
 
 /*================================================================================================
    HOW IT WORKS STYLES

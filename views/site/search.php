@@ -161,8 +161,14 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
+                            if($model->id_type == 1){
+                                $icon = "<i class=\"fa fa-heart square-icon list-tag light link-secondary\"></i>";
+                            }else{
+                                $icon = "<i class=\"fa fa-plus square-icon list-tag light link-primary\"></i>";
+                            }
                             $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
+                                $icon
                                 <div class=\"card-body\">
                                     $img_preview
                                     <div class=\"card-block product-card-body\">

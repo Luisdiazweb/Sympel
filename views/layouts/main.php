@@ -85,7 +85,7 @@ NavBar::end();*/
           <div id="navbar-mobile" class="navbar-collapse collapse navbar-toggleable-sm">
               <ul class="nav navbar-nav hidden-sm-down">
                 <?php if($profile) : ?>
-                <li class="nav-item icon"><a href="/createdonation" class="nav-link"><i class="fa fa-pencil square-icon menu light link-primary"></i><span class="menu-icon-description hidden-sm-down">Create a Donation</span></a></li>
+                <li class="nav-item icon"><a href="/createdonation" class="nav-link"><i class="fa fa-plus square-icon menu light link-primary"></i><span class="menu-icon-description hidden-sm-down">Create a Donation</span></a></li>
                 <?php endif; ?>
                 <?php if($profile) : ?>
                   <?php if ($profile->profile_type_id == 1) : ?>

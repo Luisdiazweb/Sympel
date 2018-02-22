@@ -154,7 +154,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/extensions/toastr.js",
 <div class="container-fluid">
     <div class="row recent-container">
         <div class="col-md-10 offset-md-1">
-      <h3 class="section-title"><i class="fa fa-arrow-circle-down color-primary icon-title"></i>Recent Needs</h3>
+      <h3 class="section-title icon"><i class="fa fa-heart square-icon heading-category light link-secondary"></i>Recent Needs</h3>
              <div class="row mt-3">
                 <div class="col-md-12">
                     <?php Pjax::begin(); ?>
@@ -175,6 +175,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/extensions/toastr.js",
 
                             $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
+                             <i class=\"fa fa-heart square-icon list-tag light link-secondary\"></i>
                                 <div class=\"card-body\">
                                     <figure style=\"\">
                                     $img_preview</figure>
@@ -210,7 +211,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/extensions/toastr.js",
      <div class="container-fluid">
     <div class="row recent-container">
     <div class="col-md-10 offset-md-1">
-      <h3 class="section-title"><i class="fa fa-arrow-circle-down color-secondary icon-title"></i>Recent Donations</h3>
+      <h3 class="section-title icon"><i class="fa fa-plus square-icon heading-category light link-primary"></i>Recent Donations</h3>
        <div class="row mt-3">
                 <div class="col-md-12">
                     <?php Pjax::begin(); ?>
@@ -231,6 +232,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/extensions/toastr.js",
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
                             $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
+                              <i class=\"fa fa-plus square-icon list-tag light link-primary\"></i>
                                 <div class=\"card-body\">
                                     $img_preview
                                     <div class=\"card-block product-card-body\">
