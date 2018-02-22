@@ -267,18 +267,20 @@ $this->registerJsFile("@web/app-assets/js/scripts/extensions/toastr.js",
       <div class="container-fluid">
         <div class="row equal center">
           <div class="col-md-6 bg-primary cta-box">
+            <h4 class="box-tag">For Everyone</h4>
             <h3>Start Making a Difference</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. mollit anim id est laborum.
+              Just like you we hate waste and love giving.  Who said money was the only way yo help out a cause or non-profit.  Whether looking for an opportunity to support or finding a new home for that gently used computer, sympel.com is the place to list and offer your items to pre-qualified, tax exempt organizations in your area.  No cost, just giving!
             </p>
-            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">Sign Up</a></p>
+            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">I'm Ready</a></p>
           </div>
           <div class="col-md-6 bg-secondary cta-box">
-            <h3>Learn More</h3>
+            <h4 class="box-tag">For Non-Profits</h4>
+            <h3>Share your needs</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. mollit anim id est laborum.
+              As a non-profit on a mission to do good we know you are always looking for things to help you cause.  That's what the sympel community is about;  helping fulfill your needs where it counts.  Create donation requests and tell the community what you need.  Find items and available donations in your area that will help your cause.  Be a part of the giving community and help other organizations.
             </p>
-            <p class="text-xs-center"><a href="<?= Url::to('@web/howitworks') ?>" class="btn">How it works</a></p>
+            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">Let's Go</a></p>
           </div>
         </div>
       </div>

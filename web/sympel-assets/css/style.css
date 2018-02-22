@@ -1431,7 +1431,7 @@ hr{
    DONATIONS STYLES
 ================================================================================================*/
 .cta-box{
-    padding: 8%;
+    padding: 0 8% 8%;
     font-size: 24px;
     color: #fff;
 }
@@ -1462,6 +1462,13 @@ hr{
 .cta-donation a{
     color: white;
     padding: 20px;
+}
+
+.box-tag{
+  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 30px 0 15%;
 }
 
 .bg-primary.cta-box .btn:hover{
