@@ -176,4 +176,3 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
     </div>
 </div>
 
-
