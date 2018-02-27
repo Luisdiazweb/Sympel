@@ -306,6 +306,18 @@ class SiteController extends CustomController
 
     }
 
+    public function actionContact()
+    {
+        return $this->render('contact');
+
+    }
+
+    public function actionAbout()
+    {
+        return $this->render('about');
+
+    }
+
     public function actionFaq()
     {
         return $this->render('faq');
@@ -498,12 +510,17 @@ class SiteController extends CustomController
 
     private function checkverified()
     {   
-        if(!Yii::$app->user->isGuest){
+        if(!Yii::$app->user->getIsGuest()){
             if (!boolval(Yii::$app->user->identity->verified_account)) {
                 return false;
             }
+            else{
+                return true;
+            }
         }
-       
+        else{
+            return true;
+        }
     }
 
     public function actionSignup1()

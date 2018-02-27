@@ -57,6 +57,14 @@ $this->registerJsFile("@web/app-assets/js/scripts/extensions/toastr.js",
         'depends' => [AppAsset::className()],
         'position' => \yii\web\View::POS_END
     ]);
+if($verified == false){
+$this->registerJsFile("@web/sympel-assets/js/scripts.js",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
+}
+
 
 ?>
 
@@ -288,11 +296,4 @@ $this->registerJsFile("@web/app-assets/js/scripts/extensions/toastr.js",
 
 <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a7a38da8b94a80013b6afda&product=sticky-share-buttons"></script>
 
-<?php 
-  if($verified == false){?>
-    <script>
-      toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
-    </script>
-    
- <?php }
-?>
+

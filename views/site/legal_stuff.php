@@ -60,13 +60,13 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 			<a class="nav-link active" id="baseIcon-tab41" data-toggle="tab" aria-controls="tabIcon41" href="#tabIcon41" aria-expanded="true"><i class="fa fa-check"></i> Privacy Policy</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link" id="baseIcon-tab42" data-toggle="tab" aria-controls="tabIcon42" href="#tabIcon42" aria-expanded="false"><i class="fa fa-check"></i> Site Terms</a>
+			<a class="nav-link" id="baseIcon-tab42" data-toggle="tab" aria-controls="tabIcon42" href="#tabIcon42" aria-expanded="false"><i class="fa fa-check"></i> Terms of Use</a>
 			</li>
 			<li class="nav-item">
 			<a class="nav-link" id="baseIcon-tab43" data-toggle="tab" aria-controls="tabIcon43" href="#tabIcon43" aria-expanded="false"><i class="fa fa-check"></i> Posting Rules</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link" id="baseIcon-tab43" data-toggle="tab" aria-controls="tabIcon44" href="#tabIcon44" aria-expanded="false"><i class="fa fa-check"></i> Posting Guidelines</a>
+			<a class="nav-link" id="baseIcon-tab43" data-toggle="tab" aria-controls="tabIcon44" href="#tabIcon44" aria-expanded="false"><i class="fa fa-check"></i> Community Guidelines</a>
 			</li>
 			<li class="nav-item">
 			<a class="nav-link" id="baseIcon-tab43" data-toggle="tab" aria-controls="tabIcon45" href="#tabIcon45" aria-expanded="false"><i class="fa fa-check"></i> Prohibited Items</a>
@@ -154,7 +154,6 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 					<div class="col-md-12">
 						<h3 class="section-title mt-3 mb-1">2. Modifications To This Agreement </h3>
 						<p>We reserve the right, at our sole discretion, to change, modify or otherwise alter these terms and conditions at any time. Such modifications shall become effective immediately upon the posting thereof. You must review this agreement on a regular basis to keep yourself apprised of any changes.</p> 
-						<p>You can find the most recent version of the TOU at: <a href="#">TOU LINK HERE</a></p>
 					</div>
 					<div class="col-md-12">
 						<h3 class="section-title mt-3 mb-1">3. Content </h3>
@@ -254,12 +253,12 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 
 					<div class="col-md-12">
 						<h3 class="section-title mt-3 mb-1">18. Violation Of Terms</h3>
-						<p>Please report any violations of the TOU, by flagging the posting(s) for review, or by emailing to: <a href="mailto:hello@sympel.org">hello@sympel.org</a>. Our failure to act with respect to a breach by you or others does not waive our right to act with respect to subsequent or similar breaches. You understand and agree that it is up to the sole discretion of sympel to determine your violation and in such could be subject to banning from the use of sympel’s Service.</p>
+						<p>Please report any violations of the TOU, by flagging the posting(s) for review, or by emailing to: <a href="mailto:hello@sympel.com">hello@sympel.com</a>. Our failure to act with respect to a breach by you or others does not waive our right to act with respect to subsequent or similar breaches. You understand and agree that it is up to the sole discretion of sympel to determine your violation and in such could be subject to banning from the use of sympel’s Service.</p>
 					</div>
 
 					<div class="col-md-12 mb-3">
 						<h3 class="section-title mt-3 mb-1">20. Feedback</h3>
-						<p>We welcome your questions and comments on this document by contacting us at <a href="mailto:hello@sympel.org">hello@sympel.org</a>.</p>
+						<p>We welcome your questions and comments on this document by contacting us at <a href="mailto:hello@sympel.com">hello@sympel.com</a>.</p>
 					</div>
 
 				</div>

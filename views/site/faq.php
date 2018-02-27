@@ -43,7 +43,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                             <div class="row">
                                 <div class="col-md-8 offset-md-2">
                                     <h3 class="section-title my-3 text-xs-center">Frequently Asked Questions </h3>
-                                     <p class="text-sm-center my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem.</p>
+                                     <p class="text-sm-center my-3">Just in case you need some clarification here are some frequently asked questions we've answered.  If you cant find what you are looking for here please contact us and we'll make sure to address any questions you have.</p>
                                     <!--END OF CHECKBOX AREA-->
                                 </div>
                             </div>
@@ -60,9 +60,9 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 			<div id="accordionWrap2" role="tablist" aria-multiselectable="true">
 				<div class="card collapse-icon accordion-icon-rotate left">
 					<div id="heading21"  class="card-header">
-						<a data-toggle="collapse" data-parent="#accordionWrap2" href="#accordion21" aria-expanded="true" aria-controls="accordion21" class="card-title faq lead">What are the different user types?</a>
+						<a data-toggle="collapse" data-parent="#accordionWrap2" href="#accordion21" aria-expanded="false" aria-controls="accordion21" class="card-title faq lead">What are the different user types?</a>
 					</div>
-					<div id="accordion21" role="tabpanel" aria-labelledby="heading21" class="card-collapse collapse in" aria-expanded="true">
+					<div id="accordion21" role="tabpanel" aria-labelledby="heading21" class="card-collapse collapse" aria-expanded="false">
 						<div class="card-body">
 							<div class="card-block faq">
 								<p>There are 3 different user types each with their own uses.</p>

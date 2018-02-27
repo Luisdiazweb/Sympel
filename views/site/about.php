@@ -38,12 +38,13 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         <div class="row">
             <div class="col-md-12 mt-3">
                 <div class="">
-                    <div class="card-body collapse in mt-3">
+                    <div class="card-body collapse in my-3">
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-md-8 offset-md-2">
                                     <h3 class="section-title my-3 text-xs-center">Donate where it's needed </h3>
-                                     <p class="text-sm-center my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                                     <p class="my-3">Sometimes you just get the passion to do something that helps other. A couple started this to build a community that wanted to help organizations fill real needs. Tired of good stuff being dropped off to donation centers and crowd funding campaigns that we are hesitant to trust; the idea of posting needs and direct giving emerged. So here we are on a mission to be biggest community driven donation site where you can list, pick and choose where to give. Where you can find real opportunities and choose how and what to give to approved tax-exempt charitable organizations. </p>
+                                      <p>There’s really nothing more too it … So we are not going to talk about founders, back stories and all the amazing things that led us here because this community is not about us, it’s about you. It’s the amazing people that wake up everyday and want to make a difference by helping organizations and causes they care about. You are already one of us so enjoy and give to the world. We will be right there with you.</p>
                                     <!--END OF CHECKBOX AREA-->
                                 </div>
                             </div>
@@ -56,7 +57,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     </section>
 
     <!-- Icons Grid -->
-    <section class="features-icons bg-light text-xs-center my-3">
+    <!--<section class="features-icons bg-light text-xs-center my-3">
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
@@ -88,10 +89,10 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
           </div>
         </div>
       </div>
-    </section>
+    </section>-->
 
         <!-- Call to Action -->
-    <section class="call-to-action text-white text-xs-center">
+    <!--<section class="call-to-action text-white text-xs-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -155,12 +156,12 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
           </div>
         </div>
       </div>
-    </section>
+    </section>-->
 
 
 
     <!-- Testimonials -->
-    <section class="testimonials text-xs-center bg-light">
+   <!-- <section class="testimonials text-xs-center bg-light">
       <div class="container">
         <h2 class="section-title my-3">What people are saying...</h2>
         <div class="row">
@@ -187,4 +188,4 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
           </div>
         </div>
       </div>
-    </section>
+    </section> -->

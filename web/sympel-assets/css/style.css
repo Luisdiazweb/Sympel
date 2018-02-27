@@ -977,6 +977,13 @@ section.quote .section-heading p {
     background: #ececec;
     color: #000000;
 }
+.collapse-icon a[data-toggle='collapse']:after{
+  top: 25%!important;
+}
+
+.collapse-icon a[data-toggle='collapse']:before{
+  top: 25%!important;
+}
 
 .title-full{
     position: relative;
