@@ -264,8 +264,99 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 				</div>
 			</div>
 			<div class="tab-pane" id="tabIcon43" aria-labelledby="baseIcon-tab43">
+				<div class="card-body collapse in">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h3 class="section-title my-3 text-xs-center">Posting Rules</h3>
+                                 <p class="text-sm-center my-3">sympel is dedicated to making the local donation and receiving experience enjoyable. Please follow the guidelines below when posting items.</p>
+                                <!--END OF CHECKBOX AREA-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mb-3">
+					<div class="col-md-12">
+						<ol>
+							<li>Only registered non-profits and charitable organizations can create a “donation request.”  If you are not a registered non-profit or charitable organization you must create a “business” or “individual” profile.</li>
+							<li>Any user can “create an donation”.  We as that you respect our community guidelines and post items of value and gently used condition.  All posts will be monitored and per the discretion of sympel employees could be removed at any time.</li>
+							<li>To allow users to get a true feel for items they’re considering, please:
+								<ul>
+									<li>Always include an image of the item. Donation posts with no image, including those with a photo containing only text, aren’t allowed.</li>
+									<li>Include high-quality, well-lit photos.</li>
+								</ul>
+							</li>
+							<li>Please limit unique posts to a single account and category.</li>
+							<li>sympel is a local marketplace. Please post only in your geographic area so non-profits and charitable organizations can arrange to meet you for local pickup or delivery.</li>
+							<li>Titles and descriptions should give buyers a clear, honest, and accurate description so they can best determine whether the item might be what they’re looking for. Please
+								<ul>
+									<li>Don’t add keywords or price points intended to manipulate search results.</li>
+									<li>Don't link to websites or post URLs.</li>
+									<li>Don't provide personal information, such as a phone number or email address.</li>
+								</ul>
+							</li>
+							<li>
+								Sympel is a donation only community and no items are to be listed for sale.  Any such items will be removed with the user’s account potentially banned.  If any users are listing items for sale please contact sympel and flag the post immediately
+							</li>
+						</ol>
+					</div>
+				</div>
 			</div>
 			<div class="tab-pane" id="tabIcon44" aria-labelledby="baseIcon-tab44">
+				<div class="card-body collapse in">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h3 class="section-title my-3 text-xs-center">Community Guidelines</h3>
+                                 <p class="text-sm-center my-3">sympel is committed to maintaining an inclusive and respectful community that benefits the donor and the charitable organization. As a community we only succeed together by respecting the mutually beneficial factors that bring us together.  Please review our community guidelines when using the service.</p>
+                                <!--END OF CHECKBOX AREA-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mb-3">
+					<div class="col-md-12">
+						<ul>
+							<li>Be courteous.</li>
+							<li>Good donations great big impacts.  We don’t expect everything to be perfect and shiny but think about your donation, the value and its condition before posting.  We are a community to help not list your unwanted items.</li>
+							<li>Be reasonable with your donation requests.  For those non-profit and charitable organizations be reasonable with what you’re asking for.  Our community is a great group of givers and supporters but they are also people so let’s make sure we are asking for realistic and achievable items to fill your need.</li>
+							<li>If you change your mind please communicate with your recipients or donors so they can politely arrange with other interested parties.</li>
+							<li>Please communicate on all meet ups, updates and delays between parties.</li>
+							<li>We know it can be frustrating when things go wrong. Although it's uncommon, if you have a problem with an item after a donation, try to work it out with the donor in a calm, respectful way. In most cases, they'll be open to finding a solution.</li>
+							<li>In addition to these general tips, when using sympel, please refrain from any of the behaviors listed below:
+								<ul>
+									<li>Profanity or hate speech against other users or sympel employees.</li>
+									<li>Threats of violence or actual violence against other users or sympel employees.</li>
+									<li>Harassment against other users or sympel employees, such as:
+										<ul>
+											<li>Targeting another user with complaints about items that were not donated or expressing opinions about items with no intent to meet up.</li>
+											<li>Sexual harassment or any comments related to another user’s looks, relationship status, etc.</li>
+											<li>Other comments not related to the item.</li>
+											<li>Pressuring a user to give a donation or requesting a donation out of the posting format.</li>
+										</ul>
+									</li>
+									<li>Spam and unsolicited offers, such as:
+										<ul>
+											<li>Unsolicited messages sent to potential donors, including those of a commercial nature.</li>
+											<li>Impersonation of another user, sympel employee, or other entity in communications.</li>
+											<li>Any other misleading, fake, or malicious communication.</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>Use of disallowed content in your public profile. <br> Examples include:
+								<ul>
+									<li>Offensive or vulgar profile names or photos, or those that infringe on the intellectual property rights of others.</li>
+									<li>Use of the sympel name or image.</li>
+									<li>Inclusion of personal contact details.</li>
+									<li>Posting another person’s private information, including contact information.</li>
+									<li>Non-profit or charitable business details under an “individual” profile. </li>
+								</ul>
+							</li>
+						</ul>
+						<p>We may remove content that violates these guidelines. In severe cases or repeated violations, we may suspend or cancel a user account or take other action. For more information, please see our Terms of Service.</p>
+					</div>
+				</div>
 			</div>
 			<div class="tab-pane" id="tabIcon45" aria-labelledby="baseIcon-tab45">
 			   <div class="card-body collapse in">
