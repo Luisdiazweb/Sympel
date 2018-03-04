@@ -138,7 +138,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                     <div class="card-block">
                         <div class="row">
                             <div class="col-md-8 offset-md-2">
-                                <h3 class="section-title my-3 text-xs-center">Site Terms </h3>
+                                <h3 class="section-title my-3 text-xs-center">Terms of Use </h3>
                                 <!--END OF CHECKBOX AREA-->
                             </div>
                         </div>
@@ -487,7 +487,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 							<li>Items that promote, support, or commemorate groups with views of hatred or intolerance (for example Nazi, Neo-Nazi, or KKK groups)</li>
 							<li>Items that depict or glorify violence against people or animals</li>
 						</ul>
-						<p>For additional restrictions on behavior such as profanity and harassment, please see <a href="#">Community Guidelines.</a></p>
+						<p>For additional restrictions on behavior such as profanity and harassment, please see Community Guidelines.</p>
 					</div>
 				</div>
 			</div>
