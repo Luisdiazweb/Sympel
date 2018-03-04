@@ -58,11 +58,12 @@ $this->registerJsFile("@web/app-assets/js/scripts/extensions/toastr.js",
         'position' => \yii\web\View::POS_END
     ]);
 if($verified == false){
-$this->registerJsFile("@web/sympel-assets/js/scripts.js",
-    [
-        'depends' => [AppAsset::className()],
-        'position' => \yii\web\View::POS_END
-    ]);
+  $this->registerJs("toastr.error('Some functions will be unavaliable until you verify your account.', 'Verify your Account!');",\yii\web\View::POS_END);
+}
+
+if($verifyEin == false){
+  var_dump($verifyEin);
+  $this->registerJs("toastr.warning('Some functions will be unavaliable until we verify your EIN number.', 'EIN not verified');",\yii\web\View::POS_END);
 }
 
 

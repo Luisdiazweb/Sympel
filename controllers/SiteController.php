@@ -37,12 +37,14 @@ class SiteController extends CustomController
         $donate = $searchModel->getDonationsByType(Yii::$app->request->queryParams,2);
         $needs = $searchModel->getDonationsByType(Yii::$app->request->queryParams, 1);
         $verified = $this->checkverified();
+        $verifyEin = $this->checkein(); 
         
         return $this->render('index', [
             'modelSearchDonation' => $searchModel,
             'donate' => $donate,
             'needs' => $needs,
             'verified' => $verified,
+            'verifyEin' => $verifyEin
         ]);
     }
 
@@ -513,6 +515,27 @@ class SiteController extends CustomController
         if(!Yii::$app->user->getIsGuest()){
             if (!boolval(Yii::$app->user->identity->verified_account)) {
                 return false;
+            }
+            else{
+                return true;
+            }
+        }
+        else{
+            return true;
+        }
+    }
+
+     private function checkein()
+    {   
+        $profile = ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
+        if ($profile) {
+            if ((($profile->profile_type_id == 1))) {
+                if (boolval($profile->ein_verified)) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
             }
             else{
                 return true;
