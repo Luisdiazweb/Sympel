@@ -62,6 +62,7 @@ class DonationsSearch extends Donations
 
         $this->load($params);
 
+
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
@@ -78,13 +79,24 @@ class DonationsSearch extends Donations
         if ($from === self::FROMHOME) {
             $query->limit(4);
         } else {
+            if ($from === self::FROMPROFILEPUBLIC_DONATION) {
             $query->andFilterWhere([
                 'id' => $this->id,
                 'id_category' => $this->id_category,
-                'id_type' => $this->id_type,
+                'id_type' => 2,
                 'condition_new' => $this->condition_new,
                 'id_user' => $this->id_user
             ]);
+            } else if ($from === self::FROMPROFILEPUBLIC_NEEDED) {
+                $query->andFilterWhere([
+                'id' => $this->id,
+                'id_category' => $this->id_category,
+                'id_type' => 1,
+                'condition_new' => $this->condition_new,
+                'id_user' => $this->id_user
+            ]);
+             }
+
 
 
             if ($isAdmin) {
@@ -155,7 +167,7 @@ class DonationsSearch extends Donations
 
         $query->andFilterWhere([
             'checked' => 1,
-            'id_type' => $type
+            
         ]);
 
         return $dataProvider;
