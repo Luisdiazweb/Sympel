@@ -480,14 +480,17 @@ class SiteController extends CustomController
 
         $searchModel = new DonationsSearch();
         $searchModel->id_user = $user->id;
-        $dataDonations = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMMYPROFILE);
+        $dataDonations = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMMYPROFILE_DONATION);
+        $dataNeeds = $searchModel->search(Yii::$app->request->queryParams, FALSE, DonationsSearch::FROMMYPROFILE_NEED);
         Yii::$app->view->params['dataDonations'] = $dataDonations;
         Yii::$app->view->params['modelDonations'] = $searchModel;
+        Yii::$app->view->params['dataNeeds'] = $dataNeeds;
         return $this->render('profile_' . $profile->profileType->name, [
             'user' => $user,
             'profile' => $profile,
             'areas_suport' => ArrayHelper::map($areas_support, 'id', 'name'),
             'dataDonations' => $dataDonations,
+            'dataNeeds' => $dataNeeds,
             'modelDonations' => $searchModel,
         ]);
     }

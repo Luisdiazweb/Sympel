@@ -6,6 +6,7 @@
 /* @var $modelDonations app\models\DonationsSearch */
 $dataDonations = $this->params['dataDonations'];
 $modelDonations = $this->params['modelDonations'];
+$dataNeeds = $this->params['dataNeeds'];
 
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -46,6 +47,23 @@ $this->registerCssFile("@web/app-assets/css/plugins/forms/checkboxes-radios.css"
     [
         'depends' => [AppAsset::className()],
         'position' => \yii\web\View::POS_HEAD
+    ]);
+
+$this->registerCssFile("@web/app-assets/vendors/css/tables/datatable/datatables.min.css",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_HEAD
+    ]);
+$this->registerJsFile("@web/app-assets/vendors/js/tables/datatable/datatables.min.js",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
+
+$this->registerJsFile("@web/app-assets/js/scripts/tables/datatables/datatable-basic.js",
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
     ]);
 $this->registerCssFile("@web/app-assets/css/core/colors/palette-tooltip.css",
     [
@@ -99,6 +117,13 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
 //         'depends' => [AppAsset::className()],
 //         'position' => \yii\web\View::POS_END
 //     ]);
+
+$this->registerJsFile('@web/app-assets/vendors/css/tables/datatable/datatables.min.css',
+    [
+        'depends' => [AppAsset::className()],
+        'position' => \yii\web\View::POS_END
+    ]);
+
 $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
     [
         'depends' => [AppAsset::className()],
@@ -230,7 +255,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
             <!-- Form wizard with step validation section start -->
             <section id="validation">
                 <div class="row">
-                    <div class="col-md-10 offset-md-1">
+                    <div class="col-md-12">
                         <div class="mt2">
                             <div class="card-body collapse in">
                                 <div class="card-block">
@@ -261,7 +286,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                 <div class="card-block card-dashboard">
                                                     <div class="row mt-2 mb-3">
                                                         <div class="col-md-12">
-                                                            <h3 class="form-section-heading mt-3 mb-1"><i class="fa fa-heart"></i>Items for Donation</h3>
+                                                            <h3 class="section-title icon"><i class="fa fa-plus square-icon heading-category light link-primary"></i>Items for Donation</h3>
                                                         </div>
                                                     </div>
                                                     <table class="table table-striped table-no-vertical table-bordered zero-configuration">
@@ -309,6 +334,62 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
 
                                                 </div>
                                             </div>
+                                            <?php if ($profile->profile_type_id == 1): ?>
+                                        <div class="card-body collapse in">
+                                                <div class="card-block card-dashboard">
+                                                    <div class="row mt-2 mb-3">
+                                                        <div class="col-md-12">
+                                                            <h3 class="section-title icon"><i class="fa fa-heart square-icon heading-category light link-secondary"></i>Items in Request</h3>
+                                                        </div>
+                                                    </div>
+                                                    <table class="table table-striped table-no-vertical table-bordered zero-configuration">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Preview</th>
+                                                            <th>ID</th>
+                                                            <th>Date</th>
+                                                            <th>Title</th>
+                                                            <th>Category</th>
+                                                            <th></th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <?= ListView::widget([
+                                                            'dataProvider' => $dataNeeds,
+                                                            'itemView' => function ($modelDonations, $key, $index, $widget) {
+                                                                $images = empty($modelDonations->images_url) ? null : json_decode($modelDonations->images_url);
+                                                                $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/09.jpg');
+                                                                $img_preview = Html::img(Url::to([$img]), [
+                                                                    'class' => 'img-fluid my-1',
+                                                                    'style' => 'max-width: 200px;'
+                                                                ]);
+                                                                $details_url = Url::to(['itemdetails', 'id' => $modelDonations->id_public]);
+                                                                $status = $modelDonations->checked ? "Checked" : "Pending";
+                                                                $date = Yii::$app->formatter->format($modelDonations->created_at, 'date');
+                                                                $category = $modelDonations->idCategory->name;
+                                                                $update_link = "/updatedonation/" . $modelDonations->id;
+                                                                $delete_link = "/deletedonation/" . $modelDonations->id_public;
+                                                                $layout = "<tr><td>$img_preview</td>
+                                                                            <td>$modelDonations->id_public</td>
+                                                                            <td>$date</td>
+                                                                            <td><a href=\"$details_url\">$modelDonations->title</a></td>
+                                                                            <td>$category</td>
+                                                                            <td><a href='{$update_link}'><i class='fa fa-pencil'></i></a><a href='{$delete_link}'><i class='fa fa-times'></i></a></td></tr>";
+
+                                                                return $layout;
+                                                            },
+                                                            'summary' => '',
+                                                        ]) ?>
+                                                        </tbody>
+
+                                                    </table>
+
+
+                                                </div>
+                                            </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        
                                         </div>
                                     </div> <!--END OF TAB 2-->
                                 </div>

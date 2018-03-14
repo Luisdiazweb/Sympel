@@ -16,7 +16,8 @@ class DonationsSearch extends Donations
     const FROMHOME = 'home';
     const FROMPROFILEPUBLIC_DONATION = 'publicprofile_donation';
     const FROMPROFILEPUBLIC_NEEDED = 'publicprofile_needed';
-    const FROMMYPROFILE = 'myprofile';
+    const FROMMYPROFILE_DONATION = 'myprofile_donation';
+    const FROMMYPROFILE_NEED = 'myprofile_need';
 
     /**
      * @inheritdoc
@@ -80,21 +81,37 @@ class DonationsSearch extends Donations
             $query->limit(4);
         } else {
             if ($from === self::FROMPROFILEPUBLIC_DONATION) {
-            $query->andFilterWhere([
-                'id' => $this->id,
-                'id_category' => $this->id_category,
-                'id_type' => 2,
-                'condition_new' => $this->condition_new,
-                'id_user' => $this->id_user
-            ]);
+                $query->andFilterWhere([
+                    'id' => $this->id,
+                    'id_category' => $this->id_category,
+                    'id_type' => 2,
+                    'condition_new' => $this->condition_new,
+                    'id_user' => $this->id_user
+                ]);
             } else if ($from === self::FROMPROFILEPUBLIC_NEEDED) {
                 $query->andFilterWhere([
-                'id' => $this->id,
-                'id_category' => $this->id_category,
-                'id_type' => 1,
-                'condition_new' => $this->condition_new,
-                'id_user' => $this->id_user
-            ]);
+                    'id' => $this->id,
+                    'id_category' => $this->id_category,
+                    'id_type' => 1,
+                    'condition_new' => $this->condition_new,
+                    'id_user' => $this->id_user
+                ]);
+             } else if($from === self::FROMMYPROFILE_DONATION){
+                $query->andFilterWhere([
+                    'id' => $this->id,
+                    'id_category' => $this->id_category,
+                    'id_type' => 2,
+                    'condition_new' => $this->condition_new,
+                    'id_user' => $this->id_user
+                ]);
+             } else if($from === self::FROMMYPROFILE_NEED){
+                $query->andFilterWhere([
+                    'id' => $this->id,
+                    'id_category' => $this->id_category,
+                    'id_type' => 1,
+                    'condition_new' => $this->condition_new,
+                    'id_user' => $this->id_user
+                ]);
              }
 
 

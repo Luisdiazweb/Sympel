@@ -163,8 +163,10 @@ use yii\web\View;
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                <label for="projectinput8">Your Mission:</label>
-                <textarea id="projectinput8" rows="5" class="form-control" name="comment" placeholder=""></textarea>
+                 <?= $form->field($profile, 'mission', [
+                    'template' => '<label>{label}<span class="danger">*</span></label>{input}<span class="danger">{error}</span>'
+                ])->textarea(['rows' => '6']); ?>
+
             </div>
         </div>
     </div>
