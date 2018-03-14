@@ -167,6 +167,7 @@ class DonationsSearch extends Donations
 
         $query->andFilterWhere([
             'checked' => 1,
+            'id_type' => $type
             
         ]);
 

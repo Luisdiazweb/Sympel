@@ -180,6 +180,23 @@ h3.special-title{
     font-style: normal;
 }
 
+/*================================================================================================
+   File upload plugin
+================================================================================================*/
+.btn-outline-secondary:hover {
+    color: #FFFFFF;
+    background-color: #626E82!important;
+    border-color: #626E82!important;
+}
+
+.close{
+    opacity: 1;
+    padding: 4px!important;
+    font-weight: 600!important;
+    color: #f05256;
+}
+
+
 
 /*================================================================================================
    RADIO BUTTON STYLES

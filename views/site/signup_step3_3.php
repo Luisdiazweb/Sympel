@@ -118,8 +118,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                             <div class="col-md-4">
                                                 <fieldset class="form-group">
                                                     <?= $form->field($profile, 'profile_picture_upload', [
-                                                        'template' => '<label>{label}</label><label class="custom-file center-block block">{input}<span class="custom-file-control"></span></label>'
-                                                    ])->fileInput(['multiple' => false, 'accept' => 'image/*']); ?>
+                                                        'template' => '<label>{label}</label><label class="custom-file center-block block">{input}<span class="form-control-file"></span></label>'
+                                                    ])->fileInput(['multiple' => false, 'accept' => 'image/*', 'required' => true); ?>
                                                 </fieldset>
                                             </div>
                                         </div>
