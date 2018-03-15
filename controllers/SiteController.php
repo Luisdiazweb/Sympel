@@ -901,8 +901,14 @@ class SiteController extends CustomController
         }
 
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, FALSE);
+        $query = new Query();
+        $areas_support = $query->from('areas_support')->all();
+        $donations_category = $query->from('donations_category')->all();
+
 
         return $this->render('search', [
+            'areas_support' => ArrayHelper::map($areas_support, 'id', 'name'),
+            'donations_category' => ArrayHelper::map($donations_category, 'id', 'name'),
             'model' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

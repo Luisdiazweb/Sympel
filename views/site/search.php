@@ -39,7 +39,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
         ]); ?>
         <div class="row equal">
 
-            <div class="col-md-5 col-xs-12">
+            <div class="col-md-6 col-xs-12">
                 <fieldset class="form-group position-relative has-icon-left">
                     <?= $form->field($model, 'title', [
                         'template' => '{input}'
@@ -52,10 +52,10 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                     </div>
                 </fieldset>
             </div>
-            <div class="col-md-1 col-xs-12 hidden-sm-down">
+           <!-- <div class="col-md-1 col-xs-12 hidden-sm-down">
                 <p class="form-text">near</p>
-            </div>
-            <div class="col-md-4 col-xs-12">
+            </div> -->
+            <div class="col-md-6 col-xs-12">
                 <fieldset class="form-group position-relative has-icon-left">
                     <?= $form->field($model, 'city', [
                         'template' => '{input}'
@@ -68,8 +68,16 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                     </div>
                 </fieldset>
             </div>
-            <div class="col-md-2 col-xs-12">
+            <!-- <div class="col-md-2 col-xs-12">
                 <?= Html::submitButton('Search', ['class' => 'btn btn-primary btn-block square mr-1 mb-1']) ?>
+            </div> -->
+        </div>
+        <div class="row">
+                        <div class="col-md-6">
+                <?= $form->field($model, 'id')->dropDownList($areas_support, ['prompt' => 'All areas' ]); ?>
+            </div>
+            <div class="col-md-6">
+                <?= $form->field($model, 'id')->dropDownList($donations_category, ['prompt' => 'All categories' ]); ?>
             </div>
         </div>
         <div class="skin skin-flat mt-2">
@@ -90,6 +98,9 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
             </div>
 
         </div>
+        <div class="col-md-12 col-xs-12">
+                <?= Html::submitButton('Search', ['class' => 'btn btn-primary btn-lg square mr-1 mb-1 float-xs-right']) ?>
+            </div>
         <?php ActiveForm::end(); ?>
     </div>
 </section>
