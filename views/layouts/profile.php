@@ -18,7 +18,8 @@ use yii\helpers\ArrayHelper;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
 
-Yii::$app->db->createCommand("UPDATE `areas_support` SET `name` = 'Community' WHERE `areas_support`.`id` = 16;")->query();
+//This is a custom SQL sentence that I needed to send. I'll leave it here in case I need to use it later.
+//Yii::$app->db->createCommand("UPDATE `areas_support` SET `name` = 'Community' WHERE `areas_support`.`id` = 16;")->query();
 
 $profile = \app\models\ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
 
