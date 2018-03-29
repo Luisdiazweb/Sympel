@@ -194,12 +194,14 @@ $this->registerJs("$(function() {
                                             <?php echo $form->field($model, 'imageFiles[]')->widget(FileInput::classname(), [
                                                 'options' => [
                                                     'accept' => 'image/*',
-                                                    'multiple' => true
+                                                    'multiple' => true,
+                                                    'required' => true,
                                                 ],
                                                 'pluginOptions' => [
                                                     'initialPreview' => $preview,
                                                     'initialPreviewAsData'=>true,
                                                     'showUpload' => false,
+                                                    'theme' => 'fa',
                                                     'showRemove' => false,
                                                     'initialPreviewShowDelete' => false,
 //                                                    'uploadUrl' => '/site/file-upload',
