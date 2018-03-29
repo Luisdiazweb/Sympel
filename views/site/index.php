@@ -287,7 +287,7 @@ if($verifyEin == false){
             <h4 class="box-tag">For Non-Profits</h4>
             <h3>Share your needs</h3>
             <p>
-              As a non-profit on a mission to do good we know you are always looking for things to help you cause.  That's what the sympel community is about;  helping fulfill your needs where it counts.  Create donation requests and tell the community what you need.  Find items and available donations in your area that will help your cause.  Be a part of the giving community and help other organizations.
+              As a non-profit on a mission to do good we know you are always looking for things to help your cause.  That's what the sympel community is about;  helping fulfill your needs where it counts.  Create donation requests and tell the community what you need.  Find items and available donations in your area that will help your cause.  Be a part of the giving community and help other organizations.
             </p>
             <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">Let's Go</a></p>
           </div>
