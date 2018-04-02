@@ -180,7 +180,14 @@ if($verifyEin == false){
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
-                            $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
+                             $nameOrganization=null;
+                         $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
+
+                          //In case it's an individual
+                           if($model->profile_account->profile_type_id == "3"){ $nameOrganization =  $model->profile_account->firstname . ' ' . $model->profile_account->lastname; } else {}
+
+
+                           
 
                             $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
@@ -238,11 +245,18 @@ if($verifyEin == false){
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100); 
                             $nameOrganization=null;
-                            if($model->profile_account->profile_type_id == "3"){$nameOrganization=$model->profile_account->profile_type_id;}
-                            else{}
+                           
+                            //if($model->profile_account->profile_type_id == "3"){$nameOrganization=$model->profile_account->non_profit_name;} 
+                           // if else (){}
+
+                           
                             
 
-                           // $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->profile_type_id ;
+                           $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->company_name : $model->profile_account->non_profit_name ;
+                         
+                          //In case it's an individual
+                           if($model->profile_account->profile_type_id == "3"){ $nameOrganization =  $model->profile_account->firstname . ' ' . $model->profile_account->lastname; } else {}
+
                             $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
                               <i class=\"fa fa-plus square-icon list-tag light link-primary\"></i>

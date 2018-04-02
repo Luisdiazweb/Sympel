@@ -171,7 +171,15 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
-                            $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
+                          
+
+                           $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->company_name : $model->profile_account->non_profit_name ;
+                         
+                          //In case it's an individual
+                           if($model->profile_account->profile_type_id == "3"){ $nameOrganization =  $model->profile_account->firstname . ' ' . $model->profile_account->lastname; } else {}
+
+
+
                             if($model->id_type == 1){
                                 $icon = "<i class=\"fa fa-heart square-icon list-tag light link-secondary\"></i>";
                             }else{
