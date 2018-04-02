@@ -882,8 +882,8 @@ section.quote .section-heading p {
 
 .features-icons {
   padding-bottom: 7rem; }
-  .features-icons .features-icons-item {
-    max-width: 20rem; }
+/*  .features-icons .features-icons-item {
+    max-width: 20rem; } */
     .features-icons .features-icons-item .features-icons-icon {
       height: 7rem; }
       .features-icons .features-icons-item .features-icons-icon i {
@@ -919,6 +919,14 @@ section.quote .section-heading p {
 }
     .mr-auto, .mx-auto {
     margin-right: auto!important;
+}
+
+h3.howitworks{
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+p.howitworks{
+    font-size: 2.25rem;
 }
 
 @media (max-width: 991px) and (min-width: 544px){
@@ -1049,15 +1057,24 @@ section.quote .section-heading p {
 .triangle-bg{
   position: absolute;
   top: -245px;
+  width: 1096px;
 }
 
 .bg-triangle{
   position: relative;
 }
 
+.triangle-padding{
+padding-top: 90px;
+}
 
+.triangle-margin{
+      margin: 100px 0px 200px 0px;
+}
 
-
+.howitworks-title{
+  font-size: 3em;
+}
 
 /*================================================================================================
    FOOTER STYLES

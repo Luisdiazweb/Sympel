@@ -236,9 +236,13 @@ if($verifyEin == false){
 
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
-                            $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
+                            $description = count($model->description) < 100 ? $model->description : substr($model->description, 100); 
+                            $nameOrganization=null;
+                            if($model->profile_account->profile_type_id == "3"){$nameOrganization=$model->profile_account->profile_type_id;}
+                            else{}
+                            
 
-                            $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
+                           // $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->profile_type_id ;
                             $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
                               <i class=\"fa fa-plus square-icon list-tag light link-primary\"></i>

@@ -108,7 +108,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 					<div id="accordion25" role="tabpanel" aria-labelledby="heading25" class="card-collapse collapse" aria-expanded="false">
 						<div class="card-body">
 							<div class="card-block faq">
-								For a list of your posting rules and guidelines review our <a class="inner-link" href="#">Posting Rules</a>, <a class="inner-link" href="#">Posting Guidelines</a> and <a class="inner-link" href="<?= Url::to('@web/siteterms') ?>">Terms of Service</a>.
+								For a list of your posting rules and guidelines review our <a class="inner-link" href="/legalstuff">Legal Stuff</a> section.
 							</div>
 						</div>
 					</div>
