@@ -88,7 +88,7 @@ $this->registerJs("$(function() {
                             <div class="card-body collapse in">
                                 <div class="card-block">
                                     <?php $form = ActiveForm::begin([
-                                        'enableAjaxValidation' => true,
+                                        'enableAjaxValidation' => false,
                                         'options' => [
                                             'enctype' => 'multipart/form-data'
                                         ]
@@ -195,7 +195,7 @@ $this->registerJs("$(function() {
                                                 'options' => [
                                                     'accept' => 'jpeg|jpg|gif|png',
                                                     'multiple' => true,
-                                                    'required' => true,
+                                                    'required' => false,
 
                                                 ],
                                                 'pluginOptions' => [
