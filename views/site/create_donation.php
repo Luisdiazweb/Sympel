@@ -193,9 +193,10 @@ $this->registerJs("$(function() {
                                             <?php //BLOCK COMMMENTED AS IT CALLS SOME CSS THAT BREAKS THE MAIN CSS ?>
                                             <?php echo $form->field($model, 'imageFiles[]')->widget(FileInput::classname(), [
                                                 'options' => [
-                                                    'accept' => 'jpeg|jpg|gif|png',
+                                                    'accept' => 'jpeg|gif|png',
                                                     'multiple' => true,
                                                     'required' => false,
+                                                    'extensions' => 'JPEG|png'
 
                                                 ],
                                                 'pluginOptions' => [
@@ -203,6 +204,7 @@ $this->registerJs("$(function() {
                                                     'initialPreviewAsData'=>true,
                                                     'showUpload' => false,
                                                     'theme' => 'fa',
+                                                    'extensions' => 'JPEG|png',
                                                     'showRemove' => false,
                                                     'initialPreviewShowDelete' => false,
 //                                                    'uploadUrl' => '/site/file-upload',
