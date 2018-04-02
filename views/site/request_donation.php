@@ -147,7 +147,7 @@ $this->registerJs("$(function() {
                                             <div class="form-group">
                                                 <?= $form->field($model, 'description')
                                                     ->textarea(['rows' => 5])
-                                                    ->label("Tell us about you are in need of") ?>
+                                                    ->label("Tells us about this item") ?>
                                             </div>
                                         </div>
                                     </div>
