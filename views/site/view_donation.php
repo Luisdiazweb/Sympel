@@ -33,6 +33,20 @@ use yii\widgets\DetailView;
                                             
                                         }
                                     }
+
+                                    else{
+
+                                        //code to add a placeholder as thumbnail
+                                        if($model->id_type == 1){
+                                            echo'<div class="carousel-item active" style="background:url(sympel-assets/img/placeholder-needs.png)"></div>';
+                                        }else{
+                                            echo'<div class="carousel-item active" style="background:url(sympel-assets/img/placeholder-donations.png)"></div>';
+                                        }
+                                        
+                                        //code to hide the carousel controls
+                                        echo '<style>.carousel-control{display:none;}</style>';
+                                         
+                                    }
                                 ?>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">

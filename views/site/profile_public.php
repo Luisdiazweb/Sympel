@@ -159,7 +159,7 @@ use yii\widgets\ListView;
                         'itemOptions' => ['class' => 'item'],
                         'itemView' => function ($model, $key, $index, $widget) {
                             $images = empty($model->images_url) ? null : json_decode($model->images_url);
-                            $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/05.jpg');
+                            $img = ArrayHelper::getValue($images, 0, 'sympel-assets/img/placeholder-needs.png');
                             $img_preview = Html::img(Url::to([$img]), [
                                 'class' => 'card-img-top img-fluid',
                             ]);
@@ -214,7 +214,7 @@ use yii\widgets\ListView;
                         'itemOptions' => ['class' => 'item'],
                         'itemView' => function ($model, $key, $index, $widget) {
                             $images = empty($model->images_url) ? null : json_decode($model->images_url);
-                            $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/05.jpg');
+                            $img = ArrayHelper::getValue($images, 0, 'sympel-assets/img/placeholder-donations.png');
                             $img_preview = Html::img(Url::to([$img]), [
                                 'class' => 'card-img-top img-fluid',
                             ]);

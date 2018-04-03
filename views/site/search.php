@@ -163,7 +163,18 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                         'itemOptions' => ['class' => 'item'],
                         'itemView' => function ($model, $key, $index, $widget) {
                             $images = empty($model->images_url) ? null : json_decode($model->images_url);
-                            $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/05.jpg');
+                            $img = ArrayHelper::getValue($images, 0, 'placeholder');
+
+                            //Code to change the thumbnail to a placeholder.
+                            if($img == 'placeholder'){
+                                 if($model->id_type == 1){
+                                $img = "sympel-assets/img/placeholder-needs.png";
+                                 }else{
+                                $img = "sympel-assets/img/placeholder-donations.png";
+                                }
+                            }
+
+
                             $img_preview = Html::img(Url::to([$img]), [
                                 'class' => 'card-img-top img-fluid',
                             ]);
