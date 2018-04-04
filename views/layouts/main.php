@@ -12,6 +12,7 @@ use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
+
 $profile = \app\models\ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
 
 AppAsset::register($this);
@@ -20,6 +21,11 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" data-textdirection="ltr" class="loading">
 <head>
+  <meta property="og:title" content="Hola mundo">
+<meta property="og:description" content="Offering tour packages for individuals or groups.">
+<meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
+<meta property="og:url" content="http://euro-travel-example.com/index.htm">
+<meta name="twitter:card" content="summary_large_image">
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -31,6 +37,8 @@ AppAsset::register($this);
           rel="stylesheet">
 
     <?php $this->head() ?>
+
+
 </head>
 <body data-open="click" data-menu="vertical-menu" data-col="1-column" class="vertical-layout vertical-menu 1-column ">
 <?php $this->beginBody() ?>

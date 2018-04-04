@@ -79,7 +79,6 @@ use yii\widgets\DetailView;
                 <?php } ?>
 
                 <h6 class="mt-2 post-category"><?= $model->idCategory->name ?></h6>
-                
 
             </div>
         </div>
@@ -116,7 +115,7 @@ use yii\widgets\DetailView;
                                 
                 <p class="profile-links-container">
                     <i class="fa fa-map-marker map"></i>
-                    <?= $profile->city ?>, <?= $profile->state ?>                    
+                    <?= $profile->state ?> , <?= $profile->city ?>                 
                     <span class="profile-link">
                        <?php if($profile->website): ?>
                         <i class="fa fa-globe web"></i>
@@ -130,6 +129,7 @@ use yii\widgets\DetailView;
                     </span>
                     <?php endif;?>
                 </p>
+                  <span class="profile-link phone">Causes we care about:</span>
                 <p>
              <?php if (!empty($areas)):?>
                             <?php foreach ($areas as $area): ?>
@@ -151,3 +151,9 @@ use yii\widgets\DetailView;
 <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a7a38da8b94a80013b6afda&product=sticky-share-buttons"></script>
 
 
+/* Insert social media metatags */
+<meta property="og:title" content="<?= $model->title ?>">
+<meta property="og:description" content="Offering tour packages for individuals or groups.">
+<meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
+<meta property="og:url" content="http://euro-travel-example.com/index.htm">
+<meta name="twitter:card" content="summary_large_image">
