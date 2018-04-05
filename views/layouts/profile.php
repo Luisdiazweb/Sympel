@@ -141,6 +141,17 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+
+<?php //variable for the og:url
+$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
+
+<meta property="og:title" content="SYMPEL - Make your donations count by giving where it's needed.">
+<meta property="og:description" content="sympel offers a new way to give to the need by connecting items for donations with churches, non-profits and charitable organizations.">
+<meta property="og:image" content="$profile->profile_picture_url">
+<meta property="og:url" content="<?php echo $actual_link; ?>">
+<meta name="twitter:card" content="summary_large_image">
+
+
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <link rel="apple-touch-icon" href="<?= Url::to('@web/app-assets/images/logo/sympel-fav.png') ?>">
@@ -307,7 +318,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                             'dataProvider' => $dataDonations,
                                                             'itemView' => function ($modelDonations, $key, $index, $widget) {
                                                                 $images = empty($modelDonations->images_url) ? null : json_decode($modelDonations->images_url);
-                                                                $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/09.jpg');
+                                                                $img = ArrayHelper::getValue($images, 0, 'sympel-assets/img/placeholder-donations.png');
                                                                 $img_preview = Html::img(Url::to([$img]), [
                                                                     'class' => 'img-fluid my-1',
                                                                     'style' => 'max-width: 200px;'
@@ -360,7 +371,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
                                                             'dataProvider' => $dataNeeds,
                                                             'itemView' => function ($modelDonations, $key, $index, $widget) {
                                                                 $images = empty($modelDonations->images_url) ? null : json_decode($modelDonations->images_url);
-                                                                $img = ArrayHelper::getValue($images, 0, 'app-assets/images/carousel/09.jpg');
+                                                                $img = ArrayHelper::getValue($images, 0, 'sympel-assets/img/placeholder-needs.png');
                                                                 $img_preview = Html::img(Url::to([$img]), [
                                                                     'class' => 'img-fluid my-1',
                                                                     'style' => 'max-width: 200px;'
