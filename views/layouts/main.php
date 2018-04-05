@@ -5,6 +5,7 @@
 
 /* @var $content string */
 
+
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -14,6 +15,8 @@ use app\assets\AppAsset;
 
 
 $profile = \app\models\ProfileAccount::findOne(['user_id' => Yii::$app->user->getId()]);
+$donations = \app\models\Donations::findOne(['id_public' => Yii::$app->getRequest()->getQueryParam('id')]);
+
 
 AppAsset::register($this);
 ?>
@@ -21,11 +24,43 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" data-textdirection="ltr" class="loading">
 <head>
- 
+
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <?= Html::csrfMetaTags() ?>
+
+<?php
+
+//variable for the og:url
+$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+//validate if I'm in Need or donations
+if (strpos($actual_link, 'itemdetails') !== false) {
+    
+
+//Path for images
+$path = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+
+//image for the og:image
+$images = json_decode($donations->images_url);
+foreach (array_reverse($images) as $img){
+$ogimage = $img;
+}
+
+?>
+
+<meta property="og:title" content="<?php echo $donations->title; ?>">
+<meta property="og:description" content="<?php echo $donations->description; ?>">
+<meta property="og:image" content="<?php echo $path."/".$ogimage; ?>">
+<meta property="og:url" content="<?php echo $actual_link; ?>">
+<meta name="twitter:card" content="summary_large_image">
+
+<?php 
+} 
+//end if I'm in need or donations
+?>
+
     <title><?= Html::encode($this->title) ?></title>
     <link rel="apple-touch-icon" href="<?= Url::to('@web/app-assets/images/logo/sympel-fav.png') ?>">
     <link rel="shortcut icon" type="image/x-icon" href="<?= Url::to('@web/app-assets/images/logo/sympel-fav.png') ?>">
@@ -40,9 +75,9 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 
+
 <!-- navbar-fixed-top-->
 <?php
-
 /*NavBar::begin([
     'brandLabel' => 'My Company',
     'brandUrl' => Yii::$app->homeUrl,

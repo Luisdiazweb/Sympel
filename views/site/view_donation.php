@@ -150,10 +150,3 @@ use yii\widgets\DetailView;
 
 <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a7a38da8b94a80013b6afda&product=sticky-share-buttons"></script>
 
-
-/* Insert social media metatags */
-<meta property="og:title" content="<?= $model->title ?>">
-<meta property="og:description" content="Offering tour packages for individuals or groups.">
-<meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
-<meta property="og:url" content="http://euro-travel-example.com/index.htm">
-<meta name="twitter:card" content="summary_large_image">
