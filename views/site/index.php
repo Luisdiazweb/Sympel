@@ -135,7 +135,7 @@ if($verifyEin == false){
   <div class="container">
     <div class="row option-container">
         <div class="col-lg-2 col-md-4 col-sm-4 action-option">
-          <a href="<?= Url::to('@web/createdonation') ?>" class="btn button-primary button-options">Create a Donation</a>
+          <a href="<?= Url::to('@web/createdonation') ?>" class="btn button-secondary button-options">Create a Donation</a>
         </div>
         <div class="col-lg-10 col-md-8 col-sm-8">
             <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
@@ -143,7 +143,7 @@ if($verifyEin == false){
     </div>
     <div class="row option-container">
         <div class="col-lg-2 col-md-4 col-sm-4 action-option">
-          <a href="<?= Url::to('@web/requestdonation') ?>" class="btn button-secondary button-options">Request a Donation</a>
+          <a href="<?= Url::to('@web/requestdonation') ?>" class="btn button-primary  button-options">Request a Donation</a>
         </div>
         <div class="col-lg-10 col-md-8 col-sm-8">
             <p class="options-description">Charitible organizations that are in need of items can create a need request.</p>
