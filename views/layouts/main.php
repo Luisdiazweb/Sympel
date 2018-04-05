@@ -43,8 +43,10 @@ if (strpos($actual_link, 'itemdetails') !== false) {
 
       //image for the og:image
       $images = json_decode($donations->images_url);
-      foreach (array_reverse($images) as $img){
-      $ogimage = $img;
+      if ($images[1]==null){$ogimage = $images;}else{
+            foreach (array_reverse($images) as $img){
+            $ogimage = $img;
+            }
       }
 
 ?>
