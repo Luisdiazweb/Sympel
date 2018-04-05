@@ -38,15 +38,14 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
 //validate if I'm in Need or donations
 if (strpos($actual_link, 'itemdetails') !== false) {
     
+      //Path for images
+      $path = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
-//Path for images
-$path = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-
-//image for the og:image
-$images = json_decode($donations->images_url);
-foreach (array_reverse($images) as $img){
-$ogimage = $img;
-}
+      //image for the og:image
+      $images = json_decode($donations->images_url);
+      foreach (array_reverse($images) as $img){
+      $ogimage = $img;
+      }
 
 ?>
 
@@ -57,8 +56,15 @@ $ogimage = $img;
 <meta name="twitter:card" content="summary_large_image">
 
 <?php 
-} 
-//end if I'm in need or donations
+} else { //end if I'm in need or donations... Add an else to add an standard metatag for the rest of pages
+?>
+<meta property="og:title" content="SYMPEL - Make your donations count by giving where it's needed.">
+<meta property="og:description" content="sympel offers a new way to give to the need by connecting items for donations with churches, non-profits and charitable organizations.">
+<meta property="og:image" content="http://104.131.97.208/sympel-assets/img/main-img.jpg">
+<meta property="og:url" content="<?php echo $actual_link; ?>">
+<meta name="twitter:card" content="summary_large_image">
+<?php }
+//end else 
 ?>
 
     <title><?= Html::encode($this->title) ?></title>
