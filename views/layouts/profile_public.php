@@ -93,14 +93,14 @@ $path = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]"
 //variable for the og:url
 $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; 
 $usernickname_var = explode('/', $actual_link, 5);
-echo $usernickname_var[4];
+//echo $usernickname_var[4];
 $usenickname = "company";
 //$user_id_share = app\models\UsersSystem::findOne(['id' => $usenickname]);
 $user_id_share = app\models\UsersSystem::find()->where(['username' => $usernickname_var[4]])->one();
 $idd = $user_id_share->id;
-echo $idd;
+//echo $idd;
 $profiletwo = \app\models\ProfileAccount::findOne(['user_id' => $idd]);
-echo $profiletwo->profile_type_id;
+//echo $profiletwo->profile_type_id;
 if($profiletwo->profile_type_id == 1){
   $metatitle = $profiletwo->non_profit_name;
   $description = $profiletwo->mission;
