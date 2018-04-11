@@ -143,11 +143,15 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 
 <?php //variable for the og:url
-$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
+$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; 
+$usenickname = "charityorg";
+$user_id_share = \app\models\ProfileAccount::findOne(['username' => $usenickname]);
+echo "User id = ".$user_id_share;
+?>
 
 <meta property="og:title" content="SYMPEL - Make your donations count by giving where it's needed.">
 <meta property="og:description" content="sympel offers a new way to give to the need by connecting items for donations with churches, non-profits and charitable organizations.">
-<meta property="og:image" content="$profile->profile_picture_url">
+<meta property="og:image" content="http://104.131.97.208/sympel-assets/img/main-img.jpg">
 <meta property="og:url" content="<?php echo $actual_link; ?>">
 <meta name="twitter:card" content="summary_large_image">
 

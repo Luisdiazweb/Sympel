@@ -85,6 +85,40 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/switch.js',
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <?= Html::csrfMetaTags() ?>
 
+<?php 
+
+ //Path for images
+$path = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+
+//variable for the og:url
+$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; 
+$usernickname_var = explode('/', $actual_link, 5);
+echo $usernickname_var[4];
+$usenickname = "company";
+//$user_id_share = app\models\UsersSystem::findOne(['id' => $usenickname]);
+$user_id_share = app\models\UsersSystem::find()->where(['username' => $usernickname_var[4]])->one();
+$idd = $user_id_share->id;
+echo $idd;
+$profiletwo = \app\models\ProfileAccount::findOne(['user_id' => $idd]);
+echo $profiletwo->profile_type_id;
+if($profiletwo->profile_type_id == 1){
+  $metatitle = $profiletwo->non_profit_name;
+  $description = $profiletwo->mission;
+} else if($profiletwo->profile_type_id == 2){
+  $metatitle = $profiletwo->company_name;
+  $description = "sympel offers a new way to give to the need by connecting items for donations with churches, non-profits and charitable organizations.";
+} else if($profiletwo->profile_type_id == 3){
+  $metatitle = $profiletwo->firstname." ".$profiletwo->lastname;
+  $description = "sympel offers a new way to give to the need by connecting items for donations with churches, non-profits and charitable organizations.";
+}
+?>
+
+<meta property="og:title" content="<?= $metatitle ?>">
+<meta property="og:description" content="<?= $description ?>">
+<meta property="og:image" content="<?php echo $path."/".$profiletwo->profile_picture_url; ?>">
+<meta property="og:url" content="<?php echo $actual_link; ?>">
+<meta name="twitter:card" content="summary_large_image">
+
     <title><?= Html::encode($this->title) ?></title>
     <link rel="apple-touch-icon" href="<?= Url::to('@web/app-assets/images/logo/sympel-fav.png') ?>">
     <link rel="shortcut icon" type="image/x-icon" href="<?= Url::to('@web/app-assets/images/logo/sympel-fav.png') ?>">
