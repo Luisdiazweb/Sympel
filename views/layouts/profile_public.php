@@ -116,6 +116,7 @@ if($profiletwo->profile_type_id == 1){
 <meta property="og:title" content="<?= $metatitle ?>">
 <meta property="og:description" content="<?= $description ?>">
 <meta property="og:image" content="<?php echo $path."/".$profiletwo->profile_picture_url; ?>">
+<meta property="og:image:width" content="500" />
 <meta property="og:url" content="<?php echo $actual_link; ?>">
 <meta name="twitter:card" content="summary_large_image">
 
