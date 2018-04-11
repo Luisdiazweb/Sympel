@@ -196,6 +196,12 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                             }else{
                                 $icon = "<i class=\"fa fa-plus square-icon list-tag light link-primary\"></i>";
                             }
+
+
+                              //Path for URL's
+                          $path_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+
+
                             $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
                             <div class=\"card\" style=\"\">
                                 $icon
@@ -209,6 +215,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
                                             <a href=\"mailto:".$model->user->email."\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
+                                             <a href=\"mailto:hello@sympel.com?subject=Report of inapropiate content&body=Hi, I found an inapropiate content and I want to report it.  ".$path_url.$details_url."\" class=\"card-icon\"><i class=\"fa fa-flag\" aria-hidden=\"true\"></i></a>
                                         </div>
                                         
                                     </div>

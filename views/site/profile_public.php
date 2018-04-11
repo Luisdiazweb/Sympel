@@ -166,6 +166,10 @@ use yii\widgets\ListView;
 
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
+                              //Path for URL's
+                          $path_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+
+
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
                             $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
@@ -182,6 +186,7 @@ use yii\widgets\ListView;
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
                                             <a href=\"mailto:".$model->user->email."\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
+                                             <a href=\"mailto:hello@sympel.com?subject=Report of inapropiate content&body=Hi, I found an inapropiate content and I want to report it.  ".$path_url.$details_url."\" class=\"card-icon\"><i class=\"fa fa-flag\" aria-hidden=\"true\"></i></a>
                                         </div>
                                         
                                     </div>
@@ -221,6 +226,10 @@ use yii\widgets\ListView;
 
                             $details_url = Url::to(['itemdetails', 'id' => $model->id_public]);
 
+
+                              //Path for URL's
+                          $path_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+
                             $description = count($model->description) < 100 ? $model->description : substr($model->description, 100);
                             $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->firstname . ' ' . $model->profile_account->lastname : $model->profile_account->non_profit_name ;
                             $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
@@ -236,6 +245,7 @@ use yii\widgets\ListView;
                                         <div class=\"card-icon-container\">
                                            <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
                                             <a href=\"mailto:".$model->user->email."\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
+                                             <a href=\"mailto:hello@sympel.com?subject=Report of inapropiate content&body=Hi, I found an inapropiate content and I want to report it.  ".$path_url.$details_url."\" class=\"card-icon\"><i class=\"fa fa-flag\" aria-hidden=\"true\"></i></a>
                                         </div>
                                         
                                     </div>

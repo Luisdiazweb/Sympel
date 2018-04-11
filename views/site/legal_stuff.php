@@ -279,7 +279,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 					<div class="col-md-12">
 						<ol>
 							<li>Only registered non-profits and charitable organizations can create a “donation request.”  If you are not a registered non-profit or charitable organization you must create a “business” or “individual” profile.</li>
-							<li>Any user can “create an donation”.  We as that you respect our community guidelines and post items of value and gently used condition.  All posts will be monitored and per the discretion of sympel employees could be removed at any time.</li>
+							<li>Any user can “create an donation”.  We ask that you respect our community guidelines and post items of value and gently used condition.  All posts will be monitored and per the discretion of sympel employees could be removed at any time.</li>
 							<li>To allow users to get a true feel for items they’re considering, please:
 								<ul>
 									<li>Always include an image of the item. Donation posts with no image, including those with a photo containing only text, aren’t allowed.</li>

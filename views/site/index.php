@@ -13,6 +13,9 @@ use yii\helpers\Url;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
 
+
+
+
 $this->title = 'Giving is Sympel - Sympel';
 
 $this->registerCssFile("@web/app-assets/css/core/menu/menu-types/vertical-menu.css",
@@ -65,6 +68,8 @@ if($verifyEin == false){
   var_dump($verifyEin);
   $this->registerJs("toastr.warning('Some functions will be unavaliable until we verify your EIN number.', 'EIN not verified');",\yii\web\View::POS_END);
 }
+
+
 
 
 ?>
@@ -186,7 +191,8 @@ if($verifyEin == false){
                           //In case it's an individual
                            if($model->profile_account->profile_type_id == "3"){ $nameOrganization =  $model->profile_account->firstname . ' ' . $model->profile_account->lastname; } else {}
 
-
+                           //Path for URL's
+                          $path_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
                            
 
                             $layout = "<div class=\"col-xl-4 col-md-6 col-sm-6 list-item\">
@@ -203,6 +209,7 @@ if($verifyEin == false){
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
                                             <a href=\"mailto:".$model->user->email."\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
+                                            <a href=\"mailto:hello@sympel.com?subject=Report of inapropiate content&body=Hi, I found an inapropiate content and I want to report it.  ".$path_url.$details_url."\" class=\"card-icon\"><i class=\"fa fa-flag\" aria-hidden=\"true\"></i></a>
                                         </div>
                                         
                                     </div>

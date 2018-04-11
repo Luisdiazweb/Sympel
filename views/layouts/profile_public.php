@@ -87,6 +87,13 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/switch.js',
 
 <?php 
 
+//validate if this code is loaded in the Public profile page
+//variable for the og:url
+$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+//validate if I'm in Need or donations
+if (strpos($actual_link, 'publicprofile') != false) {
+
  //Path for images
 $path = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
@@ -119,6 +126,8 @@ if($profiletwo->profile_type_id == 1){
 <meta property="og:image:width" content="500" />
 <meta property="og:url" content="<?php echo $actual_link; ?>">
 <meta name="twitter:card" content="summary_large_image">
+
+<?php } ?>
 
     <title><?= Html::encode($this->title) ?></title>
     <link rel="apple-touch-icon" href="<?= Url::to('@web/app-assets/images/logo/sympel-fav.png') ?>">
