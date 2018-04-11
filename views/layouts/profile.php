@@ -144,9 +144,6 @@ $this->registerJsFile('@web/app-assets/js/scripts/tooltip/tooltip.js',
 
 <?php //variable for the og:url
 $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; 
-$usenickname = "charityorg";
-$user_id_share = \app\models\ProfileAccount::findOne(['username' => $usenickname]);
-echo "User id = ".$user_id_share;
 ?>
 
 <meta property="og:title" content="SYMPEL - Make your donations count by giving where it's needed.">
@@ -338,7 +335,7 @@ echo "User id = ".$user_id_share;
                                                                             <td>$date</td>
                                                                             <td><a href=\"$details_url\">$modelDonations->title</a></td>
                                                                             <td>$category</td>
-                                                                            <td><a href='{$update_link}'><i class='fa fa-pencil'></i></a><a href='{$delete_link}'><i class='fa fa-times'></i></a></td></tr>";
+                                                                            <td><a href='{$update_link}'><i class='fa fa-pencil'></i></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='{$delete_link}'><i class='fa fa-times'></i></a></td></tr>";
 
                                                                 return $layout;
                                                             },
