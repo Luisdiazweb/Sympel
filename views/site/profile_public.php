@@ -103,8 +103,8 @@ use yii\widgets\ListView;
                 <div class="card-block">
                     <div class="media">
                         <div class="media-body text-xs-center">
-                            <h3 class="primary font-large-2"><i class="fa fa-heart primary mr-1"></i><?= $summaryDonations?></h3>
-                            <p class="">Donations</p>
+                            <h3 class="primary font-large-2"><i class="fa fa-heart primary mr-1"></i><?= $summaryNeeds?></h3>
+                            <p class="primary">Needs</p>
                         </div>
                     </div>
                 </div>
@@ -113,8 +113,8 @@ use yii\widgets\ListView;
                 <div class="card-block">
                     <div class="media">
                         <div class="media-body text-xs-center">
-                            <h3 class="danger font-large-2"><i class="fa fa-inbox danger mr-1"></i><?= $summaryNeeds?></h3>
-                            <p class="">Requests</p>
+                            <h3 class="danger primary font-large-2"><i class="fa fa-plus danger square-icon"></i>  <?= $summaryDonations?></h3>
+                            <p class="danger">Donations</p>
                         </div>
                     </div>
                 </div>
@@ -133,8 +133,8 @@ use yii\widgets\ListView;
                 <div class="card-block">
                     <div class="media">
                         <div class="media-body text-xs-center">
-                           <h3 class="primary font-large-2"><i class="fa fa-heart primary mr-1"></i><?= $summaryDonations?></h3>
-                            <p class="">Donations</p>
+                           <h3 class="danger font-large-2"><i class="fa fa-heart danger mr-1"></i><?= $summaryDonations?></h3>
+                            <p class="danger">Donations</p>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@ use yii\widgets\ListView;
  <div class="container-fluid">
     <div class="row recent-container">
         <div class="col-md-10 offset-md-1">
-            <h3 class="section-title icon"><i class="fa fa-heart square-icon heading-category light link-secondary"></i>Items in Request</h3>
+            <h3 class="section-title icon"><i class="fa fa-heart square-icon heading-category light link-secondary"></i>Items in Needs</h3>
              <div class="row mt-3">
                 <div class="col-md-12">
                     <?= ListView::widget([
