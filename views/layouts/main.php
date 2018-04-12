@@ -44,7 +44,7 @@ if (strpos($actual_link, 'itemdetails') !== false) {
       //image for the og:image
       $images = json_decode($donations->images_url);
       $array = count($images);
-          if($array="0"){
+          if($array=="0"){
             $ogimage = $images;
           }else{
             foreach (array_reverse($images) as $img)
