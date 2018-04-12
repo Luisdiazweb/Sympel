@@ -337,7 +337,7 @@ $('#userssystem-username').keypress(function (e) {
     if (regex.test(str)) {
         return true;
     }
-
+    this.value = this.value.replace(/\s/g, "");
     e.preventDefault();
     return false;
 });
