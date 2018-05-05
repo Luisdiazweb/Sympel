@@ -96,8 +96,8 @@ $this->registerJs("$(function() {
                                     ]); ?>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h3 class="section-title my-3">Request a Donation </h3>
-                                            <p class="mb-2">What are you in need of?</p>
+                                            <h3 class="section-title my-3">In need of something?</h3>
+                                            <p class="mb-2">What type of donation is this?</p>
                                             <div class="row mb-3">
                                                 <?= $form->field($model, 'id_category')->radioList($cat_donations, [
                                                     'itemOptions' => [
@@ -156,7 +156,7 @@ $this->registerJs("$(function() {
                                             <div class="form-group">
                                                 <?= $form->field($model, 'why_need')
                                                     ->textarea(['rows' => 5])
-                                                    ->label("Why? (tell us about how this will help your organization or why it would help):") ?>
+                                                    ->label("Why? (tell us about how this will help):") ?>
                                             </div>
                                         </div>
                                     </div>

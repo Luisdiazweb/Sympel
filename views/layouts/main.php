@@ -136,11 +136,11 @@ NavBar::end();*/
           <div id="navbar-mobile" class="navbar-collapse collapse navbar-toggleable-sm">
               <ul class="nav navbar-nav hidden-sm-down">
                 <?php if($profile) : ?>
-                <li class="nav-item icon"><a href="/createdonation" class="nav-link"><i class="fa fa-plus square-icon menu light link-primary"></i><span class="menu-icon-description hidden-sm-down">Create a Donation</span></a></li>
+                <li class="nav-item icon"><a href="/createdonation" class="nav-link"><i class="fa fa-plus square-icon menu light link-primary"></i><span class="menu-icon-description hidden-sm-down">Give Something</span></a></li>
                 <?php endif; ?>
                 <?php if($profile) : ?>
                   <?php if ($profile->profile_type_id == 1) : ?>
-                <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i><span class="menu-icon-description hidden-sm-down">Request a Donation</span></a></li>
+                <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i><span class="menu-icon-description hidden-sm-down">Need Something</span></a></li>
                  <?php endif; ?>
                 <?php endif; ?>
                 <li class="nav-item icon hidden-sm-down link-hiw"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>

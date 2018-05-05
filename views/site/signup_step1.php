@@ -115,9 +115,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                         <input class="big-radio" type="radio" id="test1"
                                                                name="ProfileAccount[profile_type_id]" <?= $profile->profile_type_id == 1 ? 'checked' : '' ?>
                                                                value="1">
-                                                        <label for="test1" class="radio-primary label-big">Non
-                                                            Profit</label>
-                                                        <p class="radio-description">Non-profit profiles can create
+                                                        <label for="test1" class="radio-primary label-big">Church</label>
+                                                        <p class="radio-description">Churches profiles can create
                                                             donation requests and post items for donation </p>
                                                         <p class="radio-description">*Tax ID will be required for verification</p>
                                                     </div>
@@ -136,7 +135,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-8 offset-md-2 mb-1  card">
+                                            <!-- Here a display none was added to hide individuals -->
+                                            <div class="col-md-8 offset-md-2 mb-1  card" style="display:none;">
                                                 <div class="card-body">
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test3"

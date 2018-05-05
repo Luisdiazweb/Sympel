@@ -140,18 +140,18 @@ if($verifyEin == false){
   <div class="container">
     <div class="row option-container">
         <div class="col-lg-2 col-md-4 col-sm-4 action-option">
-          <a href="<?= Url::to('@web/createdonation') ?>" class="btn button-secondary button-options">Create a Donation</a>
+          <a href="<?= Url::to('@web/createdonation') ?>" class="btn button-secondary button-options">Give something.</a>
         </div>
         <div class="col-lg-10 col-md-8 col-sm-8">
-            <p class="options-description">Anyone can create a donation post to offer an item for donation to a non-profit or charitable organization. </p>
+            <p class="options-description">Have something to give? Offer it up to other churches in your area.</p>
         </div>
     </div>
     <div class="row option-container">
         <div class="col-lg-2 col-md-4 col-sm-4 action-option">
-          <a href="<?= Url::to('@web/requestdonation') ?>" class="btn button-primary  button-options">Request a Donation</a>
+          <a href="<?= Url::to('@web/requestdonation') ?>" class="btn button-primary  button-options">Need Something.</a>
         </div>
         <div class="col-lg-10 col-md-8 col-sm-8">
-            <p class="options-description">Charitible organizations that are in need of items can create a need request.</p>
+            <p class="options-description">Looking for something? You are not alone, there are churches wanting to help right where you need. Create a need now.</p>
         </div>
     </div>
     <div class="row option-container">
@@ -159,7 +159,7 @@ if($verifyEin == false){
           <a href="<?= Url::to('@web/search') ?>" class="btn button-tertiary button-options">Search</a>
         </div>
         <div class="col-lg-10 col-md-8 col-sm-8">
-            <p class="options-description">Find opportunities to support causes you care about and  support direct needs.</p>
+            <p class="options-description">Check out items in your area and connect with other churches. Help other churches by giving where its needed.</p>
         </div>
     </div>
   </div>
@@ -302,17 +302,17 @@ if($verifyEin == false){
         <div class="row equal center">
           <div class="col-md-6 bg-primary cta-box">
             <h4 class="box-tag">For Everyone</h4>
-            <h3>Start Making a Difference</h3>
+            <h3>Be a Giver.</h3>
             <p>
-              Just like you we hate waste and love giving.  Who said money was the only way yo help out a cause or non-profit.  Whether looking for an opportunity to support or finding a new home for that gently used computer, sympel.com is the place to list and offer your items to pre-qualified, tax exempt organizations in your area.  No cost, just giving!
+              Just like you we hate waste and love giving. Who said money was the only way to help your church community. The church needs you more than you can imagine. Find what items are in need of and give where it counts. No cost, just giving!
             </p>
             <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">I'm Ready</a></p>
           </div>
           <div class="col-md-6 bg-secondary cta-box">
-            <h4 class="box-tag">For Non-Profits</h4>
-            <h3>Share your needs</h3>
+            <h4 class="box-tag"> For Churches.</h4>
+            <h3>One Church Family.</h3>
             <p>
-              As a non-profit on a mission to do good we know you are always looking for things to help your cause.  That's what the sympel community is about;  helping fulfill your needs where it counts.  Create donation requests and tell the community what you need.  Find items and available donations in your area that will help your cause.  Be a part of the giving community and help other organizations.
+              God never said his work was going to be easy, we get that. We know in your growth you are always looking for things to help your church. That's what the sympel community is about; helping fulfill your needs where it counts. Create donation requests and tell the community what you need. Be a part of the giving community and help other churches in need.
             </p>
             <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">Let's Go</a></p>
           </div>

@@ -100,7 +100,7 @@ class ProfileAccount extends \yii\db\ActiveRecord
             'profile_type_id' => 'Profile Type ID',
             'firstname' => 'First Name',
             'lastname' => 'Last Name',
-            'non_profit_name' => 'Non Profit Name',
+            'non_profit_name' => 'Church Name',
             'company_name' => 'Company Name',
             'title' => 'Your Position or Title',
             'address' => 'Address',
@@ -112,7 +112,7 @@ class ProfileAccount extends \yii\db\ActiveRecord
             'ein_verified' => 'Ein # approval.',
             'website' => 'Website',
             'areas_support' => 'Areas Support',
-            'mission' => 'Mission',
+            'mission' => 'About Us',
             'profile_picture_url' => 'Profile Image',
         ];
     }

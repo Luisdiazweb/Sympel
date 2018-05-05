@@ -153,6 +153,11 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                 </div>
                                             </div>
                                         </div>
+
+
+ <!-- This is hidden for Churches customization -->                                      
+<div style="display:none;">
+
                                         <h3 class="form-section-heading my-2"><i class="fa fa-heart"></i>Areas of Support</h3>
                                         <p class="mb-2">Almost done! Tell us a little about your area of support.
                                             This will allow others to find you based on similar cause and interests.
@@ -174,6 +179,10 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                 }
                                             ])->label(false); ?>
                                         </div>
+
+
+</div>
+
                                         <p class="my-2">IMPORTANT: By submitting this form you are acknowledging
                                             that you have the authority to represent the listed party and have read
                                             our account creation policies.</p>
