@@ -499,7 +499,7 @@ class SiteController extends CustomController
     {
         Yii::$app->mailer->compose()
             ->setFrom(Yii::$app->params['adminEmail'])
-            ->setTo('davidrosales270@gmail.com')
+            ->setTo('eric@sympel.com')
             ->setSubject('Message subject')
             ->setTextBody('Plain text content')
             ->setHtmlBody('<b>HTML content</b>')
@@ -901,10 +901,13 @@ class SiteController extends CustomController
         }
 
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, FALSE);
-        $query = new Query();
+      
+
+
+//This one was added customized for Montoya to add new fields in the search section.
+ /*       $query = new Query();
         $areas_support = $query->from('areas_support')->all();
         $donations_category = $query->from('donations_category')->all();
-
 
         return $this->render('search', [
             'areas_support' => ArrayHelper::map($areas_support, 'id', 'name'),
@@ -912,7 +915,15 @@ class SiteController extends CustomController
             'model' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
+    } 
+*/
+
+return $this->render('search', [
+            'model' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    } 
+
 
     public function actionDeletedonation($id)
     {
