@@ -122,7 +122,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-8 offset-md-2 mb-1  card">
+                                            <div class="col-md-8 offset-md-2 mb-1  card"  style="display:none;">
                                                 <div class="card-body">
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test2"
@@ -136,7 +136,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                 </div>
                                             </div>
                                             <!-- Here a display none was added to hide individuals -->
-                                            <div class="col-md-8 offset-md-2 mb-1  card" style="display:none;">
+                                            <div class="col-md-8 offset-md-2 mb-1  card">
                                                 <div class="card-body">
                                                     <div class="card-block">
                                                         <input class="big-radio" type="radio" id="test3"
