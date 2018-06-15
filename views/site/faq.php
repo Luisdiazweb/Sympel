@@ -66,19 +66,26 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 						<div class="card-body">
 							<div class="card-block faq">
 								<p>There are 3 different user types each with their own uses.</p>
-								<p><strong>Individual:</strong> An individual profile/user is your personal profile that you can to create a “donation post” and offer something up to give or donate. As an individual user you will be able to create a “donation post” and see “donation requests” from charitable organizations but you will NOT be able to create a “donation request”. Additionally your contact information will only be visible to registered non-profit profiles and not made public.</p>
-								<p><strong>Business:</strong> A business profile/user has the same rules as that of the individual user but allows you to set up the profile under a business name.</p>
-								<p><strong>Non-Profit:</strong> A non-profit or charitable user/profile requires the submission and verification of your FEIN#. This user can create “donation posts” like all users but are the only users that can create a “donation request” and contact to solicit donations listed on the website. As a non- profit user your information will be public so the community can contact you about your needs and requests.</p>
+								<p><strong>A Giver:</strong> An individual profile/user is your personal profile that you can to create
+to view and connect with churches. You will be able to see “Needed Items” and
+contact to support the church. Your contact info and profile will not be public or
+visible to the community.</p>
+								<p><strong>The church:</strong>A church profile requires the submission and verification of your
+FEIN#. This user can create “donation posts” and “donation request”. You will
+have full access to the community and able to share your profile publically. As a
+church user your information will be public so the community can contact you
+about your needs and requests.</p>
+								
 							</div>
 						</div>
 					</div>
 					<div id="heading22"  class="card-header">
-						<a data-toggle="collapse" data-parent="#accordionWrap2" href="#accordion22" aria-expanded="false" aria-controls="accordion22" class="card-title faq lead collapsed">Can I create a "donation request" if I am not registered as a non-profit for charitable organization?</a>
+						<a data-toggle="collapse" data-parent="#accordionWrap2" href="#accordion22" aria-expanded="false" aria-controls="accordion22" class="card-title faq lead collapsed">Can I create “donations” if I am not registered as a church?</a>
 					</div>
 					<div id="accordion22" role="tabpanel" aria-labelledby="heading22" class="card-collapse collapse" aria-expanded="false">
 						<div class="card-body">
 							<div class="card-block faq">
-								No, only registered non-profit users/profiles are able to create a "donation request" as listed items they are in need of. You are able to view these requests, contact and share. 
+								No, only church profiles are able to create a "donations & donation requests". You are able to view these requests, contact and share to help the church.
 							</div>
 						</div>
 					</div>
@@ -88,7 +95,10 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 					<div id="accordion23" role="tabpanel" aria-labelledby="heading23" class="card-collapse collapse" aria-expanded="false">
 						<div class="card-body">
 							<div class="card-block faq">
-								Our community is to help those put the good and valuable items in the right hands of their right cause. Therefore, only non-profit users can see the contact information of all users. Individual and Business users will not be able to contact or solicit donations to keep the privacy of the donor. All profiles will be able to view the contact information of a non-profit and their requested item pages to connect and help the cause. 
+								Our community is to help those put the good and valuable items into the church.
+Where church to church or member to church it’s all about the need. Therefore,
+only the church profiles are public and visible to the community. Your personal
+profile will not visible to others in order to respect your privacy.
 							</div>
 						</div>
 					</div>
@@ -98,7 +108,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 					<div id="accordion24" role="tabpanel" aria-labelledby="heading24" class="card-collapse collapse" aria-expanded="false" style="height: 0px;">
 						<div class="card-body">
 							<div class="card-block faq">
-								You can view, edit and delete your postings from yhour account settings view. 
+								You can view, edit and delete your postings from your account settings view. Again only church profiles will be able to create posts at this time.
 							</div>
 						</div>
 					</div>

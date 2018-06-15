@@ -74,7 +74,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
               <div class="features-icons-icon d-flex">
                 <i class="fa fa-list-alt m-auto card-icon"></i>
               </div>
-              <h3 class="howitworks">Create a Donation</h3>
+              <h3 class="howitworks">Give Something</h3>
               <p class="howitworks">Got something to give? Maybe an extra computer or some office furniture you want to go to a charitable organization. Take some time to list your donation and offer it up.</p>
             </div>
           </div>
@@ -129,7 +129,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
               <div class="features-icons-icon d-flex">
                 <i class="fa fa-heart m-auto card-icon"></i>
               </div>
-              <h3 class="howitworks">Request Donations</h3>
+              <h3 class="howitworks">Give Something</h3>
               <p class="howitworks">In need of something? Request an item in need allowing your supporters and the community a opportunity to donate directly.</p>
             </div>
           </div>

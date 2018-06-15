@@ -42,11 +42,21 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-md-8 offset-md-2">
-                                    <h3 class="section-title my-3 text-xs-center">About Us </h3>
+                                    <h3 class="section-title my-3 text-xs-center">About Us</h3>
                                      <h3 class="special-title">Sometimes you just get the passion to do something that helps others.</h3>
-                                     <p class="my-3">A couple started this to build a community that wanted to help organizations fill real needs. Tired of good stuff being dropped off to donation centers and crowd funding campaigns that we are hesitant to trust; the idea of posting needs and direct giving emerged. So here we are on a mission to be biggest community driven donation site where you can list, pick and choose where to give. Where you can find real opportunities and choose how and what to give to approved tax-exempt charitable organizations. </p>
+                                     <p class="my-3">A couple started this to build a platform that would help churches fill real needs.
+Tired of good stuff being dropped off to donation centers and crowd funding
+campaigns that we are hesitant to trust; the idea of posting needs and direct
+giving emerged. So here we are on a mission to be platform driven donation site
+where you can list, pick and choose where to give. A place where churches can
+help other churches at the same time connecting with their church community for
+needs that make direct impacts.</p>
                                      <h3 class="special-title">We know that sounds simple but there's really nothing more too it.</h3>
-                                      <p class="my-3 ">So we are not going to talk about founders, back stories and all the amazing things that led us here because this community is not about us, it’s about you. It’s the amazing people that wake up everyday and want to make a difference by helping organizations and causes they care about. You are already one of us so enjoy and give to the world. We will be right there with you.</p>
+                                      <p class="my-3 ">So we are not going to talk about founders, back stories and all the amazing
+things that led us here because this community is not about us, it’s about you. It’s
+the amazing Christ centered community that wakes up everyday wanting to make
+a difference in the church. You are already one of us so enjoy and give to the
+world. We will be right there with you.</p>
                                     <!--END OF CHECKBOX AREA-->
                                 </div>
                             </div>

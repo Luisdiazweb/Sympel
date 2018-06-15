@@ -182,11 +182,11 @@ NavBar::end();*/
 
               <ul class="nav navbar-nav hidden-md-up ">
                  <?php if($profile) : ?>
-                <li class="nav-item"><a href="/createdonation" class="nav-link"><span class="">Create a Donation</span></a></li>
+                <li class="nav-item"><a href="/createdonation" class="nav-link"><span class="">Give Something</span></a></li>
                 <?php endif; ?>
                 <?php if($profile) : ?>
                   <?php if ($profile->profile_type_id == 1) : ?>
-                <li class="nav-item"><a href="/requestdonation" class="nav-link"><span class="">Request a Donation</span></a></li>
+                <li class="nav-item"><a href="/requestdonation" class="nav-link"><span class="">Need Something</span></a></li>
                  <?php endif; ?>
                 <?php endif; ?>
                 <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
