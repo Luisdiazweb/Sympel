@@ -140,7 +140,7 @@ if($verifyEin == false){
   <div class="container">
     <div class="row option-container">
         <div class="col-lg-2 col-md-4 col-sm-4 action-option">
-          <a href="<?= Url::to('@web/createdonation') ?>" class="btn button-secondary button-options">Give something.</a>
+          <a href="<?= Url::to('@web/createdonation') ?>" class="btn button-secondary button-options">Give something</a>
         </div>
         <div class="col-lg-10 col-md-8 col-sm-8">
             <p class="options-description">Have something to give? Offer it up to other churches in your area.</p>
@@ -148,7 +148,7 @@ if($verifyEin == false){
     </div>
     <div class="row option-container">
         <div class="col-lg-2 col-md-4 col-sm-4 action-option">
-          <a href="<?= Url::to('@web/requestdonation') ?>" class="btn button-primary  button-options">Need Something.</a>
+          <a href="<?= Url::to('@web/requestdonation') ?>" class="btn button-primary  button-options">Need Something</a>
         </div>
         <div class="col-lg-10 col-md-8 col-sm-8">
             <p class="options-description">Looking for something? You are not alone, there are churches wanting to help right where you need. Create a need now.</p>
@@ -300,19 +300,19 @@ if($verifyEin == false){
    <section>
       <div class="container-fluid">
         <div class="row equal center">
-          <div class="col-md-6 bg-primary cta-box">
+          <div class="col-md-6 bg-primary cta-box block1">
             <h4 class="box-tag">For Everyone</h4>
-            <h3>Be a Giver.</h3>
+            <h3>Be a Giver</h3>
             <p>
-              Just like you we hate waste and love giving. Who said money was the only way to help your church community. The church needs you more than you can imagine. Find what items are in need of and give where it counts. No cost, just giving!
+              Just like you we hate waste and love giving. Who said money was the only way to help your church community. The church needs you more than you can imagine. Find what items are in need and give where it counts. No cost, just giving!
             </p>
             <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">I'm Ready</a></p>
           </div>
           <div class="col-md-6 bg-secondary cta-box">
-            <h4 class="box-tag"> For Churches.</h4>
-            <h3>One Church Family.</h3>
+            <h4 class="box-tag">For Churches</h4>
+            <h3>One Church Family</h3>
             <p>
-              God never said his work was going to be easy, we get that. We know in your growth you are always looking for things to help your church. That's what the sympel community is about; helping fulfill your needs where it counts. Create donation requests and tell the community what you need. Be a part of the giving community and help other churches in need.
+              God never said his work was going to be easy, we get that. We know in your growth you are always looking for things to help your church. That's what the sympel community is about; helping fulfill your needs where it counts. Create donation requests and tell the community what you need. Be a part of the giving community and help other churches.
             </p>
             <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">Let's Go</a></p>
           </div>

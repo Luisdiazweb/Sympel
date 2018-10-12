@@ -786,6 +786,8 @@ section.quote .section-heading p {
 .options-description{
   font-size: 25px;
   padding-left: 10%;
+  font-family: 'Museo sans';
+  font-weight: 300;
 }
 
 .option-container{
@@ -1608,4 +1610,6 @@ hr{
 }
 
 
-
+.block1{
+  display: block !important;
+}
