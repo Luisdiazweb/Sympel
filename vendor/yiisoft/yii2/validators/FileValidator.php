@@ -39,7 +39,7 @@ class FileValidator extends Validator
      * @var bool whether to check file type (extension) with mime-type. If extension produced by
      * file mime-type check differs from uploaded file extension, the file will be considered as invalid.
      */
-    public $checkExtensionByMimeType = false;
+    public $checkExtensionByMimeType = true;
     /**
      * @var array|string a list of file MIME types that are allowed to be uploaded.
      * This can be either an array or a string consisting of file MIME types
@@ -415,16 +415,17 @@ class FileValidator extends Validator
             $options['wrongMimeType'] = $this->formatMessage($this->wrongMimeType, [
                 'attribute' => $label,
                 'mimeTypes' => implode(', ', $this->mimeTypes),
-            ]); 
+            ]);
         }
 
         if ($this->extensions !== null) {
-           /* $options['extensions'] = $this->extensions;
+            $options['extensions'] = $this->extensions;
             $options['wrongExtension'] = $this->formatMessage($this->wrongExtension, [
                 'attribute' => $label,
                 'extensions' => implode(', ', $this->extensions),
-            ]); */  
+            ]);
         }
+
         if ($this->minSize !== null) {
             $options['minSize'] = $this->minSize;
             $options['tooSmall'] = $this->formatMessage($this->tooSmall, [
