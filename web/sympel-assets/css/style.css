@@ -621,7 +621,7 @@ header.masthead {
     font-size: 50px; 
     font-family: 'Museo sans';
     font-weight: 700;
-    text-transform: initial;
+    text-transform: lowercase;
     padding-right: 5px;
     padding-left: 5px;
   }
@@ -630,6 +630,7 @@ header.masthead {
     color: #000; 
     font-family: 'Museo sans';
     font-weight: 300;
+    text-transform: lowercase;
   }
 
   .header-navbar .navbar-container ul.nav li > a.nav-link {
@@ -745,13 +746,13 @@ section.quote .section-heading p {
     margin-top: 30px;
 }
 .welcome-quote{
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-size: 50px;
   color: #ffffff;
   text-align: center;
   letter-spacing: 2px;
   font-family: 'Museo Sans';
-  font-weight: 100;
+  font-weight: 700;
 }
 
 .welcome-options{

@@ -110,7 +110,7 @@ if($verifyEin == false){
         </div>
         <div class="col-md-6 welcome-column description">
             <p class="text-gray welcome-text">The sympel community...</p>
-            <p class="text-gray welcome-text">believes in a community that recycles, reuses and gives to make a greater impact to the everyday needs of organizations that make this world a better place.</p>
+            <p class="text-gray welcome-text">believes in a community that recycles, reuses and gives to make a greater impact to the everyday needs.</p>
             <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn button-description">Sign Up</a></p>
 
         </div>
