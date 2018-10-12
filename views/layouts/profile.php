@@ -426,7 +426,7 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
           <div class="col-md-6 text-center">
             <ul class="col-sm-12 col-md-6 col-lg-6">
               <li><h3>Company</h3></li>
-              <li><a href="<?= Url::to('@web/howitworks') ?>">About Us</a></li>
+              <li><a href="<?= Url::to('@web/about') ?>">About Us</a></li>
               <li><a href="<?= Url::to('@web/faq') ?>">FAQ's</a></li>
               <li><a href="<?= Url::to('@web/legalstuff') ?>">Legal Stuff</a></li>
             </ul>

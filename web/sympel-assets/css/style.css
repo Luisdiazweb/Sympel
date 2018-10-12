@@ -1613,3 +1613,7 @@ hr{
 .block1{
   display: block !important;
 }
+.carousel-control.right,
+.carousel-control.left{
+  background: none !important;
+}

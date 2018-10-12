@@ -323,7 +323,7 @@ NavBar::end();*/
           <div class="col-md-12 footer-menu-section">
             <ul class="col-sm-12 col-md-4 col-lg-3">
               <li><h3>Company</h3></li>
-              <li><a href="<?= Url::to('@web/howitworks') ?>">About Us</a></li>
+              <li><a href="<?= Url::to('@web/about') ?>">About Us</a></li>
               <li><a href="<?= Url::to('@web/faq') ?>">FAQ's</a></li>
               <li><a href="<?= Url::to('@web/legalstuff') ?>">Legal Stuff</a></li>
             </ul>
