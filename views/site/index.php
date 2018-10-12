@@ -81,7 +81,7 @@ if($verifyEin == false){
         <div class="header-content">
           <p class="main-quote"><span>Make your donations count</span></p>
           <p class="main-quote"><span>by giving where it's needed</span></p>
-          <p class="quote-paragraph">sympel offers a new way to give to the need by connecting <br >items for donations with churches, non-profits and <br >charitable organizations.</p>
+          <p class="quote-paragraph">A needs based giving platform for churches ... simple.</p>
         </div>
       </div>
     </div>
@@ -94,7 +94,7 @@ if($verifyEin == false){
       <div class="col-lg-12 my-auto">
         <div class="header-content">
           <p class="main-quote"><span>Make your donations count by giving where it's needed</span></p>
-          <p class="quote-paragraph">sympel offers a new way to give to the need by connecting <br >items for donations with churches, non-profits and <br >charitable organizations.</p>
+          <p class="quote-paragraph">A needs based giving platform for churches ... simple.</p>
         </div>
       </div>
     </div>
