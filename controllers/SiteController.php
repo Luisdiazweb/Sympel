@@ -307,6 +307,10 @@ class SiteController extends CustomController
         return $this->render('how_it_works');
 
     }
+    public function actionHowitworks2()
+    {
+        return $this->render('how_it_works2');
+    }
 
     public function actionContact()
     {
