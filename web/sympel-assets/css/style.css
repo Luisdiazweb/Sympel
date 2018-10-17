@@ -1617,3 +1617,95 @@ hr{
 .carousel-control.left{
   background: none !important;
 }
+
+.howitworks2{
+  margin-top: 70px;
+}
+.howitworks2 .box-1{
+  background: #1cbdcb;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+.howitworks2 .box-1 .left{
+  text-align: center;
+  padding-top: 70px;
+}
+.howitworks2 .box-1 .left h1{ font-size: 2.5em;}
+.howitworks2 .box-1 .right{
+  padding: 70px 50px 30px;
+  text-align: center;
+}
+.howitworks2 .box-1 .right h3{
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.howitworks2 .box-1 .right p{
+  font-size: 1.2em;
+  text-align: justify;
+  padding: 0 80px;
+  font-weight: 100;
+}
+.howitworks2 .box-2{
+  padding: 30px 0 50px;
+  
+}
+.howitworks2 .box-2 h3{
+  color: #f05256;
+  text-align: center;
+}
+.howitworks2 .box-2 .little-box{
+  background: #fff;
+  margin: 40px;
+  -webkit-box-shadow: 3px 2px 8px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 2px 8px -4px rgba(0,0,0,0.75);
+box-shadow: 3px 2px 8px -4px rgba(0,0,0,0.75);
+padding: 20px;
+}
+.howitworks2 .box-2 .little-box p.title{
+  color: #f05256;
+  font-size: 16px;
+}
+.howitworks2 .box-3 {
+  background: #fff;
+  padding: 70px 0; 
+}
+.howitworks2 .box-3 .right p.title{
+  font-size: 1.2em;
+  color: #f05256;
+}
+.howitworks2 .box-3 .right p.paragraph{
+  width: 75%;
+}
+.howitworks2 .box-3 .right .btn-signup{
+  background: #1cbdcb;
+  color: #fff;
+  padding: 5px 25px;
+}
+.howitworks2 .box-4{
+  padding: 70px 0;
+}
+
+.howitworks2 .box-4 .left h3{
+  font-size: 2.5em;
+  color: #f05256;
+  margin: 0 120px 20px;
+  font-weight: bold;
+}
+.howitworks2 .box-4 .right{
+  font-size: 1.5em;
+  padding: 0 60px;
+}
+.howitworks2 .box-5 {
+  padding: 70px 200px;
+  background: #fff;
+  color: #000;
+}
+.howitworks2 .box-5 p{
+  text-align: center;
+  font-size: 2em;
+}
+.howitworks2 .box-5 p.act{
+  color: #1cbdcb;
+  font-weight: bold;
+}
