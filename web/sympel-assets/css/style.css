@@ -1778,7 +1778,7 @@ padding: 20px;
   }
   .howitworks2 .box-1 .right .content {
     width: 450px;
-    margin: 70px 0px 30px 220px;
+    margin: 70px auto 30px;
   }
 }
 @media  (max-width:576px){

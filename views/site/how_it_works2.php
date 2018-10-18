@@ -37,7 +37,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         <div class="row">
             <div class="col-md-6 left">
                 <h1>HOW IT WORKS</h1>
-                <img src="/app-assets/img/computer-howitworks.png" alt="How it works" />
+                <img src="/app-assets/images/computer-howitworks.png" alt="How it works" />
             </div>
             <div class="col-md-6 right">
                 <div class="content">
@@ -73,7 +73,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     <div class="container-fluid box-3">
         <div class="row">
             <div class="col-md-6 left">
-                <img src="/app-assets/img/phone-howitworks.png" alt="Mobile friendly for giving on the go" />
+                <img src="/app-assets/images/phone-howitworks.png" alt="Mobile friendly for giving on the go" />
             </div>
             <div class="col-md-6 right">
                 <p class="title">Mobile friendly for giving on the go</p>
