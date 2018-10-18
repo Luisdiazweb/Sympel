@@ -1621,6 +1621,11 @@ hr{
 .howitworks2{
   margin-top: 55px;
 }
+.howitworks2 .row{
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
 .howitworks2 .box-1{
   background: #1cbdcb;
   color: #fff;
@@ -1764,6 +1769,16 @@ padding: 20px;
     padding: 70px 20px;
   }
 
+}
+@media (min-width:1200px){
+  .howitworks2 .box-2 .little-box{
+    background: #fff;
+    margin: 40px auto;
+    width: 400px;
+  }
+  .howitworks2 .box-1 .right .content {
+    width: 400px;
+  }
 }
 @media  (max-width:576px){
   .howitworks2 .box-1 .left img{
