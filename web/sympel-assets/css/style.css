@@ -1774,10 +1774,10 @@ padding: 20px;
   .howitworks2 .box-2 .little-box{
     background: #fff;
     margin: 40px auto;
-    width: 400px;
+    width: 500px;
   }
   .howitworks2 .box-1 .right .content {
-    width: 400px;
+    width: 450px;
   }
 }
 @media  (max-width:576px){
