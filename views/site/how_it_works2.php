@@ -37,10 +37,13 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         <div class="row">
             <div class="col-md-6 left">
                 <h1>HOW IT WORKS</h1>
+                <img src="/app-assets/img/computer-howitworks.png" alt="How it works" />
             </div>
             <div class="col-md-6 right">
-                <h3>Needs based giving for churches ... simple.</h3>
-                <p>We know that you have stuff you need to get your job done so we've created an easy way for you to list, share and post your needs. Now its not always about getting because the world goes around when we give. So, we have made it easy for you to find other church needs and support their too. :)</p>
+                <div class="content">
+                    <h3>Needs based giving for churches ... simple.</h3>
+                    <p>We know that you have stuff you need to get your job done so we've created an easy way for you to list, share and post your needs. Now its not always about getting because the world goes around when we give. So, we have made it easy for you to find other church needs and support their too. :)</p>
+                </div>
             </div>
         </div>
     </div>
@@ -70,6 +73,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     <div class="container-fluid box-3">
         <div class="row">
             <div class="col-md-6 left">
+                <img src="/app-assets/img/phone-howitworks.png" alt="Mobile friendly for giving on the go" />
             </div>
             <div class="col-md-6 right">
                 <p class="title">Mobile friendly for giving on the go</p>
@@ -81,8 +85,10 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     <div class="container-fluid box-4">
         <div class="row">
             <div class="col-md-6 left">
-                <h3>Not a church but want to help?</h3>
-                <h4>Don't worry we got you covered.</h4>
+                <div class="content">
+                    <h3>Not a church but want to help?</h3>
+                    <h4>Don't worry we got you covered.</h4>
+                </div>
             </div>
             <div class="col-md-6 right">
                 <p>Like us you just want to help make an impact and give to the world. Sure no problem, we have a special profile for anyone that wants to browse the needs of Churches in their area and get involved.</p>
@@ -99,3 +105,30 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         </div>
     </div>
 </div>
+
+<section>
+    <div class="container-fluid">
+    <div class="row equal center">
+        <div class="col-md-6 bg-primary cta-box block1">
+        <h4 class="box-tag">For Everyone</h4>
+        <h3>Be a Giver</h3>
+        <p>
+            Just like you we hate waste and love giving. Who said money was the only way to help your church community. The church needs you more than you can imagine. Find what items are in need and give where it counts. No cost, just giving!
+        </p>
+        <?php if(Yii::$app->user->isGuest) : ?>
+            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">I'm Ready</a></p>
+        <?php endif; ?>
+        </div>
+        <div class="col-md-6 bg-secondary cta-box">
+        <h4 class="box-tag">For Churches</h4>
+        <h3>One Church Family</h3>
+        <p>
+            God never said his work was going to be easy, we get that. We know in your growth you are always looking for things to help your church. That's what the sympel community is about; helping fulfill your needs where it counts. Create donation requests and tell the community what you need. Be a part of the giving community and help other churches.
+        </p>
+        <?php if(Yii::$app->user->isGuest) : ?>
+            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">Let's Go</a></p>
+        <?php endif; ?>
+        </div>
+    </div>
+    </div>
+</section>

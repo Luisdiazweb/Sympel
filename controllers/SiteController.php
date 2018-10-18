@@ -555,6 +555,10 @@ class SiteController extends CustomController
 
     public function actionSignup1()
     {
+        if(!Yii::$app->user->isGuest){
+            return $this->redirect(Url::to('@web/myprofile'));
+        }
+
         $component = new SignupForms();
         $post = Yii::$app->request->post();
         $steps = new SignupStepsComponent();
@@ -581,6 +585,9 @@ class SiteController extends CustomController
 
     public function actionSignup2()
     {
+        if(!Yii::$app->user->isGuest){
+            return $this->redirect(Url::to('@web/myprofile'));
+        }
         $steps = new SignupStepsComponent();
 
         $steps::setCurrentStep(SignupStepsComponent::STEP2);
@@ -615,6 +622,10 @@ class SiteController extends CustomController
 
     public function actionSignup3()
     {
+        if(!Yii::$app->user->isGuest){
+            return $this->redirect(Url::to('@web/myprofile'));
+        }
+        
         $steps = new SignupStepsComponent();
         $steps::setCurrentStep(SignupStepsComponent::STEP3);
 

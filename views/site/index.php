@@ -306,7 +306,9 @@ if($verifyEin == false){
             <p>
               Just like you we hate waste and love giving. Who said money was the only way to help your church community. The church needs you more than you can imagine. Find what items are in need and give where it counts. No cost, just giving!
             </p>
-            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">I'm Ready</a></p>
+            <?php if(Yii::$app->user->isGuest) : ?>
+                <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">I'm Ready</a></p>
+            <?php endif; ?>
           </div>
           <div class="col-md-6 bg-secondary cta-box">
             <h4 class="box-tag">For Churches</h4>
@@ -314,7 +316,9 @@ if($verifyEin == false){
             <p>
               God never said his work was going to be easy, we get that. We know in your growth you are always looking for things to help your church. That's what the sympel community is about; helping fulfill your needs where it counts. Create donation requests and tell the community what you need. Be a part of the giving community and help other churches.
             </p>
-            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">Let's Go</a></p>
+            <?php if(Yii::$app->user->isGuest) : ?>
+                <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">Let's Go</a></p>
+            <?php endif; ?>
           </div>
         </div>
       </div>
