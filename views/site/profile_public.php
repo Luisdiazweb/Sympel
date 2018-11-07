@@ -66,10 +66,8 @@ use yii\widgets\ListView;
                     </span>
                     <?php endif;?>
                 </div>
-                 <?php if ($profile->profile_type_id == 3): ?>
-                    <p class="profile-label mt-2">Causes I care about</p>
-                <?php endif?>
-
+                
+                <?php if ($profile->profile_type_id != 3): ?>
                 <p>
                     <?php if (!empty($areas)):?>
                         <?php foreach ($areas as $area): ?>
@@ -79,6 +77,7 @@ use yii\widgets\ListView;
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </p>
+                <?php endif; ?>
 
                 <!--<a href="#" class="btn-primary btn float-xs-right"><i class="fa fa-send-o" style="margin-right: 5px;"></i> Send Message</a> 
                 <div>
@@ -119,26 +118,6 @@ use yii\widgets\ListView;
                     </div>
                 </div>
             </div> 
-            <div class="col-xl-4 col-md-4 col-sm-4 col-xs-12 profile-cta"> 
-               <a href="mailto:<?= $profile->user->email ?>" class=""><i class="fa fa-send-o mr-1"></i>Send Message</a>
-            </div>    
-        </div>
-    </div>
-</div>
-<?php else:?>
-    <div class="container-fluid">
-    <div class="row profile-stats">
-        <div class="col-md-12 equal">
-            <div class="col-xl-8 col-md-8 col-sm-8 col-xs-12">
-                <div class="card-block">
-                    <div class="media">
-                        <div class="media-body text-xs-center">
-                           <h3 class="danger font-large-2"><i class="fa fa-heart danger mr-1"></i><?= $summaryDonations?></h3>
-                            <p class="danger">Donations</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-xl-4 col-md-4 col-sm-4 col-xs-12 profile-cta"> 
                <a href="mailto:<?= $profile->user->email ?>" class=""><i class="fa fa-send-o mr-1"></i>Send Message</a>
             </div>    
@@ -207,6 +186,7 @@ use yii\widgets\ListView;
     </div>
   </div>
 <?php endif; ?>
+<?php if ($profile->profile_type_id != 3): ?>
 <div class="container-fluid">
     <div class="row recent-container">
     <div class="col-md-10 offset-md-1">
@@ -264,3 +244,4 @@ use yii\widgets\ListView;
     </div>  
   </div>
   </div>
+  <?php endif; ?>

@@ -665,6 +665,9 @@ class SiteController extends CustomController
 
     public function actionPublicprofile($id)
     {
+        $user_logged_id = Yii::$app->user->getId();
+        
+        
         $show_phone = $this->show_phone_number();
         $user = UsersSystem::findOne(['username' => $id]);
         if (!$user) {
@@ -672,11 +675,16 @@ class SiteController extends CustomController
         }
 
         $profile = ProfileAccount::findOne(['user_id' => $user->id]);
-
+        
         if (!$profile) {
             throw new NotFoundHttpException("The user has no profile.");
         }
 
+
+        if($profile->profile_type_id == 3 && $user_logged_id != $user->id){
+            throw new NotFoundHttpException("You don't have permission to see this user");
+            return $this->redirect('/');
+        }
 
         $searchModel = new DonationsSearch();
         $searchModel->id_user = $user->id;
@@ -727,6 +735,7 @@ class SiteController extends CustomController
 
     public function actionCreatedonation($id = false)
     {
+        return $this->redirect('/');
         $this->checkaccount();
         $this->restrict_nonprofit();
         if ($id) {
