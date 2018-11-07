@@ -32,121 +32,103 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 
 
 ?>
-
-
-    <section id="validation mt-3">
+<div class="howitworks2">
+    <div class="container-fluid box-1">
         <div class="row">
-            <div class="col-md-12 mt-3">
-                <div class="">
-                    <div class="card-body collapse in mt-3">
-                        <div class="card-block">
-                            <div class="row">
-                                <div class="col-md-8 offset-md-2">
-                                    <h2 class="section-title my-3 text-xs-center howitworks-title">How It Works</h2>
-                                </div>
-                            </div>
-                           </div>
-                        </div>
-                    </div>
+            <div class="col-md-6 left">
+                <h1>HOW IT WORKS</h1>
+                <img src="/app-assets/images/computer_howitworks.png" alt="How it works" />
+            </div>
+            <div class="col-md-6 right">
+                <div class="content">
+                    <h3>Needs based giving for churches ... simple.</h3>
+                    <p>We know that you have stuff you need to get your job done so we've created an easy way for you to list, share and post your needs. Now its not always about getting because the world goes around when we give. So, we have made it easy for you to find other church needs and support their too. :)</p>
                 </div>
             </div>
         </div>
-    </section>
-            <!-- Call to Action -->
-    <section class="title-full secondary text-white text-xs-center">
-      <div class="overlay"></div>
-      <div class="container">
+    </div>
+    <div class="container-fluid box-2">
+        <h3>Giving made simple</h3>
         <div class="row">
-          <div class="col-xl-12">
-            <h2 class="">For Everyone</h2>
-          </div>
+            <div class="col-md-4">
+                <div class="little-box">
+                    <p class="title">Sign Up</p>
+                    <p class="paragrah">Free sign up and profile creation instanlly allows you to create or request donatable items.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="little-box">
+                    <p class="title">Sign Up</p>
+                    <p class="paragrah">Free sign up and profile creation instanlly allows you to create or request donatable items.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="little-box">
+                    <p class="title">Sign Up</p>
+                    <p class="paragrah">Free sign up and profile creation instanlly allows you to create or request donatable items.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-    <div class="arrow-down"></div>  
-
-    <!-- Icons Grid -->
-    <section class="features-icons bg-light text-xs-center">
-      <div class="container">
+    </div>
+    <div class="container-fluid box-3">
         <div class="row">
-          <div class="my-3 col-lg-12 col-md-12 col-sm-12">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="fa fa-list-alt m-auto card-icon"></i>
-              </div>
-              <h3 class="howitworks">Give Something</h3>
-              <p class="howitworks">Got something to give? Maybe an extra computer or some office furniture you want to go to a charitable organization. Take some time to list your donation and offer it up.</p>
+            <div class="col-md-6 left">
+                <img src="/app-assets/images/phone_howitworks.png" alt="Mobile friendly for giving on the go" />
             </div>
-          </div>
-          <div class="my-3 col-lg-12 col-md-12 col-sm-12">
-            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="fa fa-heart m-auto card-icon"></i>
-              </div>
-              <h3 class="howitworks">Find Need</h3>
-              <p class="howitworks">Browse the everyday and open needs of charitable organizations in your area.Choose to give the item and know your donation went straight to the cause.</p>
+            <div class="col-md-6 right">
+                <p class="title">Mobile friendly for giving on the go</p>
+                <p class="paragraph">Super responsive and easy layout makes it simple to post or search on the go. You'll see we cut out all the extra to make giving, well sympel.</p>
+                <button class="btn btn-signup">SIGN UP</button>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-
-      <section class="features-icons bg-light bg-triangle text-xs-center triangle-margin">
-      <div class="container">
-        <div class="row justify-center-columns">
-          <img class="triangle-bg" src="<?= Url::to('@web/app-assets/img/triangle-bg.png')?>" alt="">
-          <div class="my-3 col-lg-6 col-md-6 col-sm-6">
-            <div class="features-icons-item mx-auto mb-0 mb-lg-3 triangle-padding">
-              <h3 class="howitworks">Give</h3>
-              <p class="howitworks">Meet up and donate to a cause of your choice.</p>
-              <div class="features-icons-icon d-flex">
-                <i class="fa fa-handshake-o m-auto card-icon"></i>
-              </div>
-              <h3 class="howitworks">Receive.</h3>
-              <p class="howitworks">Connect with new donors and receive items to help your cause.</p>
-          </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-     <!-- Icons Grid -->
-    <section class="features-icons bg-light text-xs-center">
-      <div class="container">
+    </div>
+    <div class="container-fluid box-4">
         <div class="row">
-          <div class="my-3 col-lg-12 col-md-12 col-sm-12">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="fa fa-list-alt m-auto card-icon"></i>
-              </div>
-              <h3 class="howitworks">Find Donations</h3>
-              <p class="howitworks">Browse the list of donations in your area and source items and donations that will help your cause.</p>
+            <div class="col-md-6 left">
+                <div class="content">
+                    <h3>Not a church but want to help?</h3>
+                    <h4>Don't worry we got you covered.</h4>
+                </div>
             </div>
-          </div>
-          <div class="my-3 col-lg-12 col-md-12 col-sm-12">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="fa fa-heart m-auto card-icon"></i>
-              </div>
-              <h3 class="howitworks">Give Something</h3>
-              <p class="howitworks">In need of something? Request an item in need allowing your supporters and the community a opportunity to donate directly.</p>
+            <div class="col-md-6 right">
+                <p>Like us you just want to help make an impact and give to the world. Sure no problem, we have a special profile for anyone that wants to browse the needs of Churches in their area and get involved.</p>
+                <p>Maybe you just want to donate knowing its not an offering bucket. Find your church and see what they need. Contact and give the item ... easy.</p>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-
-
-    <div class="arrow-up"></div>
-    <!-- Call to Action -->
-    <section class="title-full primary text-white text-xs-center">
-      <div class="overlay"></div>
-      <div class="container">
+    </div>
+    <div class="container-fluid box-5">
         <div class="row">
-          <div class="col-xl-12">
-            <h2 class="">For Nonprofits</h2>
-          </div>
+            <div class="col">
+                <p>"In everything I did, I showed you that by this kind of hard work we must help the weak, remembering the words the Lor Jesus himself said: 'It is more blessed to give than to receive.'"</p>
+                <p class="act">Acts 20:35</p>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
+</div>
+
+<section>
+    <div class="container-fluid">
+    <div class="row equal center">
+        <div class="col-md-6 bg-primary cta-box block1">
+        <h4 class="box-tag">For Everyone</h4>
+        <h3>Be a Giver</h3>
+        <p>
+            Just like you we hate waste and love giving. Who said money was the only way to help your church community. The church needs you more than you can imagine. Find what items are in need and give where it counts. No cost, just giving!
+        </p>
+        <?php if(Yii::$app->user->isGuest) : ?>
+            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">I'm Ready</a></p>
+        <?php endif; ?>
+        </div>
+        <div class="col-md-6 bg-secondary cta-box">
+        <h4 class="box-tag">For Churches</h4>
+        <h3>One Church Family</h3>
+        <p>
+            God never said his work was going to be easy, we get that. We know in your growth you are always looking for things to help your church. That's what the sympel community is about; helping fulfill your needs where it counts. Create donation requests and tell the community what you need. Be a part of the giving community and help other churches.
+        </p>
+        <?php if(Yii::$app->user->isGuest) : ?>
+            <p class="text-xs-center"><a href="<?= Url::to('@web/signup1') ?>" class="btn">Let's Go</a></p>
+        <?php endif; ?>
+        </div>
+    </div>
+    </div>
+</section>

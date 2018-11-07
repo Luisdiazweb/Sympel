@@ -110,7 +110,7 @@ use yii\widgets\DetailView;
                      <h3 class="profile-type mb-2">Company</h3>
                 <?php else:?>
                     <h2 class="section-title"><a href="/publicprofile/<?= $model->user->username?>" class=""><?= $profile->firstname . " " . $profile->lastname ?></a></h2>
-                    <h3 class="profile-type mb-2">Individual</h3>
+                    <h3 class="profile-type mb-2">Giver</h3>
                 <?php endif;?>
                                 
                 <p class="profile-links-container">
@@ -129,6 +129,7 @@ use yii\widgets\DetailView;
                     </span>
                     <?php endif;?>
                 </p>
+                <!--
                   <span class="profile-link phone">Causes we care about:</span>
                 <p>
              <?php if (!empty($areas)):?>
@@ -137,7 +138,7 @@ use yii\widgets\DetailView;
                                     <a href="<?= Url::to('@web/search?tag='.$area) ?>"><?= $area ?></a>
                                 </div>
                             <?php endforeach; ?>
-                        <?php endif; ?></p>
+                        <?php endif; ?></p>-->
             </div>
         </div>
 

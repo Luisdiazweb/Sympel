@@ -66,7 +66,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 						<div class="card-body">
 							<div class="card-block faq">
 								<p>There are 2 different user types each with their own uses.</p>
-								<p><strong>A Giver:</strong> An individual profile/user is your personal profile that you can to create
+								<p><strong>A Giver:</strong> An Giver profile/user is your personal profile that you can to create
 to view and connect with churches. You will be able to see “Needed Items” and
 contact to support the church. Your contact info and profile will not be public or
 visible to the community.</p>

@@ -143,8 +143,8 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                                value="3" <?= $profile->profile_type_id == 3 ? 'checked' : '' ?>
                                                                name="ProfileAccount[profile_type_id]">
                                                         <label for="test3"
-                                                               class="radio-tertiary label-big">Individual</label>
-                                                        <p class="radio-description">Individual profiles can post
+                                                               class="radio-tertiary label-big">Giver</label>
+                                                        <p class="radio-description">Giver profiles can post
                                                             items for donation</p>
                                                     </div>
                                                 </div>

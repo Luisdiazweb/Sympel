@@ -114,7 +114,7 @@ use yii\widgets\DetailView;
                      <h3 class="profile-type mb-2">Company</h3>
                 <?php else:?>
                     <h2 class="section-title mt-3"><?= $profile->firstname . " " . $profile->lastname ?></h2>
-                    <h3 class="profile-type mb-2">Individual</h3>
+                    <h3 class="profile-type mb-2">Giver</h3>
                 <?php endif;?>
                                 
                 <p class="profile-links-container">
