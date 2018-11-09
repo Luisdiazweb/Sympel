@@ -735,7 +735,7 @@ class SiteController extends CustomController
 
     public function actionCreatedonation($id = false)
     {
-        return $this->redirect('/');
+        //return $this->redirect('/');
         $this->checkaccount();
         $this->restrict_nonprofit();
         if ($id) {

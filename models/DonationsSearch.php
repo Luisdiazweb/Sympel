@@ -154,6 +154,18 @@ class DonationsSearch extends Donations
                 $date2 = trim($date_explode[1]);
                 $query->andFilterWhere(['between', 'updated_at', $date1, $date2]);
             }
+            $id_type = array();
+            if(isset($params['DonationsSearch']['id_type1'])){
+                $id_type[] = $params['DonationsSearch']['id_type1'];
+            }
+
+            if(isset($params['DonationsSearch']['id_type2'])){
+                $id_type[] = $params['DonationsSearch']['id_type2'];
+            }
+            if(count($id_type)){
+                $query->andFilterWhere(['id_type'=> $id_type]);
+            }
+            
 
             $query->andFilterWhere(['like', 'id_public', $this->id_public])
                 ->andFilterWhere(['like', 'donations.title', $this->title])
