@@ -18,7 +18,7 @@ $("document").ready(function(){
         });
         $(".checkbox_submit").change(function(){
             alert();
-            $("#w0 .btn").trigger("click");
+            $("#w0").trigger("click");
             
         })
     });
