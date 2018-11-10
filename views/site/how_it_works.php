@@ -52,20 +52,20 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
         <div class="row">
             <div class="col-md-4">
                 <div class="little-box">
-                    <p class="title">Sign Up</p>
+                    <p class="title">1. Sign Up</p>
                     <p class="paragrah">Free sign up and profile creation instanlly allows you to create or request donatable items.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="little-box">
-                    <p class="title">Sign Up</p>
-                    <p class="paragrah">Free sign up and profile creation instanlly allows you to create or request donatable items.</p>
+                    <p class="title">2. Post Your Needs</p>
+                    <p class="paragrah">Start creating your needed items that will help your church. Share with your members and let them give where it counts.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="little-box">
-                    <p class="title">Sign Up</p>
-                    <p class="paragrah">Free sign up and profile creation instanlly allows you to create or request donatable items.</p>
+                    <p class="title">3. Support other Churches</p>
+                    <p class="paragrah">Find other churches that are offering donations or see their needs and be a part of helping churches just like you</p>
                 </div>
             </div>
         </div>
@@ -78,7 +78,9 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
             <div class="col-md-6 right">
                 <p class="title">Mobile friendly for giving on the go</p>
                 <p class="paragraph">Super responsive and easy layout makes it simple to post or search on the go. You'll see we cut out all the extra to make giving, well sympel.</p>
-                <button class="btn btn-signup">SIGN UP</button>
+                <?php if (Yii::$app->user->isGuest): ?> 
+                <a class="btn btn-signup" href="/signup1">SIGN UP</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

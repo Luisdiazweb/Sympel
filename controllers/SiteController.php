@@ -735,7 +735,9 @@ class SiteController extends CustomController
 
     public function actionCreatedonation($id = false)
     {
-        //return $this->redirect('/');
+        return $this->redirect('/');
+        throw new NotFoundHttpException("You can't create a Donation");
+        
         $this->checkaccount();
         $this->restrict_nonprofit();
         if ($id) {
