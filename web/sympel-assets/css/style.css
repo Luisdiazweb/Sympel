@@ -1797,3 +1797,9 @@ padding: 20px;
   
 
 }
+.donation-category select{
+  width: 400px;
+  padding: 7px;
+  margin: 0 0 20px;
+  color:#3F587E;
+}

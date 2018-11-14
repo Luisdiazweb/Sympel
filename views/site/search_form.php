@@ -73,16 +73,23 @@ $("document").ready(function(){
                         <i class="ft-search danger font-medium-4"></i>
                     </div>
                 </fieldset>
+                
             </div>
-
+            <div class="col-md-12 col-xs-12 donation-category">
+                <select name="DonationsSearch[id_category]">
+                    <?php foreach($donations_categories as $category) :?>
+                        <option value="<?php print $category->id; ?>" <?php print (isset($params['DonationsSearch']['id_category']) && $params['DonationsSearch']['id_category'] == $category->id) ? "selected" : "" ?>><?php print $category->name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
             <div class="col-md-2 col-xs-12">
                 <?= Html::submitButton('Search', ['class' => 'btn btn-primary btn-block square mr-1 mb-1']) ?>
             </div>
         </div>
+        
 
         <div class="skin skin-flat mt-2">
             <div class="d-inline">
-            
                 <input type="checkbox" class="checkbox_submit" name="DonationsSearch[id_type1]" id="DonationsSearch[id_type][1]"
                     value="1" <?= isset($params['DonationsSearch']['id_type1']) ? "checked" : "" ?>>
                 <label class="search-radio-label"  for="DonationsSearch[id_type][1]">Show Needed items only</label>

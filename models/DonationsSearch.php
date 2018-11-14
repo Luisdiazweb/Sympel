@@ -166,6 +166,11 @@ class DonationsSearch extends Donations
                 $query->andFilterWhere(['id_type'=> $id_type]);
             }
             
+            if(isset($this->id_category)){
+                
+                $query->andFilterWhere(['id_category' => $this->id_category] );
+            }
+            
 
             $query->andFilterWhere(['like', 'id_public', $this->id_public])
                 ->andFilterWhere(['like', 'donations.title', $this->title])

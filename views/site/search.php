@@ -24,7 +24,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
         'position' => \yii\web\View::POS_END
     ]);
 ?>
-<?php print $this->render('search_form', ['model' => $model]) ;?>
+<?php print $this->render('search_form', ['model' => $model, 'donations_categories' => $donations_categories]) ;?>
 
 <section class="search-list">
     <div class="container-fluid">

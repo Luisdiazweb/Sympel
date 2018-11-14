@@ -908,6 +908,9 @@ class SiteController extends CustomController
         $this->layout = 'profile_public';
         $searchModel = new DonationsSearch();
 
+        $donationsCategory = new DonationsCategory();
+        $donations_categories = $donationsCategory::find()->all();
+
         if(isset($_REQUEST['tag'])){
             $searchModel->keywords = $_REQUEST['tag'];
         }
@@ -928,26 +931,11 @@ class SiteController extends CustomController
 
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, FALSE);
       
-
-
-//This one was added customized for Montoya to add new fields in the search section.
- /*       $query = new Query();
-        $areas_support = $query->from('areas_support')->all();
-        $donations_category = $query->from('donations_category')->all();
-
         return $this->render('search', [
-            'areas_support' => ArrayHelper::map($areas_support, 'id', 'name'),
-            'donations_category' => ArrayHelper::map($donations_category, 'id', 'name'),
-            'model' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    } 
-*/
-
-return $this->render('search', [
-            'model' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+                    'model' => $searchModel,
+                    'dataProvider' => $dataProvider,
+                    'donations_categories' => $donations_categories
+                ]);
     } 
 
 
