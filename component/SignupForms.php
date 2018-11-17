@@ -102,25 +102,6 @@ class SignupForms
                 'profile_model' => $profile_model
             ];
         }
-
-
-//        if ($user_model->load(Yii::$app->request->post()) && $profile_model->load(Yii::$app->request->post())) {
-//            if ($isAjax) {
-//                if (!$user_model->validate()) {
-//                    return $this->ajaxResponse($user_model);
-//                }
-//                if (!$profile_model->validate()) {
-//                    return $this->ajaxResponse($profile_model);
-//                }
-//            }
-//            return true;
-//        } else {
-//            return (object)[
-//                'render' => __FUNCTION__,
-//                'user_model' => $user_model,
-//                'profile_model' => $profile_model
-//            ];
-//        }
     }
 
     public function signup_step3($post, $isAjax)

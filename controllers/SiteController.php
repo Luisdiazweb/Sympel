@@ -62,14 +62,19 @@ class SiteController extends CustomController
         $model = new LoginForm();
         
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            Yii::$app->session->set('profile_id', ProfileAccount::findOne([
+            $profile  = ProfileAccount::findOne([
                 'user_id' => Yii::$app->user->identity->id
-            ])->id);
+            ]);
+            Yii::$app->session->set('profile_id', $profile->id);
             if (Yii::$app->user->identity->admin) {
                 return $this->redirect(Url::to('@web/dashboard/'));
             }
             $this->checkaccount();
-            return $this->redirect(Url::to('@web/myprofile'));
+            if( $profile->profile_type_id == 1 ){
+                return $this->redirect(Url::to('@web/'));
+            }else{
+                return $this->redirect(Url::to('@web/myprofile'));
+            }
         }
         return $this->render('login', [
             'model' => $model,
@@ -343,58 +348,12 @@ class SiteController extends CustomController
             if ($id === 'resend') {
                 SignupStepsComponent::sendVerifiedAccountEmail(UsersSystem::findOne(Yii::$app->user->identity->getId()));
             }
-              return $this->render('notverified');
-            
-           /* return $this->render('alert', [
-                'alerts' => [
-                    [
-                        'type' => Alert::TYPE_DANGER,
-                        'title' => 'Verify Account',
-                        'body' => 'User not verified'
-                    ],
-                    [
-                        'type' => Alert::TYPE_WARNING,
-                        'title' => null,
-                        'body' => (($id === 'resend') ? ('Forwarded - ') : ('')) . Html::a('Resend Verification link', '/notverified/resend')
-                    ]
-                ]
-            ]);*/
+            return $this->render('notverified');
         } else {
             return $this->goHome();
         }
 
     }
-
-    /*  public function actionVerifiedAccount($id, $auth)
-    {
-        $auth = Html::decode($auth);
-        $id = Html::decode($id);
-
-        $user = UsersSystem::findOne([
-            'username' => $id,
-            'authKey' => $auth,
-        ]);
-       $profile = ProfileAccount::findOne(['user_id' => $user->id]);
-
-        if ($user) {
-            $user->verified_account = 1;
-            
-            if ($user->update(false)) {
-                echo "Congratulations registration successfully, redirecting ...";
-                echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("/") . "'>";
-            } else {
-                echo "An error occurred while performing the registration, redirecting ...";
-
-//                var_dump($user->getErrors());
-//                var_dump($user->username, $user->email, $user->password_hash);
-
-                echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("/") . "'>";
-            }
-        } else {
-            echo "User not identified, redirecting ...";
-            echo "<meta http-equiv='refresh' content='8; " . Url::toRoute("/") . "'>";
-        }
-    }*/
 
     public function actionVerifiedAccount($id, $auth)
     {
