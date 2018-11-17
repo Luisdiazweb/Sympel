@@ -101,7 +101,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     <div class="container-fluid box-5">
         <div class="row">
             <div class="col">
-                <p>"In everything I did, I showed you that by this kind of hard work we must help the weak, remembering the words the Lor Jesus himself said: 'It is more blessed to give than to receive.'"</p>
+                <p>"In everything I did, I showed you that by this kind of hard work we must help the weak, remembering the words the Lord Jesus himself said: 'It is more blessed to give than to receive.'"</p>
                 <p class="act">Acts 20:35</p>
             </div>
         </div>
