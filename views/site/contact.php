@@ -37,34 +37,22 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
     <section id="validation mt-3">
         <div class="row">
             <div class="col-md-12 mt-3">
-                <div class="">
-                    <div class="card-body collapse in my-3">
-                        <div class="card-block">
-                            <div class="row">
-                                <div class="col-md-8 offset-md-2">
-                                    <h3 class="section-title my-3 text-xs-center">Contact Us </h3>
-                                    <!--END OF CHECKBOX AREA-->
-                                </div>
-                            </div>
-                           </div>
-                        </div>
-                    </div>
-                </div>
+				<h3 class="section-title section-title-contact my-3 text-xs-center">Contact Us </h3>
             </div>
         </div>
     </section>
 
    <div class="row mb-3">
    		<div class="container">
-			<div class="col-md-6">
-				<div class="card">
+			<div class="col-md-12">
+				<div class="card mx-auto card-contact" >
 					<div class="card-header">
 
 					</div>
 					<div class="card-body collapse in">
 						<div class="card-block">
 							<div class="card-text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate porro esse repellat quo exercitationem debitis incidunt.</p>
+								<p>Need help?  That's what we are here for.  Give us a quick shout and we'll see what we can do to answer your question.</p>
 							</div>
 							<form class="form">
 								<div class="form-body">
@@ -81,7 +69,7 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 									
 										<div class="form-group">
 							
-											<input type="text" id="eventRegInput2" class="form-control" placeholder="Company" name="company">
+											<input type="text" id="eventRegInput2" class="form-control" placeholder="Subject" name="company">
 										</div>
 									
 										<div class="form-group">
@@ -102,9 +90,6 @@ $this->registerJsFile("@web/app-assets/js/scripts/forms/checkbox-radio.js",
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
-				<p>Contact Information:</p>
-		    </div>
 		</div>
 	</div>
 

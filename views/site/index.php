@@ -257,7 +257,7 @@ if($verifyEin == false){
                            // if else (){}
 
                            
-                            
+                            $path_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
                            $nameOrganization = ($model->profile_account->non_profit_name == "") ? $model->profile_account->company_name : $model->profile_account->non_profit_name ;
                          
@@ -278,6 +278,7 @@ if($verifyEin == false){
                                         <div class=\"card-icon-container\">
                                             <a href=\"$details_url\" class=\"card-icon\"><i class=\"fa fa-eye\"></i></a>
                                             <a href=\"mailto:".$model->user->email."\" class=\"card-icon\"><i class=\"fa fa-envelope-o\"></i></a>
+                                            <a href=\"mailto:hello@sympel.com?subject=Report of inapropiate content&body=Hi, I found an inapropiate content and I want to report it.  ".$path_url.$details_url."\" class=\"card-icon\"><i class=\"fa fa-flag\" aria-hidden=\"true\"></i></a>
                                         </div>
                                         
                                     </div>
@@ -324,6 +325,5 @@ if($verifyEin == false){
       </div>
     </section>
 
-<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a7a38da8b94a80013b6afda&product=sticky-share-buttons"></script>
-
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5bf1a0c6d741e40011ae95c1&product=sticky-share-buttons' async='async'></script>
 

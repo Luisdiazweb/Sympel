@@ -1147,13 +1147,33 @@ footer .footer-company {
     text-align: center;
   }
 }
-
+.card-contact {
+  width: 500px;
+}
+.section-title-contact {
+margin-top: 100px !important;
+}
 @media(max-width: 545px){
   footer .border-right {
     border-right: none;
   }
+  .card-contact {
+    width: 100%;
+  }
+  
 }
-
+@media(max-width: 780px){
+  .posted-by-user .profile-info-block,
+  .posted-by-user .donation-image-profile {
+    flex-direction: unset;
+  }
+  .posted-by-user .profile-info-block .section-title,
+  .posted-by-user .profile-info-block .profile-type,
+  .posted-by-user .profile-info-block .profile-links-container
+  {
+    text-align: left;
+  }
+}
   
 
 /*================================================================================================

@@ -91,7 +91,7 @@ use yii\widgets\DetailView;
 </div>
 
 
-<div class="container">
+<div class="container posted-by-user">
     <h1 class="mt-2">Posted By</h1>
     <div class="row my-3">
     <div class="col-md-12 equal">
@@ -100,7 +100,7 @@ use yii\widgets\DetailView;
                  <img class="float-xs-right rounded-circle img-border height-100 mx-auto d-block" src="<?= empty($profile->profile_picture_url) ? Url::to('@web/app-assets/images/portrait/small/avatar-s-8.png') : Url::to('@web/' . $profile->profile_picture_url) ?>" alt="Card image">
             </a>
         </div>
-        <div class="col-md-6 col-sm-12 col-xs-12 pr-0">
+        <div class="col-md-6 col-sm-12 col-xs-12 pr-0 profile-info-block">
             <div class="profile-info">
                <?php if ($profile->profile_type_id == 1): ?>
                     <h2 class="section-title"> <a href="/publicprofile/<?= $model->user->username?>" class=""><?= $profile->non_profit_name ?></a></h2>
@@ -129,16 +129,6 @@ use yii\widgets\DetailView;
                     </span>
                     <?php endif;?>
                 </p>
-                <!--
-                  <span class="profile-link phone">Causes we care about:</span>
-                <p>
-             <?php if (!empty($areas)):?>
-                            <?php foreach ($areas as $area): ?>
-                                <div class="tag tag-default">
-                                    <a href="<?= Url::to('@web/search?tag='.$area) ?>"><?= $area ?></a>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?></p>-->
             </div>
         </div>
 

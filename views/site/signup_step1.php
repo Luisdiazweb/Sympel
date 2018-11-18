@@ -144,8 +144,7 @@ $this->registerJsFile('@web/app-assets/js/scripts/forms/checkbox-radio.js',
                                                                name="ProfileAccount[profile_type_id]">
                                                         <label for="test3"
                                                                class="radio-tertiary label-big">Giver</label>
-                                                        <p class="radio-description">Giver profiles can post
-                                                            items for donation</p>
+                                                        <p class="radio-description">Giver profiles can search and contact churches to make donations.</p>
                                                     </div>
                                                 </div>
                                             </div>
