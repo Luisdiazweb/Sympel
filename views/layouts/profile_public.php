@@ -366,6 +366,6 @@ NavBar::end();*/
 </body>
 </html>
 
-<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a7a38da8b94a80013b6afda&product=sticky-share-buttons"></script>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=<?php print Yii::$app->params['sharethis_id'] ?>&product=sticky-share-buttons"></script>
 
 <?php $this->endPage() ?>
