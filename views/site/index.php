@@ -324,6 +324,7 @@ if($verifyEin == false){
         </div>
       </div>
     </section>
-
+    <div class="sharethis-sticky-share-buttons"></div>
+<div class="sticky-share-buttons"></div>
 <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5bf1a0c6d741e40011ae95c1&product=sticky-share-buttons' async='async'></script>
 
