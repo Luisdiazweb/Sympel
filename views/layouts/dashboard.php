@@ -63,49 +63,8 @@ AdminAsset::register($this);
                         <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-link-expand">
                             <i class="ficon ft-maximize"></i></a>
                         </li>
-                        <!-- <li class="nav-item nav-search"><a href="#" class="nav-link nav-link-search"><i class="ficon ft-search"></i></a>
-                            <div class="search-input">
-                                <input type="text" placeholder="Explore Stack..." class="input">
-                            </div>
-                        </li> -->
                     </ul>
                     <ul class="nav navbar-nav float-xs-right">
-                        <!--<li class="dropdown dropdown-notification nav-item"><a href="#" data-toggle="dropdown"
-                                                                               class="nav-link nav-link-label"><i
-                                        class="ficon ft-bell"></i><span
-                                        class="tag tag-pill tag-default tag-danger tag-default tag-up">5</span></a>
-                            <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
-                                <li class="dropdown-menu-header">
-                                    <h6 class="dropdown-header m-0"><span
-                                                class="grey darken-2">Notifications</span><span
-                                                class="notification-tag tag tag-default tag-danger float-xs-right m-0">5 New</span>
-                                    </h6>
-                                </li>
-                                <li class="list-group scrollable-container">
-                                    <a href="javascript:void(0)" class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-left valign-middle"><i
-                                                        class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
-                                            <div class="media-body">
-                                                <h6 class="media-heading">You have new order!</h6>
-                                                <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor
-                                                    sit
-                                                    amet, consectetuer elit.</p>
-                                                <small>
-                                                    <time datetime="2015-06-11T18:29:20+08:00"
-                                                          class="media-meta text-muted">30 minutes ago
-                                                    </time>
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="dropdown-menu-footer"><a href="javascript:void(0)"
-                                                                    class="dropdown-item text-muted text-xs-center">Read
-                                        all
-                                        notifications</a></li>
-                            </ul>
-                        </li>-->
                         <li class="dropdown dropdown-user nav-item user-nav">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
 	                        	<!--<span class="avatar">
@@ -117,9 +76,6 @@ AdminAsset::register($this);
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a href="<?= Url::to(['profile/update', 'id' => Yii::$app->session->get('profile_id')]) ?>"
                                    class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
-                                <!--                                <a href="#" class="dropdown-item"><i class="ft-mail"></i> My Inbox</a>-->
-                                <!--                                <a href="#" class="dropdown-item"><i class="ft-check-square"></i> Task</a>-->
-                                <!--                                <a href="#" class="dropdown-item"><i class="ft-message-square"></i> Chats</a>-->
                                 <div class="dropdown-divider"></div>
                                 <a href="<?= Url::to('/logout') ?>" class="dropdown-item"><i class="ft-power"></i>
                                     Logout</a>
@@ -154,7 +110,7 @@ AdminAsset::register($this);
                             <ul class="menu-content" style="">
                                 <li class=""><a href="/donationadmin/?DonationsSearch[id_type]=2" class="menu-item">Creations</a>
                                 </li>
-                                <li class=""><a href="/donationadmin/?DonationsSearch[id_type]=1" class="menu-item">Request</a>
+                                <li class=""><a href="/donationadmin/?DonationsSearch[id_type]=1" class="menu-item">Donations</a>
                                 </li>
                             </ul>
                         </li>
