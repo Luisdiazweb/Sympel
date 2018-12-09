@@ -55,8 +55,6 @@ class DonationsSearch extends Donations
         $query->joinWith('profile_account');
         $query->joinWith('user');
 
-        // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -65,15 +63,10 @@ class DonationsSearch extends Donations
 
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
             return $dataProvider;
         }
 
-
-
         $query->andFilterWhere([
-//            'checked' => $this->checked,
             'checked' => 1,
         ]);
 
@@ -130,6 +123,9 @@ class DonationsSearch extends Donations
                     'or',
                     ['like', 'donations.title', $this->title],
                     ['like', 'description', $this->title],
+                    ['like', 'user.username', $this->title],
+                    ['like', 'profile_account.firstname', $this->title],
+                    ['like', 'profile_account.lastname', $this->title]
                 ]);
 
                 $query->andFilterWhere([
@@ -171,9 +167,7 @@ class DonationsSearch extends Donations
                 $query->andFilterWhere(['id_category' => $this->id_category] );
             }
             
-
             $query->andFilterWhere(['like', 'id_public', $this->id_public])
-                ->andFilterWhere(['like', 'donations.title', $this->title])
                 ->andFilterWhere(['like', 'description', $this->description])
                 ->andFilterWhere(['like', 'why_need', $this->why_need])
                 ->andFilterWhere(['like', 'keywords', $this->keywords]);

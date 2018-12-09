@@ -1824,3 +1824,9 @@ padding: 20px;
   margin: 0 0 20px;
   color:#3F587E;
 }
+@media  (max-width:544px){
+  .profile-image-container .container{
+    width: 320px;
+
+  }
+}

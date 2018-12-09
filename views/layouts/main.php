@@ -105,7 +105,7 @@ if (strpos($actual_link, 'itemdetails') !== false) {
             <li class="nav-item icon hidden-sm-down link-hiw"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
             <li class="nav-item nav-search"><a href="<?= Url::to('@web/search') ?>" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
             <div class="search-input open">
-              <input type="text" placeholder="Search..." class="input" id="search-query">
+              <input type="text" placeholder="Search for item, donation or church" class="input" id="search-query">
             </div>
             </li>
           </ul>

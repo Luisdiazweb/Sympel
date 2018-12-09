@@ -211,6 +211,7 @@ $this->registerJs("$(function() {
                                                     'maxFileCount' => 8
                                                 ]
                                             ]); ?>
+                                            <small>ASDASD</small>
                                         </div>
                                     </div>
                                     <div class="row text-sm-center my-3">

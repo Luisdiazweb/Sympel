@@ -87,7 +87,7 @@ class Donations extends \yii\db\ActiveRecord
             'keywords' => 'Keywords',
             'condition_new' => 'Condition',
             'checked' => 'Checked',
-            'imageFiles' => 'Add images',
+            'imageFiles' => 'Add images (Ext. png, jpg)',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
