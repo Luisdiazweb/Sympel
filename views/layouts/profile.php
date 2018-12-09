@@ -139,13 +139,9 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
         <div class="navbar-container content">
           <div id="navbar-mobile" class="navbar-collapse collapse navbar-toggleable-sm">
               <ul class="nav navbar-nav hidden-sm-down">
-                <?php if($profile) : ?>
-                <li class="nav-item icon"><a href="/createdonation" class="nav-link"><i class="fa fa-plus square-icon menu light link-primary"></i><span class="menu-icon-description hidden-sm-down">Give Something</span></a></li>
-                <?php endif; ?>
-                <?php if($profile) : ?>
-                  <?php if ($profile->profile_type_id == 1) : ?>
-                <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i><span class="menu-icon-description hidden-sm-down">Need Something</span></a></li>
-                 <?php endif; ?>
+                <?php if($profile && $profile->profile_type_id == 1) : ?>
+                    <li class="nav-item icon"><a href="/createdonation" class="nav-link"><i class="fa fa-plus square-icon menu light link-primary"></i><span class="menu-icon-description hidden-sm-down">Give Something</span></a></li>
+                    <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i><span class="menu-icon-description hidden-sm-down">Need Something</span></a></li>
                 <?php endif; ?>
                 <li class="nav-item icon hidden-sm-down link-hiw"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
                 <li class="nav-item nav-search"><a href="<?= Url::to('@web/search') ?>" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
@@ -174,10 +170,14 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
                           </a>
                           <div class="dropdown-menu dropdown-menu-right">
                              <?php if (Yii::$app->user->identity->admin): ?>
-                             <a href="/dashboard/" class="dropdown-item"><i class="ft-monitor"></i> Dashboard</a>
+                                <a href="/dashboard/" class="dropdown-item"><i class="ft-monitor"></i> Dashboard</a>
+                             <?php else: ?>
+                                <a href="/" class="dropdown-item"><i class="ft-monitor"></i> Home</a>
                             <?php endif; ?>
                             <a href="/myprofile" class="dropdown-item"><i class="ft-edit"></i> Edit Profile</a>
-                            <a href="/publicprofile/<?=Yii::$app->user->identity->username?>" class="dropdown-item"><i class="ft-user"></i> View Profile</a>
+                            <?php if ($profile->profile_type_id == 1) : ?>
+                                <a href="/publicprofile/<?=Yii::$app->user->identity->username?>" class="dropdown-item"><i class="ft-user"></i> View Profile</a>
+                            <?php endif; ?>
                             <div class="dropdown-divider"></div><a href="/logout" class="dropdown-item"><i class="ft-power"></i> Logout</a>
                           </div>
                         </li>
@@ -239,10 +239,12 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
                                                href="#active3" aria-controls="active3" aria-expanded="true">Account
                                                 Info</a>
                                         </li>
+                                        <?php if ($profile->profile_type_id == 1): ?>
                                         <li class="nav-item">
                                             <a class="nav-link card-title" id="link-tab3" data-toggle="tab"
                                                href="#link3" aria-controls="link3" aria-expanded="false">Postings</a>
                                         </li>
+                                        <?php endif; ?>
                                     </ul>
                                     <div class="tab-content px-1 pt-1">
                                         <!--TAB 1-->
@@ -251,6 +253,7 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
                                             <?= $content ?>
                                         </div> <!--END OF TAB 1-->
                                         <!--TAB 2-->
+                                        <?php if ($profile->profile_type_id == 1): ?>
                                         <div class="tab-pane fade" id="link3" role="tabpanel"
                                              aria-labelledby="link-tab3" aria-expanded="false">
 
@@ -306,8 +309,11 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
 
                                                 </div>
                                             </div>
+                                            <?php endif; ?>
                                             <?php if ($profile->profile_type_id == 1): ?>
-                                        <div class="card-body collapse in">
+                                        
+                                        
+                                            <div class="card-body collapse in">
                                                 <div class="card-block card-dashboard">
                                                     <div class="row mt-2 mb-3">
                                                         <div class="col-md-12">

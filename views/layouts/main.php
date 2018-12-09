@@ -94,14 +94,10 @@ if (strpos($actual_link, 'itemdetails') !== false) {
     <div class="navbar-container content">
       <div id="navbar-mobile" class="navbar-collapse collapse navbar-toggleable-sm">
           <ul class="nav navbar-nav hidden-sm-down">
-            <?php if($profile) : ?>
-            <!--<li class="nav-item icon"><a href="/createdonation" class="nav-link"><i class="fa fa-plus square-icon menu light link-primary"></i><span class="menu-icon-description hidden-sm-down">Give Something</span></a></li>-->
-            <?php endif; ?>
-            <?php if($profile) : ?>
-              <?php if ($profile->profile_type_id == 1) : ?>
-            <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i><span class="menu-icon-description hidden-sm-down">Need Something</span></a></li>
-              <?php endif; ?>
-            <?php endif; ?>
+            <?php if($profile && $profile->profile_type_id == 1) : ?>
+              <li class="nav-item icon"><a href="/createdonation" class="nav-link"><i class="fa fa-plus square-icon menu light link-primary"></i><span class="menu-icon-description hidden-sm-down">Give Something</span></a></li>
+              <li class="nav-item icon hidden-sm-down"><a href="/requestdonation" class="nav-link"><i class="fa fa-heart square-icon menu light link-secondary"></i><span class="menu-icon-description hidden-sm-down">Need Something</span></a></li>
+             <?php endif; ?>
             <li class="nav-item icon hidden-sm-down link-hiw"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
             <li class="nav-item nav-search"><a href="<?= Url::to('@web/search') ?>" class="nav-link nav-link-search"><i class="ficon ft-search strong"></i></a>
             <div class="search-input open">
@@ -134,7 +130,9 @@ if (strpos($actual_link, 'itemdetails') !== false) {
                           <a href="/" class="dropdown-item"><i class="ft-monitor"></i> Home</a>
                           <?php endif; ?>
                         <a href="/myprofile" class="dropdown-item"><i class="ft-edit"></i> Edit Profile</a>
-                        <a href="/publicprofile/<?=Yii::$app->user->identity->username?>" class="dropdown-item"><i class="ft-user"></i> View Profile</a>
+                        <?php if ($profile->profile_type_id == 1) : ?>
+                          <a href="/publicprofile/<?=Yii::$app->user->identity->username?>" class="dropdown-item"><i class="ft-user"></i> View Profile</a>
+                        <?php endif; ?>
                         <div class="dropdown-divider"></div><a href="/logout" class="dropdown-item"><i class="ft-power"></i> Logout</a>
                       </div>
                     </li>

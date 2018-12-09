@@ -225,10 +225,14 @@ NavBar::end();*/
                           </a>
                           <div class="dropdown-menu dropdown-menu-right">
                              <?php if (Yii::$app->user->identity->admin): ?>
-                             <a href="/dashboard/" class="dropdown-item"><i class="ft-monitor"></i> Dashboard</a>
+                                <a href="/dashboard/" class="dropdown-item"><i class="ft-monitor"></i> Dashboard</a>
+                             <?php else: ?>
+                                <a href="/" class="dropdown-item"><i class="ft-monitor"></i> Home</a>
                             <?php endif; ?>
                             <a href="/myprofile" class="dropdown-item"><i class="ft-edit"></i> Edit Profile</a>
-                            <a href="/publicprofile/<?=Yii::$app->user->identity->username?>" class="dropdown-item"><i class="ft-user"></i> View Profile</a>
+                            <?php if ($profile->profile_type_id == 1) : ?>
+                                <a href="/publicprofile/<?=Yii::$app->user->identity->username?>" class="dropdown-item"><i class="ft-user"></i> View Profile</a>
+                            <?php endif; ?>
                             <div class="dropdown-divider"></div><a href="/logout" class="dropdown-item"><i class="ft-power"></i> Logout</a>
                           </div>
                         </li>
@@ -236,13 +240,9 @@ NavBar::end();*/
             </ul>
 
               <ul class="nav navbar-nav hidden-md-up ">
-                 <?php if($profile) : ?>
-                <li class="nav-item"><a href="/createdonation" class="nav-link"><span class="">Give Something</span></a></li>
-                <?php endif; ?>
-                <?php if($profile) : ?>
-                  <?php if ($profile->profile_type_id == 1) : ?>
-                <li class="nav-item"><a href="/requestdonation" class="nav-link"><span class="">Need Something</span></a></li>
-                 <?php endif; ?>
+                 <?php if($profile && $profile->profile_type_id == 1) : ?>
+                    <li class="nav-item"><a href="/createdonation" class="nav-link"><span class="">Give Something</span></a></li>
+                    <li class="nav-item"><a href="/requestdonation" class="nav-link"><span class="">Need Something</span></a></li>
                 <?php endif; ?>
                 <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
                 <li class="nav-item"><a href="<?= Url::to('@web/howitworks') ?>" class="nav-link">How it Works</a></li>
