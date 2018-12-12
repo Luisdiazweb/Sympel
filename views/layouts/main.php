@@ -22,6 +22,8 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <?= Html::csrfMetaTags() ?>
 
+
+
 <?php
 
 //variable for the og:url
@@ -183,7 +185,9 @@ if (strpos($actual_link, 'itemdetails') !== false) {
     </div>
   </div>
 </section>
-  
+
+
+
 
 <footer class="hidden-md-down">
   <div class="container">
@@ -258,6 +262,8 @@ if (strpos($actual_link, 'itemdetails') !== false) {
 
 <?php $this->endBody() ?>
 
+
+
 <script>
     $(window).scroll(function () {
         if ($("#mainNav").offset().top > 100) {
@@ -288,6 +294,11 @@ $('#userssystem-username').keypress(function (e) {
     return false;
 });
 </script>
+
+<?php if(!isset($_COOKIE['SESSsymplenewsletterjoin']) && Yii::$app->user->isGuest) : 
+  setcookie('SESSsymplenewsletterjoin',1,0, '/');  ?>
+<?php print $this->render('partials/_newsletter_popup.php'); ?>
+<?php endif; ?>
 
 </body>
 </html>

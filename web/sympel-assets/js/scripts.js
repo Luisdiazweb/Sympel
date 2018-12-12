@@ -10,4 +10,3 @@
       toastr.error('Some functions will be unavaliable until you verify your account.', 'Verify your Account!');
 
 })(window);
-∫

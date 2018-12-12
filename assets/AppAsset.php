@@ -32,7 +32,7 @@ class AppAsset extends AssetBundle
         "app-assets/vendors/js/vendors.min.js",
         "app-assets/vendors/js/forms/icheck/icheck.min.js",
         "app-assets/js/core/app-menu.js",
-        "app-assets/js/core/app.js",
+        "app-assets/js/core/app.js"
     ];
     public $depends = [
         'yii\web\YiiAsset',
