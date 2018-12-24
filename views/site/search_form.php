@@ -52,7 +52,7 @@ $("document").ready(function(){
                         'template' => '{input}'
                     ])->textInput([
                         'class' => 'form-control square form-control-md input-md',
-                        'placeholder' => 'Search for item or donation'
+                        'placeholder' => 'Search for item or donation or church'
                     ]) ?>
                     <div class="form-control-position">
                         <i class="ft-search danger font-medium-4"></i>
@@ -76,7 +76,8 @@ $("document").ready(function(){
                 
             </div>
             <div class="col-md-12 col-xs-12 donation-category">
-                <select name="DonationsSearch[id_category]">
+                <select name="DonationsSearch[id_category]" class="form-control">
+                    <option value="">All</option>
                     <?php foreach($donations_categories as $category) :?>
                         <option value="<?php print $category->id; ?>" <?php print (isset($params['DonationsSearch']['id_category']) && $params['DonationsSearch']['id_category'] == $category->id) ? "selected" : "" ?>><?php print $category->name; ?></option>
                     <?php endforeach; ?>
@@ -92,7 +93,7 @@ $("document").ready(function(){
             <div class="d-inline">
                 <input type="checkbox" class="checkbox_submit" name="DonationsSearch[id_type1]" id="DonationsSearch[id_type][1]"
                     value="1" <?= isset($params['DonationsSearch']['id_type1']) ? "checked" : "" ?>>
-                <label class="search-radio-label"  for="DonationsSearch[id_type][1]">Show Needed items only</label>
+                <label class="search-radio-label"  for="DonationsSearch[id_type][1]">Show Needed items only</label> &nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="d-inline">
                 <input type="checkbox" class="checkbox_submit" name="DonationsSearch[id_type2]" id="DonationsSearch[id_type][2]"
